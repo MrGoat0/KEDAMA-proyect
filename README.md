@@ -4,4 +4,6 @@ Este repositorio será usado para guardar los registros y archivos del proyecto 
 
 Commit hecho por Mateo Cardona Rincón <br>
 Commit hecho por Miguel Angel López Fernández <br>
-commit hecho por Diego Marin Jaramillo
+commit hecho por Diego Marin Jaramillo  <br>
+commit hecho por Luis Armando Bedoya Osorio 
+
