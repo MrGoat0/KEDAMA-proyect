@@ -3,5 +3,7 @@ Este repositorio será usado para guardar los registros y archivos del proyecto 
 >>Describir de manera breve qué se va a hacer y los archivos que va a contener este repositorio. 
 
 Commit hecho por Mateo Cardona Rincón <br>
-Commit hecho por Miguel Angel López Fernández <br>
-commit hecho por Diego Marin Jaramillo
+Commit hecho por Miguel Angel López Fernández  <br>
+commit hecho por Diego Marin Jaramillo <br>
+ <br>
+<h1>Commit hecho por Sebastian Barrera<h1>
