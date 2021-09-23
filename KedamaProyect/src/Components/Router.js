@@ -7,6 +7,7 @@ import NotFound from './Pages/NotFound.jsx'
 import Sales from './Pages/sales.jsx'
 import Sellers from './Pages/sellers.jsx'
 import Users from './Pages/users.jsx'
+import '../Styles/index.css'
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,6 +15,7 @@ import {
 } from "react-router-dom";
 function App() {
   return (
+    <div className="container2">
     <Router>
        <Switch>
        <Route exact path="/categories" component={Category}/>
@@ -28,6 +30,7 @@ function App() {
    
    
     </Router>
+    </div>
   );
 }
 

@@ -5,7 +5,7 @@ const Auth=()=>{
         <div>
             Esta es la de autorizacion
             <div className='buttons'>
-       <Link to="/categories" className="btn btn-dark">
+       <Link to="/categories" >
        <button>Inicio de sesion</button>
        </Link>
      </div>

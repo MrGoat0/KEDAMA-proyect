@@ -1,29 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-import { Button } from 'react-bootstrap';
-
+import '../../Styles/category.css';
+import { Button} from 'react-bootstrap';
+import Header from '../shared/header.jsx'
+import Footer from '../shared/footer.jsx'
 const Selector=()=>{
 return(
-    <div className="grid-buttons">
-     
-
-         <Link to="/categories/users " className="btn btn-light">
-         <Button variant="light">Usuarios</Button> 
-       </Link>
-     
-       <Link to="/categories/seller" className="btn btn-light">
-       <Button variant="light">Gestion Vendedores</Button>
-       
-       </Link>
-     
-   
-       <Link to="/categories/sales" className="btn btn-light">
-       <Button variant="light">Ventas</Button> 
-       
-       </Link>
-
-    </div>
+ <div className="container-Category">
+   <Header/>
+  <div className="grid-buttons">
+    <Link to="/categories/users ">
+      <Button variant="light" size="lg">Usuarios</Button>
+    </Link>
+    <Link to="/categories/seller" >
+      <Button variant="light" size="lg">Gestion Vendedores</Button>
+    </Link>
+    <Link to="/categories/sales" >
+      <Button variant="light" size="lg">Ventas</Button>
+    </Link>
+  </div>
+  <Footer/>
+  </div>
+  
 )
 
 
