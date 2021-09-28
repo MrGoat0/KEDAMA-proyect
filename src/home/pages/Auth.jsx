@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const Auth=()=>{
+const Auth = () => {
     return(
         <div>
             Esta es la de autorizacion
@@ -11,8 +11,7 @@ const Auth=()=>{
      </div>
         </div>
         
-    )
-    
+    )    
     
     }
     export default Auth

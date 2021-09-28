@@ -1,6 +1,6 @@
 import React from "react";
 import { Button} from 'react-bootstrap';
-import '../../Styles/shared.css';
+import '../styles/shared.css';
 import { Link } from "react-router-dom";
 
 const Footer=()=>{
