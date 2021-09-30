@@ -1,32 +1,25 @@
 import TableRow from "./TableRow";
+import { useState } from "react";
 
-const TableBody = () => {
-    const dataFrame =
-        [{ id: 0, description: "Camiseta", price: 40000, state: "Disponible" },
-        { id: 1, description: "Pantalón", price: 80000, state: "No disponible" },
-        { id: 2, description: "Chaqueta", price: 120000, state: "Disponible" },
-        { id: 3, description: "Camiseta", price: 40000, state: "Disponible" },
-        { id: 4, description: "Pantalón", price: 80000, state: "No disponible" },
-        { id: 5, description: "Camiseta", price: 40000, state: "Disponible" },
-        { id: 6, description: "Pantalón", price: 80000, state: "No disponible" },
-        { id: 3, description: "Camiseta", price: 40000, state: "Disponible" },
-        { id: 4, description: "Pantalón", price: 80000, state: "No disponible" },
-        { id: 5, description: "Camiseta", price: 40000, state: "Disponible" },
-        { id: 6, description: "Pantalón", price: 80000, state: "No disponible" },
-        { id: 3, description: "Camiseta", price: 40000, state: "Disponible" },
-        { id: 4, description: "Pantalón", price: 80000, state: "No disponible" },
-        { id: 5, description: "Camiseta", price: 40000, state: "Disponible" },
-        { id: 6, description: "Pantalón", price: 80000, state: "No disponible" },
-        { id: 3, description: "Camiseta", price: 40000, state: "Disponible" },
-        { id: 4, description: "Pantalón", price: 80000, state: "No disponible" },
-        { id: 5, description: "Camiseta", price: 40000, state: "Disponible" },
-        { id: 6, description: "Pantalón", price: 80000, state: "No disponible" }]
+const TableBody = (props) => {
+    // const products =
+    //     [{ id: 0, description: "Camiseta", price: 40000, state: "Disponible" },
+    //     { id: 1, description: "Pantalón", price: 80000, state: "No disponible" },
+    //     { id: 2, description: "Chaqueta", price: 120000, state: "Disponible" },
+    //     { id: 3, description: "Camiseta", price: 40000, state: "Disponible" },
+    //     { id: 4, description: "Pantalón", price: 80000, state: "No disponible" },
+    //     { id: 5, description: "Camiseta", price: 40000, state: "Disponible" },
+    //     { id: 6, description: "Pantalón", price: 80000, state: "No disponible" }]
+
+
+    const { records } = props;
+    console.log(records)
 
     return (
         <tbody>
-            {/* <TableRow row={data} /> */}
-            {dataFrame.map((row) => (
-                <TableRow row={row} />
+
+            {records.map((record) => (
+                <TableRow record={record} />
             ))}
 
         </tbody>

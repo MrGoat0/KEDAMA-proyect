@@ -1,12 +1,16 @@
 import { Form, Col, FloatingLabel } from "react-bootstrap"
 
-const State = () => {
+const State = (props) => {
+    const { setState } = props;
+    const saveValue = (event) => {
+        setState(event.target.value);
+    }
     return (
         <Col xs="auto">
-            <Form.Select defaultValue="0">
-                <option>Estado del producto</option>
-                <option value="1">Disponible</option>
-                <option value="2">No disponible</option>
+            <Form.Select onChange={saveValue}>
+                <option value="Sin definir"> Estado del producto</option>
+                <option value="Disponible">Disponible</option>
+                <option value="No disponible">No disponible</option>
             </Form.Select>
         </Col>
 

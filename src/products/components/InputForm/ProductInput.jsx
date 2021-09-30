@@ -1,9 +1,14 @@
 import { Form, Col } from "react-bootstrap"
 
-const Product = () => {
+const Product = (props) => {
+    const { setDescription } = props;
+    const saveValue = (event) => {
+        setDescription(event.target.value);
+    }
+
     return (
         <Col>
-            <Form.Control type="text" placeholder="Producto" />
+            <Form.Control onChange={saveValue} type="text" placeholder="Producto" />
         </Col>
     )
 }

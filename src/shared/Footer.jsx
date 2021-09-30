@@ -8,7 +8,7 @@ const Footer = () => {
 
 
 
-    <div className="fixed-bottom footer">
+    <div className="footer">
       <div>imagenes</div>
       <Link to="/" >
         <Button variant="light" size="sm">Salir</Button>

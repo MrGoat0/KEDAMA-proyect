@@ -15,7 +15,7 @@ const Alerts = () => {
             <Alert show={show} variant="success">
                 <Row>
                     <Col xs="auto">
-                        ¡Registro exitoso! El producto ha sido registrado con el ID 100099
+                        ¡Registro exitoso! Producto registrado con el ID 100099
                     </Col>
                     <Col xs="auto">
                         <Button onClick={() => setShow(false)} variant="outline-success">

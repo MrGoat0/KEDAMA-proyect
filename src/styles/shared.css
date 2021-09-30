@@ -17,4 +17,14 @@
   grid-column-gap: 1%;
   align-items: center;
   justify-items: center;
+  padding: 25px;
+}
+
+.navbar {
+  background-color: #1b262c;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
 }

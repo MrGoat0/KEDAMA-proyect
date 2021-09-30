@@ -1,9 +1,15 @@
 import { Button, Col } from "react-bootstrap";
 
-const RegisterButton = () => {
+const RegisterButton = (props) => {
+    const { records, setRecord, description, price, state } = props;
+
+    const handleClic = (event) => {
+        setRecord([...records, { description: description, price: price, state: state }]);
+    }
+
     return (
         <Col xs="auto">
-            <Button variant="primary">Registrar</Button>
+            <Button onClick={handleClic} variant="primary">Registrar</Button>
         </Col>
 
     )

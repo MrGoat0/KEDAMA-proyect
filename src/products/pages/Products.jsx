@@ -6,6 +6,8 @@ import ProductTable from "../components/Table/ProductTable.jsx";
 import ProductNav from "../components/ProductNav.jsx";
 import Alerts from "../components/InputForm/Alerts.jsx";
 import React, { useState } from "react";
+import "../../styles/shared.css"
+import '../../styles/category.css';
 
 const Products = () => {
     const [records, setRecord] = useState([]);
@@ -13,28 +15,36 @@ const Products = () => {
     return (
         <div>
             <Header />
-            <ProductNav navSwitch={"Register"} />
+            <div className="navbar">
+                <ProductNav navSwitch={"Register"} />
+            </div>
 
-            <Container>
+            <div className="grid-buttons">
 
-                <Row className="d-flex justify-content-center mb-3">
-                    <Col xs={10}>
-                        <InputForm />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={12}>
-                        <Alerts />
-                    </Col>
+                <Container>
 
-                </Row>
 
-                <Row className="d-flex justify-content-center mb-3">
-                    <Col xs={10}>
-                        <ProductTable />
-                    </Col>
-                </Row>
-            </Container>
+                    <Row className="d-flex justify-content-center mb-3">
+                        <Col xs={10}>
+                            <InputForm pageSwitch={"Register"}
+                                records={records}
+                                setRecord={setRecord} />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={12}>
+                            <Alerts />
+                        </Col>
+
+                    </Row>
+
+                    <Row className="d-flex justify-content-center mb-3">
+                        <Col xs={10}>
+                            <ProductTable records={records} />
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
 
             <Footer />
         </div>
