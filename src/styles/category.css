@@ -1,12 +1,14 @@
-.grid-buttons {
-  background-color: #1b262c;
-  height: 75%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+
+.grid-buttons{
+    background-color: #1B262C;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
 }
-.container-Category {
-  width: 100%;
-  height: 100%;
+.container-Category{
+    width: 100%;
+    height: 100%;
 }
