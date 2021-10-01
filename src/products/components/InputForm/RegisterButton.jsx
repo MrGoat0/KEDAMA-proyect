@@ -16,8 +16,8 @@ const RegisterButton = (props) => {
     }
 
     return (
-        <Col xs="auto">
-            <Button onClick={handleClic} variant="primary">Registrar</Button>
+        <Col xs={1}>
+            <Button className="form-input-buttons" onClick={handleClic} variant="primary">Registrar</Button>
         </Col>
 
     )

@@ -8,7 +8,7 @@ const Product = (props) => {
     }
 
     return (
-        <Col>
+        <Col xs={3}>
             <Form.Control onChange={saveValue} type="text" placeholder="Producto" />
         </Col>
     )

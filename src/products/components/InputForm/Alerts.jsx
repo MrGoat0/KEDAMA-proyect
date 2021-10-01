@@ -1,12 +1,15 @@
 import { Button, Alert, Row, Col } from "react-bootstrap";
 
 const Alerts = (props) => {
-    const { show, setShow, alertType } = props;
+    const { show, setShow, alertType, autoId } = props;
 
     if (alertType === "success") {
-        var message = "Producto registrado existosamente con el ID 100099"
-    } else {
+        const showID = autoId - 1
+        var message = "Producto registrado existosamente con el ID " + showID
+    } else if (alertType === "warning") {
         var message = "Para registrar un producto diligencie todos los campos."
+    } else if (alertType === "danger") {
+        var message = "El ID especificado no existe!"
     }
 
     return (
@@ -17,14 +20,16 @@ const Alerts = (props) => {
                         {message}
                     </Col>
                     <Col xs="auto">
-                        <Button onClick={() => setShow(false)} variant={"outline-" + alertType}>
+                        <Button onClick={() => setShow(false)}
+                            variant={"outline-" + alertType}>
                             Entendido
                         </Button>
+
                     </Col>
                 </Row>
 
             </Alert>
-        </div>
+        </div >
 
     )
 }

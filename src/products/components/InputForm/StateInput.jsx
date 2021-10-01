@@ -7,7 +7,7 @@ const State = (props) => {
     }
     return (
         <Col xs="auto">
-            <Form.Select onChange={saveValue}>
+            <Form.Select className="form-select-custome" onChange={saveValue}>
                 <option value=""> Estado del producto</option>
                 <option value="Disponible">Disponible</option>
                 <option value="No disponible">No disponible</option>

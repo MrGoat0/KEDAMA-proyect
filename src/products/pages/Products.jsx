@@ -13,36 +13,43 @@ const Products = () => {
     const [records, setRecord] = useState([]);
     const [show, setShow] = useState(true);
     const [alertType, setAlert] = useState("warning");
+    const [autoId, setId] = useState(10000);
+    const [searchId, setSearchId] = useState();
 
     return (
-        <div>
+        <div className="dark-background-body" >
             <Header />
 
             <ProductNav navSwitch={"Register"} />
 
-            <div className="dark-background">
+            <div>
                 <Container>
                     <Row className="d-flex justify-content-center mb-3">
-                        <Col xs={10}>
+                        <Col xs={12}>
                             <InputForm pageSwitch={"Register"}
                                 records={records}
                                 setRecord={setRecord}
                                 setShow={setShow}
-                                setAlert={setAlert} />
+                                setAlert={setAlert}
+                                autoId={autoId}
+                                setId={setId}
+                                searchId={searchId}
+                                setSearchId={setSearchId} />
                         </Col>
                     </Row>
                     <Row>
                         <Col xs={12}>
                             <Alerts show={show}
                                 setShow={setShow}
-                                alertType={alertType} />
+                                alertType={alertType}
+                                autoId={autoId} />
                         </Col>
 
                     </Row>
 
                     <Row className="d-flex justify-content-center mb-3">
-                        <Col xs={10}>
-                            <ProductTable records={records} />
+                        <Col xs={12}>
+                            <ProductTable records={records} searchId={searchId} />
                         </Col>
                     </Row>
                 </Container>

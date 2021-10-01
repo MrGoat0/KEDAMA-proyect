@@ -1,4 +1,5 @@
 import { Row } from "react-bootstrap";
+import AutoId from "./AutoId.jsx"
 import Product from "./ProductInput.jsx";
 import Price from "./PriceInput.jsx";
 import State from "./StateInput.jsx";
@@ -8,20 +9,27 @@ import UpdateButton from "./UpdateButton.jsx";
 import { useState } from "react";
 
 const ImputForm = (props) => {
-    const { pageSwitch, records, setRecord, setShow, setAlert } = props;
+    const { pageSwitch, records, setRecord, setShow, setAlert, autoId, setId, searchId, setSearchId } = props;
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [state, setState] = useState("");
-    const [autoId, setId] = useState(10000);
+
 
 
     if (pageSwitch === "Register") {
         return (
             <Row className="d-flex justify-content-center">
+                <AutoId setSearchId={setSearchId} />
                 <Product setDescription={setDescription} />
                 <Price setPrice={setPrice} />
                 <State setState={setState} />
-                <Filter />
+
+                {/* <Filter records={records}
+                    setRecord={setRecord}
+                    searchId={searchId}
+                    setSearchId={setSearchId}
+                    setAlert={setAlert}
+                    setShow={setShow} /> */}
                 <RegisterButton records={records}
                     setRecord={setRecord}
                     description={description}
@@ -37,7 +45,7 @@ const ImputForm = (props) => {
             <Product />
             <Price />
             <State />
-            <Filter />
+            {/* <Filter /> */}
             <UpdateButton />
         </Row>)
     }

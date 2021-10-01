@@ -1,11 +1,11 @@
 const TableRow = (props) => {
-    const { record } = props;
+    const { row } = props;
     return (
         <tr>
-            <td>{record.id}</td>
-            <td>{record.description}</td>
-            <td>{record.price}</td>
-            <td>{record.state}</td>
+            <td>{row.id}</td>
+            <td>{row.description}</td>
+            <td>{row.price}</td>
+            <td>{row.state}</td>
         </tr>
     )
 }
