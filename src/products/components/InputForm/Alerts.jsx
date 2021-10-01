@@ -7,7 +7,7 @@ const Alerts = (props) => {
         const showID = autoId - 1
         var message = "Producto registrado existosamente con el ID " + showID
     } else if (alertType === "warning") {
-        var message = "Para registrar un producto diligencie todos los campos."
+        var message = "Para registrar un producto diligencie los campos Producto, Valor unitario y Estado del producto."
     } else if (alertType === "danger") {
         var message = "El ID especificado no existe!"
     }
@@ -17,7 +17,8 @@ const Alerts = (props) => {
             <Alert show={show} variant={alertType}>
                 <Row>
                     <Col xs="auto">
-                        {message}
+                        {message} <br />
+                        {"Diligencie el campo 'Filtrar por ID' si desea ver el registro en la tabla."}
                     </Col>
                     <Col xs="auto">
                         <Button onClick={() => setShow(false)}

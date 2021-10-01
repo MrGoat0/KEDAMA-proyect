@@ -2,13 +2,13 @@ import TableRow from "./TableRow";
 
 const TableBody = (props) => {
 
-    const { records } = props;
+    const { records, search } = props;
 
     return (
         <tbody>
 
             {records.map((row) => (
-                <TableRow row={row} />
+                <TableRow row={row} search={search} />
             ))}
 
         </tbody>
