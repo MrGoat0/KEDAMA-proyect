@@ -20,20 +20,26 @@ const Sales = () => {
       <Header />
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="/categories">Home</Navbar.Brand>
+          <Navbar.Brand>
+            <Button variant="light" href="/categories">
+              Home
+            </Button>
+          </Navbar.Brand>
+
           <Nav className="me-auto">
             {/* <Nav.Link href="#home">Listar ventas</Nav.Link>
             <Nav.Link href="#features">Buscar</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link> */}
           </Nav>
+          <Navbar.Brand>Realizar una busqueda por ID o Nombre:</Navbar.Brand>
           <Form className="d-flex">
             <FormControl
               type="search"
-              placeholder="Search"
+              placeholder="Realizar una busqueda"
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="success">Buscar </Button>
           </Form>
         </Container>
       </Navbar>

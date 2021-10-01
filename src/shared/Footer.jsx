@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="footer">
-      <div>imagenes</div>
+      <div className="text-center">
+        Proyecto desarrollado KEDAMA. MIN TIC 2022
+      </div>
       <Link to="/">
-        <Button variant="light" size="sm">
-          Salir
+        <Button variant="light" size="small">
+          Salir del sistema
         </Button>
       </Link>
     </div>
