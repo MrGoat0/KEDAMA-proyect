@@ -1,6 +1,6 @@
 import React from "react";
-import { Table, Col } from "react-bootstrap";
-import Producto from "./producto";
+import { Table } from "react-bootstrap";
+import Producto from "./FormProducto";
 const SalesList = () => {
   const SalesDemo = [
     {
