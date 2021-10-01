@@ -7,9 +7,9 @@ const Price = (props) => {
         setPrice(event.target.value)
     }
     return (
-        <Col>
+        <Col xs="auto">
             <Form.Control onChange={saveValue} type="number" placeholder="Valor unitario ($COP)" />
-        </Col>
+        </Col >
     )
 }
 

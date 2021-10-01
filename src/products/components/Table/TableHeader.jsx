@@ -4,10 +4,10 @@ const TableHeader = (props) => {
         return (
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Producto</th>
-                    <th>Valor unitario</th>
-                    <th>Estado</th>
+                    <th width="70px">Id</th>
+                    <th width="auto">Producto</th>
+                    <th width="120px">Valor unitario</th>
+                    <th width="120px">Estado</th>
                 </tr>
             </thead>
         )

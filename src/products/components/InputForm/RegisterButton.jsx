@@ -11,13 +11,13 @@ const RegisterButton = (props) => {
             setId(autoId + 1)
         } else {
             setShow(true)
-            setAlert("warning")
+            setAlert("danger")
         }
     }
 
     return (
-        <Col xs="auto">
-            <Button onClick={handleClic} variant="primary">Registrar</Button>
+        <Col xs={1}>
+            <Button className="form-input-buttons" onClick={handleClic} variant="primary">Registrar</Button>
         </Col>
 
     )

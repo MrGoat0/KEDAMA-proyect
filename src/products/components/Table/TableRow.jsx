@@ -1,11 +1,19 @@
 const TableRow = (props) => {
-    const { record } = props;
+    const { row, search } = props;
+
+    if (search) {
+        if (search.id === row.id)
+            var color = "#008891"
+    } else {
+        var color = ""
+    }
+
     return (
         <tr>
-            <td>{record.id}</td>
-            <td>{record.description}</td>
-            <td>{record.price}</td>
-            <td>{record.state}</td>
+            <td bgcolor={color}>{row.id}</td>
+            <td bgcolor={color}>{row.description}</td>
+            <td bgcolor={color}>{row.price}</td>
+            <td bgcolor={color}>{row.state}</td>
         </tr>
     )
 }

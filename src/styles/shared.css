@@ -20,11 +20,31 @@
   padding: 25px;
 }
 
-.dark-background {
+.dark-background-nav {
   background-color: #1b262c;
-  height: auto;
-  display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-end;
+}
+
+.dark-background-body {
+  background-color: #1b262c;
+  padding-bottom: 50px;
+  min-height: 100%;
+  max-height: auto;
+}
+
+.form-select-custome {
+  height: 100%;
+  width: 100%;
+}
+
+.form-input-buttons {
+  width: 100px;
+}
+
+.table {
+  max-width: fit-content;
+  max-height: 313px;
+  margin: auto;
+  display: block;
+  overflow-x: auto;
 }

@@ -4,8 +4,8 @@ const ProductNav = ({ navSwitch }) => {
 
     if (navSwitch === "Register") {
         return (
-            <div className="dark-background">
-                <Nav className="justify-content-end mb-3">
+            <div className="dark-background-nav">
+                <Nav className="justify-content-end mt-1 mb-3">
                     <Nav.Item>
                         <Nav.Link href="/categories/products" active disabled>Registro</Nav.Link>
                     </Nav.Item>
