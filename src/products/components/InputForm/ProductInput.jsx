@@ -2,8 +2,9 @@ import { Form, Col } from "react-bootstrap"
 
 const Product = (props) => {
     const { setDescription } = props;
+
     const saveValue = (event) => {
-        setDescription(event.target.value);
+        setDescription(event.target.value)
     }
 
     return (

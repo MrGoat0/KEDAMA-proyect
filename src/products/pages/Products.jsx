@@ -11,29 +11,31 @@ import '../../styles/category.css';
 
 const Products = () => {
     const [records, setRecord] = useState([]);
+    const [show, setShow] = useState(true);
+    const [alertType, setAlert] = useState("warning");
 
     return (
         <div>
             <Header />
-            <div className="navbar">
-                <ProductNav navSwitch={"Register"} />
-            </div>
 
-            <div className="grid-buttons">
+            <ProductNav navSwitch={"Register"} />
 
+            <div className="dark-background">
                 <Container>
-
-
                     <Row className="d-flex justify-content-center mb-3">
                         <Col xs={10}>
                             <InputForm pageSwitch={"Register"}
                                 records={records}
-                                setRecord={setRecord} />
+                                setRecord={setRecord}
+                                setShow={setShow}
+                                setAlert={setAlert} />
                         </Col>
                     </Row>
                     <Row>
                         <Col xs={12}>
-                            <Alerts />
+                            <Alerts show={show}
+                                setShow={setShow}
+                                alertType={alertType} />
                         </Col>
 
                     </Row>

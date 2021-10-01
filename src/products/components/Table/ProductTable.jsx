@@ -6,7 +6,7 @@ const ProductTable = (props) => {
     const { records } = props;
     return (
         <Table size="sm" striped bordered hover variant="dark">
-            <TableHeader />
+            <TableHeader isEmpty={records.length === 0} />
             <TableBody records={records} />
         </Table>
 

@@ -1,5 +1,5 @@
 import TableRow from "./TableRow";
-import { useState } from "react";
+// import { useState } from "react";
 
 const TableBody = (props) => {
     // const products =
@@ -13,7 +13,6 @@ const TableBody = (props) => {
 
 
     const { records } = props;
-    console.log(records)
 
     return (
         <tbody>

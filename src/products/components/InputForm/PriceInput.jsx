@@ -2,12 +2,13 @@ import { Form, Col } from "react-bootstrap";
 
 const Price = (props) => {
     const { setPrice } = props;
+
     const saveValue = (event) => {
-        setPrice(event.target.value);
+        setPrice(event.target.value)
     }
     return (
         <Col>
-            <Form.Control onChange={saveValue} type="text" placeholder="Valor unitario ($COP)" />
+            <Form.Control onChange={saveValue} type="number" placeholder="Valor unitario ($COP)" />
         </Col>
     )
 }
