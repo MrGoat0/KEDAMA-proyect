@@ -43,8 +43,9 @@
 
 .table {
   max-width: fit-content;
-  max-height: 313px;
+  max-height: 384px;
   margin: auto;
   display: block;
-  overflow-x: auto;
+  overflow: auto;
+  padding-bottom: 10px;
 }

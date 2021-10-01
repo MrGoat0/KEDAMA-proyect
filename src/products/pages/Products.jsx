@@ -19,6 +19,7 @@ const Products = () => {
     return (
         <div className="dark-background-body" >
             <Header />
+            {/* <Header headerTitle={"Registro de productos"} /> */}
 
             <ProductNav navSwitch={"Register"} />
 
