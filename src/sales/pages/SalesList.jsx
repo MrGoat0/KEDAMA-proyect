@@ -5,27 +5,59 @@ const SalesList = () => {
   const SalesDemo = [
     {
       id: "123456",
+      cliente: "Andrea",
       producto: "Articlo 1",
       price: 100000,
       location: "tienda 1",
     },
     {
       id: "159753",
+      cliente: "Andrea",
       producto: "Articlo 2",
       price: 150000,
       location: "tienda 2",
     },
     {
       id: "123456",
+      cliente: "Valentina",
       producto: "Articlo 1",
       price: 100000,
       location: "tienda 1",
     },
     {
       id: "123456",
+      cliente: "Lopéz",
       producto: "Articlo 1",
       price: 100000,
       location: "tienda 1",
+    },
+    {
+      id: "123456",
+      cliente: "Antonio",
+      producto: "Articlo 1",
+      price: 100000,
+      location: "tienda 1",
+    },
+    {
+      id: "159753",
+      cliente: "Andrés",
+      producto: "Articlo 2",
+      price: 150000,
+      location: "tienda 2",
+    },
+    {
+      id: "123456",
+      cliente: "Laura",
+      producto: "Articlo 1",
+      price: 100000,
+      location: "tienda 1",
+    },
+    {
+      id: "159753",
+      cliente: "Kevin",
+      producto: "Articlo 2",
+      price: 150000,
+      location: "tienda 2",
     },
   ];
 
@@ -35,6 +67,7 @@ const SalesList = () => {
         <thead className="text-center">
           <tr>
             <th className="text-left">ID</th>
+            <th>Cliente</th>
             <th>Producto</th>
             <th>Precio</th>
             <th>Tienda (Localización)</th>

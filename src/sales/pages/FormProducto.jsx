@@ -14,6 +14,7 @@ const Producto = ({ producto }) => {
   return (
     <tr className="text-center">
       <th className="text-left">{producto.id}</th>
+      <th>{producto.cliente}</th>
       <th>{producto.producto}</th>
       <th>{producto.price}</th>
       <th>{producto.location}</th>
@@ -23,7 +24,7 @@ const Producto = ({ producto }) => {
           <Edit producto={producto} />
         </Button> */}
         <Button onClick={handleShow} variant="primary">
-          <AiFillEdit />- Editar Venta
+          <AiFillEdit /> Editar Venta
         </Button>
 
         <Modal show={show} onHide={handleClose}>
@@ -34,6 +35,11 @@ const Producto = ({ producto }) => {
             <Form>
               <Form.Group className="mb-3">
                 <Form.Label>ID-{producto.id}</Form.Label>
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Cliente</Form.Label>
+                <Form.Control type="text" placeholder={producto.cliente} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -64,7 +70,7 @@ const Producto = ({ producto }) => {
       </th>
       <th>
         <Button variant="primary" href="#">
-          <AiFillDelete />- Borrar venta
+          <AiFillDelete /> Borrar venta
         </Button>
       </th>
     </tr>

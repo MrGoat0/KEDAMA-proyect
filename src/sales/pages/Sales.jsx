@@ -1,5 +1,12 @@
 import React from "react";
-import { Navbar, Container, Nav, Button } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Nav,
+  Button,
+  Form,
+  FormControl,
+} from "react-bootstrap";
 import Header from "../../shared/Header.jsx";
 import SalesList from "./SalesList";
 import Footer from "../../shared/Footer.jsx";
@@ -19,9 +26,20 @@ const Sales = () => {
             <Nav.Link href="#features">Buscar</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link> */}
           </Nav>
+          <Form className="d-flex">
+            <FormControl
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
         </Container>
       </Navbar>
-      <SalesList />
+      <div>
+        <SalesList />
+      </div>
 
       <Footer />
     </div>
