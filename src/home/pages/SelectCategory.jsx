@@ -21,7 +21,7 @@ const Selector = () => {
         </Link>
         <Link to="/categories/sales">
           <Button variant="light" size="lg">
-            Ventas
+            Listar ventas
           </Button>
         </Link>
       </div>
