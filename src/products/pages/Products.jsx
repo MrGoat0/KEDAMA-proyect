@@ -12,7 +12,7 @@ import '../../styles/category.css';
 const Products = () => {
     const [records, setRecord] = useState([]);
     const [show, setShow] = useState(true);
-    const [alertType, setAlert] = useState("warning");
+    const [alertType, setAlert] = useState("danger");
     const [autoId, setId] = useState(10000);
     const [searchId, setSearchId] = useState();
 

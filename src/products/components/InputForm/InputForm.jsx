@@ -23,13 +23,7 @@ const ImputForm = (props) => {
                 <Product setDescription={setDescription} />
                 <Price setPrice={setPrice} />
                 <State setState={setState} />
-
-                {/* <Filter records={records}
-                    setRecord={setRecord}
-                    searchId={searchId}
-                    setSearchId={setSearchId}
-                    setAlert={setAlert}
-                    setShow={setShow} /> */}
+                {/* <Filter /> */}
                 <RegisterButton records={records}
                     setRecord={setRecord}
                     description={description}

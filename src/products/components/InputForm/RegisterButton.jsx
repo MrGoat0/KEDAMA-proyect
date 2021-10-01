@@ -11,7 +11,7 @@ const RegisterButton = (props) => {
             setId(autoId + 1)
         } else {
             setShow(true)
-            setAlert("warning")
+            setAlert("danger")
         }
     }
 
