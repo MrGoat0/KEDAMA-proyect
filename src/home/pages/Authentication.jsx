@@ -2,7 +2,6 @@ import {React} from "react";
 import Header from "../../shared/Authentication/Header";
 import FooterN from "../../shared/Authentication/Footer";
 import  '../../styles/AuthenticationStyle/Authentication.css';
-import Card from 'react-bootstrap/Card'
 import example from '../../styles/AuthenticationStyle/images/example.jpeg'
 
 
