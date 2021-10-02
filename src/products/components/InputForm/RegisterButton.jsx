@@ -15,17 +15,19 @@ const RegisterButton = (props) => {
         } else {
 
 
-            if (description === "") {
-                missing.description = true
-            } else { missing.description = false }
-            if (price === "") {
-                missing.price = true
-            } else { missing.price = false }
-            if (state === "") {
-                missing.state = true
-            } else { missing.state = false }
+            if (description !== "") {
+                missing.description = false
+            } else { missing.description = true }
+            if (price !== "") {
+                missing.price = false
+            } else { missing.price = true }
+            if (state !== "") {
+                missing.state = false
+            } else { missing.state = true }
+            setMissing(missing)
             setShow(true)
             setAlert("danger")
+
 
         }
     }
