@@ -28,12 +28,16 @@ return (
 
           <div className="col col-8">
             <div className="row justify-content-end">
-            <button type="button" className="btn btn-outline-light mx-2">
+            <Link to="/categories" >
+            <button type="button" className="btn btn-light mx-2">
               Login
             </button>
+            </Link>
+            <Link to="/PageNotFound" >
             <button type="button" className="btn btn-warning mx-2">
               Sign-up
             </button>
+            </Link>
             </div>
           </div>
         </div>
