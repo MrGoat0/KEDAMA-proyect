@@ -46,6 +46,10 @@
   max-height: 384px;
   margin: auto;
   display: block;
-  overflow: auto;
-  padding-bottom: 10px;
+  overflow-x: auto;
+  margin-bottom: 10px;
+}
+
+.action-buttons {
+  width: 40px;
 }

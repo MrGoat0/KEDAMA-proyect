@@ -7,8 +7,8 @@ import Footer from '../../shared/Footer.jsx'
 const Selector = () => {
   return (
     <div className="container-Category">
-      <Header />
-      {/* <Header headerTitle={"Gestión de datos"} /> */}
+      {/* <Header /> */}
+      <Header headerTitle={"Gestión de datos"} />
       <div className="grid-buttons">
         <Link to="/categories/users ">
           <Button variant="light" size="lg">Usuarios</Button>
