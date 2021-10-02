@@ -10,7 +10,9 @@ import Edit from "./sales/components/edit.jsx";
 import Users from "./users/pages/Users.jsx";
 import NotFound from "./shared/NotFound.jsx";
 import "./styles/index.css";
+import Updateinfosales from "./sales/pages/Updateinfosales.jsx";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 function App() {
   return (
     <div className="container2">
@@ -33,6 +35,8 @@ function App() {
           <Route exact path="/categories/users " component={Users} />
           <Route exact path="/" component={Authentication} />
           <Route exact component={NotFound} />
+
+          <Route exact path="/categories/sales/updateinputsales" component={Updateinfosales}/>
         </Switch>
       </Router>
     </div>

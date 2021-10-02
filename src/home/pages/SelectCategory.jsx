@@ -4,6 +4,10 @@ import "../../styles/category.css";
 import { Button } from "react-bootstrap";
 import Header from "../../shared/Header.jsx";
 import Footer from "../../shared/Footer.jsx";
+import '../../styles/category.css';
+import { Button } from 'react-bootstrap';
+import Header from '../../shared/Header.jsx'
+import Footer from '../../shared/Footer.jsx'
 const Selector = () => {
   return (
     <div className="container-Category">
@@ -23,6 +27,14 @@ const Selector = () => {
           <Button variant="light" size="lg">
             Listar ventas
           </Button>
+        <Link to="/categories/users ">
+          <Button variant="light" size="lg">Usuarios</Button>
+        </Link>
+        <Link to="/categories/products" >
+          <Button variant="light" size="lg">Productos</Button>
+        </Link>
+        <Link to="/categories/sales" >
+          <Button variant="light" size="lg">Ventas</Button>
         </Link>
       </div>
       <Footer />
@@ -30,3 +42,7 @@ const Selector = () => {
   );
 };
 export default Selector;
+  )
+}
+export default Selector
+
