@@ -1,9 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/category.css";
-import { Button } from "react-bootstrap";
-import Header from "../../shared/Header.jsx";
-import Footer from "../../shared/Footer.jsx";
 import '../../styles/category.css';
 import { Button } from 'react-bootstrap';
 import Header from '../../shared/Header.jsx'
@@ -13,20 +9,6 @@ const Selector = () => {
     <div className="container-Category">
       <Header />
       <div className="grid-buttons">
-        <Link to="/categories/users">
-          <Button variant="light" size="lg">
-            Usuarios
-          </Button>
-        </Link>
-        <Link to="/categories/products">
-          <Button variant="light" size="lg">
-            Productos
-          </Button>
-        </Link>
-        <Link to="/categories/sales">
-          <Button variant="light" size="lg">
-            Listar ventas
-          </Button>
         <Link to="/categories/users ">
           <Button variant="light" size="lg">Usuarios</Button>
         </Link>
@@ -39,10 +21,8 @@ const Selector = () => {
       </div>
       <Footer />
     </div>
-  );
-};
-export default Selector;
+
   )
+
 }
 export default Selector
-
