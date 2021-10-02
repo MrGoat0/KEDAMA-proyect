@@ -15,7 +15,7 @@ const ProductNav = (props) => {
     if (navSwitch === "Register") {
         return (
             <div className="dark-background-nav">
-                <Nav className="justify-content-end mt-1 mb-3">
+                <Nav className="justify-content-end mt-1 mb-2">
                     <Nav.Item>
                         <Nav.Link href={href1} disabled>Registro</Nav.Link>
                     </Nav.Item>
@@ -28,7 +28,7 @@ const ProductNav = (props) => {
 
     } else if (navSwitch === "Management") {
         return (
-            <Nav className="justify-content-end mt-1 mb-3">
+            <Nav className="justify-content-end mt-1 mb-2">
                 <Nav.Item>
                     <Nav.Link href={href1}>Registro</Nav.Link>
                 </Nav.Item>

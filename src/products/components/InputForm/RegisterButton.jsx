@@ -6,7 +6,8 @@ const RegisterButton = (props) => {
 
     const handleClic = (event) => {
         if (description !== "" && price !== "" && state !== "") {
-            setRecord([...records, { id: autoId, description: description, price: parseInt(price), state: state }]);
+            setRecord([...records,
+            { id: autoId, description: description, price: parseInt(price), state: state }]);
             setShow(true)
             setAlert("success")
             setId(autoId + 1)
