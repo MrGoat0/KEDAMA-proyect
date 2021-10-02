@@ -55,5 +55,5 @@
 }
 
 .missing-cell {
-  border: 1px solid rgba(202, 33, 33, 0.05);
+  border: 2px solid #cc1711;
 }
