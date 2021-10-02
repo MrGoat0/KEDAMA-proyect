@@ -5,7 +5,6 @@ import Price from "./PriceInput.jsx";
 import State from "./StateInput.jsx";
 import Filter from "./Filter.jsx";
 import RegisterButton from "./RegisterButton.jsx";
-import UpdateButton from "./UpdateButton.jsx";
 import { useState } from "react";
 
 const ImputForm = (props) => {
@@ -14,10 +13,6 @@ const ImputForm = (props) => {
     const [price, setPrice] = useState("");
     const [state, setState] = useState("");
     const [missing, setMissing] = useState({ description: false, price: false, state: false });
-
-    console.log(missing)
-
-
 
     if (pageSwitch === "Register") {
         return (
@@ -45,7 +40,7 @@ const ImputForm = (props) => {
             <Price />
             <State />
             {/* <Filter /> */}
-            <UpdateButton />
+            {/* <UpdateButton /> */}
         </Row>)
     }
 

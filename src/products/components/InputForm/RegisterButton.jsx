@@ -1,4 +1,4 @@
-import { Button, Col } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 
 const RegisterButton = (props) => {
     const { records, setRecord, description, price, state,
@@ -14,25 +14,34 @@ const RegisterButton = (props) => {
 
         } else {
 
-            if (description === "") {
-                missing.description = true
-            } else { missing.description = false }
-            if (price === "") {
-                missing.price = true
-            } else { missing.price = false }
-            if (state === "") {
-                missing.state = true
-            } else { missing.state = false }
+
+            if (description !== "") {
+                missing.description = false
+            } else { missing.description = true }
+            if (price !== "") {
+                missing.price = false
+            } else { missing.price = true }
+            if (state !== "") {
+                missing.state = false
+            } else { missing.state = true }
+            setMissing(missing)
             setShow(true)
             setAlert("danger")
+
 
         }
     }
 
     return (
-        <Col xs={1}>
-            <Button className="form-input-buttons" onClick={handleClic} variant="primary">Registrar</Button>
-        </Col>
+        <Col xs="auto">
+            < Row >
+                <label className="hidden">Registro</label>
+            </Row >
+            <Row>
+                <Button className="form-input-buttons ml-2" onClick={handleClic} variant="primary">Registrar</Button>
+            </Row>
+
+        </Col >
 
     )
 }
