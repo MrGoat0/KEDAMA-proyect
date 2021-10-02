@@ -10,7 +10,7 @@ const ProductNav = ({ navSwitch }) => {
                         <Nav.Link href="/categories/products" active disabled>Registro</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="/categories/register_products">Gestión</Nav.Link>
+                        <Nav.Link href="/categories/update_products">Gestión</Nav.Link>
                     </Nav.Item>
                 </Nav >
             </div >
@@ -23,7 +23,7 @@ const ProductNav = ({ navSwitch }) => {
                     <Nav.Link href="/categories/products">Registro</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href="/categories/register_products" disabled>Gestión</Nav.Link>
+                    <Nav.Link href="/categories/update_products" disabled>Gestión</Nav.Link>
                 </Nav.Item>
             </Nav >
         )

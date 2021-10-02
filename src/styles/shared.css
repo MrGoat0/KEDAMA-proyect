@@ -43,8 +43,17 @@
 
 .table {
   max-width: fit-content;
-  max-height: 313px;
+  max-height: 384px;
   margin: auto;
   display: block;
   overflow-x: auto;
+  margin-bottom: 10px;
+}
+
+.action-buttons {
+  width: 40px;
+}
+
+.missing-cell {
+  border: 1px solid rgba(202, 33, 33, 0.05);
 }
