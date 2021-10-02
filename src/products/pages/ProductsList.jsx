@@ -1,13 +1,6 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Header from "../../shared/Header.jsx";
-import Footer from "../../shared/Footer.jsx";
-import InputForm from "../components/InputForm/InputForm.jsx";
-import ProductTable from "../components/Table/ProductTable.jsx";
-import ProductNav from "../components/ProductNav.jsx";
-import { useState } from "react";
-
 const ProductsList = () => {
+<<<<<<< HEAD
     const [records, setRecord] = useState([]);
 
     return (
@@ -38,6 +31,13 @@ const ProductsList = () => {
             <Footer />
         </div>
     )
+=======
+return(
+    <div>
+        Esto es lista de productos
+    </div>
+)
+>>>>>>> 3e81b1aa241a8e0992f33db002ad170015c2755c
 
 }
-export default ProductsList;
+export default ProductsList

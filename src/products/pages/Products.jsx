@@ -1,15 +1,6 @@
-import { Container, Row, Col } from "react-bootstrap";
-import Header from "../../shared/Header.jsx";
-import Footer from "../../shared/Footer.jsx";
-import InputForm from "../components/InputForm/InputForm.jsx";
-import ProductTable from "../components/Table/ProductTable.jsx";
-import ProductNav from "../components/ProductNav.jsx";
-import Alerts from "../components/InputForm/Alerts.jsx";
-import React, { useState } from "react";
-import "../../styles/shared.css"
-import '../../styles/category.css';
-
+import React from "react";
 const Products = () => {
+<<<<<<< HEAD
     const [records, setRecord] = useState([]);
     const [show, setShow] = useState(true);
     const [alertType, setAlert] = useState("danger");
@@ -58,6 +49,13 @@ const Products = () => {
             <Footer />
         </div>
     )
+=======
+return(
+    <div>
+        Esto es registro de productos
+    </div>
+)
+>>>>>>> 3e81b1aa241a8e0992f33db002ad170015c2755c
 
 }
 export default Products

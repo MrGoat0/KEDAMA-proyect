@@ -1,7 +1,8 @@
-.line {
-  height: 20%;
-  background-color: #1b262c;
+.line{
+    height: 20%;
+    background-color: #1B262C;
 }
+<<<<<<< HEAD
 .header {
   width: 100%;
   height: 15%;
@@ -56,4 +57,23 @@
 
 .missing-cell {
   border: 2px solid #cc1711;
+=======
+.header{
+    width: 100%;
+    height: 15%;
+    background-color: #008891;
+    
+>>>>>>> 3e81b1aa241a8e0992f33db002ad170015c2755c
+}
+.footer{
+    width: 100%;
+    height: 10%;
+    background-color: #008891;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-column-gap: 1%;
+    align-items: center;
+    justify-items: center;
+  
+    
 }
