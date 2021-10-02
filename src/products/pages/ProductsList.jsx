@@ -11,11 +11,11 @@ const ProductsList = () => {
     const [records, setRecord] = useState([]);
 
     return (
-        <div>
-            <Header />
-            <div className="navbar">
-                <ProductNav navSwitch={"Management"} />
-            </div>
+        <div className="dark-background-body" >
+            <Header headerTitle={"Actualización de productos"} />
+
+            <ProductNav navSwitch={"Management"} />
+
             <div className="grid-buttons">
                 <Container>
 

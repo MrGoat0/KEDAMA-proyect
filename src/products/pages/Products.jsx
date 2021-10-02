@@ -18,42 +18,42 @@ const Products = () => {
 
     return (
         <div className="dark-background-body" >
-            <Header />
+            {/* <Header /> */}
+            <Header headerTitle={"Registro de productos"} />
 
             <ProductNav navSwitch={"Register"} />
 
-            <div>
-                <Container>
-                    <Row className="d-flex justify-content-center mb-3">
-                        <Col xs={12}>
-                            <InputForm pageSwitch={"Register"}
-                                records={records}
-                                setRecord={setRecord}
-                                setShow={setShow}
-                                setAlert={setAlert}
-                                autoId={autoId}
-                                setId={setId}
-                                searchId={searchId}
-                                setSearchId={setSearchId} />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <Alerts show={show}
-                                setShow={setShow}
-                                alertType={alertType}
-                                autoId={autoId} />
-                        </Col>
 
-                    </Row>
+            <Container>
+                <Row className="d-flex justify-content-center mb-3">
+                    <Col xs={12}>
+                        <InputForm pageSwitch={"Register"}
+                            records={records}
+                            setRecord={setRecord}
+                            setShow={setShow}
+                            setAlert={setAlert}
+                            autoId={autoId}
+                            setId={setId}
+                            searchId={searchId}
+                            setSearchId={setSearchId} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
+                        <Alerts show={show}
+                            setShow={setShow}
+                            alertType={alertType}
+                            autoId={autoId} />
+                    </Col>
 
-                    <Row className="d-flex justify-content-center mb-3">
-                        <Col xs={12}>
-                            <ProductTable records={records} searchId={searchId} />
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
+                </Row>
+
+                <Row className="d-flex justify-content-center mb-3">
+                    <Col xs={12}>
+                        <ProductTable records={records} searchId={searchId} />
+                    </Col>
+                </Row>
+            </Container>
 
             <Footer />
         </div>
