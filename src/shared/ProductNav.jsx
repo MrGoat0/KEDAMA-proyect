@@ -1,16 +1,26 @@
 import { Nav } from "react-bootstrap";
 
-const ProductNav = ({ navSwitch }) => {
+const ProductNav = (props) => {
+
+    const { navSwitch, page } = props;
+
+    if (page === "products") {
+        var href1 = "/categories/products"
+        var href2 = "/categories/update_products"
+    } else if (page === "sales") {
+        var href1 = "/categories/sales"
+        var href2 = "/categories/sales/updateinputsales"
+    }
 
     if (navSwitch === "Register") {
         return (
             <div className="dark-background-nav">
                 <Nav className="justify-content-end mt-1 mb-3">
                     <Nav.Item>
-                        <Nav.Link href="/categories/products" active disabled>Registro</Nav.Link>
+                        <Nav.Link href={href1} disabled>Registro</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="/categories/update_products">Gestión</Nav.Link>
+                        <Nav.Link href={href2}>Gestión</Nav.Link>
                     </Nav.Item>
                 </Nav >
             </div >
@@ -20,10 +30,10 @@ const ProductNav = ({ navSwitch }) => {
         return (
             <Nav className="justify-content-end mt-1 mb-3">
                 <Nav.Item>
-                    <Nav.Link href="/categories/products">Registro</Nav.Link>
+                    <Nav.Link href={href1}>Registro</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href="/categories/update_products" disabled>Gestión</Nav.Link>
+                    <Nav.Link href={href2} active disabled>Gestión</Nav.Link>
                 </Nav.Item>
             </Nav >
         )

@@ -14,10 +14,6 @@ const ImputForm = (props) => {
     const [state, setState] = useState("");
     const [missing, setMissing] = useState({ description: false, price: false, state: false });
 
-    console.log(missing)
-
-
-
     if (pageSwitch === "Register") {
         return (
             <Row className="d-flex justify-content-center">

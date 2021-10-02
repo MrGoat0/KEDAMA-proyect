@@ -3,7 +3,7 @@ import Header from "../../shared/Header.jsx";
 import Footer from "../../shared/Footer.jsx";
 import InputForm from "../components/InputForm/InputForm.jsx";
 import ProductTable from "../components/Table/ProductTable.jsx";
-import ProductNav from "../components/ProductNav.jsx";
+import ProductNav from "../../shared/ProductNav.jsx";
 import Alerts from "../components/InputForm/Alerts.jsx";
 import React, { useState } from "react";
 import "../../styles/shared.css"
@@ -17,14 +17,14 @@ const Products = () => {
     const [searchId, setSearchId] = useState();
 
     return (
-        <div className="dark-background-body" >
-            <Header />
-            {/* <Header headerTitle={"Registro de productos"} /> */}
+        <div className="container-Category" >
 
-            <ProductNav navSwitch={"Register"} />
+            <Header headerText={"Registro de productos"} />
+
+            <ProductNav navSwitch={"Register"} page={"products"} />
 
 
-            <Container>
+            <Container className="dark-background-body">
                 <Row className="d-flex justify-content-center mb-3">
                     <Col xs={12}>
                         <InputForm pageSwitch={"Register"}

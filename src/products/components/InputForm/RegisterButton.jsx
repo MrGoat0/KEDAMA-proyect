@@ -1,4 +1,4 @@
-import { Button, Col } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 
 const RegisterButton = (props) => {
     const { records, setRecord, description, price, state,
@@ -13,6 +13,7 @@ const RegisterButton = (props) => {
             setMissing({ description: false, price: false, state: false })
 
         } else {
+
 
             if (description === "") {
                 missing.description = true
@@ -30,9 +31,15 @@ const RegisterButton = (props) => {
     }
 
     return (
-        <Col xs={1}>
-            <Button className="form-input-buttons" onClick={handleClic} variant="primary">Registrar</Button>
-        </Col>
+        <Col xs="auto">
+            < Row >
+                <label className="hidden">Registro</label>
+            </Row >
+            <Row>
+                <Button className="form-input-buttons ml-2" onClick={handleClic} variant="primary">Registrar</Button>
+            </Row>
+
+        </Col >
 
     )
 }
