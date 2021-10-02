@@ -12,7 +12,8 @@ const ProductsList = () => {
 
     return (
         <div className="dark-background-body" >
-            <Header headerTitle={"Actualización de productos"} />
+            <Header />
+            {/* <Header headerTitle={"Actualización de productos"} /> */}
 
             <ProductNav navSwitch={"Management"} />
 
