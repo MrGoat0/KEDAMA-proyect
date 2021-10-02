@@ -19,7 +19,7 @@ function App() {
           <Route exact path="/categories/products" component={Products} />
           <Route
             exact
-            path="/categories/register_products"
+            path="/categories/update_products"
             component={RegisterProducts}
           />
           <Route exact path="/categories/sales" component={Sales} />
