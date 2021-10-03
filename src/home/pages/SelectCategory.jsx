@@ -6,9 +6,11 @@ import Header from '../../shared/Header.jsx'
 import Footer from '../../shared/Footer.jsx'
 const Selector = () => {
   return (
+
     <div className="container-Category">
-      {/* <Header /> */}
-      <Header headerTitle={"Gestión de datos"} />
+
+      <Header headerText={"Menú"} />
+
       <div className="grid-buttons">
         <Link to="/categories/users ">
           <Button variant="light" size="lg">Usuarios</Button>
