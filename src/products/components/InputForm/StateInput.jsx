@@ -2,32 +2,27 @@ import { Form, Col } from "react-bootstrap"
 
 const State = (props) => {
     const { setState, missingInput } = props;
+
+    if (missingInput) {
+        var missed = " missing-cell"
+    } else {
+        var missed = ""
+    }
+
     const saveValue = (event) => {
         setState(event.target.value)
     }
-    if (missingInput) {
-        return (
-            <Col xs="auto">
-                <Form.Select className="missing-cell form-select-custome" onChange={saveValue}>
-                    <option value=""> Estado del producto</option>
-                    <option value="Disponible">Disponible</option>
-                    <option value="No disponible">No disponible</option>
-                </Form.Select>
-            </Col>
+    return (
+        <Col xs={2}>
+            <Form.Label>Estado del producto</Form.Label>
+            <Form.Select className={"form-select-custome" + missed} onChange={saveValue}>
+                <option value=""></option>
+                <option value="Disponible">Disponible</option>
+                <option value="No disponible">No disponible</option>
+            </Form.Select>
+        </Col>
 
-        )
-    } else {
-        return (
-            <Col xs="auto">
-                <Form.Select className="form-select-custome" onChange={saveValue}>
-                    <option value=""> Estado del producto</option>
-                    <option value="Disponible">Disponible</option>
-                    <option value="No disponible">No disponible</option>
-                </Form.Select>
-            </Col>
-
-        )
-    }
+    )
 
 }
 

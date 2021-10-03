@@ -17,13 +17,19 @@ function App() {
     <div className="container2">
       <Router>
         <Switch>
+          <Route
+            exact
+            path="/categories/sales/updateinputsales"
+            component={Updateinfosales}
+          />
           <Route exact path="/categories" component={Category} />
-          <Route exact path="/categories/products" component={Products} />
+
           <Route
             exact
             path="/categories/update_products"
             component={RegisterProducts}
           />
+          <Route exact path="/categories/products" component={Products} />
           <Route exact path="/categories/sales" component={Sales} />
           <Route
             exact
@@ -33,8 +39,6 @@ function App() {
           <Route exact path="/categories/users " component={Users} />
           <Route exact path="/" component={Authentication} />
           <Route exact component={NotFound} />
-
-          <Route exact path="/categories/sales/updateinputsales" component={Updateinfosales}/>
         </Switch>
       </Router>
     </div>
