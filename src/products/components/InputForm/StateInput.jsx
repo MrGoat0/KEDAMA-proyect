@@ -14,8 +14,8 @@ const State = (props) => {
     }
     return (
         <Col xs={2}>
-            <Form.Label>Estado del producto</Form.Label>
-            <Form.Select className={"form-select-custome" + missed} onChange={saveValue}>
+            <Form.Label>Estado</Form.Label>
+            <Form.Select id="state-input" className={"statePicker form-select-custome" + missed} onChange={saveValue}>
                 <option value=""></option>
                 <option value="Disponible">Disponible</option>
                 <option value="No disponible">No disponible</option>

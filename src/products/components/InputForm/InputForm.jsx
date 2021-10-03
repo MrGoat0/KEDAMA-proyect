@@ -8,17 +8,17 @@ import RegisterButton from "./RegisterButton.jsx";
 import { useState } from "react";
 
 const ImputForm = (props) => {
-    const { pageSwitch, records, setRecord, setShow, setAlert, autoId, setId, searchId, setSearchId } = props;
-    const [description, setDescription] = useState("");
-    const [price, setPrice] = useState("");
-    const [state, setState] = useState("");
+    const { description, setDescription, price, setPrice,
+        state, setState, pageSwitch, records, setRecord,
+        setShow, setAlert, autoId, setId, setSearchId } = props;
+
     const [missing, setMissing] = useState({ description: false, price: false, state: false });
 
     if (pageSwitch === "Register") {
         return (
             <Row className="d-flex justify-content-center">
                 <AutoId setSearchId={setSearchId} />
-                <Product setDescription={setDescription} missingInput={missing.description} />
+                <Product setDescription={setDescription} missingInput={missing.description} description={description} />
                 <Price setPrice={setPrice} missingInput={missing.price} />
                 <State setState={setState} missingInput={missing.state} />
                 {/* <Filter /> */}

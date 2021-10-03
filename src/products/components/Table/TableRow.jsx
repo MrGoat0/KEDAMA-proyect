@@ -1,7 +1,7 @@
-import { Button, Row, Col } from "react-bootstrap";
+// import React from "react";
 
 const TableRow = (props) => {
-    const { row, search } = props;
+    const { row, search, setDescription, setPrice, setState } = props;
 
     if (search) {
         if (search.id === row.id)
@@ -10,8 +10,19 @@ const TableRow = (props) => {
         var color = ""
     }
 
+    const rowPicked = (event) => {
+        document.getElementById("product-input").value = row.description
+        setDescription(row.description)
+
+        document.getElementById("price-input").value = row.price
+        setPrice(row.price)
+
+        document.getElementById("state-input").value = row.state
+        setState(row.state)
+    }
+
     return (
-        <tr>
+        <tr onClick={rowPicked}>
             <td bgcolor={color}>{row.id}</td>
             <td bgcolor={color}>{row.description}</td>
             <td bgcolor={color}>{row.price}</td>
