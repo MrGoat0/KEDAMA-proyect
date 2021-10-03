@@ -4,7 +4,7 @@ import TableBody from "./TableBody.jsx";
 
 const ProductTable = (props) => {
 
-    const { records, searchId } = props;
+    const { records, searchId, setDescription, setPrice, setState } = props;
     if (searchId) {
         var filteredRecords = records.find((item) => item.id === parseInt(searchId));
         if (filteredRecords) {
@@ -23,7 +23,11 @@ const ProductTable = (props) => {
     return (
         <Table className="table" size="sm" striped bordered hover variant="dark">
             <TableHeader isEmpty={rows.length === 0} />
-            <TableBody records={rows} search={filteredRecords} />
+            <TableBody records={rows}
+                search={filteredRecords}
+                setDescription={setDescription}
+                setPrice={setPrice}
+                setState={setState} />
         </Table>
 
     )

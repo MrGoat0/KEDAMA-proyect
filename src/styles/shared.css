@@ -63,3 +63,7 @@
 .hidden {
   visibility: hidden;
 }
+
+.statePicker {
+  border-radius: 5px;
+}

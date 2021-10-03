@@ -14,8 +14,6 @@ const RegisterButton = (props) => {
             setMissing({ description: false, price: false, state: false })
 
         } else {
-
-
             if (description !== "") {
                 missing.description = false
             } else { missing.description = true }
@@ -28,8 +26,6 @@ const RegisterButton = (props) => {
             setMissing(missing)
             setShow(true)
             setAlert("danger")
-
-
         }
     }
 
