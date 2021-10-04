@@ -13,7 +13,7 @@ const Product = (props) => {
         setDescription(event.target.value)
     }
     return (
-        <Col xs={3}>
+        <Col xs={6}>
             <Form.Label>
                 Producto
             </Form.Label>

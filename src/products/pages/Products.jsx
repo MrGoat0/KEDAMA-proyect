@@ -11,7 +11,7 @@ import '../../styles/category.css';
 
 const Products = () => {
     const [records, setRecord] = useState([]);
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
     const [alertType, setAlert] = useState("danger");
     const [autoId, setId] = useState(10000);
     const [searchId, setSearchId] = useState();
@@ -26,8 +26,56 @@ const Products = () => {
 
             <ProductNav navSwitch={"Register"} page={"products"} />
 
-
             <Container className="dark-background-body">
+
+                <Row className="mb-4">
+                    <span>Registre productos diligenciando su descripción, valor unitario y estado de disponibilidad.</span>
+                </Row>
+
+                <Row className="d-flex justify-content-center">
+                    <Col>
+                        <Row>
+                            <InputForm description={description}
+                                setDescription={setDescription}
+                                price={price}
+                                setPrice={setPrice}
+                                state={state}
+                                setState={setState}
+                                pageSwitch={"Register"}
+                                records={records}
+                                setRecord={setRecord}
+                                setShow={setShow}
+                                setAlert={setAlert}
+                                autoId={autoId}
+                                setId={setId}
+                                setSearchId={setSearchId} />
+                        </Row>
+                        <Row className="d-flex justify-content-center mt-3">
+                            <Alerts show={show}
+                                setShow={setShow}
+                                alertType={alertType}
+                                autoId={autoId} />
+                        </Row>
+                    </Col>
+
+
+                    <Col className="d-flex justify-content-center ml-2 mt-3">
+                        <Row >
+                            <ProductTable records={records}
+                                searchId={searchId}
+                                setDescription={setDescription}
+                                setPrice={setPrice}
+                                setState={setState} />
+                        </Row>
+                    </Col>
+                </Row>
+
+
+
+            </Container>
+
+
+            {/* <Container className="dark-background-body">
                 <Row className="d-flex justify-content-center mb-3">
                     <Col xs={12}>
                         <InputForm description={description}
@@ -65,7 +113,7 @@ const Products = () => {
                             setState={setState} />
                     </Col>
                 </Row>
-            </Container>
+            </Container> */}
 
             <Footer />
         </div>
