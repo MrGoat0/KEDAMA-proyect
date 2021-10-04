@@ -1,0 +1,15 @@
+.grid-buttons {
+  background-color: #1b262c;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.container-Category {
+  width: 100%;
+  height: 100%;
+}
+h1{
+  color:white;
+}
