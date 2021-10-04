@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../shared/Header.jsx";
+import Footer from "../../shared/Footer";
 import VentasNav from "../components/VentasNav"
 import '../../styles/Sales/ventas.css';
 import '../../styles/Sales/ventas.css';
@@ -76,7 +77,7 @@ return(
                 <div class="form-right-side-title d-flex justify-content-center flex-column align-items-center h-25">
                     <h2 class="pt-2 mb-2"> <strong>Facturación</strong></h2>
                 </div>
-                <div class="form-right-side-sell d-flex flex-column px-5 py-4">
+                <div class="form-right-side-sell d-flex flex-column px-5 py-4 pb-4">
                     <div class="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
                         <div class="p-1"> <h5>Fecha: </h5> </div>
                         <div class="p-1"> _________ </div>
@@ -105,10 +106,8 @@ return(
                 </div>
             </div>
         </div>
-        <footer>
-            <h1>Gestión de ventas</h1>
-        </footer>
     </div>
+    {/* <Footer/> */}
     </body>
     </div>
 )

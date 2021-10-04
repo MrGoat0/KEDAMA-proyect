@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../shared/Header.jsx";
+import Footer from "../../shared/Footer";
 import VentasNav from "../components/VentasNav"
 import '../../styles/Sales/listadoVentas.css';
 const SalesList = () => {
@@ -8,7 +9,8 @@ return(
         <body>
     <div class="container-fluid p-0 d-flex flex-column h-100">
     <Header/>
-        <div class="container-fluid p-2 d-flex flex-row h-100">
+
+        <div class="container-fluid p-2 pb-4 d-flex flex-row h-100">
             <div class="search-options-box d-flex flex-column">
                 <div class="info-text flex-column px-4 py-3 ">
                     <div class="text-start text-center">
@@ -70,21 +72,185 @@ return(
                 <VentasNav VentaSwitch={"Management"} />
                 </div>
                 <div class="tableView d-flex flex-row h-100 p-2 border border">
-                    <div class="TableinTouch d-flex border border"></div>
+                    <div class="TableinTouch d-flex flex-column justify-content-start p-3 border border">
+                    <table class="table-responsive-xxl table-striped table-hover ">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Producto</th>
+      <th scope="col">cantidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">9</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">10</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">11</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">12</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">13</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">14</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">15</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">16</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">17</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">18</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">19</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">20</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">21</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th scope="row">22</th>
+      <td>01/01/2021</td>
+      <td>producto #</td>
+      <td>MasterFill</td>
+      <td>10000</td>
+    </tr>
+    
+  </tbody>
+</table>
+        
+                    </div>
                     <div class="ScrollTable d-flex border border"></div>
                 </div>
-            </div>
+            </div>   
         </div>
-        <footer>
-            <h1>Gestión de ventas</h1>
-        </footer>    
+        {/* <div className="d-flex flex-row p-5">
+        <Footer />
+        </div> */}
     </div>
-    
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-      crossorigin="anonymous">
-    </script>
 </body>
     </div>
 )
