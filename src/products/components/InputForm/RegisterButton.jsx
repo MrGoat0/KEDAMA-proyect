@@ -1,15 +1,13 @@
 import { Button, Col, Row } from "react-bootstrap";
 
 const RegisterButton = (props) => {
-    const { records, setRecord, description, price, state,
-        setShow, setAlert, autoId, setId, missing, setMissing } = props;
+    const { records, setRecord, description, price, state, setAlert, autoId, setId, missing, setMissing } = props;
 
     const handleClic = (event) => {
         if (description !== "" && price !== "" && state !== "") {
             setRecord([...records,
             { id: autoId, description: description, price: parseInt(price), state: state }]);
-            setShow(true)
-            setAlert("success")
+            setAlert({ show: true, type: "success" })
             setId(autoId + 1)
             setMissing({ description: false, price: false, state: false })
 
@@ -23,9 +21,8 @@ const RegisterButton = (props) => {
             if (state !== "") {
                 missing.state = false
             } else { missing.state = true }
+            setAlert({ show: true, type: "danger" })
             setMissing(missing)
-            setShow(true)
-            setAlert("danger")
         }
     }
 

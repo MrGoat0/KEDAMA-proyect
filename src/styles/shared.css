@@ -22,13 +22,13 @@
 }
 
 .dark-background-nav {
-  background-color: #1b262c;
+  /* background-color: #1b262c; */
   flex-direction: column;
 }
 
 .dark-background-body {
   color: white;
-  background-color: #1b262c;
+  /* background-color: #1b262c; */
   padding-bottom: 50px;
   min-height: 100%;
   max-height: auto;

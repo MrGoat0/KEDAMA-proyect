@@ -1,27 +1,25 @@
 import { Button, Alert, Row, Col } from "react-bootstrap";
 
 const Alerts = (props) => {
-    const { show, setShow, alertType, autoId } = props;
-    var newLine = ""
-    var showID = ""
+    const { alert, setAlert, autoId } = props;
 
-    if (alertType === "success") {
+
+    if (alert.type === "success") {
         var message = "Producto registrado existosamente con el ID "
-        newLine += ""
-        showID = autoId - 1
-    } else if (alertType === "danger") {
+        var showID = autoId - 1
+    } else if (alert.type === "danger") {
         message = "Diligencie todos los campos requeridos."
     }
 
     return (
-        <Alert show={show} variant={alertType}>
+        <Alert show={alert.show} variant={alert.type}>
             <Row>
                 <Col xs="auto">
-                    {message} <b>{showID}</b> <br /> {newLine}
+                    {message} <b>{showID}</b>
                 </Col>
-                <Col>
-                    <Button onClick={() => setShow(false)}
-                        variant={"outline-" + alertType}>
+                <Col className="d-flex justify-content-end">
+                    <Button onClick={() => setAlert({ show: false, type: alert.type })}
+                        variant={"outline-" + alert.type}>
                         Entendido
                     </Button>
 

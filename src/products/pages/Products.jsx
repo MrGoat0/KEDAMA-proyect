@@ -11,8 +11,7 @@ import '../../styles/category.css';
 
 const Products = () => {
     const [records, setRecord] = useState([]);
-    const [show, setShow] = useState(false);
-    const [alertType, setAlert] = useState("danger");
+    const [alert, setAlert] = useState({ show: false, type: "danger" });
     const [autoId, setId] = useState(10000);
     const [searchId, setSearchId] = useState();
     const [description, setDescription] = useState("");
@@ -29,7 +28,8 @@ const Products = () => {
             <Container className="dark-background-body">
 
                 <Row className="mb-4">
-                    <span>Registre productos diligenciando su descripción, valor unitario y estado de disponibilidad.</span>
+                    <span>Registre productos diligenciando su descripción,
+                        valor unitario y estado de disponibilidad.</span>
                 </Row>
 
                 <Row className="d-flex justify-content-center">
@@ -41,19 +41,16 @@ const Products = () => {
                                 setPrice={setPrice}
                                 state={state}
                                 setState={setState}
-                                pageSwitch={"Register"}
                                 records={records}
                                 setRecord={setRecord}
-                                setShow={setShow}
                                 setAlert={setAlert}
                                 autoId={autoId}
                                 setId={setId}
                                 setSearchId={setSearchId} />
                         </Row>
                         <Row className="d-flex justify-content-center mt-3">
-                            <Alerts show={show}
-                                setShow={setShow}
-                                alertType={alertType}
+                            <Alerts alert={alert}
+                                setAlert={setAlert}
                                 autoId={autoId} />
                         </Row>
                     </Col>
