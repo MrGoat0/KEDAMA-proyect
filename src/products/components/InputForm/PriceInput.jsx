@@ -1,16 +1,17 @@
 import { Form, Col } from "react-bootstrap";
 
 const Price = (props) => {
-    const { setPrice, missingInput } = props;
+    const { info, setInfo, missingInput } = props;
 
     if (missingInput) {
         var missed = "missing-cell"
     } else {
-        var missed = ""
+        missed = ""
     }
 
     const saveValue = (event) => {
-        setPrice(event.target.value)
+        info.price = event.target.value
+        setInfo(info)
     }
 
     return (

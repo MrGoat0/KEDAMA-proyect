@@ -8,8 +8,8 @@ const ProductNav = (props) => {
         var href1 = "/categories/products"
         var href2 = "/categories/update_products"
     } else if (page === "sales") {
-        var href1 = "/categories/sales"
-        var href2 = "/categories/sales/updateinputsales"
+        href1 = "/categories/sales"
+        href2 = "/categories/sales/updateinputsales"
     }
 
     if (navSwitch === "Register") {

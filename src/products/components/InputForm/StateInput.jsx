@@ -1,16 +1,17 @@
 import { Form, Col } from "react-bootstrap"
 
 const State = (props) => {
-    const { setState, missingInput } = props;
+    const { info, setInfo, missingInput } = props;
 
     if (missingInput) {
         var missed = " missing-cell"
     } else {
-        var missed = ""
+        missed = ""
     }
 
     const saveValue = (event) => {
-        setState(event.target.value)
+        info.state = event.target.value
+        setInfo(info)
     }
     return (
         <Col xs={6}>
