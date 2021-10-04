@@ -15,6 +15,7 @@ const Products = () => {
     const [alertType, setAlert] = useState("danger");
     const [autoId, setId] = useState(10000);
     const [searchId, setSearchId] = useState();
+    const [searchDescription, setsearchDescription] = useState();
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [state, setState] = useState("");
@@ -43,7 +44,9 @@ const Products = () => {
                             setAlert={setAlert}
                             autoId={autoId}
                             setId={setId}
-                            setSearchId={setSearchId} />
+                            setSearchId={setSearchId}
+                            setsearchDescription={setsearchDescription}
+                            />
                     </Col>
                 </Row>
                 <Row>
@@ -60,6 +63,7 @@ const Products = () => {
                     <Col xs={12}>
                         <ProductTable records={records}
                             searchId={searchId}
+                            searchDescription={searchDescription}
                             setDescription={setDescription}
                             setPrice={setPrice}
                             setState={setState} />

@@ -6,7 +6,7 @@ const Product = (props) => {
     if (missingInput) {
         var missed = "missing-cell"
     } else {
-        var missed = ""
+       missed = ""
     }
 
     const saveValue = (event) => {

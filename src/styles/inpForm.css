@@ -1,0 +1,10 @@
+#global {
+	height: 20px;
+	width: 90%;
+	border: 1px solid #ddd;
+    position: fixed;
+	overflow-y: scroll;
+}
+#mensajes {
+	height: 20px;
+}
