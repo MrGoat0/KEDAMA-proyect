@@ -9,10 +9,10 @@ import Col from 'react-bootstrap/Col'
 import Footer from "../../shared/Footer.jsx";
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
 
-import Table from 'react-bootstrap/Table'
+// import Table from 'react-bootstrap/Table'
 
 
-const UpdateState = () => {
+const Updaterolusers = () => {
   return (
     <div className="dark-background-body">
 
@@ -30,20 +30,26 @@ const UpdateState = () => {
 
               </Form.Group>
 
+              <Link to="/categories/users">
+            <Button variant="primary" type="submit" className="float-right" >
+              Listar
+            </Button>
+            </Link>
+
+            <Link to="/categories/users/updateinfousers">
               <Button variant="primary" type="submit" className="float-right" >
-                Listar
+                Actualizar
               </Button>
+            </Link>
 
-              <Link to="/sales/updateinputsales">
-                <Button variant="primary" type="submit" className="float-right" >
-                  Actualizar
-                </Button>
-              </Link>
 
-              <Button variant="primary" type="submit" className="float-right" >
-                Cambiar Rol
-              </Button>
 
+
+            <Link to="/categories/users/updaterolusers">
+            <Button variant="primary" type="submit" className="float-right" >
+              Cambiar Rol
+            </Button>
+            </Link>
 
             </Form>
 
@@ -57,14 +63,14 @@ const UpdateState = () => {
 
               <Form.Label>Estado</Form.Label>
 
-              <FloatingLabel controlId="floatingSelect" label="Works with selects"  >
+              <FloatingLabel controlId="floatingSelect" label=""  >
                 <Form.Select aria-label="Floating label select example" >
                   <option>Estado</option>
                   <option value="1">Activo</option>
                   <option value="2">Inactivo</option>
                 </Form.Select>
               </FloatingLabel>
-              <FloatingLabel controlId="floatingSelect" label="Works with selects" >
+              <FloatingLabel controlId="floatingSelect" label="" >
                 <Form.Select aria-label="Floating label select example" >
                   <Form.Label>Rol</Form.Label>
                   <option>Rol</option>
@@ -95,4 +101,4 @@ const UpdateState = () => {
   )
 
 }
-export default UpdateState
+export default Updaterolusers

@@ -17,7 +17,7 @@ const Updateinfosales = () => {
   return (
     <div className="container-Category">
 
-      <Header headerText={"Actualización de ventas"} />
+      <Header headerText={"Actualización de usuarios"} />
       <ProductNav navSwitch={"Management"} page={"sales"} />
 
       <Container className="dark-background-body">
