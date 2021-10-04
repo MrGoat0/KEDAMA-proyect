@@ -5,11 +5,11 @@ import TableBody from "./TableBody.jsx";
 const ProductTable = (props) => {
 
     const { records, searchId, setDescription, setPrice, setState,searchDescription } = props;
-  console.log(rows)
+
     if (records){
         for (let index = 0; index < records.length; index++) {
            
-            if (Object.keys(records[index]).length==0){
+            if (Object.keys(records[index]).length===0){
                 console.log(records[index])
                 records.splice(index,1);
                 console.log(records[index])
@@ -39,9 +39,9 @@ const ProductTable = (props) => {
         if (filteredRecords) {
            
             const inLoc = records.indexOf(filteredRecords);
-            var searchFirst = [...records]
+             searchFirst = [...records]
             searchFirst.splice(inLoc, 3)
-            var rows = [filteredRecords, ...searchFirst]
+             rows = [filteredRecords, ...searchFirst]
            
         } else {
             rows = [...records]
