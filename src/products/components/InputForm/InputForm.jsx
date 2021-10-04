@@ -1,4 +1,4 @@
-import { Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import AutoId from "./AutoId.jsx"
 import Product from "./ProductInput.jsx";
 import Price from "./PriceInput.jsx";
@@ -16,25 +16,37 @@ const ImputForm = (props) => {
 
     if (pageSwitch === "Register") {
         return (
-            <Row className="d-flex justify-content-center">
-                <AutoId setSearchId={setSearchId} />
-                <Product setDescription={setDescription}
-                    missingInput={missing.description} />
-                <Price setPrice={setPrice} missingInput={missing.price} />
-                <State setState={setState} missingInput={missing.state} />
-                {/* <Filter /> */}
-                <RegisterButton records={records}
-                    setRecord={setRecord}
-                    description={description}
-                    price={price}
-                    state={state}
-                    setShow={setShow}
-                    setAlert={setAlert}
-                    autoId={autoId}
-                    setId={setId}
-                    missing={missing}
-                    setMissing={setMissing} />
-            </Row>)
+            <Container className="mt-3">
+
+
+                <Row className="d-flex justify-content-center mb-4">
+                    <Product setDescription={setDescription}
+                        missingInput={missing.description} />
+                    <Price setPrice={setPrice} missingInput={missing.price} />
+                </Row>
+
+                <Row className="d-flex justify-content-center mb-2">
+                    <State setState={setState} missingInput={missing.state} />
+                    <AutoId setSearchId={setSearchId} />
+                </Row>
+
+                <Row className="d-flex justify-content-center mb-4">
+
+                    {/* <Filter /> */}
+                    <RegisterButton records={records}
+                        setRecord={setRecord}
+                        description={description}
+                        price={price}
+                        state={state}
+                        setShow={setShow}
+                        setAlert={setAlert}
+                        autoId={autoId}
+                        setId={setId}
+                        missing={missing}
+                        setMissing={setMissing} />
+                </Row>
+            </Container>
+        )
     } else {
         return (<Row className="d-flex justify-content-center">
             <Product />

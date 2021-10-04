@@ -5,10 +5,10 @@ const TableHeader = (props) => {
             <thead>
                 <tr>
                     <th width="80px">Id</th>
-                    <th width="600px">Producto</th>
-                    <th width="130px">Valor unitario</th>
-                    <th width="130px">Estado</th>
-                    <th width="110px">Acción</th>
+                    <th width="300px">Producto</th>
+                    <th width="150px">Valor unitario</th>
+                    <th width="140px">Estado</th>
+                    {/* <th width="110px">Acción</th> */}
                 </tr>
             </thead>
         )

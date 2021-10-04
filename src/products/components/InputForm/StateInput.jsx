@@ -13,7 +13,7 @@ const State = (props) => {
         setState(event.target.value)
     }
     return (
-        <Col xs={2}>
+        <Col xs={6}>
             <Form.Label>Estado</Form.Label>
             <Form.Select id="state-input" className={"statePicker form-select-custome" + missed} onChange={saveValue}>
                 <option value=""></option>

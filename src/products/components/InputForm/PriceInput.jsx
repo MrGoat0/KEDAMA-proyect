@@ -14,12 +14,11 @@ const Price = (props) => {
     }
 
     return (
-        <div>
-            <Col xs={"auto"}>
-                <Form.Label>Valor unitario</Form.Label>
-                <Form.Control id="price-input" className={missed} onChange={saveValue} type="number" placeholder="Valor unitario ($COP)" />
-            </Col >
-        </div>
+
+        <Col xs={6}>
+            <Form.Label>Valor unitario</Form.Label>
+            <Form.Control id="price-input" className={missed} onChange={saveValue} type="number" placeholder="Valor unitario ($COP)" />
+        </Col >
     )
 
 }
