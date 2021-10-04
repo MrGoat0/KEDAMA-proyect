@@ -1,3 +1,4 @@
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "../../shared/Header.jsx";
 import Footer from "../../shared/Footer.jsx";
@@ -5,9 +6,10 @@ import InputForm from "../components/InputForm/InputForm.jsx";
 import ProductTable from "../components/Table/ProductTable.jsx";
 import ProductNav from "../../shared/ProductNav.jsx";
 // import Alerts from "../components/InputForm/Alerts.jsx";
-import React, { useState } from "react";
+import  { useState } from "react";
 import "../../styles/shared.css"
 import '../../styles/category.css';
+
 
 const ProductsList = () => {
     const [records, setRecord] = useState([]);
@@ -42,4 +44,4 @@ const ProductsList = () => {
     )
 
 }
-export default ProductsList
+export default ProductsList;

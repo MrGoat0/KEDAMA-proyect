@@ -1,0 +1,24 @@
+html,body{
+    height:100%;
+    width: 100%;
+    padding: 0%;
+}
+div{
+    margin:0;
+    padding:0;
+}
+.proyectTitle{
+    height:11%;
+    margin-bottom: 1%;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.proyect-features{
+    height:68.5%;
+}
+.proyect-info{
+    height:68.5%;
+    padding-top:5%;
+    padding-bottom: 0%; 
+}

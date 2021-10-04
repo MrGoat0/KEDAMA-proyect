@@ -1,7 +1,8 @@
 import React from "react";
 
 import Category from "./home/pages/SelectCategory.jsx";
-import Authentication from "./home/pages/Auth.jsx";
+import Authentication from "./home/pages/Authentication.jsx";
+import About from "./home/pages/About.jsx";
 import Products from "./products/pages/Products.jsx";
 import RegisterProducts from "./products/pages/ProductsList.jsx";
 import Sales from "./sales/pages/Sales.jsx";
@@ -22,6 +23,8 @@ function App() {
             path="/categories/sales/updateinputsales"
             component={Updateinfosales}
           />
+          <Route exact path="/" component={Authentication} />
+          <Route exact path="/About" component={About} />
           <Route exact path="/categories" component={Category} />
 
           <Route
@@ -37,7 +40,6 @@ function App() {
             component={RegisterSales}
           />
           <Route exact path="/categories/users " component={Users} />
-          <Route exact path="/" component={Authentication} />
           <Route exact component={NotFound} />
         </Switch>
       </Router>
