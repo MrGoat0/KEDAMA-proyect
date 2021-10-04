@@ -12,6 +12,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel'
 
 // import Table from 'react-bootstrap/Table'
 
+
 const Updateinfosales = () => {
   return (
     <div className="container-Category">
