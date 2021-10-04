@@ -8,7 +8,6 @@ const TableHeader = (props) => {
                     <th width="600px">Producto</th>
                     <th width="130px">Valor unitario</th>
                     <th width="130px">Estado</th>
-                    {/* <th width="110px">Acción</th> */}
                 </tr>
             </thead>
         )
