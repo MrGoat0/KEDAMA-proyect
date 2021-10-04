@@ -1,20 +1,17 @@
 import TableRow from "./TableRow";
 
 const TableBody = (props) => {
-
-    const { records, search, setDescription, setPrice, setState } = props;
+    const { records, search, info, setInfo } = props;
 
     return (
         <tbody>
-
             {records.map((row) => (
-                <TableRow row={row}
+                <TableRow key={row.id}
+                    row={row}
                     search={search}
-                    setDescription={setDescription}
-                    setPrice={setPrice}
-                    setState={setState} />
+                    info={info}
+                    setInfo={setInfo} />
             ))}
-
         </tbody>
     );
 }

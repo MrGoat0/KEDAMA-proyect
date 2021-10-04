@@ -2,7 +2,7 @@ const TableHeader = (props) => {
     const { isEmpty } = props;
     if (!isEmpty) {
         return (
-            <thead>
+            <thead className="thead-style">
                 <tr>
                     <th width="80px">Id</th>
                     <th width="300px">Producto</th>

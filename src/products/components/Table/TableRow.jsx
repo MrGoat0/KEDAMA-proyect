@@ -1,25 +1,21 @@
-// import React from "react";
-import Button from "react-bootstrap/Button"
+// import Button from "react-bootstrap/Button"
 
 const TableRow = (props) => {
-    const { row, search, setDescription, setPrice, setState } = props;
+    const { row, search, info, setInfo } = props;
 
     if (search) {
         if (search.id === row.id)
             var color = "#008891"
     } else {
-        var color = ""
+        color = ""
     }
 
     const rowPicked = (event) => {
         document.getElementById("product-input").value = row.description
-        setDescription(row.description)
-
         document.getElementById("price-input").value = row.price
-        setPrice(row.price)
-
         document.getElementById("state-input").value = row.state
-        setState(row.state)
+
+        setInfo({ id: info.id, description: row.description, price: row.price, state: row.state })
     }
 
     return (
