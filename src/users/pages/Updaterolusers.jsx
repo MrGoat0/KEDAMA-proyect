@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Header from "../../shared/Header.jsx";
-import ProductNav from "../../shared/ProductNav.jsx";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -12,14 +11,15 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel'
 
 import Table from 'react-bootstrap/Table'
 
-const Updateinfosales = () => {
+
+const Updaterolusers = () => {
   return (
-    <div className="container-Category">
+    <div className="dark-background-body">
 
-      <Header headerText={"Actualización de usuarios"} />
-      <ProductNav navSwitch={"Management"} page={"sales"} />
+      <Header headerText={"Actualización de roles"} />
 
-      <Container className="dark-background-body">
+
+      <Container>
         <Row>
           <Col >
 
@@ -30,20 +30,26 @@ const Updateinfosales = () => {
 
               </Form.Group>
 
+              <Link to="/categories/users">
+            <Button variant="primary" type="submit" className="float-right" >
+              Listar
+            </Button>
+            </Link>
+
+            <Link to="/categories/users/updateinfousers">
               <Button variant="primary" type="submit" className="float-right" >
-                Listar
+                Actualizar
               </Button>
+            </Link>
 
-              <Link href="/categories/sales/updateinputsales">
-                <Button variant="primary" type="submit" className="float-right" >
-                  Actualizar
-                </Button>
-              </Link>
 
-              <Button variant="primary" type="submit" className="float-right" >
-                Cambiar Rol
-              </Button>
 
+
+            <Link to="/categories/users/updaterolusers">
+            <Button variant="primary" type="submit" className="float-right" >
+              Cambiar Rol
+            </Button>
+            </Link>
 
             </Form>
 
@@ -54,24 +60,17 @@ const Updateinfosales = () => {
           <Col >
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Nombres</Form.Label>
-              <Form.Control type="name" placeholder="Nombres" />
-              <Form.Label>Apellidos</Form.Label>
-              <Form.Control type="name" placeholder="Apellidos" />
-              <Form.Label>Identificacion</Form.Label>
-              <Form.Control type="name" placeholder="Identificacion" />
-              <Form.Label>Procedencia</Form.Label>
-              <Form.Control type="name" placeholder="Procedencia" />
+
               <Form.Label>Estado</Form.Label>
 
-              <FloatingLabel controlId="floatingSelect" label="Works with selects"  >
+              <FloatingLabel controlId="floatingSelect" label=""  >
                 <Form.Select aria-label="Floating label select example" >
                   <option>Estado</option>
                   <option value="1">Activo</option>
                   <option value="2">Inactivo</option>
                 </Form.Select>
               </FloatingLabel>
-              <FloatingLabel controlId="floatingSelect" label="Works with selects" >
+              <FloatingLabel controlId="floatingSelect" label="" >
                 <Form.Select aria-label="Floating label select example" >
                   <Form.Label>Rol</Form.Label>
                   <option>Rol</option>
@@ -100,5 +99,6 @@ const Updateinfosales = () => {
       </Container>
     </div>
   )
+
 }
-export default Updateinfosales
+export default Updaterolusers

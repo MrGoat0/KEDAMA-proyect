@@ -14,7 +14,7 @@ const Sales = () => {
   return (
     <div className="container-Category">
 
-      <Header headerText={"Registro de ventas"} />
+      <Header headerText={"Listar usuarios"} />
 
       <ProductNav navSwitch={"Register"} page={"sales"} />
 

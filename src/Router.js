@@ -9,7 +9,11 @@ import RegisterSales from "./sales/pages/SalesList.jsx";
 import Users from "./users/pages/Users.jsx";
 import NotFound from "./shared/NotFound.jsx";
 import "./styles/index.css";
-import Updateinfosales from "./sales/pages/Updateinfosales.jsx";
+import Updateinfousers from "./users/pages/Updateinfousers.jsx";
+import Updaterolusers from "./users/pages/Updaterolusers.jsx";
+
+
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -19,9 +23,19 @@ function App() {
         <Switch>
           <Route
             exact
-            path="/categories/sales/updateinputsales"
-            component={Updateinfosales}
+            path="/categories/users/updateinfousers"
+            component={Updateinfousers}
           />
+
+          <Route
+            exact
+            path="/categories/users/updaterolusers"
+            component={Updaterolusers}
+          />
+         
+
+        
+
           <Route exact path="/categories" component={Category} />
 
           <Route
@@ -36,7 +50,8 @@ function App() {
             path="/categories/register_sales"
             component={RegisterSales}
           />
-          <Route exact path="/categories/users " component={Users} />
+
+           <Route exact path="/categories/users" component={Users} />
           <Route exact path="/" component={Authentication} />
           <Route exact component={NotFound} />
         </Switch>
