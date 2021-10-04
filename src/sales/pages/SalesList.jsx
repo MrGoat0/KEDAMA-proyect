@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../shared/Header.jsx";
-import Footer from "../../shared/Footer";
+// import Footer from "../../shared/Footer";
 import VentasNav from "../components/VentasNav"
 import '../../styles/Sales/listadoVentas.css';
 const SalesList = () => {
