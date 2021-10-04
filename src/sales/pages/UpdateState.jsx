@@ -16,7 +16,7 @@ const UpdateState = () => {
   return (
     <div className="dark-background-body">
 
-      <Header headerText={"Actualización"} />
+      <Header headerText={"Actualización de roles"} />
 
 
       <Container>
