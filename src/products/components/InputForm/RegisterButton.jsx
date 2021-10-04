@@ -32,7 +32,7 @@ const RegisterButton = (props) => {
     return (
         <Col xs="auto">
             < Row >
-                <label className="hidden">Registro</label>
+                <label className="hidden">Buscar</label>
             </Row >
             <Row>
                 <Button className="form-input-buttons ml-2" onClick={handleClic} variant="primary">Registrar</Button>

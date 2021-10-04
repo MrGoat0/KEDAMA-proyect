@@ -18,7 +18,8 @@ const ImputForm = (props) => {
         return (
             <Row className="d-flex justify-content-center">
                 <AutoId setSearchId={setSearchId} />
-                <Product setDescription={setDescription} missingInput={missing.description} description={description} />
+                <Product setDescription={setDescription}
+                    missingInput={missing.description} />
                 <Price setPrice={setPrice} missingInput={missing.price} />
                 <State setState={setState} missingInput={missing.state} />
                 {/* <Filter /> */}

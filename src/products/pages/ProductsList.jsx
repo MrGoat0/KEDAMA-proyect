@@ -13,7 +13,7 @@ const ProductsList = () => {
     const [records, setRecord] = useState([]);
 
     return (
-        <div className="dark-background-body" >
+        <div className="container-Category" >
             {/* <Header /> */}
             <Header headerText={"Actualización de productos"} />
 
