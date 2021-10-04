@@ -8,14 +8,14 @@ import example from '../../styles/AuthenticationStyle/images/example.jpeg'
 const Authentication = () => {
     return (
       <div>
-        <head>
+        {/* <head>
           <title>Sistema de Gestión de Ventas</title>
-        </head>
+        </head> */}
         <body>
           <div className="container-fluid flex-column p-0 h-100 bg-light">
             <Header />
             <div className="proyectTitle d-flex justify-content-center">
-              <h1 className="text-center p-3">Titulo del proyecto</h1>
+              <h1 className="text-center p-3 text-dark">Gestión de productos, ventas y usuarios</h1>
             </div>
             <div className="proyect-features flex-column">
               <div className="proyect-info h-100">

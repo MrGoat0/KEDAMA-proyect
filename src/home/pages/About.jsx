@@ -18,7 +18,7 @@ const About = () => {
         <div className="container-fluid flex-column p-0 h-100">
           <Header />
           <div className="proyectTitle d-flex justify-content-center">
-            <h1 className="text-center p-3 pt-4">SOBRE LOS AUTORES...</h1>
+            <h1 className="text-center p-3 pt-4 text-dark">SOBRE LOS AUTORES...</h1>
           </div>
           <div className="text-center px-5">
             El proyecto de "Titulo del proyecto" hace parte del desarrollo del
