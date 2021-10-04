@@ -9,9 +9,9 @@ const Product = (props) => {
 
     return (
         <Col xs={3}>
-            <Form.Control onChange={saveValue} type="text" placeholder="Producto" />
+            <Form.Control onChange={saveValue} type="text" placeholder="Sales" />
         </Col>
     )
 }
 
-export default Product;
+export default Sales;

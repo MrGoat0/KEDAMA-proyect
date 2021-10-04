@@ -2,7 +2,7 @@ import { Table } from "react-bootstrap";
 import TableHeader from "./TableHeader.jsx";
 import TableBody from "./TableBody.jsx";
 
-const ProductTable = (props) => {
+const SalesTable = (props) => {
 
     const { records, searchId } = props;
     if (searchId) {
@@ -29,4 +29,4 @@ const ProductTable = (props) => {
     )
 }
 
-export default ProductTable;
+export default SalesTable;
