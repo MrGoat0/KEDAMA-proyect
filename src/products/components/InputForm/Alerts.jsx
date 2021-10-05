@@ -13,11 +13,13 @@ const Alerts = (props) => {
 
     return (
         <Alert show={alert.show} variant={alert.type}>
-            <Row>
-                <Col xs={10}>
+            <Row className="d-flex justify-content-center mb-1">
+                <Col >
                     {message} <b>{showID}</b>
                 </Col>
-                <Col xs={2} className="d-flex justify-content-end">
+            </Row>
+            <Row>
+                <Col className="d-flex justify-content-center">
                     <Button onClick={() => setAlert({ show: false, type: alert.type })}
                         variant={"outline-" + alert.type}>
                         Entendido

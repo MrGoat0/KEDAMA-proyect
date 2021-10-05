@@ -31,7 +31,7 @@ const Products = () => {
             <Container className="dark-background-body mt-4">
 
                 <Row className="d-flex justify-content-center">
-                    <Col>
+                    <Col xs={5}>
                         <Row>
                             <InputForm
                                 records={records}
@@ -47,7 +47,7 @@ const Products = () => {
                                 id={info.id} />
                         </Row>
                     </Col>
-                    <Col className="d-flex justify-content-center mt-3">
+                    <Col xs={7} className="d-flex justify-content-center mt-3">
                         <Row >
                             <ProductTable records={records}
                                 searchId={searchId}
