@@ -1,4 +1,4 @@
-// import Button from "react-bootstrap/Button"
+import { Button, Row } from "react-bootstrap"
 
 const TableRow = (props) => {
     const { row, search, info, setInfo } = props;
@@ -24,14 +24,13 @@ const TableRow = (props) => {
             <td bgcolor={color}>{row.description}</td>
             <td bgcolor={color}>{row.price}</td>
             <td bgcolor={color}>{row.state}</td>
-            {/* <td bgcolor={color}>
-                <div>
-                    <Button className="action-buttons ml-2" variant="outline-danger">✖</Button>
-                    <Button className="action-buttons ml-2" variant="outline-success">✏</Button>
+            <td bgcolor={color}>
+                <div className="d-flex justify-content-center">
+                    <Button className="action-buttons" variant="outline-danger">✖</Button>
+                    <Button className="action-buttons ml-1" variant="outline-success">✏</Button>
                 </div>
 
-
-            </td> */}
+            </td>
         </tr>
     )
 }
