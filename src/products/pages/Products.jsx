@@ -3,7 +3,6 @@ import Header from "../../shared/Header.jsx";
 import Footer from "../../shared/Footer.jsx";
 import InputForm from "../components/InputForm/InputForm.jsx";
 import ProductTable from "../components/Table/ProductTable.jsx";
-import ProductNav from "../../shared/ProductNav.jsx";
 import Alerts from "../components/InputForm/Alerts.jsx";
 import React, { useState } from "react";
 import "../../styles/shared.css"
@@ -18,11 +17,9 @@ const Products = () => {
     return (
         <div className="container-Category" >
 
-            <Header headerText={"Registro de productos"} />
+            <Header headerText={"Gestión de productos"} />
 
-            <ProductNav navSwitch={"Register"} page={"products"} />
-
-            <Container className="simple-text">
+            <Container className="mt-5 simple-text">
                 <span>Registre productos diligenciando la descripción,
                     valor unitario y el estado de disponibilidad.
                 </span>
