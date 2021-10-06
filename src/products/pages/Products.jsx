@@ -13,7 +13,7 @@ const Products = () => {
     const [records, setRecord] = useState([]);
     const [info, setInfo] = useState({ id: 10000, description: "", price: "", state: "" });
     const [alert, setAlert] = useState({ show: false, type: "" });
-    const [searchId, setSearchId] = useState(0);
+    const [search, setSearch] = useState("");
 
     return (
         <div className="container-Category" >
@@ -28,7 +28,7 @@ const Products = () => {
                 </span>
             </Container>
 
-            <Container className="dark-background-body mt-4 mb-5">
+            <Container className="dark-background-body mt-4">
 
                 <Row className="d-flex justify-content-center">
                     <Col xs={5} span={true}>
@@ -39,9 +39,9 @@ const Products = () => {
                                 info={info}
                                 setInfo={setInfo}
                                 setAlert={setAlert}
-                                setSearchId={setSearchId} />
+                                setSearch={setSearch} />
                         </Row>
-                        <Row className="d-flex justify-content-center mt-3">
+                        <Row className="d-flex justify-content-center mt-2">
                             <Alerts alert={alert}
                                 setAlert={setAlert}
                                 id={info.id} />
@@ -50,7 +50,7 @@ const Products = () => {
                     <Col xs={7} className="d-flex justify-content-center mt-3" span={true}>
                         <Row >
                             <ProductTable records={records}
-                                searchId={searchId}
+                                search={search}
                                 info={info}
                                 setInfo={setInfo} />
                         </Row>

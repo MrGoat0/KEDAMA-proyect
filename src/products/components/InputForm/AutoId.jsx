@@ -1,16 +1,16 @@
 import { Form, Col } from "react-bootstrap"
 
 const AutoId = (props) => {
-    const { setSearchId } = props;
+    const { setSearch } = props;
     const saveValue = (event) => {
-        setSearchId(event.target.value)
+        setSearch(event.target.value)
     }
 
     return (
 
         <Col xs={6}>
-            <Form.Label>ID</Form.Label>
-            <Form.Control onChange={saveValue} type="number" placeholder="Filtrar por ID" />
+            <Form.Label>Filtrar</Form.Label>
+            <Form.Control onChange={saveValue} type="text" placeholder="Por ID o Descripción" />
         </Col >
     )
 }
