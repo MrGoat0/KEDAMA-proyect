@@ -22,16 +22,16 @@ const Products = () => {
 
             <ProductNav navSwitch={"Register"} page={"products"} />
 
-            <div className="simple-text">
+            <Container className="simple-text">
                 <span>Registre productos diligenciando la descripción,
                     valor unitario y el estado de disponibilidad.
                 </span>
-            </div>
+            </Container>
 
-            <Container className="dark-background-body mt-4">
+            <Container className="dark-background-body mt-4 mb-5">
 
                 <Row className="d-flex justify-content-center">
-                    <Col xs={5}>
+                    <Col xs={5} span={true}>
                         <Row>
                             <InputForm
                                 records={records}
@@ -47,7 +47,7 @@ const Products = () => {
                                 id={info.id} />
                         </Row>
                     </Col>
-                    <Col xs={7} className="d-flex justify-content-center mt-3">
+                    <Col xs={7} className="d-flex justify-content-center mt-3" span={true}>
                         <Row >
                             <ProductTable records={records}
                                 searchId={searchId}

@@ -1,14 +1,7 @@
-import { Button, Row } from "react-bootstrap"
+import { Button } from "react-bootstrap"
 
 const TableRow = (props) => {
-    const { row, search, info, setInfo } = props;
-
-    if (search) {
-        if (search.id === row.id)
-            var color = "#008891"
-    } else {
-        color = ""
-    }
+    const { row, info, setInfo } = props;
 
     const rowPicked = (event) => {
         document.getElementById("product-input").value = row.description
@@ -20,11 +13,11 @@ const TableRow = (props) => {
 
     return (
         <tr onClick={rowPicked}>
-            <td bgcolor={color}>{row.id}</td>
-            <td bgcolor={color}>{row.description}</td>
-            <td bgcolor={color}>{row.price}</td>
-            <td bgcolor={color}>{row.state}</td>
-            <td bgcolor={color}>
+            <td>{row.id}</td>
+            <td>{row.description}</td>
+            <td>{row.price}</td>
+            <td>{row.state}</td>
+            <td>
                 <div className="d-flex justify-content-center">
                     <Button className="action-buttons" variant="outline-danger">✖</Button>
                     <Button className="action-buttons ml-1" variant="outline-success">✏</Button>

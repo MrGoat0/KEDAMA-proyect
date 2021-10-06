@@ -17,8 +17,8 @@ const Price = (props) => {
     return (
 
         <Col xs={6}>
-            <Form.Label>Valor unitario</Form.Label>
-            <Form.Control id="price-input" className={missed} onChange={saveValue} type="number" placeholder="Valor unitario ($COP)" />
+            <Form.Label>Precio</Form.Label>
+            <Form.Control id="price-input" className={missed} onChange={saveValue} type="number" placeholder="Precio unitario" />
         </Col >
     )
 
