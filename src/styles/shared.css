@@ -48,7 +48,8 @@
   position: absolute;
   margin: auto;
   display: block;
-  overflow-x: auto;
+  overflow: auto;
+  padding-bottom: 10px;
 }
 
 .action-buttons {
