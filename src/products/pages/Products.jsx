@@ -13,7 +13,7 @@ const Products = () => {
     const [records, setRecord] = useState([]);
     const [info, setInfo] = useState({ id: 10000, description: "", price: "", state: "" });
     const [alert, setAlert] = useState({ show: false, type: "" });
-    const [searchId, setSearchId] = useState(0);
+    const [search, setSearch] = useState("");
 
     return (
         <div className="container-Category" >
@@ -22,16 +22,16 @@ const Products = () => {
 
             <ProductNav navSwitch={"Register"} page={"products"} />
 
-            <div className="simple-text">
+            <Container className="simple-text">
                 <span>Registre productos diligenciando la descripción,
                     valor unitario y el estado de disponibilidad.
                 </span>
-            </div>
+            </Container>
 
             <Container className="dark-background-body mt-4">
 
                 <Row className="d-flex justify-content-center">
-                    <Col xs={5}>
+                    <Col xs={5} span={true}>
                         <Row>
                             <InputForm
                                 records={records}
@@ -39,18 +39,18 @@ const Products = () => {
                                 info={info}
                                 setInfo={setInfo}
                                 setAlert={setAlert}
-                                setSearchId={setSearchId} />
+                                setSearch={setSearch} />
                         </Row>
-                        <Row className="d-flex justify-content-center mt-3">
+                        <Row className="d-flex justify-content-center mt-2">
                             <Alerts alert={alert}
                                 setAlert={setAlert}
                                 id={info.id} />
                         </Row>
                     </Col>
-                    <Col xs={7} className="d-flex justify-content-center mt-3">
+                    <Col xs={7} className="d-flex justify-content-center mt-3" span={true}>
                         <Row >
                             <ProductTable records={records}
-                                searchId={searchId}
+                                search={search}
                                 info={info}
                                 setInfo={setInfo} />
                         </Row>

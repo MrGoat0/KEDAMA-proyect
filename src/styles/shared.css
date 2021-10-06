@@ -17,7 +17,6 @@
   grid-column-gap: 1%;
   align-items: center;
   justify-items: center;
-  padding: 25px;
 }
 
 .dark-background-nav {
@@ -70,7 +69,6 @@
 
 .simple-text {
   color: white;
-  margin-left: 60px;
 }
 
 .thead-style {

@@ -4,23 +4,31 @@ import TableBody from "./TableBody.jsx";
 
 const ProductTable = (props) => {
 
-    const { records, searchId, info, setInfo } = props;
+    const { records, search, info, setInfo } = props;
 
-    var filteredRecords = records.find((item) => item.id === parseInt(searchId));
-    if (filteredRecords) {
-        const inLoc = records.indexOf(filteredRecords);
-        var searchFirst = [...records]
-        searchFirst.splice(inLoc, 1)
-        var rows = [filteredRecords, ...searchFirst]
+    const removeAccents = (str) => {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    var filteredRecords = records.filter((item) => item.id.toString().includes(search) ||
+        removeAccents(item.description.toLowerCase())
+            .includes(removeAccents(search.toLowerCase())));
+
+    if (filteredRecords.length > 0) {
+        var rows = filteredRecords
     } else {
-        rows = [...records]
+        rows = []
+        // rows = [...records]
     }
 
     return (
-        <Table className="table" size="sm" striped bordered hover variant="dark" responsive="sm">
-            <TableHeader isEmpty={rows.length === 0} />
+        <Table className="table"
+            size="sm"
+            variant="light"
+            responsive="sm"
+            striped bordered hover>
+            <TableHeader />
             <TableBody records={rows}
-                search={filteredRecords}
                 info={info}
                 setInfo={setInfo} />
         </Table>

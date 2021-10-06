@@ -7,20 +7,20 @@ import RegisterButton from "./RegisterButton.jsx";
 import { useState } from "react";
 
 const ImputForm = (props) => {
-    const { records, setRecord, info, setInfo, setAlert, setSearchId } = props;
+    const { records, setRecord, info, setInfo, setAlert, setSearch } = props;
     const [missing, setMissing] = useState({ description: false, price: false, state: false });
 
     return (
         <Container className="mt-3">
 
-            <Row className="d-flex justify-content-center mb-4">
+            <Row className="d-flex justify-content-center mb-3">
                 <Product info={info} setInfo={setInfo} missingInput={missing.description} />
                 <Price info={info} setInfo={setInfo} missingInput={missing.price} />
             </Row>
 
-            <Row className="d-flex justify-content-center mb-2">
+            <Row className="d-flex justify-content-center mb-1">
                 <State info={info} setInfo={setInfo} missingInput={missing.state} />
-                <AutoId setSearchId={setSearchId} />
+                <AutoId setSearch={setSearch} />
             </Row>
 
             <Row className="d-flex justify-content-center mb-4">
