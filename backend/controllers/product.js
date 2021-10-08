@@ -14,21 +14,26 @@ exports.addProducts = (req, res) => {
     price: req.body.price,
     url: req.body.url,
     category: req.body.category,
-    available: req.body.available,
+    available: false,
    
   });
-  productoAdd.save().then((resp)=>{console.log(resp)
-  res.status(201).json("Creado satisfactoriamente")
-  });
-
- exports.getProductId = (req, res) => {
-  Producto.findById(req.params.id).then((productoResult) => {
-    if (productoResult) {
-      res.status(200).json(productoResult);
-    } else {
-      res.status(404).json("Producto no encontrado");
-    }
+ 
+  productoAdd.save().then((createdProduct) => {
+    console.log(createdProduct);
+    res.status(201).json("Creado satisfactoriamente");
   });
 };
 
+
+exports.getProductId = (req, res) => {
+  Producto.findById(req.params.id).then((productoResult) => {
+   if (productoResult) {res.status(200).json(productoResult)} 
+   else {res.status(404).json("Producto no encontrado");}
+ });
+};
+
+exports.getProductAvailable = (req, res) => {
+  Producto.find({available:false}).then((productoResult) => {
+  res.status(200).json(productoResult)
+ });
 };
