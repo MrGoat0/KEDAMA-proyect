@@ -22,3 +22,9 @@ div{
     padding-top:5%;
     padding-bottom: 0%; 
 }
+.card{
+    height: 10%;
+    width: 70%;
+    justify-self: center;
+  
+}
