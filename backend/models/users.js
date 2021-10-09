@@ -6,4 +6,4 @@ const users = mongoose.Schema({
   rol: { type: string },
 });
 
-module.exports = mongoose.model("users", sales);
+module.exports = mongoose.model("users", users);
