@@ -4,7 +4,7 @@ import TableBody from "./TableBody.jsx";
 
 const ProductTable = (props) => {
 
-    const { records, search, info, setInfo } = props;
+    const { records, search, info, setInfo, searchDescription } = props;
 
     const removeAccents = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
