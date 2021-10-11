@@ -10,7 +10,7 @@ import Col from 'react-bootstrap/Col'
 import Footer from "../../shared/Footer.jsx";
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
 
-import Table from 'react-bootstrap/Table'
+// import Table from 'react-bootstrap/Table'
 
 const Updateinfosales = () => {
   return (

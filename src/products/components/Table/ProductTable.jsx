@@ -10,15 +10,14 @@ const ProductTable = (props) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
 
-    var filteredRecords = records.filter((item) => item.id.toString().includes(search) ||
+    var filteredRecords = records.filter((item) => item.id.toString().includes(search.trim()) ||
         removeAccents(item.description.toLowerCase())
-            .includes(removeAccents(search.toLowerCase())));
+            .includes(removeAccents(search.toLowerCase().trim())));
 
     if (filteredRecords.length > 0) {
         var rows = filteredRecords
     } else {
         rows = []
-        // rows = [...records]
     }
 
     return (

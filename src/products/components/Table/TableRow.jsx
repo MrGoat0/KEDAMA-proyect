@@ -4,11 +4,25 @@ const TableRow = (props) => {
     const { row, info, setInfo } = props;
 
     const rowPicked = (event) => {
+
         document.getElementById("product-input").value = row.description
         document.getElementById("price-input").value = row.price
         document.getElementById("state-input").value = row.state
 
-        setInfo({ id: info.id, description: row.description, price: row.price, state: row.state })
+        setInfo({
+            id: info.id,
+            description: row.description,
+            price: row.price,
+            state: row.state
+        })
+    }
+    const deleteThis = () => {
+        row.id = "542"
+        console.log(delete row.id); // Elimino el 'precio' 
+        console.log(delete row.description);
+        console.log(delete row.price);
+        console.log(delete row.state);
+        console.log(row)
     }
 
     return (
@@ -19,8 +33,8 @@ const TableRow = (props) => {
             <td>{row.state}</td>
             <td>
                 <div className="d-flex justify-content-center">
-                    <Button className="action-buttons" variant="outline-danger">✖</Button>
-                    <Button className="action-buttons ml-1" variant="outline-success">✏</Button>
+                    <Button className="action-buttons ml-1" variant="outline-danger">✖</Button>
+                    <Button className="action-buttons ml-2" variant="outline-success">✏</Button>
                 </div>
 
             </td>
