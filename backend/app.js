@@ -2,7 +2,9 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
+const bodyParser = require("body-parser");
 
 // const salesRoutes = require("./routes/sales");
 const productsRoutes = require("./routes/products");
@@ -12,6 +14,8 @@ const productsRoutes = require("./routes/products");
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // connection to database
 const connectionString =

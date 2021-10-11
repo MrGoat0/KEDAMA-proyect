@@ -4,15 +4,27 @@ import Footer from "../../shared/Footer.jsx";
 import InputForm from "../components/InputForm/InputForm.jsx";
 import ProductTable from "../components/Table/ProductTable.jsx";
 import Alerts from "../components/InputForm/Alerts.jsx";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/shared.css"
 import '../../styles/category.css';
+import api from "../../api";
 
 const Products = () => {
     const [records, setRecord] = useState([]);
-    const [info, setInfo] = useState({ id: 10000, description: "", price: "", state: "" });
+    const [info, setInfo] = useState({ id: 0, description: "", price: "", state: "" });
     const [alert, setAlert] = useState({ show: false, type: "" });
     const [search, setSearch] = useState("");
+
+    const fetchGetAll = async () => {
+        const response = await api.products.list();
+        const sortedRecords = response.sort((a, b) => a.id - b.id)
+        setRecord(sortedRecords);
+        info.id = sortedRecords[sortedRecords.length - 1].id
+    };
+
+    useEffect(() => {
+        fetchGetAll()
+    }, []);
 
     return (
         <div className="container-Category" >
@@ -28,7 +40,7 @@ const Products = () => {
             <Container className="dark-background-body mt-4">
 
                 <Row className="d-flex justify-content-center">
-                    <Col xs={5} span={true}>
+                    <Col xs={5}>
                         <Row>
                             <InputForm
                                 records={records}
@@ -44,7 +56,7 @@ const Products = () => {
                                 id={info.id} />
                         </Row>
                     </Col>
-                    <Col xs={7} className="d-flex justify-content-center mt-3" span={true}>
+                    <Col xs={7} className="d-flex justify-content-center mt-3">
                         <Row >
                             <ProductTable records={records}
                                 search={search}

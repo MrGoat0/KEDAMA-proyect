@@ -5,7 +5,7 @@ const Alerts = (props) => {
 
     if (alert.type === "success") {
         var message = "Producto registrado con el ID "
-        var showID = id - 1
+        var showID = id
     } else if (alert.type === "danger") {
         message = "Diligencie todos los campos requeridos."
     }

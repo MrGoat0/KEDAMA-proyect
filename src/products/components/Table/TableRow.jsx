@@ -4,11 +4,17 @@ const TableRow = (props) => {
     const { row, info, setInfo } = props;
 
     const rowPicked = (event) => {
+
         document.getElementById("product-input").value = row.description
         document.getElementById("price-input").value = row.price
         document.getElementById("state-input").value = row.state
 
-        setInfo({ id: info.id, description: row.description, price: row.price, state: row.state })
+        setInfo({
+            id: info.id,
+            description: row.description,
+            price: row.price,
+            state: row.state
+        })
     }
 
     return (

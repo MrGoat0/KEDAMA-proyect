@@ -27,7 +27,6 @@ const ImputForm = (props) => {
                 <RegisterButton records={records}
                     setRecord={setRecord}
                     info={info}
-                    setInfo={setInfo}
                     setAlert={setAlert}
                     missing={missing}
                     setMissing={setMissing} />
