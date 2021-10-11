@@ -6,7 +6,7 @@ const Product = (props) => {
     if (missingInput) {
         var missed = "missing-cell"
     } else {
-        var missed = ""
+       missed = ""
     }
 
     const saveValue = (event) => {
@@ -14,10 +14,9 @@ const Product = (props) => {
     }
     return (
         <Col xs={3}>
-            <Form.Label>
-                Producto
-            </Form.Label>
+            <Form.label>producto</Form.label>
             <Form.Control className={missed} onChange={saveValue} type="text" placeholder="Descripción del producto" />
+            <Form.Control id="product-input" className={missed} onChange={saveValue} type="text" placeholder="Descripción del producto"/>
         </Col>
     )
 }

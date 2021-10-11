@@ -15,6 +15,10 @@ const Products = () => {
     const [alertType, setAlert] = useState("danger");
     const [autoId, setId] = useState(10000);
     const [searchId, setSearchId] = useState();
+    const [searchDescription, setsearchDescription] = useState();
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [state, setState] = useState("");
 
     return (
         <div className="container-Category" >
@@ -27,15 +31,22 @@ const Products = () => {
             <Container className="dark-background-body">
                 <Row className="d-flex justify-content-center mb-3">
                     <Col xs={12}>
-                        <InputForm pageSwitch={"Register"}
+                        <InputForm description={description}
+                            setDescription={setDescription}
+                            price={price}
+                            setPrice={setPrice}
+                            state={state}
+                            setState={setState}
+                            pageSwitch={"Register"}
                             records={records}
                             setRecord={setRecord}
                             setShow={setShow}
                             setAlert={setAlert}
                             autoId={autoId}
                             setId={setId}
-                            searchId={searchId}
-                            setSearchId={setSearchId} />
+                            setSearchId={setSearchId}
+                            setsearchDescription={setsearchDescription}
+                            />
                     </Col>
                 </Row>
                 <Row>
@@ -50,7 +61,12 @@ const Products = () => {
 
                 <Row className="d-flex justify-content-center mb-3">
                     <Col xs={12}>
-                        <ProductTable records={records} searchId={searchId} />
+                        <ProductTable records={records}
+                            searchId={searchId}
+                            searchDescription={searchDescription}
+                            setDescription={setDescription}
+                            setPrice={setPrice}
+                            setState={setState} />
                     </Col>
                 </Row>
             </Container>

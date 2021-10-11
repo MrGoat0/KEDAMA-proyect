@@ -6,7 +6,7 @@ const Price = (props) => {
     if (missingInput) {
         var missed = "missing-cell"
     } else {
-        var missed = ""
+         missed = ""
     }
 
     const saveValue = (event) => {
@@ -17,7 +17,7 @@ const Price = (props) => {
         <div>
             <Col xs={"auto"}>
                 <Form.Label>Valor unitario</Form.Label>
-                <Form.Control className={missed} onChange={saveValue} type="number" placeholder="Valor unitario ($COP)" />
+                <Form.Control id="price-input" className={missed} onChange={saveValue} type="number" placeholder="Valor unitario ($COP)" />
             </Col >
         </div>
     )

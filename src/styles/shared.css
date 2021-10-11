@@ -17,7 +17,6 @@
   grid-column-gap: 1%;
   align-items: center;
   justify-items: center;
-  padding: 15px;
 }
 
 .dark-background-nav {
@@ -61,4 +60,8 @@
 
 .hidden {
   visibility: hidden;
+}
+
+.statePicker {
+  border-radius: 5px;
 }

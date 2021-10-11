@@ -7,9 +7,9 @@ const ProductNav = (props) => {
     if (page === "products") {
         var href1 = "/categories/products"
         var href2 = "/categories/update_products"
-    } else if (page === "sales") {
-        var href1 = "/categories/sales"
-        var href2 = "/categories/sales/updateinputsales"
+    } else if (page === "users") {
+        var href3 = "/categories/users"
+        var href4 = "/categories/users/updateinfousers"
     }
 
     if (navSwitch === "Register") {
@@ -30,10 +30,10 @@ const ProductNav = (props) => {
         return (
             <Nav className="justify-content-end mt-1 mb-2">
                 <Nav.Item>
-                    <Nav.Link href={href1}>Registro</Nav.Link>
+                    <Nav.Link href={href3}>Registro</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href={href2} active disabled>Gestión</Nav.Link>
+                    <Nav.Link href={href4} active disabled>Gestión</Nav.Link>
                 </Nav.Item>
             </Nav >
         )

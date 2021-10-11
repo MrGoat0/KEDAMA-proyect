@@ -23,7 +23,7 @@ const Authentication = () => {
                   <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
                     <div className="col">
-                      <div className="card shadow-sm">
+                      <div className="card">
                           <img src={example} alt="example" />
                           <div className="card-body">
                               <p className="card-text">
@@ -31,8 +31,7 @@ const Authentication = () => {
                                 natural lead-in to additional content. This content is a
                                 little bit longer.
                                 </p>
-                                <div className="d-flex justify-content-between align-items-center">                                    
-                                </div>
+                              
                             </div>
                         </div>
                     </div>
