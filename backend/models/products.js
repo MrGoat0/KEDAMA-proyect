@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const products = mongoose.Schema(
   {
     id: { type: Number },
-    description: { type: String },
-    price: { type: Number },
-    state: { type: String },
+    description: { type: String, required: true },
+    price: { type: Number, required: true },
+    state: { type: String, required: true },
   },
   {
     versionKey: false, // You should be aware of the outcome after set to false
