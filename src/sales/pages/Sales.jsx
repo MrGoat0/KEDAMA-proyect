@@ -110,7 +110,7 @@ return(
     {/* <Footer/> */}
     </body>
     </div>
-)
+  )
 
 }
 export default Sales

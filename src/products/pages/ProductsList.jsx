@@ -1,21 +1,24 @@
-import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Header from "../../shared/Header.jsx";
 import Footer from "../../shared/Footer.jsx";
 import InputForm from "../components/InputForm/InputForm.jsx";
 import ProductTable from "../components/Table/ProductTable.jsx";
-import ProductNav from "../components/ProductNav.jsx";
-import { useState } from "react";
+import ProductNav from "../../shared/ProductNav.jsx";
+import Alerts from "../components/InputForm/Alerts.jsx";
+import React, { useState } from "react";
+import "../../styles/shared.css"
+import '../../styles/category.css';
 
 const ProductsList = () => {
     const [records, setRecord] = useState([]);
 
     return (
-        <div>
-            <Header />
-            <div className="navbar">
-                <ProductNav navSwitch={"Management"} />
-            </div>
+        <div className="dark-background-body" >
+            {/* <Header /> */}
+            <Header headerText={"Actualización de productos"} />
+
+            <ProductNav navSwitch={"Management"} page={"products"} />
+
             <div className="grid-buttons">
                 <Container>
 
@@ -39,4 +42,4 @@ const ProductsList = () => {
     )
 
 }
-export default ProductsList;
+export default ProductsList

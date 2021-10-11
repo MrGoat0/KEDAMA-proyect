@@ -10,7 +10,7 @@ const Alerts = (props) => {
         newLine += "Diligencie el campo 'Filtrar por ID' si desea ver el registro en la tabla."
         showID = autoId - 1
     } else if (alertType === "danger") {
-        var message = "Para registrar un producto diligencie los campos Producto, Valor unitario y Estado del producto."
+        message = "Para registrar un producto diligencie los campos Producto, Valor unitario y Estado del producto."
     }
 
     return (

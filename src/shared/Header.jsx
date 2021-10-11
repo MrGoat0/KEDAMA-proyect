@@ -3,10 +3,13 @@ import React from "react";
 import '../styles/shared.css';
 
 
-const Header = () => {
+const Header = (props) => {
+  const { headerText } = props;
+
   return (
     <div className="header">
-      <h1> Gestión de datos </h1>
+
+      <h1> {headerText} </h1>
     </div>
 
   )

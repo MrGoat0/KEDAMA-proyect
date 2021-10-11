@@ -10,7 +10,9 @@ import RegisterSales from "./sales/pages/SalesList.jsx";
 import Users from "./users/pages/Users.jsx";
 import NotFound from "./shared/NotFound.jsx";
 import "./styles/index.css";
+import Updateinfosales from "./sales/pages/Updateinfosales.jsx";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 function App() {
   return (
     <div className="container2">
@@ -18,13 +20,19 @@ function App() {
         <Switch>
           <Route exact path="/" component={Authentication} />
           <Route exact path="/About" component={About} />
-          <Route exact path="/categories" component={Category} />
-          <Route exact path="/categories/products" component={Products} />
           <Route
             exact
-            path="/categories/register_products"
+            path="/categories/sales/updateinputsales"
+            component={Updateinfosales}
+          />
+          <Route exact path="/categories" component={Category} />
+
+          <Route
+            exact
+            path="/categories/update_products"
             component={RegisterProducts}
           />
+          <Route exact path="/categories/products" component={Products} />
           <Route exact path="/categories/sales" component={Sales} />
           <Route
             exact
