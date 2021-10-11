@@ -16,6 +16,14 @@ const TableRow = (props) => {
             state: row.state
         })
     }
+    const deleteThis = () => {
+        row.id = "542"
+        console.log(delete row.id); // Elimino el 'precio' 
+        console.log(delete row.description);
+        console.log(delete row.price);
+        console.log(delete row.state);
+        console.log(row)
+    }
 
     return (
         <tr onClick={rowPicked}>

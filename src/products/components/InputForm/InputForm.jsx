@@ -5,9 +5,9 @@ import Price from "./PriceInput.jsx";
 import State from "./StateInput.jsx";
 import RegisterButton from "./RegisterButton.jsx";
 import { useState } from "react";
-
+import '../../../styles/inpForm.css';
 const ImputForm = (props) => {
-    const { records, setRecord, info, setInfo, setAlert, setSearch } = props;
+    const { records, setRecord, info, setInfo, setAlert, setSearch, setsearchDescription } = props;
     const [missing, setMissing] = useState({ description: false, price: false, state: false });
 
     return (

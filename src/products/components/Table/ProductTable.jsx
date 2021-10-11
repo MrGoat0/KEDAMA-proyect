@@ -19,7 +19,22 @@ const ProductTable = (props) => {
     } else {
         rows = []
     }
+    if (searchDescription) {
+        filteredRecords = records.find((item) => item.description === searchDescription);
+        if (filteredRecords) {
 
+            const inLoc = records.indexOf(filteredRecords);
+            var searchFirst = [...records]
+            searchFirst.splice(inLoc, 3)
+            var rows = [filteredRecords, ...searchFirst]
+
+        } else {
+            rows = [...records]
+        }
+
+    } else {
+        rows = [...records]
+    }
     return (
         <Table className="table"
             size="sm"
