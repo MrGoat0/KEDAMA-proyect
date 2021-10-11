@@ -13,6 +13,7 @@ const RegisterButton = (props) => {
             setId(autoId + 1)
             setMissing({ description: false, price: false, state: false })
 
+            
         } else {
             if (description !== "") {
                 missing.description = false

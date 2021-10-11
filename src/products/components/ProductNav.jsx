@@ -15,7 +15,7 @@ const ProductNav = ({ navSwitch }) => {
                 </Nav >
             </div >
         )
-
+ 
     } else if (navSwitch === "Management") {
         return (
             <Nav className="justify-content-end mt-1 mb-3">

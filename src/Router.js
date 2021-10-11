@@ -24,6 +24,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Authentication} />
           <Route exact path="/About" component={About} />
+          <Route exact path="/categories" component={Category} />
           <Route
             exact
             path="/categories/users/updateinfousers"
@@ -35,30 +36,32 @@ function App() {
             path="/categories/users/updaterolusers"
             component={Updaterolusers}
           />
-          <Route exact path="/" component={Authentication} />
-          <Route exact path="/About" component={About} />
-          <Route exact path="/categories" component={Category} />
 
+          <Route exact path="/categories/users" component={Users} />
+          {/* <Route
+            exact
+            path="/categories/users/Listusers"
+            component={ListUsers}
+          /> */}
+          <Route exact path="/categories/products" component={Products} />
           <Route
             exact
             path="/categories/update_products"
             component={RegisterProducts}
           />
-          <Route exact path="/categories/products" component={Products} />
+
           <Route exact path="/categories/sales" component={Sales} />
           <Route
             exact
             path="/categories/register_sales"
             component={RegisterSales}
           />
-
-           <Route exact path="/categories/users" component={Users} />
-          <Route exact path="/" component={Authentication} />
           <Route exact component={NotFound} />
         </Switch>
       </Router>
     </div>
   );
 }
+
 
 export default App;

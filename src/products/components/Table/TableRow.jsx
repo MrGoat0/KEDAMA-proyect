@@ -38,6 +38,7 @@ const TableRow = (props) => {
             <td bgcolor={color}>{row.state}</td>
             {/* /* <td bgcolor={color}> */}
             <td bgcolor={color}>
+                
                 <div>
                     <Button onClick={deleteThis} className="action-buttons ml-2" variant="outline-danger">✖</Button>
                     <Button className="action-buttons ml-2" variant="outline-success">✏</Button>

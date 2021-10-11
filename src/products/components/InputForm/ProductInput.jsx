@@ -19,6 +19,7 @@ const Product = (props) => {
             <Form.Control id="product-input" className={missed} onChange={saveValue} type="text" placeholder="Descripción del producto"/>
         </Col>
     )
+    
 }
 
 export default Product;
