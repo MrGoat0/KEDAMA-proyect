@@ -9,7 +9,6 @@ exports.createProduct = (req, res) => {
       res.status(201).json(createdProduct);
     });
   } catch (err) {
-    console.log("ERROR");
     return res.json(err);
   }
 };

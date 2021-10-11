@@ -33,8 +33,8 @@ const TableRow = (props) => {
             <td>{row.state}</td>
             <td>
                 <div className="d-flex justify-content-center">
-                    <Button className="action-buttons" variant="outline-danger">✖</Button>
-                    <Button className="action-buttons ml-1" variant="outline-success">✏</Button>
+                    <Button className="action-buttons ml-1" variant="outline-danger">✖</Button>
+                    <Button className="action-buttons ml-2" variant="outline-success">✏</Button>
                 </div>
 
             </td>

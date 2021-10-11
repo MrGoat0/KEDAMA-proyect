@@ -4,7 +4,7 @@ import TableBody from "./TableBody.jsx";
 
 const ProductTable = (props) => {
 
-    const { records, search, info, setInfo, searchDescription } = props;
+    const { records, search, info, setInfo } = props;
 
     const removeAccents = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -19,22 +19,7 @@ const ProductTable = (props) => {
     } else {
         rows = []
     }
-    if (searchDescription) {
-        filteredRecords = records.find((item) => item.description === searchDescription);
-        if (filteredRecords) {
 
-            const inLoc = records.indexOf(filteredRecords);
-            var searchFirst = [...records]
-            searchFirst.splice(inLoc, 3)
-            var rows = [filteredRecords, ...searchFirst]
-
-        } else {
-            rows = [...records]
-        }
-
-    } else {
-        rows = [...records]
-    }
     return (
         <Table className="table"
             size="sm"

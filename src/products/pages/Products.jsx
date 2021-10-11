@@ -14,7 +14,6 @@ const Products = () => {
     const [info, setInfo] = useState({ id: 0, description: "", price: "", state: "" });
     const [alert, setAlert] = useState({ show: false, type: "" });
     const [search, setSearch] = useState("");
-    const [searchDescription, setsearchDescription] = useState();
 
     const fetchGetAll = async () => {
         const response = await api.products.list();
@@ -49,8 +48,7 @@ const Products = () => {
                                 info={info}
                                 setInfo={setInfo}
                                 setAlert={setAlert}
-                                setSearch={setSearch}
-                                setsearchDescription={setsearchDescription} />
+                                setSearch={setSearch} />
                         </Row>
                         <Row className="d-flex justify-content-center mt-2">
                             <Alerts alert={alert}
@@ -63,8 +61,7 @@ const Products = () => {
                             <ProductTable records={records}
                                 search={search}
                                 info={info}
-                                setInfo={setInfo}
-                                searchDescription={searchDescription} />
+                                setInfo={setInfo} />
                         </Row>
                     </Col>
                 </Row>
