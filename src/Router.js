@@ -13,8 +13,6 @@ import "./styles/index.css";
 import Updateinfousers from "./users/pages/Updateinfousers.jsx";
 import Updaterolusers from "./users/pages/Updaterolusers.jsx";
 
-
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -50,7 +48,7 @@ function App() {
             component={RegisterSales}
           />
 
-           <Route exact path="/categories/users" component={Users} />
+          <Route exact path="/categories/users" component={Users} />
           <Route exact path="/" component={Authentication} />
           <Route exact component={NotFound} />
         </Switch>

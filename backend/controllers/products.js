@@ -49,13 +49,21 @@ exports.updateProduct = (req, res) => {
         if (updateResult.matchedCount === 1) {
           if (updateResult.modifiedCount == 1) {
             res.status(200).json({ msg: "¡Producto actualizado!" });
+            console.log({ msg: "¡Producto actualizado!" });
+            console.log(req.body);
           } else {
             res
               .status(200)
               .json({ msg: "¡Los nuevos datos son iguales a los anteriores!" });
+            console.log({
+              msg: "¡Los nuevos datos son iguales a los anteriores!",
+            });
+            console.log(req.body);
           }
         } else {
           res.status(404).json({ msg: "¡Producto no encontrado!" });
+          console.log({ msg: "¡Producto no encontrado!" });
+          console.log(req.body);
         }
       }
     );

@@ -8,6 +8,8 @@ const Alerts = (props) => {
         var showID = id
     } else if (alert.type === "danger") {
         message = "Diligencie todos los campos requeridos."
+    } else if (alert.type === "primary") {
+        message = "Producto actualizado. Recargue la página para ver los cambios."
     }
 
     return (

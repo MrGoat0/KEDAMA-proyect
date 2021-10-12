@@ -6,7 +6,7 @@ import InputForm from "../components/InputForm/InputForm.jsx";
 import ProductTable from "../components/Table/ProductTable.jsx";
 import ProductNav from "../../shared/ProductNav.jsx";
 // import Alerts from "../components/InputForm/Alerts.jsx";
-import React, { useState } from "react";
+import { useState } from "react";
 import "../../styles/shared.css"
 import '../../styles/category.css';
 
