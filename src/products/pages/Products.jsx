@@ -22,7 +22,7 @@ const Products = () => {
 
     return (
         <div className="container-Category" >
-
+            
             <Header headerText={"Registro de productos"} />
 
             <ProductNav navSwitch={"Register"} page={"products"} />

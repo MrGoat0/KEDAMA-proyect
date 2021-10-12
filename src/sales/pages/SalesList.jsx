@@ -2,8 +2,41 @@ import React from "react";
 import Header from "../../shared/Header.jsx";
 // import Footer from "../../shared/Footer";
 import VentasNav from "../components/VentasNav"
+import SalesTable from "../components/TableWithSales"
 import '../../styles/Sales/listadoVentas.css';
+import Table from 'react-bootstrap/Table'
 const SalesList = () => {
+  const records = [{
+    index: "1",
+    fecha: "01/01/2021",
+    usuario:"MasterFill",
+    producto: "producto #",
+    cantidad: "10000",
+},{
+    index: "1",
+    fecha: "01/01/2021",
+    usuario:"MasterFill",
+    producto: "producto #",
+    cantidad: "10000",
+},{
+    index: "1",
+    fecha: "01/01/2021",
+    usuario:"MasterFill",
+    producto: "producto #",
+    cantidad: "10000",
+},{
+    index: "1",
+    fecha: "01/01/2021",
+    usuario:"MasterFill",
+    producto: "producto #",
+    cantidad: "10000",
+},{
+    index: "1",
+    fecha: "01/01/2021",
+    usuario:"MasterFill",
+    producto: "producto #",
+    cantidad: "10000",
+}]
 return(
     <div>
         <body>
@@ -71,9 +104,14 @@ return(
                 <div className="d-flex flex-row justify-content-end">
                 <VentasNav VentaSwitch={"Management"} />
                 </div>
-                <div class="tableView d-flex flex-row h-100 p-2 border border">
-                    <div class="TableinTouch d-flex flex-column justify-content-start p-3 border border">
-                    <table class="table-responsive-xxl table-striped table-hover ">
+                <div className="tableView d-flex flex-row h-100 p-2 border border">
+                    <div className="TableinTouch d-flex flex-column p-5 border border">
+                      <div>
+                      <Table striped bordered hover>
+                        <SalesTable recordsData={records} />
+                      </Table>
+                      </div>
+                    {/* <table class="table-responsive-xxl table-striped table-hover ">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -240,7 +278,7 @@ return(
     </tr>
     
   </tbody>
-</table>
+</table> */}
         
                     </div>
                     <div class="ScrollTable d-flex border border"></div>
