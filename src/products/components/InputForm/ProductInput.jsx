@@ -14,11 +14,15 @@ const Product = (props) => {
         setInfo(info)
     }
     return (
-        <Col xs={6}>
+        <Col>
             <Form.Label>
                 Producto
             </Form.Label>
-            <Form.Control id="product-input" className={missed} onChange={saveValue} type="text" placeholder="Descripción del producto" />
+            <Form.Control id="product-input"
+                className={missed}
+                onChange={saveValue}
+                type="text"
+                placeholder="Descripción del producto" />
         </Col>
     )
 }

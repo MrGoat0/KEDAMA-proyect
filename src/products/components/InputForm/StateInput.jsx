@@ -14,9 +14,11 @@ const State = (props) => {
         setInfo(info)
     }
     return (
-        <Col xs={6}>
+        <Col>
             <Form.Label>Estado</Form.Label>
-            <Form.Select id="state-input" className={"statePicker form-select-custome" + missed} onChange={saveValue}>
+            <Form.Select id="state-input"
+                className={"form-select-custome" + missed}
+                onChange={saveValue}>
                 <option value=""></option>
                 <option value="Disponible">Disponible</option>
                 <option value="No disponible">No disponible</option>

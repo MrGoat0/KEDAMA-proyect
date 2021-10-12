@@ -3,13 +3,13 @@ import TableHeader from "./TableHeader.jsx";
 import TableBody from "./TableBody.jsx";
 
 const ProductTable = (props) => {
-
-    const { records, search, info, setInfo } = props;
+    const { records, search, setSearch, info, setInfo, action, setAction } = props;
 
     const removeAccents = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
 
+    // Filter out the records that match and id or description
     var filteredRecords = records.filter((item) => item.id.toString().includes(search.trim()) ||
         removeAccents(item.description.toLowerCase())
             .includes(removeAccents(search.toLowerCase().trim())));
@@ -28,8 +28,11 @@ const ProductTable = (props) => {
             striped bordered hover>
             <TableHeader />
             <TableBody records={rows}
+                setSearch={setSearch}
                 info={info}
-                setInfo={setInfo} />
+                setInfo={setInfo}
+                action={action}
+                setAction={setAction} />
         </Table>
 
     )

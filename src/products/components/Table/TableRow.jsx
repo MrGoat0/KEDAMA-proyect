@@ -1,28 +1,31 @@
 import { Button } from "react-bootstrap"
 
 const TableRow = (props) => {
-    const { row, info, setInfo } = props;
+    const { row, setSearch, info, setInfo, action, setAction } = props;
 
     const rowPicked = (event) => {
-
         document.getElementById("product-input").value = row.description
         document.getElementById("price-input").value = row.price
         document.getElementById("state-input").value = row.state
 
         setInfo({
+            _id: row._id,
             id: info.id,
             description: row.description,
             price: row.price,
             state: row.state
         })
     }
-    const deleteThis = () => {
-        row.id = "542"
-        console.log(delete row.id); // Elimino el 'precio' 
-        console.log(delete row.description);
-        console.log(delete row.price);
-        console.log(delete row.state);
-        console.log(row)
+
+    const updateActivation = () => {
+        if (action) {
+            setAction(false)
+            document.getElementById("filter-input").value = ""
+            setSearch(row.id.toString())
+        } else {
+            setAction(true)
+            setSearch("")
+        }
     }
 
     return (
@@ -34,7 +37,8 @@ const TableRow = (props) => {
             <td>
                 <div className="d-flex justify-content-center">
                     <Button className="action-buttons ml-1" variant="outline-danger">✖</Button>
-                    <Button className="action-buttons ml-2" variant="outline-success">✏</Button>
+                    <Button id="updateBtn" className="action-buttons ml-2" onClick={updateActivation}
+                        variant="primary"> 🖊 </Button>
                 </div>
 
             </td>

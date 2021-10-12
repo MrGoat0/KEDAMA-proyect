@@ -8,9 +8,11 @@ const Filter = (props) => {
 
     return (
 
-        <Col xs={6}>
+        <Col>
             <Form.Label>Filtrar</Form.Label>
-            <Form.Control onChange={saveValue} type="text" placeholder="Por ID o descripción" />
+            <Form.Control id="filter-input"
+                onChange={saveValue} type="text"
+                placeholder="Por ID o descripción" />
         </Col >
     )
 }
