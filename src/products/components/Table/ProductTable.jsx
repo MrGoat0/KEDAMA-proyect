@@ -3,8 +3,7 @@ import TableHeader from "./TableHeader.jsx";
 import TableBody from "./TableBody.jsx";
 
 const ProductTable = (props) => {
-    const { records, search, setSearch, info, setInfo, action, setAction } = props;
-
+    const { records, search } = props;
     const removeAccents = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
@@ -27,12 +26,10 @@ const ProductTable = (props) => {
             responsive="sm"
             striped bordered hover>
             <TableHeader />
-            <TableBody records={rows}
-                setSearch={setSearch}
-                info={info}
-                setInfo={setInfo}
-                action={action}
-                setAction={setAction} />
+            <TableBody
+                records={rows}
+                properties={props}
+            />
         </Table>
 
     )

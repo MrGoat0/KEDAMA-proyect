@@ -2,8 +2,8 @@ import { Button, Col, Modal } from "react-bootstrap";
 import api from "../../../api";
 
 const RegisterButton = (props) => {
-    const { info, missing, setMissing,
-        action, search, modalSettings, setModalSettings } = props;
+    const { properties, missing, setMissing } = props;
+    const { info, action, search, modalSettings, setModalSettings } = properties;
 
     // Setting modal info based on action
     if (modalSettings.type === "register") {
@@ -63,9 +63,9 @@ const RegisterButton = (props) => {
 
             if (response.error) {
                 setModalSettings({ show: true, type: "serverError" })
-            } else {// Triggerring success update modal
+            } else {// Triggerring success register modal
                 info.id = info.id + 1
-                setModalSettings({ show: true, type: "update" })
+                setModalSettings({ show: true, type: "register" })
             }
 
         } else {

@@ -27,6 +27,7 @@ const Products = () => {
             setRecord(sortedRecords);
             info.id = sortedRecords[sortedRecords.length - 1].id
         };
+
         fetchGetAll()
     }, [info]);
 

@@ -8,9 +8,7 @@ import { useState } from "react";
 import '../../../styles/inpForm.css';
 
 const ImputForm = (props) => {
-    const { info, setInfo, search, setSearch,
-        action, setAction, modalSettings, setModalSettings } = props;
-
+    const { info, setInfo, setSearch } = props;
     const [missing, setMissing] = useState({ description: false, price: false, state: false });
 
     return (
@@ -33,16 +31,12 @@ const ImputForm = (props) => {
 
             <Row className="d-flex justify-content-center form-buttons mb-5">
                 <RegisterButton
-                    info={info}
+                    properties={props}
                     missing={missing}
                     setMissing={setMissing}
-                    action={action}
-                    setAction={setAction}
-                    search={search}
-                    setSearch={setSearch}
-                    modalSettings={modalSettings}
-                    setModalSettings={setModalSettings} />
+                />
             </Row>
+
         </Container>
     )
 }

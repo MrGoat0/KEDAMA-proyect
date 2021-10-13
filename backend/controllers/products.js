@@ -21,7 +21,7 @@ exports.getProducts = (req, res) => {
       res.status(200).json(productResult);
     })
     .catch((err) => {
-      res.json({ error: err });
+      res.status().json({ error: err });
     });
 };
 

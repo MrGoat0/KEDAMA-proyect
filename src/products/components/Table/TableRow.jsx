@@ -1,7 +1,8 @@
 import { Button } from "react-bootstrap"
 
 const TableRow = (props) => {
-    const { row, setSearch, info, setInfo, action, setAction } = props;
+    const { row, properties } = props;
+    const { setSearch, info, setInfo, action, setAction } = properties;
 
     const rowPicked = (event) => {
         document.getElementById("product-input").value = row.description
