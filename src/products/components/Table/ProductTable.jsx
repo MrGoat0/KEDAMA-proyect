@@ -9,7 +9,7 @@ const ProductTable = (props) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
 
-    // Filter out the records that match and id or description
+    // Filter out the records that match an id or description
     var filteredRecords = records.filter((item) => item.id.toString().includes(search.trim()) ||
         removeAccents(item.description.toLowerCase())
             .includes(removeAccents(search.toLowerCase().trim())));

@@ -30,10 +30,10 @@ const ProductNav = (props) => {
         return (
             <Nav className="justify-content-end mt-1 mb-2">
                 <Nav.Item>
-                    <Nav.Link href={href1}>Registro</Nav.Link>
+                    <Nav.Link href={href3}>Registro</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href={href2} active disabled>Gestión</Nav.Link>
+                    <Nav.Link href={href4} active disabled>Gestión</Nav.Link>
                 </Nav.Item>
             </Nav >
         )
