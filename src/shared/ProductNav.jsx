@@ -7,15 +7,15 @@ const ProductNav = (props) => {
     if (page === "products") {
         var href1 = "/categories/products"
         var href2 = "/categories/update_products"
-    } else if (page === "sales") {
-        var href1 = "/categories/sales"
-        var href2 = "/categories/sales/updateinputsales"
+    } else if (page === "users") {
+        var href3 = "/categories/users"
+        var href4 = "/categories/users/updateinfousers"
     }
 
     if (navSwitch === "Register") {
         return (
             <div className="dark-background-nav">
-                <Nav className="justify-content-end mt-1 mb-2">
+                <Nav className="justify-content-end mb-2">
                     <Nav.Item>
                         <Nav.Link href={href1} disabled>Registro</Nav.Link>
                     </Nav.Item>

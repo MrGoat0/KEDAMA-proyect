@@ -9,14 +9,13 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Footer from "../../shared/Footer.jsx";
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
-
-import Table from 'react-bootstrap/Table'
+// import Table from 'react-bootstrap/Table'
 
 const Updateinfosales = () => {
   return (
     <div className="container-Category">
 
-      <Header headerText={"Actualización de ventas"} />
+      <Header headerText={"Actualización de usuarios"} />
       <ProductNav navSwitch={"Management"} page={"sales"} />
 
       <Container className="dark-background-body">
