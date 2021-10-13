@@ -1,8 +1,8 @@
-import { Button, Col, Row, Modal } from "react-bootstrap";
+import { Button, Col, Modal } from "react-bootstrap";
 import api from "../../../api";
 
 const RegisterButton = (props) => {
-    const { records, setRecord, info, missing, setMissing,
+    const { info, missing, setMissing,
         action, search, modalSettings, setModalSettings } = props;
 
     // Setting modal info based on action
@@ -15,6 +15,9 @@ const RegisterButton = (props) => {
     } else if (modalSettings.type === "update") {
         modalHeader = "¡Actualización exitosa!"
         modalBody = "Se actualizó correctamente el producto con ID " + search + "."
+    } else if (modalSettings.type === "serverError") {
+        modalHeader = "¡Atención!"
+        modalBody = "Ya existe un producto con la descripción especificada."
     }
 
     // Setting red border and modal feedback
@@ -34,22 +37,15 @@ const RegisterButton = (props) => {
     }
 
     // Register button action
-    const registerBtn = (event) => {
+    const registerBtn = async (event) => {
         // Looking for missing fields. if true -> save record
         if (info.description !== "" && info.price !== "" && info.state !== "") {
-            info.id = info.id + 1
-            setRecord([...records,
-            {
-                id: info.id,
-                description: info.description,
-                price: parseInt(info.price),
-                state: info.state
-            }]);
+
             // reset red borders
             setMissing({ description: false, price: false, state: false })
 
             // POST request to api
-            api.products.create({
+            const response = await api.products.create({
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -57,16 +53,20 @@ const RegisterButton = (props) => {
                 },
                 body: JSON.stringify(
                     {
-                        id: info.id,
+                        id: info.id + 1,
                         description: info.description,
                         price: parseInt(info.price),
                         state: info.state
                     }
                 )
-            }).catch((err) => console.log(err));
+            })
 
-            // Triggering success modal
-            setModalSettings({ show: true, type: "register" })
+            if (response.error) {
+                setModalSettings({ show: true, type: "serverError" })
+            } else {// Triggerring success update modal
+                info.id = info.id + 1
+                setModalSettings({ show: true, type: "update" })
+            }
 
         } else {
             triggerMissingCells()
@@ -74,12 +74,12 @@ const RegisterButton = (props) => {
     }
 
     // Update button action
-    const updateBtn = (event) => {
+    const updateBtn = async () => {
         // Looking for missing fields. if true -> update record by id
         if (info.description !== "" && info.price !== "" && info.state !== "") {
 
             // PUT request to api
-            api.products.update(info._id, {
+            const response = await api.products.update(info._id, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
@@ -92,10 +92,13 @@ const RegisterButton = (props) => {
                         state: info.state
                     }
                 )
-            }).catch((err) => console.log(err));
+            });
 
-            // Triggerring success update modal
-            setModalSettings({ show: true, type: "update" })
+            if (response.error) {
+                setModalSettings({ show: true, type: "serverError" })
+            } else {// Triggerring success update modal
+                setModalSettings({ show: true, type: "update" })
+            }
         } else {
             triggerMissingCells()
         }
@@ -103,9 +106,7 @@ const RegisterButton = (props) => {
 
     const handleClose = () => {
         setModalSettings({ show: false, type: "" })
-        if (modalSettings.type === "update") {
-            window.location.reload()
-        }
+        window.location.reload()
     };
 
     return (
@@ -113,7 +114,6 @@ const RegisterButton = (props) => {
         <Col className="d-flex justify-content-between">
             <Button
                 className="btns"
-                id="RegisterButton"
                 type="submit"
                 onClick={updateBtn}
                 variant="primary"
@@ -122,7 +122,6 @@ const RegisterButton = (props) => {
 
             <Button
                 className="btns"
-                id="RegisterButton"
                 type="submit"
                 onClick={registerBtn}
                 variant="primary">Registrar
