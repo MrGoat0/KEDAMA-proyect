@@ -8,7 +8,7 @@ import RegisterButton from "./RegisterButton.jsx";
 import { useState } from "react";
 import FilterString from "./FilterDescription.jsx";
 import '../../../styles/inpForm.css';
-const ImputForm = (props) => {
+const InputForm = (props) => {
     const { description, setDescription, price, setPrice,
         state, setState, pageSwitch, records, setRecord,
         setShow, setAlert, autoId, setId, setSearchId,setsearchDescription } = props;
@@ -62,4 +62,4 @@ const ImputForm = (props) => {
 
 }
 
-export default ImputForm;
+export default InputForm;
