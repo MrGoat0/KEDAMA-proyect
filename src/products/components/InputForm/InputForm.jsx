@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import Filter from "./FilterInput.jsx"
 import Product from "./ProductInput.jsx";
 import Price from "./PriceInput.jsx";
@@ -8,7 +8,7 @@ import { useState } from "react";
 import '../../../styles/inpForm.css';
 
 const ImputForm = (props) => {
-    const { records, setRecord, info, setInfo, search, setSearch,
+    const { info, setInfo, search, setSearch,
         action, setAction, modalSettings, setModalSettings } = props;
 
     const [missing, setMissing] = useState({ description: false, price: false, state: false });
@@ -33,8 +33,6 @@ const ImputForm = (props) => {
 
             <Row className="d-flex justify-content-center form-buttons mb-5">
                 <RegisterButton
-                    records={records}
-                    setRecord={setRecord}
                     info={info}
                     missing={missing}
                     setMissing={setMissing}

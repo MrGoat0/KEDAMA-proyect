@@ -28,7 +28,7 @@ const Products = () => {
             info.id = sortedRecords[sortedRecords.length - 1].id
         };
         fetchGetAll()
-    }, []);
+    }, [info]);
 
     return (
         <div className="container-Category" >
@@ -47,8 +47,6 @@ const Products = () => {
                     <Col >
                         <Row className="d-flex justify-content-center">
                             <InputForm
-                                records={records}
-                                setRecord={setRecord}
                                 info={info}
                                 setInfo={setInfo}
                                 search={search}
