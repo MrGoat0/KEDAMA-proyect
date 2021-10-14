@@ -10,7 +10,6 @@ const Selector = () => {
     <div className="container-Category">
 
       <Header headerText={"Menú"} />
-
       <div className="grid-buttons">
         <Link to="/categories/users">
           <Button variant="light" size="lg">Usuarios</Button>

@@ -1,23 +1,32 @@
-var express = require("express");
-var app = express();
-const mongoose = require('mongoose');
-const productsRoutes = require("./router/products");
-const categoriesRoutes = require("./router/category");
+// imports and app instance
+const express = require("express");
+const morgan = require("morgan");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const app = express();
+const bodyParser = require("body-parser");
+
+// const salesRoutes = require("./routes/sales");
+const productsRoutes = require("./routes/products");
+// const usersRoutes = require("./routes/users");
+
+// middlewares
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-//link de prueba completo (para productos) seria: http://localhost:3002/api/products
+// connection to database
+const connectionString =
+  "mongodb+srv://mateo-cr:V5I8toOBGEoutZ2a@mongodb-session.rct8e.mongodb.net/kedama-project?retryWrites=true&w=majority";
+mongoose.connect(connectionString).then(() => {
+  console.log("Connected to MongoDB!");
+});
+
+// define api routes
+// app.use("/api/sales", salesRoutes);
 app.use("/api/products", productsRoutes);
-app.use("/api/categories", categoriesRoutes);
-//conexion a mongoose:
-//Sigrun password to database:oxyzgJ5ELGuVvBR7
-mongoose.connect('mongodb+srv://Sigrun:oxyzgJ5ELGuVvBR7@cluster0.kls93.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
-.then(()=>console.log('estamos conectados'))
-
-
-// const Cat = mongoose.model('Cat', { name: String });
-
-// const kitty = new Cat({ name: 'Zildjian' });
-// kitty.save().then(() => console.log('meow'));
+// app.use("/api/users", usersRoutes);
 
 module.exports = app;

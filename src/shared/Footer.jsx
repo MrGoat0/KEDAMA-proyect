@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-
-
-
     <div className="footer fixed-bottom">
       <div>imagenes</div>
       <Link to="/" >

@@ -3,76 +3,77 @@ import Header from "../../shared/Header.jsx";
 import Footer from "../../shared/Footer.jsx";
 import InputForm from "../components/InputForm/InputForm.jsx";
 import ProductTable from "../components/Table/ProductTable.jsx";
-import ProductNav from "../../shared/ProductNav.jsx";
-import Alerts from "../components/InputForm/Alerts.jsx";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/shared.css"
 import '../../styles/category.css';
+import '../../styles/products.css';
+import api from "../../api";
 
 const Products = () => {
+
+    // records: list of products, info: current inputs, search: id/description input
+    // action: enables update button
     const [records, setRecord] = useState([]);
-    const [show, setShow] = useState(true);
-    const [alertType, setAlert] = useState("danger");
-    const [autoId, setId] = useState(10000);
-    const [searchId, setSearchId] = useState();
-    const [searchDescription, setsearchDescription] = useState();
-    const [description, setDescription] = useState("");
-    const [price, setPrice] = useState("");
-    const [state, setState] = useState("");
+    const [info, setInfo] = useState({ id: null, description: "", price: "", state: "" });
+    const [search, setSearch] = useState("");
+    const [action, setAction] = useState(true)
+    const [modalSettings, setModalSettings] = useState({ show: false, type: "" })
+
+    // GET (all) request
+    useEffect(() => {
+        const fetchGetAll = async () => {
+            const response = await api.products.list();
+            const sortedRecords = response.sort((a, b) => a.id - b.id)
+            setRecord(sortedRecords);
+            info.id = sortedRecords[sortedRecords.length - 1].id
+        };
+        fetchGetAll()
+    }, [info]);
 
     return (
         <div className="container-Category" >
 
-            <Header headerText={"Registro de productos"} />
+            <Header headerText={"Gestión de productos"} />
 
-            <ProductNav navSwitch={"Register"} page={"products"} />
+            <div className="simple-text">
+                <span>Registre y gestione los productos diligenciando la descripción,
+                    valor unitario y el estado de disponibilidad.
+                </span>
+            </div>
 
+            <Container fluid="xl" className="dark-background-body mt-4">
 
-            <Container className="dark-background-body">
-                <Row className="d-flex justify-content-center mb-3">
-                    <Col xs={12}>
-                        <InputForm description={description}
-                            setDescription={setDescription}
-                            price={price}
-                            setPrice={setPrice}
-                            state={state}
-                            setState={setState}
-                            pageSwitch={"Register"}
-                            records={records}
-                            setRecord={setRecord}
-                            setShow={setShow}
-                            setAlert={setAlert}
-                            autoId={autoId}
-                            setId={setId}
-                            setSearchId={setSearchId}
-                            setsearchDescription={setsearchDescription}
-                            />
+                <Row className="d-flex justify-content-center">
+                    <Col >
+                        <Row className="d-flex justify-content-center">
+                            <InputForm
+                                info={info}
+                                setInfo={setInfo}
+                                search={search}
+                                setSearch={setSearch}
+                                action={action}
+                                setAction={setAction}
+                                modalSettings={modalSettings}
+                                setModalSettings={setModalSettings} />
+                        </Row>
                     </Col>
-                </Row>
-                <Row>
-                    <Col xs={12}>
-                        <Alerts show={show}
-                            setShow={setShow}
-                            alertType={alertType}
-                            autoId={autoId} />
-                    </Col>
-
-                </Row>
-
-                <Row className="d-flex justify-content-center mb-3">
-                    <Col xs={12}>
-                        <ProductTable records={records}
-                            searchId={searchId}
-                            searchDescription={searchDescription}
-                            setDescription={setDescription}
-                            setPrice={setPrice}
-                            setState={setState} />
+                    <Col xs={8} className="mt-3">
+                        <Row className="d-flex justify-content-center">
+                            <ProductTable
+                                records={records}
+                                search={search}
+                                setSearch={setSearch}
+                                info={info}
+                                setInfo={setInfo}
+                                action={action}
+                                setAction={setAction} />
+                        </Row>
                     </Col>
                 </Row>
             </Container>
 
             <Footer />
-        </div>
+        </div >
     )
 
 }
