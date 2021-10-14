@@ -25,8 +25,9 @@ exports.addProducts = (req, res) => {
 };
 
 
+
 exports.getProductId = (req, res) => {
-  Producto.findById(req.params.id).then((productoResult) => {
+  Producto.findById(req.params.id).populate("category").then((productoResult) => {
    if (productoResult) {res.status(200).json(productoResult)} 
    else {res.status(404).json("Producto no encontrado");}
  });

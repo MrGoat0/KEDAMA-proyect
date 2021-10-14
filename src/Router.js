@@ -12,12 +12,21 @@ import NotFound from "./shared/NotFound.jsx";
 import "./styles/index.css";
 import Updateinfousers from "./users/pages/Updateinfousers.jsx";
 import Updaterolusers from "./users/pages/Updaterolusers.jsx";
-
-
+import callApi from "./api.js";
+import { useEffect } from "react";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
+
+  useEffect(()=>{
+    async function fetchData(){
+      const response=await callApi();
+      console.log(response)
+      
+    }
+    fetchData()
+  },[])
   return (
     <div className="container2">
       <Router>

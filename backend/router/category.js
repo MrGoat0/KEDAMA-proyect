@@ -3,10 +3,6 @@ const router = express.Router();
 
 const CategoryController = require("../controllers/category");
 
-// router.get("", CategoryController.getProducts);
 router.post("", CategoryController.CreateCategory);
-// router.get("/disponible", CategoryController.getProductAvailable);
-// router.get("/:id", CategoryController.getProductId);
-
-
+router.get("", CategoryController.GetallCategories);
 module.exports = router;
