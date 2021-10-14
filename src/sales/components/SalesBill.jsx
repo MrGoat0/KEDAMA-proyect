@@ -1,7 +1,7 @@
 const SalesBill = (props) => {
     
-    const {userID,product,mount,date} = props;
-    const dateString = Object.freeze(date)
+    const {userID,product,mount} = props;
+    const date = new Date().toLocaleDateString() + "-- " + new Date().toLocaleTimeString();
     // console.log((userID, product,mount))
     return(
         <div className="form-right-side d-flex flex-column px-4">
@@ -11,21 +11,21 @@ const SalesBill = (props) => {
         <div className="form-right-side-sell d-flex flex-column px-5 py-4 pb-4">
             <div className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
                 <div className="p-1"> <h5>Fecha: </h5> </div>
-                <div className="p-1"> {dateString} </div>
+                <div className="p-1"> {date} </div>
             </div>
             <div className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
                 <div className="p-1"> <h5>ID-factura: </h5>  </div>
                 <div className="p-1"> 0000 </div>
             </div>
-            <div className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
+            <div id="ID-usuario" className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
                 <div className="p-1"> <h5>ID-usuario: </h5>  </div>
                 <div className="p-1"> {userID} </div>
             </div>
-            <div className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
+            <div id="producto" className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
                 <div className="p-1"> <h5>Producto: </h5> </div>
                 <div className="p-1"> {product} </div>
             </div>
-            <div className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
+            <div id="cantidad" className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
                 <div className="p-1"> <h5>Cantidad: </h5> </div>
                 <div className="p-1"> {mount} </div>
             </div>

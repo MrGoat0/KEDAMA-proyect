@@ -8,11 +8,10 @@ import VentasNav from "../components/VentasNav"
 import '../../styles/Sales/ventas.css';
 const Sales = () => {
 
-    const [userID,setUserID] = useState("")
-    const [product,setProduct] = useState("")
-    const [mount,setMount] = useState("")
-    const date = new Date().toLocaleDateString() + "-- " + new Date().toLocaleTimeString();
-    // const dateString = Object.freeze(date)
+    const [userID,setUserID] = useState("#####")
+    const [product,setProduct] = useState("nnnnn")
+    const [mount,setMount] = useState("00000")
+
     const handleChangeUserID = (event) => {
         setUserID(event.target.value)      
     }
@@ -41,9 +40,9 @@ return(
         <VentasNav VentaSwitch={"Register"} />
     </div>
         <div className="container form-container d-flex flex-row px-2 py-4 pb-5 mt-3 mb-4">
+        {/* changeUserID={handleChangeUserID} changeProduct={handleChangeProduct} changeMount={handleChangeMount} */}
             <SalesForm changeUserID={handleChangeUserID} changeProduct={handleChangeProduct} changeMount={handleChangeMount}/>
-            {console.log("aquí")}
-            <SalesBill userID={userID} product={product} mount={mount} date={date}/>
+            <SalesBill userID={userID} product={product} mount={mount} />
         </div>
     </div>
     {/* <Footer/> */}

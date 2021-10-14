@@ -1,6 +1,6 @@
 const TableRow = (props) => {
     const {row} = props;
-    console.log(row);
+    // console.log(row);
     return(
         <tr>
             <td>{row.index}</td>
