@@ -4,8 +4,6 @@ import TableBody from "./TableBody.jsx";
 import { useState } from "react"
 
 const ProductTable = (props) => {
-    const { records } = props;
-
     return (
         <Table className="table"
             size="sm"
@@ -14,7 +12,6 @@ const ProductTable = (props) => {
             striped bordered hover>
             <TableHeader />
             <TableBody
-                records={records}
                 properties={props}
             />
         </Table>

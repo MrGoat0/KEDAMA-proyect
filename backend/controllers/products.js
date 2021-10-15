@@ -75,7 +75,6 @@ exports.filterProducts = (req, res) => {
       res.status(200).json(filterResult);
     })
     .catch((err) => {
-      console.log(err);
       res.status(404).json("ERROR");
     });
 };

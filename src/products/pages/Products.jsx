@@ -33,6 +33,7 @@ const Products = () => {
             setCount(response.count)
         };
         fetchInfo()
+        console.log(countRecords)
     }, [info]);
 
     // // GET sliced data request
@@ -42,6 +43,7 @@ const Products = () => {
             setRecord(response);
         };
         fetchSlice()
+        console.log(records)
     }, [page]);
 
     // GET (all) request
