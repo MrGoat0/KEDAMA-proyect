@@ -2,9 +2,10 @@ import {React} from "react";
 import Header from "../../shared/Authentication/Header";
 import FooterN from "../../shared/Authentication/Footer";
 import  '../../styles/AuthenticationStyle/Authentication.css';
-import example from '../../styles/AuthenticationStyle/images/example.jpeg'
-
-
+import example from '../../styles/AuthenticationStyle/images/example.jpeg';
+import product from '../../img/products.png';
+import sales from '../../img/sales.png';
+import users from '../../img/users.png';
 const Authentication = () => {
     return (
       <div>
@@ -12,61 +13,36 @@ const Authentication = () => {
           <title>Sistema de Gestión de Ventas</title>
         </head> */}
         <body>
-          <div className="container-fluid flex-column p-0 h-100 bg-light">
+          <div className="container-main">
             <Header />
             <div className="proyectTitle d-flex justify-content-center">
-              <h1 className="text-center p-3 text-dark">Gestión de productos, ventas y usuarios</h1>
+              <h1 className="text-Style-Amway">Gestión de productos, ventas y usuarios</h1>
             </div>
-            <div className="proyect-features flex-column">
-              <div className="proyect-info h-100">
-                <div className="container h-100">
-                  <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div className="container-princ">
 
-                    <div className="col">
-                      <div className="card">
-                          <img src={example} alt="example" />
-                          <div className="card-body">
-                              <p className="card-text">
-                                This is a wider card with supporting text below as a
-                                natural lead-in to additional content. This content is a
-                                little bit longer.
-                                </p>
-                              
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col">
-                      <div className="card shadow-sm">
-                        <img src={example} alt="example" />
-                        <div className="card-body">
-                          <p className="card-text">
-                            This is a wider card with supporting text below as a
-                            natural lead-in to additional content. This content
-                            is a little bit longer.
-                          </p>
-                          <div className="d-flex justify-content-between align-items-center"></div>
-                        </div>
-                    </div>
-                </div>
-                    <div className="col">
-                      <div className="card shadow-sm">
-                        <img src={example} alt="example" />
-                        <div className="card-body">
-                          <p className="card-text">
-                            This is a wider card with supporting text below as a
-                            natural lead-in to additional content. This content
-                            is a little bit longer.
-                          </p>
-                          <div className="d-flex justify-content-between align-items-center"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="sub-cont">
+              <div className="img"><img src={product} /></div>
+              <div className="textou">Productos</div>
+              </div>
+                
+
+              <div className="sub-cont">
+              <div className="img"><img src={users}/></div>
+              <div className="textou2">Usuarios</div>
+              </div>
+
+
+              <div className="sub-cont">
+              <div className="img"><img src={sales}/></div>
+              <div className="textou">Ventas</div>
+              </div>
+
+
+            </div>
+           
 
                 <FooterN/>
-              </div>
-            </div>
+             
           </div>
         </body>
       </div>

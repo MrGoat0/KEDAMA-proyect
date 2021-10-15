@@ -1,9 +1,9 @@
 import { Button, Col } from "react-bootstrap";
-
+import '../../../styles/shared.css'
 const UpdateButton = () => {
     return (
         <Col xs="auto" >
-            <Button variant="primary">Actualizar</Button>
+            <button >Actualizar</button>
         </Col >
     )
 }

@@ -55,12 +55,12 @@
 
 .simple-text {
   color: white;
-  margin-top: 40px;
+  
   margin-left: 50px;
 }
 
 .thead-style {
-  background: #008891;
+  background: #52734D;
   position: sticky;
   top: -1px;
 }

@@ -19,7 +19,7 @@ const ProductsList = () => {
             {/* <Header /> */}
             <Header headerText={"Actualización de productos"} />
 
-            <ProductNav navSwitch={"Management"} page={"products"} />
+            {/* <ProductNav navSwitch={"Management"} page={"products"} /> */}
 
             <div className="grid-buttons">
                 <Container>

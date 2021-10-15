@@ -114,20 +114,20 @@ const RegisterButton = (props) => {
     return (
 
         <Col className="d-flex justify-content-between">
-            <Button
+            <button
                 className="btns"
                 type="submit"
                 onClick={updateBtn}
-                variant="primary"
+                
                 disabled={action}>Actualizar
-            </Button>
+            </button>
 
-            <Button
+            <button
                 className="btns"
                 type="submit"
                 onClick={registerBtn}
                 variant="primary">Registrar
-            </Button>
+            </button>
 
             <Modal show={modalSettings.show} onHide={handleClose}>
                 <Modal.Header>
@@ -135,9 +135,9 @@ const RegisterButton = (props) => {
                 </Modal.Header>
                 <Modal.Body>{modalBody}</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={handleClose}>
+                    <button variant="primary" onClick={handleClose}>
                         Aceptar
-                    </Button>
+                    </button>
                 </Modal.Footer>
             </Modal>
         </Col>

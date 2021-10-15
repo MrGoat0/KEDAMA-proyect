@@ -4,12 +4,13 @@ import Header from "../../shared/Header.jsx";
 import VentasNav from "../components/VentasNav"
 import '../../styles/Sales/ventas.css';
 import '../../styles/Sales/ventas.css';
+import Footer from "../../shared/Footer.jsx";
 const Sales = () => {
 return(
     <div>
     <body>
     <div class="container-fluid p-0 flex-column h-100">
-    <Header/>
+    <Header headerText={"Registro de ventas"} />
     <div className="d-flex flex-row justify-content-between">
         <div class="info-text flex-column px-4 py-3 ">
             <div class="text-start">
@@ -107,7 +108,7 @@ return(
             </div>
         </div>
     </div>
-    {/* <Footer/> */}
+    <Footer/>
     </body>
     </div>
   )
