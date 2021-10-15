@@ -16,9 +16,9 @@ const ListUsers = () => {
 
       <Header headerText={"Listar usuarios"} />
 
-      <ProductNav navSwitch={"Register"} page={"sales"} />
+      {/* <ProductNav navSwitch={"Register"} page={"sales"} /> */}
 
-      <Container className="dark-background-body">
+      <Container >
         <Row>
           <Col >
 
@@ -56,7 +56,7 @@ const ListUsers = () => {
 
 
           <Col >
-            <Table striped bordered hover variant="dark" >
+            <Table >
               <thead >
                 <tr>
                   <th>#</th>

@@ -5,10 +5,10 @@ html,body{
 }
 
 
-footer{
-    background-color:#31575c;
+foot{
+    background-color:#008891;
     font-size: 1em;
-    height:15%;
+    height:25%;
     width:100%;
 }
 .logo-image{
@@ -18,3 +18,18 @@ footer{
     width: 20px;
 }
 
+.met3{
+    font-size: 80%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.content{
+    bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #52734D;
+    color:#FEFFDE;
+}

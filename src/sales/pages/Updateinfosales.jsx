@@ -10,15 +10,16 @@ import Col from 'react-bootstrap/Col'
 import Footer from "../../shared/Footer.jsx";
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
 // import Table from 'react-bootstrap/Table'
+import  '../../../src/styles/shared.css'
 
 const Updateinfosales = () => {
   return (
     <div className="container-Category">
 
       <Header headerText={"Actualización de usuarios"} />
-      <ProductNav navSwitch={"Management"} page={"sales"} />
+      {/* <ProductNav navSwitch={"Management"} page={"sales"} /> */}
 
-      <Container className="dark-background-body">
+      <Container >
         <Row>
           <Col >
 
@@ -29,19 +30,19 @@ const Updateinfosales = () => {
 
               </Form.Group>
 
-              <Button variant="primary" type="submit" className="float-right" >
+              <button type="submit" className="float-right" >
                 Listar
-              </Button>
+              </button>
 
               <Link href="/categories/sales/updateinputsales">
-                <Button variant="primary" type="submit" className="float-right" >
+                <button  type="submit" className="float-right" >
                   Actualizar
-                </Button>
+                </button>
               </Link>
 
-              <Button variant="primary" type="submit" className="float-right" >
+              <button  type="submit" className="float-right" >
                 Cambiar Rol
-              </Button>
+              </button>
 
 
             </Form>

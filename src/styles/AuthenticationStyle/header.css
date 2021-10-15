@@ -8,6 +8,9 @@ div{
     padding:0;
 }
 header{
-    background-color:#31575c;
+    background-color:#52734D;
     font-size: 1.3em;
+}
+.nav-link ml-2 mt-2 px-0{
+    color: #FEFFDE !important;
 }
