@@ -1,10 +1,9 @@
 import { Form, Col, Button } from "react-bootstrap"
-import { useState } from "react"
 import api from "../../../api";
 
 const Filter = (props) => {
-    const { search, setSearch, setRecord, setCount, setPage } = props;
-    const [btnText, setBtnText] = useState("Filtrar")
+    const { search, setSearch, setRecord, filterState, setFilterState } = props;
+
 
     const saveValue = (event) => {
         setSearch(event.target.value)
@@ -13,30 +12,31 @@ const Filter = (props) => {
     // GET by id or description
     const sendSearch = async () => {
 
-        if (btnText === "Filtrar") {
+        if (filterState === "Filtrar") {
             const response = await api.products.filter(search);
             setRecord(response)
-            setPage(1)
-            setBtnText("Deshacer")
+            setFilterState("No filtrar")
         } else {
-            setBtnText("Filtrar")
+            setFilterState("Filtrar")
             window.location.reload()
 
         }
     }
 
-    const resetFilter = () => {
-        setBtnText("Filtrar")
-    }
+    // const resetFilter = () => {
+    //     setFilterState("Filtrar")
+    // }
 
     return (
         <Col className="d-flex justify-content-between filter-row">
             <Form.Control className="mr-2" id="filter-input"
                 onChange={saveValue}
-                onClick={resetFilter}
+                // onClick={resetFilter}
                 type="text"
                 placeholder="Por ID o descripción" />
-            <Button className="filter-btn" id="filter-btn" onClick={sendSearch}>{btnText}</Button>
+            <Button className="filterbtn"
+                id="filter-btn"
+                onClick={sendSearch}>{filterState}</Button>
         </Col>
     )
 }

@@ -5,7 +5,6 @@ import { useState } from "react"
 
 const ProductTable = (props) => {
     const { records } = props;
-    const [rowColor, setRowColor] = useState("")
 
     return (
         <Table className="table"
@@ -17,8 +16,6 @@ const ProductTable = (props) => {
             <TableBody
                 records={records}
                 properties={props}
-                rowColor={rowColor}
-                setRowColor={setRowColor}
             />
         </Table>
 

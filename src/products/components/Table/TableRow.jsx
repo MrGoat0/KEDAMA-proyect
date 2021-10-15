@@ -1,10 +1,12 @@
 import { Button } from "react-bootstrap"
 
 const TableRow = (props) => {
-    const { row, properties, rowColor } = props;
-    const { info, setInfo, action, setAction, setMissing } = properties;
+    const { row, properties } = props;
+    const { info, setInfo, setAction, setMissing } = properties;
 
     const updateActivation = () => {
+
+        setAction(true)
         document.getElementById("product-input").value = row.description
         document.getElementById("price-input").value = row.price
         document.getElementById("state-input").value = row.state
@@ -17,11 +19,8 @@ const TableRow = (props) => {
             price: row.price,
             state: row.state
         })
-        setAction(!action)
         setMissing({ description: false, price: false, state: false })
     }
-
-
 
     return (
         <tr id={row.id}>
@@ -32,7 +31,9 @@ const TableRow = (props) => {
             <td >
                 <div className="d-flex justify-content-center">
                     <Button className="action-buttons ml-1" variant="outline-danger">✖</Button>
-                    <Button id={"updateBtn-" + row.id} className="action-buttons ml-2" onClick={updateActivation}
+                    <Button id={"updateBtn-" + row.id}
+                        className="action-buttons ml-2"
+                        onClick={updateActivation}
                         variant="primary"> 🖊 </Button>
                 </div>
 

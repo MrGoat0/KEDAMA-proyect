@@ -18,10 +18,11 @@ const Products = () => {
     const [info, setInfo] = useState({ id: null, description: "", price: "", state: "" });
     const [missing, setMissing] = useState({ description: false, price: false, state: false });
     const [search, setSearch] = useState("");
-    const [action, setAction] = useState(true)
+    const [action, setAction] = useState(false)
     const [modalSettings, setModalSettings] = useState({ show: false, type: "" })
     const [countRecords, setCount] = useState()
     const [page, setPage] = useState(1)
+    const [filterState, setFilterState] = useState("Filtrar")
 
 
     // GET info request
@@ -58,16 +59,16 @@ const Products = () => {
 
             <Header headerText={"Gestión de productos"} />
 
-            <div className="simple-text">
+            <div className="simple-text mt-3 mb-3">
                 <span className="just-font">Registre y gestione los productos diligenciando la descripción,
                     valor unitario y el estado de disponibilidad.
                 </span>
             </div>
 
-            <Container fluid="xl" >
+            <Container fluid="xl">
 
-                <Row className="d-flex justify-content-center" className="just-font">
-                    <Col >
+                <Row className="d-flex justify-content-center just-font">
+                    <Col>
                         <Row className="d-flex justify-content-center" className="just-font">
                             <InputForm
                                 info={info}
@@ -78,28 +79,28 @@ const Products = () => {
                                 missing={missing}
                                 setMissing={setMissing}
                                 action={action}
-                                setAction={setAction}
                                 modalSettings={modalSettings}
                                 setModalSettings={setModalSettings}
-                                setCount={setCount}
-                                setPage={setPage} />
+                                filterState={filterState}
+                                setFilterState={setFilterState} />
                         </Row>
                     </Col>
-                    <Col xs={8} className="mt-3">
-                        <Row className="d-flex justify-content-center" className="just-font">
+                    <Col xs={8} className="">
+                        <Row className="d-flex justify-content-center just-font">
                             <ProductTable
                                 records={records}
                                 info={info}
                                 setInfo={setInfo}
-                                action={action}
                                 setAction={setAction}
                                 setMissing={setMissing} />
                         </Row>
-                        <Row className="d-flex justify-content-between pagination-buttons float-bottom">
+                        <Row className="d-flex justify-content-between pagination-buttons">
                             <Pagination
                                 countRecords={countRecords}
                                 page={page}
-                                setPage={setPage} />
+                                setPage={setPage}
+                                filterState={filterState}
+                                setFilterState={setFilterState} />
                         </Row>
                     </Col>
                 </Row>

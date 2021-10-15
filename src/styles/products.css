@@ -5,8 +5,6 @@
 
 .dark-background-body {
   width: 100%;
-  color: white;
-  background-color: #1b262c;
   min-height: 76%;
 }
 
@@ -14,8 +12,9 @@
   height: 40px;
   width: 100%;
   margin: 0;
-  border-radius: 5px;
+  border-radius: 4px;
   display: block;
+  border-color: rgb(199, 206, 214);
 }
 
 .form-input-box {
@@ -55,12 +54,12 @@
 
 .simple-text {
   color: white;
-  
+
   margin-left: 50px;
 }
 
 .thead-style {
-  background: #52734D;
+  background: #52734d;
   position: sticky;
   top: -1px;
 }
@@ -77,6 +76,15 @@
   width: 100%;
 }
 
-.filter-btn {
+.filterbtn {
   width: 50%;
+  background: #52734d;
+  border-color: #ddffbc;
+  border-radius: 6px;
+}
+
+.filterbtn:hover {
+  background-color: #ddffbc; /* Green */
+  color: #52734d;
+  border-color: #ddffbc;
 }

@@ -4,12 +4,11 @@ import Product from "./ProductInput.jsx";
 import Price from "./PriceInput.jsx";
 import State from "./StateInput.jsx";
 import RegisterButton from "./RegisterButton.jsx";
-import { useState } from "react";
 import '../../../styles/inpForm.css';
 
 const ImputForm = (props) => {
     const { info, setInfo, search, setSearch, setRecord,
-        setCount, setPage, missing, setMissing } = props;
+        missing, filterState, setFilterState } = props;
 
 
     return (
@@ -36,15 +35,13 @@ const ImputForm = (props) => {
                 <Filter search={search}
                     setSearch={setSearch}
                     setRecord={setRecord}
-                    setCount={setCount}
-                    setPage={setPage} />
+                    filterState={filterState}
+                    setFilterState={setFilterState} />
             </Row>
 
             <Row className="d-flex justify-content-center form-buttons mb-5">
                 <RegisterButton
                     properties={props}
-                    missing={missing}
-                    setMissing={setMissing}
                 />
             </Row>
 
