@@ -12,6 +12,7 @@
   width: 100%;
   height: 100%;
   background-color: #feffde;
+  overflow: auto;
 }
 
 .h1 {
