@@ -69,7 +69,7 @@ const Products = () => {
 
                 <Row className="d-flex justify-content-center just-font">
                     <Col>
-                        <Row className="d-flex justify-content-center" className="just-font">
+                        <Row className="d-flex justify-content-center just-font">
                             <InputForm
                                 info={info}
                                 setInfo={setInfo}
@@ -85,7 +85,7 @@ const Products = () => {
                                 setFilterState={setFilterState} />
                         </Row>
                     </Col>
-                    <Col xs={8} className="">
+                    <Col xs={8} className="just-font">
                         <Row className="d-flex justify-content-center just-font">
                             <ProductTable
                                 records={records}

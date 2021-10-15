@@ -34,9 +34,9 @@ const Filter = (props) => {
                 // onClick={resetFilter}
                 type="text"
                 placeholder="Por ID o descripción" />
-            <Button className="filterbtn"
+            <button className="filterbtn"
                 id="filter-btn"
-                onClick={sendSearch}>{filterState}</Button>
+                onClick={sendSearch}>{filterState}</button>
         </Col>
     )
 }
