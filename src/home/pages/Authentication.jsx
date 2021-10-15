@@ -28,7 +28,7 @@ const Authentication = () => {
 
               <div className="sub-cont">
               <div className="img"><img src={users}/></div>
-              <div className="textou">Usuarios</div>
+              <div className="textou2">Usuarios</div>
               </div>
 
 
