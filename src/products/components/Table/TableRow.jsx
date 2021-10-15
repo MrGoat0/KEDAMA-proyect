@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap"
 
 const TableRow = (props) => {
     const { row, properties } = props;
-    const { info, setInfo, setAction, setMissing } = properties;
+    const { info, setInfo, setAction, setMissing } = properties.properties;
 
     const updateActivation = () => {
 
