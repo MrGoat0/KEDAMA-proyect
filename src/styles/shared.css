@@ -1,67 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 .line {
   height: 20%;
   background-color: #1b262c;
 }
 .header {
   width: 100%;
-  height: 10%;
-  background-color: #008891;
-  padding:10px;
+  height: 75px;
+  background-color: #52734D;
+  padding: 10px;
+  color: #DDFFBC;
+  font-family: 'Oswald', sans-serif;
 }
 .footer {
   width: 100%;
-  height: 7%;
-  background-color: #008891;
+  height: 50px;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #52734D;
+  display: flex;
+  flex-direction: row;
+  grid-column-gap: 8%;
+ justify-content: space-between;
+}
+.tomenu{
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+.containerSM{
   display: grid;
-  grid-template-columns: 5fr 1fr;
-  grid-column-gap: 1%;
+  grid-template-columns: 0.7fr 0.7fr 0.7fr;
+}
+.containerSM .div{
+  justify-content: center;
   align-items: center;
-  justify-items: center;
 }
-
-.dark-background-nav {
-  background-color: #1b262c;
-  flex-direction: column;
-}
-
-.dark-background-body {
-  color: white;
-  background-color: #1b262c;
-  padding-bottom: 50px;
-  min-height: 100%;
-  max-height: auto;
-}
-
-.form-select-custome {
-  height: 54%;
+img{
   width: 100%;
+  /* height: 100%; */
+}
+.infouser{font-family: 'Oswald', sans-serif;}
+button {
+  font-family: 'Oswald', sans-serif;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 4px;
+  border: none;
+  font-size: 17px;
+  height: 100%;
+  color: #FEFFDE;
+  background-color: #52734D;
+  /* #DDFFBC; */
+  
+}
+.each-button{
+  padding: 10%;
 }
 
-.form-input-buttons {
-  height: 54%;
-  width: 100px;
+button:hover {
+  background-color: #DDFFBC; /* Green */
+  color: #52734D;
 }
+.space-button{
 
-.table {
-  max-width: fit-content;
-  max-height: 384px;
-  margin: auto;
-  display: block;
-  overflow-x: auto;
+  display: flex;
+  margin-top: 5%;
+  justify-content: space-around;
 }
-
-.action-buttons {
-  width: 40px;
+.table{
+  margin-top: 3%;
+  background-color: #91C788;
+  border: solid #52734D;
 }
-
-.missing-cell {
-  border: 2px solid #cc1711;
+thead{
+  background-color:#52734D;
 }
-
-.hidden {
-  visibility: hidden;
+.for-save{
+  margin-top: 5%;
 }
-
-.statePicker {
-  border-radius: 5px;
+.just-font{
+  color: #1b262c;
+  font-family: 'Oswald', sans-serif;
+}
+.background{
+  background-color: #FEFFDE;
+  height: 100%;
+}
+body{
+  background-color: #FEFFDE;
 }

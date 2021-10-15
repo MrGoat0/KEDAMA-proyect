@@ -1,49 +1,45 @@
-// import React from "react";
-import Button from "react-bootstrap/Button"
+import { Button } from "react-bootstrap"
 
 const TableRow = (props) => {
-    const { row, search, setDescription, setPrice, setState } = props;
-
-    if (search) {
-        if (search.id === row.id)
-            var color = "#008891"
-    } else {
-      color = ""
-    }
+    const { row, setSearch, info, setInfo, action, setAction } = props;
 
     const rowPicked = (event) => {
         document.getElementById("product-input").value = row.description
-        setDescription(row.description)
-
         document.getElementById("price-input").value = row.price
-        setPrice(row.price)
-
         document.getElementById("state-input").value = row.state
-        setState(row.state)
+
+        setInfo({
+            _id: row._id,
+            id: info.id,
+            description: row.description,
+            price: row.price,
+            state: row.state
+        })
     }
-    const deleteThis = () => {
-       row.id="542"
-       console.log(delete row.id); // Elimino el 'precio' 
-       console.log(delete row.description);
-       console.log(delete row.price);
-       console.log(delete row.state);
-       console.log(row)
+
+    const updateActivation = () => {
+        if (action) {
+            setAction(false)
+            document.getElementById("filter-input").value = ""
+            setSearch(row.id.toString())
+        } else {
+            setAction(true)
+            setSearch("")
+        }
     }
 
     return (
         <tr onClick={rowPicked}>
-            <td bgcolor={color}>{row.id}</td>
-            <td bgcolor={color}>{row.description}</td>
-            <td bgcolor={color}>{row.price}</td>
-            <td bgcolor={color}>{row.state}</td>
-            {/* /* <td bgcolor={color}> */}
-            <td bgcolor={color}>
-                
-                <div>
-                    <Button onClick={deleteThis} className="action-buttons ml-2" variant="outline-danger">✖</Button>
-                    <Button className="action-buttons ml-2" variant="outline-success">✏</Button>
+            <td>{row.id}</td>
+            <td>{row.description}</td>
+            <td>{row.price}</td>
+            <td>{row.state}</td>
+            <td>
+                <div className="d-flex justify-content-center">
+                    <Button className="action-buttons ml-1" variant="outline-danger">✖</Button>
+                    <Button id="updateBtn" className="action-buttons ml-2" onClick={updateActivation}
+                        variant="primary"> 🖊 </Button>
                 </div>
-
 
             </td>
         </tr>

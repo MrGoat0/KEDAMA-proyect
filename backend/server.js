@@ -1,51 +1,32 @@
-const app = require("./app");
 const http = require("http");
-
+const app = require("./app");
 
 const normalizePort = (val) => {
+  // if port 5000 is selected, so port
   var port = parseInt(val, 10);
 
+  // if auto port is assigned
   if (isNaN(port)) {
     // named pipe
     return val;
   }
 
+  // if defined port is selected (3001)
   if (port >= 0) {
     // port number
     return port;
   }
-
   return false;
 };
 
-const onError = (error) => {
-  if (error.syscall !== "listen") {
-    throw error;
-  }
-  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
-  switch (error.code) {
-    case "EACCES":
-      console.error(bind + " requires elevated privileges");
-      process.exit(1);
-      break;
-    case "EADDRINUSE":
-      console.error(bind + " is already in use");
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-};
-
-const onListening = () => {
-  const addr = server.address();
-  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
-};
-
-const port = normalizePort(process.env.PORT || "3002");
+// app port setup
+const port = normalizePort(process.env.PORT || "3001");
 app.set("port", port);
 
+// server creation
 const server = http.createServer(app);
-server.on("error", onError);
-server.on("listening", onListening);
-server.listen(port);
+
+// server keep listening
+server.listen(port, () => {
+  console.log("Server on port " + app.get("port"));
+});

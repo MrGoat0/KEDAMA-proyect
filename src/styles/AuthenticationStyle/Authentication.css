@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
 html,body{
     height:100%;
     width: 100%;
@@ -27,4 +31,67 @@ div{
     width: 70%;
     justify-self: center;
   
+}
+.proyect-info{
+    justify-content: center;
+    align-items: center; 
+}
+.container-princ{
+    margin-top: 2%;
+  
+    height: 65%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2%;
+}
+.sub-cont{
+    height: 90%;
+    border: solid transparent;
+    border-radius: 10%;
+    background-color: #DDFFBC;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+    display: grid;
+    grid-template-rows: 5fr 1fr ;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.textou{
+    display: flex;
+ 
+    
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+    background-color: #52734D;
+    color: #DDFFBC;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3em;
+}
+.textou2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    background-color: #52734D;
+    color: #DDFFBC;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3em;
+}
+.text-Style-Amway{
+    color:#52734D;
+    font-family: 'Oswald', sans-serif;
+}
+.container-main{
+    height: 100%;
+    background-color: #FEFFDE;
+}
+img{
+    width: 70%;
+    height: 50%;
 }
