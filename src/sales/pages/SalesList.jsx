@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../shared/Header.jsx";
+import Footer from "../../shared/Footer";
 // import Footer from "../../shared/Footer";
 import VentasNav from "../components/VentasNav"
 import '../../styles/Sales/listadoVentas.css';
@@ -8,7 +8,7 @@ return(
     <div>
         <body>
     <div class="container-fluid p-0 d-flex flex-column h-100">
-    <Header/>
+ 
 
         <div class="container-fluid p-2 pb-4 d-flex flex-row h-100">
             <div class="search-options-box d-flex flex-column">
@@ -252,6 +252,7 @@ return(
         </div> */}
     </div>
 </body>
+<Footer></Footer>
     </div>
 )
 

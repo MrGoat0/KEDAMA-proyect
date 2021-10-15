@@ -1,9 +1,5 @@
-const callApi = async (url, reqOptions) => {
-  if (url === "/products/all") {
-    var response = await fetch("http://localhost:3001/api" + url);
-  } else {
-    response = await fetch("http://localhost:3001/api" + url, reqOptions);
-  }
+const callApi = async (url, reqOptions = {}) => {
+  const response = await fetch("http://localhost:3001/api" + url, reqOptions);
   const data = await response.json();
   return data;
 };
@@ -18,6 +14,15 @@ const api = {
     },
     update(id, reqOptions) {
       return callApi("/products/" + id, reqOptions);
+    },
+    info() {
+      return callApi("/products/info");
+    },
+    slice(page) {
+      return callApi("/products/slice/" + page);
+    },
+    filter(search) {
+      return callApi("/products/filter/" + search);
     },
   },
 };

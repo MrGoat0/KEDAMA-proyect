@@ -14,7 +14,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel'
 
 const Updaterolusers = () => {
   return (
-    <div className="dark-background-body">
+    <div className="background">
 
       <Header headerText={"Actualización de roles"} />
 
@@ -24,33 +24,33 @@ const Updaterolusers = () => {
           <Col >
 
             <Form>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Group className="mb-3" className="just-font" controlId="formBasicEmail">
                 <Form.Label>Actualizar información de usuario</Form.Label>
                 <Form.Control type="email" placeholder="Nombre o ID" />
 
               </Form.Group>
-
+              <div className="space-button">
               <Link to="/categories/users">
-            <Button variant="primary" type="submit" className="float-right" >
+            <button  type="submit" className="float-right" >
               Listar
-            </Button>
+            </button>
             </Link>
 
             <Link to="/categories/users/updateinfousers">
-              <Button variant="primary" type="submit" className="float-right" >
+              <button  type="submit" className="float-right" >
                 Actualizar
-              </Button>
+              </button>
             </Link>
 
 
 
 
             <Link to="/categories/users/updaterolusers">
-            <Button variant="primary" type="submit" className="float-right" >
+            <button  type="submit" className="float-right" >
               Cambiar Rol
-            </Button>
+            </button>
             </Link>
-
+</div>
             </Form>
 
 
@@ -59,7 +59,7 @@ const Updaterolusers = () => {
 
           <Col >
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" className="just-font" controlId="formBasicEmail">
 
               <Form.Label>Estado</Form.Label>
 
@@ -78,11 +78,13 @@ const Updaterolusers = () => {
                   <option value="2">Vendedor</option>
                 </Form.Select>
               </FloatingLabel>
-
-            </Form.Group>
-            <Button variant="primary" type="submit" >
+              <div className="for-save">
+              <button type="submit" >
               Guardar
-            </Button>
+            </button>
+            </div>
+            </Form.Group>
+            
           </Col>
 
 

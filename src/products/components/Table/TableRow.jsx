@@ -1,12 +1,16 @@
 import { Button } from "react-bootstrap"
 
 const TableRow = (props) => {
-    const { row, setSearch, info, setInfo, action, setAction } = props;
+    const { row, properties } = props;
+    const { info, setInfo, setAction, setMissing } = properties;
 
-    const rowPicked = (event) => {
+    const updateActivation = () => {
+
+        setAction(true)
         document.getElementById("product-input").value = row.description
         document.getElementById("price-input").value = row.price
         document.getElementById("state-input").value = row.state
+        document.getElementById("filter-input").value = row.id
 
         setInfo({
             _id: row._id,
@@ -15,29 +19,21 @@ const TableRow = (props) => {
             price: row.price,
             state: row.state
         })
-    }
-
-    const updateActivation = () => {
-        if (action) {
-            setAction(false)
-            document.getElementById("filter-input").value = ""
-            setSearch(row.id.toString())
-        } else {
-            setAction(true)
-            setSearch("")
-        }
+        setMissing({ description: false, price: false, state: false })
     }
 
     return (
-        <tr onClick={rowPicked}>
-            <td>{row.id}</td>
-            <td>{row.description}</td>
-            <td>{row.price}</td>
-            <td>{row.state}</td>
-            <td>
+        <tr id={row.id}>
+            <td >{row.id}</td>
+            <td >{row.description}</td>
+            <td >{row.price}</td>
+            <td >{row.state}</td>
+            <td >
                 <div className="d-flex justify-content-center">
                     <Button className="action-buttons ml-1" variant="outline-danger">✖</Button>
-                    <Button id="updateBtn" className="action-buttons ml-2" onClick={updateActivation}
+                    <Button id={"updateBtn-" + row.id}
+                        className="action-buttons ml-2"
+                        onClick={updateActivation}
                         variant="primary"> 🖊 </Button>
                 </div>
 

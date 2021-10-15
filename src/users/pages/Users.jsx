@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col'
 import Footer from "../../shared/Footer.jsx";
 import Table from 'react-bootstrap/Table'
 import { Link } from "react-router-dom";
+import '../../../src/styles/shared.css'
 
 const Users = () => {
 return(
@@ -16,40 +17,40 @@ return(
 
     <Header headerText={"Listar usuarios"} />
 
-    <ProductNav navSwitch={"Register"} page={"users"} />
+    {/* <ProductNav navSwitch={"Register"} page={"users"} /> */}
 
-    <Container className="dark-background-body">
+    <Container >
       <Row>
         <Col >
 
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Listar información de usuario</Form.Label>
+              <Form.Label> <div className="just-font">Listar información de usuario</div> </Form.Label>
               <Form.Control type="email" placeholder="Nombre o ID" />
 
             </Form.Group>
-
+             <div className="space-button">
             <Link to="/categories/users">
-            <Button variant="primary" type="submit" className="float-right" >
+            <button type="submit" className="float-right" >
               Listar
-            </Button>
+            </button>
             </Link>
 
             <Link to="/categories/users/updateinfousers">
-              <Button variant="primary" type="submit" className="float-right" >
+              <button  type="submit" className="float-right" >
                 Actualizar
-              </Button>
+              </button>
             </Link>
 
 
 
 
             <Link to="/categories/users/updaterolusers">
-            <Button variant="primary" type="submit" className="float-right" >
+            <button  type="submit" className="float-right" >
               Cambiar Rol
-            </Button>
+            </button>
             </Link>
-
+            </div>
 
           </Form>
 
@@ -58,7 +59,7 @@ return(
 
 
         <Col >
-          <Table striped bordered hover variant="dark" >
+          <Table className="table" >
             <thead >
               <tr>
                 <th>#</th>

@@ -5,8 +5,6 @@
 
 .dark-background-body {
   width: 100%;
-  color: white;
-  background-color: #1b262c;
   min-height: 76%;
 }
 
@@ -14,8 +12,9 @@
   height: 40px;
   width: 100%;
   margin: 0;
-  border-radius: 5px;
+  border-radius: 4px;
   display: block;
+  border-color: rgb(199, 206, 214);
 }
 
 .form-input-box {
@@ -36,10 +35,9 @@
 
 .table {
   max-width: 100%;
-  max-height: 415px;
+  max-height: 400px;
   display: block;
-  overflow: auto;
-  margin-bottom: 60px;
+  overflow-x: auto;
 }
 
 .action-buttons {
@@ -56,16 +54,37 @@
 
 .simple-text {
   color: white;
-  margin-top: 40px;
+
   margin-left: 50px;
 }
 
 .thead-style {
-  background: #008891;
+  background: #52734d;
   position: sticky;
   top: -1px;
 }
 
 .input-column {
   width: 100%;
+}
+
+.pagination-buttons {
+  margin-bottom: 60px;
+}
+
+.filter-row {
+  width: 100%;
+}
+
+.filterbtn {
+  width: 50%;
+  background: #52734d;
+  border-color: #ddffbc;
+  border-radius: 6px;
+}
+
+.filterbtn:hover {
+  background-color: #ddffbc; /* Green */
+  color: #52734d;
+  border-color: #ddffbc;
 }
