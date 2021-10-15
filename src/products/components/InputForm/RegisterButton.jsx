@@ -14,7 +14,8 @@ const RegisterButton = (props) => {
         modalBody = "Diligencie todos los campos requeridos."
     } else if (modalSettings.type === "update") {
         modalHeader = "¡Actualización exitosa!"
-        modalBody = "Se actualizó correctamente el producto con ID " + search + "."
+        modalBody = "Se actualizó correctamente el producto con ID " +
+            document.getElementById("filter-input").value + "."
     } else if (modalSettings.type === "serverError") {
         modalHeader = "¡Atención!"
         modalBody = "Ya existe un producto con la descripción especificada."
@@ -106,7 +107,8 @@ const RegisterButton = (props) => {
 
     const handleClose = () => {
         setModalSettings({ show: false, type: "" })
-        window.location.reload()
+        if (["update", "register"].includes(modalSettings.type)) { window.location.reload() }
+
     };
 
     return (

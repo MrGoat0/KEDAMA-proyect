@@ -3,6 +3,7 @@ import Header from "../../shared/Header.jsx";
 import Footer from "../../shared/Footer.jsx";
 import InputForm from "../components/InputForm/InputForm.jsx";
 import ProductTable from "../components/Table/ProductTable.jsx";
+import Pagination from "../components/Table/Pagination.jsx";
 import React, { useState, useEffect } from "react";
 import "../../styles/shared.css"
 import '../../styles/category.css';
@@ -15,21 +16,42 @@ const Products = () => {
     // action: enables update button
     const [records, setRecord] = useState([]);
     const [info, setInfo] = useState({ id: null, description: "", price: "", state: "" });
+    const [missing, setMissing] = useState({ description: false, price: false, state: false });
     const [search, setSearch] = useState("");
     const [action, setAction] = useState(true)
     const [modalSettings, setModalSettings] = useState({ show: false, type: "" })
+    const [countRecords, setCount] = useState()
+    const [page, setPage] = useState(1)
+
+
+    // GET info request
+    useEffect(() => {
+        const fetchInfo = async () => {
+            const response = await api.products.info();
+            info.id = response.maxId;
+            setCount(response.count)
+        };
+        fetchInfo()
+    }, [info]);
+
+    // // GET sliced data request
+    useEffect(() => {
+        const fetchSlice = async () => {
+            const response = await api.products.slice(page);
+            setRecord(response);
+        };
+        fetchSlice()
+    }, [page]);
 
     // GET (all) request
-    useEffect(() => {
-        const fetchGetAll = async () => {
-            const response = await api.products.list();
-            const sortedRecords = response.sort((a, b) => a.id - b.id)
-            setRecord(sortedRecords);
-            info.id = sortedRecords[sortedRecords.length - 1].id
-        };
-
-        fetchGetAll()
-    }, [info]);
+    // useEffect(() => {
+    //     const fetchGetAll = async () => {
+    //         const response = await api.products.list();
+    //         const sortedRecords = response.sort((a, b) => a.id - b.id)
+    //         setRecord(sortedRecords);
+    //     };
+    //     fetchGetAll()
+    // }, [info]);
 
     return (
         <div className="container-Category" >
@@ -50,24 +72,34 @@ const Products = () => {
                             <InputForm
                                 info={info}
                                 setInfo={setInfo}
+                                setRecord={setRecord}
                                 search={search}
                                 setSearch={setSearch}
+                                missing={missing}
+                                setMissing={setMissing}
                                 action={action}
                                 setAction={setAction}
                                 modalSettings={modalSettings}
-                                setModalSettings={setModalSettings} />
+                                setModalSettings={setModalSettings}
+                                setCount={setCount}
+                                setPage={setPage} />
                         </Row>
                     </Col>
                     <Col xs={8} className="mt-3">
                         <Row className="d-flex justify-content-center">
                             <ProductTable
                                 records={records}
-                                search={search}
-                                setSearch={setSearch}
                                 info={info}
                                 setInfo={setInfo}
                                 action={action}
-                                setAction={setAction} />
+                                setAction={setAction}
+                                setMissing={setMissing} />
+                        </Row>
+                        <Row className="d-flex justify-content-between pagination-buttons float-bottom">
+                            <Pagination
+                                countRecords={countRecords}
+                                page={page}
+                                setPage={setPage} />
                         </Row>
                     </Col>
                 </Row>

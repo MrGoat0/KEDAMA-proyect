@@ -1,4 +1,4 @@
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import Filter from "./FilterInput.jsx"
 import Product from "./ProductInput.jsx";
 import Price from "./PriceInput.jsx";
@@ -8,8 +8,9 @@ import { useState } from "react";
 import '../../../styles/inpForm.css';
 
 const ImputForm = (props) => {
-    const { info, setInfo, setSearch } = props;
-    const [missing, setMissing] = useState({ description: false, price: false, state: false });
+    const { info, setInfo, search, setSearch, setRecord,
+        setCount, setPage, missing, setMissing } = props;
+
 
     return (
         <Container className="mt-2">
@@ -25,8 +26,18 @@ const ImputForm = (props) => {
                 <State info={info} setInfo={setInfo} missingInput={missing.state} />
             </Row>
 
-            <Row className="d-flex justify-content-center form-input-box mb-5">
-                <Filter setSearch={setSearch} />
+            <>
+                <Col>
+                    <Form.Label>Filtrar</Form.Label>
+                </Col>
+            </>
+
+            <Row className="d-flex justify-content-between form-input-box mb-5">
+                <Filter search={search}
+                    setSearch={setSearch}
+                    setRecord={setRecord}
+                    setCount={setCount}
+                    setPage={setPage} />
             </Row>
 
             <Row className="d-flex justify-content-center form-buttons mb-5">
