@@ -38,13 +38,14 @@ div{
 }
 .container-princ{
     margin-top: 2%;
-    background-color: aqua;
+  
     height: 65%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 2%;
 }
 .sub-cont{
+    height: 90%;
     border: solid transparent;
     border-radius: 10%;
     background-color: #DDFFBC;
@@ -52,7 +53,7 @@ div{
     align-items: center;
     margin: 5%;
     display: grid;
-    grid-template-rows: 3fr 1fr ;
+    grid-template-rows: 5fr 1fr ;
 }
 .img{
     display: flex;
@@ -62,8 +63,21 @@ div{
 }
 .textou{
     display: flex;
+ 
+    
     justify-content: center;
     align-items: center;
+    margin-top: 20%;
+    background-color: #52734D;
+    color: #DDFFBC;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3em;
+}
+.textou2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
     background-color: #52734D;
     color: #DDFFBC;
     font-family: 'Oswald', sans-serif;
