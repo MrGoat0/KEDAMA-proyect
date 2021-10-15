@@ -44,22 +44,6 @@ const RegisterButton = (props) => {
             // reset red borders
             setMissing({ description: false, price: false, state: false })
 
-            
-        } else {
-            // if (description !== "") {
-            //     missing.description = false
-            // } else { missing.description = true }
-            // if (price !== "") {
-            //     missing.price = false
-            // } else { missing.price = true }
-            // if (state !== "") {
-            //     missing.state = false
-            // } else { missing.state = true }
-            // setMissing(missing)
-            // setShow(true)
-            // setAlert("danger")
-
-
             // POST request to api
             const response = await api.products.create({
                 method: 'POST',
@@ -84,9 +68,9 @@ const RegisterButton = (props) => {
                 setModalSettings({ show: true, type: "update" })
             }
 
-        // } else {
-        //     triggerMissingCells()
-        // }
+        } else {
+            triggerMissingCells()
+        }
     }
 
     // Update button action
@@ -115,10 +99,9 @@ const RegisterButton = (props) => {
             } else {// Triggerring success update modal
                 setModalSettings({ show: true, type: "update" })
             }
+        } else {
+            triggerMissingCells()
         }
-        // } else {
-        //     triggerMissingCells()
-        // }
     }
 
     const handleClose = () => {
@@ -159,4 +142,5 @@ const RegisterButton = (props) => {
 
     )
 }
- export default RegisterButton;
+
+export default RegisterButton;
