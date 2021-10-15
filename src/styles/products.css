@@ -1,13 +1,3 @@
-.dark-background-nav {
-  background-color: #1b262c;
-  flex-direction: column;
-}
-
-.dark-background-body {
-  width: 100%;
-  min-height: 76%;
-}
-
 .form-select-custome {
   height: 40px;
   width: 100%;
