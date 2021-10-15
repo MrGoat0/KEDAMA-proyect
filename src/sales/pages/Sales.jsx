@@ -6,6 +6,8 @@ import {useState} from 'react';
 // import Footer from "../../shared/Footer";
 import VentasNav from "../components/VentasNav"
 import '../../styles/Sales/ventas.css';
+import '../../styles/Sales/ventas.css';
+import Footer from "../../shared/Footer.jsx";
 const Sales = () => {
 
     const [userID,setUserID] = useState("#####")
@@ -26,8 +28,8 @@ const Sales = () => {
 return(
     <div>
     <body>
-    <div className="container-fluid p-0 flex-column h-100">
-    <Header/>
+    <div class="container-fluid p-0 flex-column h-100">
+    <Header headerText={"Registro de ventas"} />
     <div className="d-flex flex-row justify-content-between">
         <div className="info-text flex-column px-4 py-3 ">
             <div className="text-start">
@@ -45,7 +47,7 @@ return(
             <SalesBill userID={userID} product={product} mount={mount} />
         </div>
     </div>
-    {/* <Footer/> */}
+    <Footer/>
     </body>
     </div>
   )

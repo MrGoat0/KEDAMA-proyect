@@ -10,16 +10,16 @@ const Selector = () => {
     <div className="container-Category">
 
       <Header headerText={"Menú"} />
-
       <div className="grid-buttons">
         <Link to="/categories/users">
-          <Button variant="light" size="lg">Usuarios</Button>
+        <button  className="each-button">Usuarios</button>
         </Link>
         <Link to="/categories/products" >
-          <Button variant="light" size="lg">Productos</Button>
+          
+          <button className="each-button">Productos</button>
         </Link>
         <Link to="/categories/sales" >
-          <Button variant="light" size="lg">Ventas</Button>
+        <button  className="each-button">Ventas</button>
         </Link>
       </div>
       <Footer />

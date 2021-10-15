@@ -5,7 +5,6 @@ import '../styles/shared.css';
 
 const Header = (props) => {
   const { headerText } = props;
-
   return (
     <div className="header">
 
