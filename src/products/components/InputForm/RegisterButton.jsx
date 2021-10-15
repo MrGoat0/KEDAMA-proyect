@@ -1,9 +1,9 @@
-import { Button, Col, Modal } from "react-bootstrap";
+import { Col, Modal } from "react-bootstrap";
 import api from "../../../api";
 
 const RegisterButton = (props) => {
-    const { info, missing, setMissing,
-        action, search, modalSettings, setModalSettings } = props;
+    const { info, action, modalSettings,
+        setModalSettings, missing, setMissing } = props.properties;
 
     // Setting modal info based on action
     if (modalSettings.type === "register") {
@@ -14,10 +14,15 @@ const RegisterButton = (props) => {
         modalBody = "Diligencie todos los campos requeridos."
     } else if (modalSettings.type === "update") {
         modalHeader = "¡Actualización exitosa!"
-        modalBody = "Se actualizó correctamente el producto con ID " + search + "."
+        modalBody = "Se actualizó correctamente el producto con ID " +
+            document.getElementById("filter-input").value + "."
     } else if (modalSettings.type === "serverError") {
         modalHeader = "¡Atención!"
         modalBody = "Ya existe un producto con la descripción especificada."
+    } else if (modalSettings.type === "unableUpdate") {
+        modalHeader = "¡Atención!"
+        modalBody = "Para modificar un registro, por favor presione " +
+            "el botón azul de la fila correspondiente al producto que desea actualizar."
     }
 
     // Setting red border and modal feedback
@@ -63,9 +68,9 @@ const RegisterButton = (props) => {
 
             if (response.error) {
                 setModalSettings({ show: true, type: "serverError" })
-            } else {// Triggerring success update modal
+            } else {// Triggerring success register modal
                 info.id = info.id + 1
-                setModalSettings({ show: true, type: "update" })
+                setModalSettings({ show: true, type: "register" })
             }
 
         } else {
@@ -77,6 +82,9 @@ const RegisterButton = (props) => {
     const updateBtn = async () => {
         // Looking for missing fields. if true -> update record by id
         if (info.description !== "" && info.price !== "" && info.state !== "") {
+
+            // reset red borders
+            setMissing({ description: false, price: false, state: false })
 
             // PUT request to api
             const response = await api.products.update(info._id, {
@@ -100,13 +108,19 @@ const RegisterButton = (props) => {
                 setModalSettings({ show: true, type: "update" })
             }
         } else {
-            triggerMissingCells()
+            if (action) {
+                triggerMissingCells()
+            } else {
+                (setModalSettings({ show: true, type: "unableUpdate" }))
+            }
+
         }
     }
 
     const handleClose = () => {
         setModalSettings({ show: false, type: "" })
-        window.location.reload()
+        if (["update", "register"].includes(modalSettings.type)) { window.location.reload() }
+
     };
 
     return (
@@ -115,9 +129,7 @@ const RegisterButton = (props) => {
             <button
                 className="btns"
                 type="submit"
-                onClick={updateBtn}
-                
-                disabled={action}>Actualizar
+                onClick={updateBtn}>Actualizar
             </button>
 
             <button

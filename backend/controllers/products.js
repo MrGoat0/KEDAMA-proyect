@@ -17,22 +17,65 @@ exports.createProduct = (req, res) => {
 // Get all products
 exports.getProducts = (req, res) => {
   Products.find()
+    .sort({ id: 1 })
     .then((productResult) => {
       res.status(200).json(productResult);
+    })
+    .catch((err) => {
+      res.status().json({ error: err });
+    });
+};
+
+// Get number of products and maxId
+exports.infoProducts = (req, res) => {
+  Products.find()
+    .then((infoResult) => {
+      res.status(200).json({
+        count: infoResult.length,
+        maxId: infoResult.sort((a, b) => a.id - b.id).splice(-1)[0].id,
+      });
     })
     .catch((err) => {
       res.json({ error: err });
     });
 };
 
-// Get a product by id
-exports.getProductId = (req, res) => {
-  Products.findById(req.params.id)
-    .then((getIdResult) => {
-      res.status(200).json(getIdResult);
+// Get slice of records according to the page
+exports.sliceProducts = (req, res) => {
+  const indicesStartAt = 10000;
+  var startAt = indicesStartAt + 40 * (req.params.page - 1);
+
+  Products.find({ id: { $gte: startAt } })
+    .limit(40)
+    .sort({ id: 1 })
+    .then((sliceResult) => {
+      res.status(200).json(sliceResult);
     })
     .catch((err) => {
-      res.status(404).json({ error: err });
+      res.json({ error: err });
+    });
+};
+
+// Get a product by id or description
+exports.filterProducts = (req, res) => {
+  const filterId = /^[0-9]+$/i.test(req.params.search)
+    ? parseInt(req.params.search)
+    : 0;
+
+  let filterDesc = req.params.search
+    .split(/\s+/)
+    .map((kw) => '"' + kw + '"')
+    .join(" ");
+
+  Products.find({
+    $or: [{ id: { $eq: filterId } }, { $text: { $search: filterDesc } }],
+  })
+    .sort({ id: 1 })
+    .then((filterResult) => {
+      res.status(200).json(filterResult);
+    })
+    .catch((err) => {
+      res.status(404).json("ERROR");
     });
 };
 
