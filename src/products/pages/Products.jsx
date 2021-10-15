@@ -36,16 +36,16 @@ const Products = () => {
             <Header headerText={"Gestión de productos"} />
 
             <div className="simple-text">
-                <span>Registre y gestione los productos diligenciando la descripción,
+                <span className="just-font">Registre y gestione los productos diligenciando la descripción,
                     valor unitario y el estado de disponibilidad.
                 </span>
             </div>
 
-            <Container fluid="xl" className="dark-background-body mt-4">
+            <Container fluid="xl" >
 
-                <Row className="d-flex justify-content-center">
+                <Row className="d-flex justify-content-center" className="just-font">
                     <Col >
-                        <Row className="d-flex justify-content-center">
+                        <Row className="d-flex justify-content-center" className="just-font">
                             <InputForm
                                 info={info}
                                 setInfo={setInfo}
@@ -58,7 +58,7 @@ const Products = () => {
                         </Row>
                     </Col>
                     <Col xs={8} className="mt-3">
-                        <Row className="d-flex justify-content-center">
+                        <Row className="d-flex justify-content-center" className="just-font">
                             <ProductTable
                                 records={records}
                                 search={search}

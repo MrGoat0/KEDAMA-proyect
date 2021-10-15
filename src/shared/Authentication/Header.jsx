@@ -34,7 +34,7 @@ return (
             </button>
             </Link>
             <Link to="/PageNotFound" >
-            <button type="button" className="btn btn-warning mx-2">
+            <button type="button" className="btn btn-outline-light mx-2">
               Sign-up
             </button>
             </Link>
