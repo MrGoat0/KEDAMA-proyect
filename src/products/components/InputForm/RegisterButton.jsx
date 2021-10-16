@@ -3,7 +3,7 @@ import api from "../../../api";
 import { useState } from "react"
 
 const RegisterButton = (props) => {
-    const { info, action, missing, setMissing } = props.properties;
+    const { info, action, setMissing } = props.properties;
     const [modalSettings, setModalSettings] = useState({ show: false, type: "" })
     // Setting modal info based on action
     if (modalSettings.type === "register") {
