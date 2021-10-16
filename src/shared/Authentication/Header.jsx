@@ -1,22 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { GoogleLogin } from 'react-google-login';
+import HeaderButtons from "./HeaderButtons"
 
 import '../../styles/AuthenticationStyle/header.css';
 
 
-const Header = () => {
-  // const [isLoggedIn, setLogin] = useState(false)
-
-  // const login = (response) => {
-  //   setLogin(true);
-  //   localStorage.setItem('token', response.tokenId)
-  // }
-
-  // const loginError = (err) => {
-  //   console.log(err);
-  // };
-
+const Header = (props) => {
+  const { isLoggedIn, setLogin } = props;
   return (
     <div>
       <header className="p-2 text-white">
@@ -40,25 +30,7 @@ const Header = () => {
 
             <div className="col col-8">
               <div className="row justify-content-end">
-                <Link to="/categories" >
-                  <button type="button" className="btn btn-light mx-2">
-                    Login
-                  </button>
-
-                  {/* <GoogleLogin
-                    clientId="758311109371-ard4nkmjub93unf80oe101fp4anqbr8f.apps.googleusercontent.com"
-                    buttonText="Login"
-                    onSuccess={login}
-                    onFailure={loginError}
-                    cookiePolicy={'single_host_origin'}
-                    href="/categories"
-                  /> */}
-                </Link>
-                <Link to="/PageNotFound" >
-                  <button type="button" className="btn btn-outline-light mx-2">
-                    Sign-up
-                  </button>
-                </Link>
+                <HeaderButtons isLoggedIn={isLoggedIn} setLogin={setLogin} />
               </div>
             </div>
           </div>

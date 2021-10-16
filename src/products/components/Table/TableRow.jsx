@@ -24,7 +24,7 @@ const TableRow = (props) => {
     }
 
     const daleteActivation = async () => {
-        const response = await api.products.delete(row._id.toString())
+        await api.products.delete(row._id.toString())
         setShowModal(false)
         window.location.reload()
     }
