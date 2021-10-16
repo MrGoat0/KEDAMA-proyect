@@ -14,10 +14,16 @@ const api = {
       return callApi("/products/all");
     },
     create(reqOptions) {
+      
       return callApi("/products/", reqOptions);
     },
     update(id, reqOptions) {
       return callApi("/products/" + id, reqOptions);
+    },
+    delete(id) {
+      return callApi("/products/"+ id,{
+        method:'DELETE',
+      });
     },
   },
 };

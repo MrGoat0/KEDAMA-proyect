@@ -21,12 +21,12 @@ const Products = () => {
 
     // GET (all) request
     useEffect(() => {
-        const fetchGetAll = async () => {
+        async function fetchGetAll() {
             const response = await api.products.list();
-            const sortedRecords = response.sort((a, b) => a.id - b.id)
+            const sortedRecords = response.sort((a, b) => a.id - b.id);
             setRecord(sortedRecords);
-            info.id = sortedRecords[sortedRecords.length - 1].id
-        };
+            info.id = sortedRecords[sortedRecords.length - 1].id;
+        }
         fetchGetAll()
     }, [info]);
 

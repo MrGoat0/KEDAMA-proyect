@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap"
-
+import api from "../../../api";
 const TableRow = (props) => {
     const { row, setSearch, info, setInfo, action, setAction } = props;
 
@@ -27,6 +27,14 @@ const TableRow = (props) => {
             setSearch("")
         }
     }
+    const deleteActivation = async (e) => {
+      
+        if (action) {
+           
+            const response=await api.products.delete(row._id.toString())
+            console.log(response)
+        } 
+    }
 
     return (
         <tr onClick={rowPicked}>
@@ -36,7 +44,7 @@ const TableRow = (props) => {
             <td>{row.state}</td>
             <td>
                 <div className="d-flex justify-content-center">
-                    <Button className="action-buttons ml-1" variant="outline-danger">✖</Button>
+                    <Button className="action-buttons ml-1" onClick={deleteActivation}variant="outline-danger">✖</Button>
                     <Button id="updateBtn" className="action-buttons ml-2" onClick={updateActivation}
                         variant="primary"> 🖊 </Button>
                 </div>
