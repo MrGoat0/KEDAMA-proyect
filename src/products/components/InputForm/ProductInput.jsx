@@ -1,4 +1,4 @@
-import { Form, Col } from "react-bootstrap"
+import { Form, Col, FloatingLabel } from "react-bootstrap"
 
 const Product = (props) => {
     const { info, setInfo, missingInput } = props;
@@ -13,6 +13,7 @@ const Product = (props) => {
         info.description = event.target.value
         setInfo(info)
     }
+    console.log("missed: ", missed)
     return (
         <Col>
             <Form.Label>

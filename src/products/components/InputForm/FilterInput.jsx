@@ -1,4 +1,4 @@
-import { Form, Col, Button } from "react-bootstrap"
+import { Form, Col } from "react-bootstrap"
 import api from "../../../api";
 
 const Filter = (props) => {

@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap"
 
 const Pagination = (props) => {
-    const { countRecords, page, setPage, filterState, setFilterState } = props;
+    const { countRecords, page, setPage, filterState } = props;
     const nPages = Math.floor(countRecords / 40) + 1
 
     const nextPage = () => {

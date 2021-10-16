@@ -10,7 +10,6 @@ const ImputForm = (props) => {
     const { info, setInfo, search, setSearch, setRecord,
         missing, filterState, setFilterState } = props;
 
-
     return (
         <Container className="mt-2">
             <Row className="d-flex justify-content-center form-input-box mb-3">
