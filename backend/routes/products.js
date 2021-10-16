@@ -9,7 +9,7 @@ router.get("/filter/:search", productsController.filterProducts);
 router.get("/slice/:page", productsController.sliceProducts);
 router.get("/all", productsController.getProducts);
 router.get("/info", productsController.infoProducts);
-// router.get("/:id", productsController.getProductId);
+router.get("/:id", productsController.getByMongoId);
 router.put("/:id", productsController.updateProduct);
 router.delete("/:id", productsController.deleteProduct);
 

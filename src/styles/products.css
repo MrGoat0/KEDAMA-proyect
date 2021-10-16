@@ -25,7 +25,7 @@
 
 .table {
   max-width: 100%;
-  max-height: 400px;
+  max-height: 415px;
   display: block;
   overflow-x: auto;
 }
@@ -35,7 +35,7 @@
 }
 
 .missing-cell {
-  border: 2px solid #cc1711;
+  border: 1px solid #ff0000;
 }
 
 .hidden {

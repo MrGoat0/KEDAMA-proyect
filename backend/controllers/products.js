@@ -79,6 +79,18 @@ exports.filterProducts = (req, res) => {
     });
 };
 
+// get by _id
+// Get all products
+exports.getByMongoId = (req, res) => {
+  Products.find({ _id: req.params.id })
+    .then((searchResult) => {
+      res.status(200).json(searchResult);
+    })
+    .catch((err) => {
+      res.status().json({ error: err });
+    });
+};
+
 // Update a product by id
 exports.updateProduct = (req, res) => {
   Products.updateOne({ _id: req.params.id }, req.body)
