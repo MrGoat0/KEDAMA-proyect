@@ -10,7 +10,6 @@ const api = {
       return callApi("/products/all");
     },
     create(reqOptions) {
-      
       return callApi("/products/", reqOptions);
     },
     update(id, reqOptions) {
@@ -18,9 +17,10 @@ const api = {
     },
 
     delete(id) {
-      return callApi("/products/"+ id,{
-        method:'DELETE',
+      return callApi("/products/" + id, {
+        method: "DELETE",
       });
+    },
 
     info() {
       return callApi("/products/info");

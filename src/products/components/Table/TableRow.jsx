@@ -22,12 +22,8 @@ const TableRow = (props) => {
         setMissing({ description: false, price: false, state: false })
     }
     const deleteActivation = async (e) => {
-      
-        if (action) {
-           
-            const response=await api.products.delete(row._id.toString())
-            console.log(response)
-        } 
+        const response = await api.products.delete(row._id.toString())
+        console.log(response)
     }
 
     return (
@@ -39,7 +35,7 @@ const TableRow = (props) => {
             <td >
                 <div className="d-flex justify-content-center">
 
-                    <Button className="action-buttons ml-1" onClick={deleteActivation}variant="outline-danger">✖</Button>
+                    <Button className="action-buttons ml-1" onClick={deleteActivation} variant="outline-danger">✖</Button>
 
                     <Button id={"updateBtn-" + row.id}
                         className="action-buttons ml-2"
