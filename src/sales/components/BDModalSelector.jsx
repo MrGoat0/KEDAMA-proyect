@@ -1,52 +1,25 @@
 import SalesTable from "./TableWithSales";
 import Table from 'react-bootstrap/Table'
-const BDModalSelector = ({type}) =>{
-
-    const records = [{
-        index: "1",
-        fecha: "01/01/2021",
-        usuario:"MasterFill",
-        producto: "producto #",
-        cantidad: "10000",
-    },{
-        index: "1",
-        fecha: "01/01/2021",
-        usuario:"MasterFill",
-        producto: "producto #",
-        cantidad: "10000",
-    },{
-        index: "1",
-        fecha: "01/01/2021",
-        usuario:"MasterFill",
-        producto: "producto #",
-        cantidad: "10000",
-    },{
-        index: "1",
-        fecha: "01/01/2021",
-        usuario:"MasterFill",
-        producto: "producto #",
-        cantidad: "10000",
-    },{
-        index: "1",
-        fecha: "01/01/2021",
-        usuario:"MasterFill",
-        producto: "producto #",
-        cantidad: "10000",
-    }]
+import PropTypes from 'prop-types';
+const BDModalSelector = ({type,products,users}) =>{
     if (type === 'usuario'){
+        console.log(users)
         return(
             <Table striped bordered hover>
-                <SalesTable recordsData={records}/>
+                <SalesTable recordsData={users} type={type}/>
             </Table>
         )
     }else if (type === 'producto'){
         return(
-            <span>algo en espan</span>
-            // <Table striped bordered hover>
-            //     <SalesTable recordsData={records}/>
-            // </Table>
+            <Table striped bordered hover>
+                <SalesTable recordsData={products} type={type}/>
+            </Table>
         )
     }
+}
+
+BDModalSelector.propTypes = {
+    type: PropTypes.string,products: PropTypes.array
 }
 
 export default BDModalSelector;

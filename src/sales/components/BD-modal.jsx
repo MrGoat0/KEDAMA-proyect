@@ -7,7 +7,6 @@ import '../../styles/Sales/listadoVentas.css'
 
 const BDModal = (props) => {
 
-console.log(props)
     return (
       <Modal
         {...props}
@@ -22,7 +21,7 @@ console.log(props)
         </Modal.Header>
         <Modal.Body>
           <h5 className="p-3">Seleccione el ususario a facturar</h5>
-          <BDModalSelector type={props.type}/>
+          <BDModalSelector type={props.type} products={props.products} users={props.users}/>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={props.onHide}>Close</Button>

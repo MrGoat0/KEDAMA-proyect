@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 
 
 const ProductForm = (props) =>{
-    const {changeProduct, changeMount} = props;
+    const {changeProduct, changeMount, products,setSales} = props;
 
     const [show, setShow] = useState(false);
     // const [pressed,setPress] = useState(false);
@@ -24,6 +24,7 @@ const ProductForm = (props) =>{
                   </span>
                   <div className="d-flex flex-row">
                     <input
+                      id="product-form"
                       type="text"
                       className="form-control"
                       aria-label="Text input with segmented dropdown button"
@@ -41,6 +42,7 @@ const ProductForm = (props) =>{
                       show={show}
                       onHide={handleClose}
                       type={product}
+                      products={products}
                     />
                   </div>
                 </div>
@@ -51,10 +53,12 @@ const ProductForm = (props) =>{
                   </span>
                   <div className="d-flex flex-row">
                     <input
+                      id="ID-product-form"
                       type="text"
                       className="form-control"
                       aria-label="Text input with segmented dropdown button"
                       placeholder="Identificación"
+                      onChange={setSales}
                     />
                   </div>
                 </div>
@@ -66,6 +70,7 @@ const ProductForm = (props) =>{
                     </span>
                     <div className="d-flex flex-row">
                       <input
+                        id = "product-mount"
                         type="number"
                         className="form-control"
                         aria-label="Number input with segmented dropdown button"

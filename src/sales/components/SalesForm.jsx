@@ -1,11 +1,12 @@
 
 import UserForm from "./UserForm";
 import ProductsForm from "./ProductsForms ";
+// import React, {useState} from "react";
 import '../../styles/Sales/ventas.css';
 
 const SalesForm = (props) => {
 
-    const {changeUserID,changeProduct, changeMount} = props;
+    const {changeUserID,changeUserName, changeProduct, changeMount, products, setSales,users} = props;
 
     return (
       <div className="form-left-side d-flex flex-column p-2 ">
@@ -22,16 +23,18 @@ const SalesForm = (props) => {
         </div>
         <div className="d-flex flex-column h-75">
           <div className=" form-left-side-user d-flex flex-column py-3">
-              <UserForm changeUserID={changeUserID}/>
+            <UserForm changeUserID={changeUserID} changeUserName={changeUserName} users={users}/>
           </div>
           <div className="form-left-side-products d-flex flex-column py-3">
-            <ProductsForm changeProduct={changeProduct} changeMount={changeMount}/>
+            <ProductsForm changeProduct={changeProduct} changeMount={changeMount} products={products}/>
           </div>
         </div>
         <div className="d-flex justify-content-center pb-3">
-          <button type="button" className="btn btn-secondary">
+          <button type="button" className="btn btn-secondary" onClick={setSales}>
             Submit
           </button>
+
+          
         </div>
       </div>
     );
