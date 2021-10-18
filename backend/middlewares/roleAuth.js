@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const User = require("../models/users");
 
 // in the parameter req we send the authentication token
 module.exports = (req, res, next) => {
@@ -6,6 +7,6 @@ module.exports = (req, res, next) => {
   const decodedToken = jwt.decode(token);
   req.userData = { email: decodedToken.email, name: decodedToken.name };
 
-  // next(): allows to continue executing the next middleware or controller (if there are no errors?)
+  // next() allows to continue to the controller execution if there are no errors
   next();
 };

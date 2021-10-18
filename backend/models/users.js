@@ -4,7 +4,7 @@ const users = mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   state: { type: Boolean, required: true },
-  rol: { type: String },
+  role: { type: String },
 });
 
 module.exports = mongoose.model("users", users);

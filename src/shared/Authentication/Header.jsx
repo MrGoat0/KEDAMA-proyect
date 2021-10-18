@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import HeaderButtons from "./HeaderButtons"
 
+
 import '../../styles/AuthenticationStyle/header.css';
 
 
 const Header = (props) => {
   const { isLoggedIn, setLogin } = props;
+
   return (
     <div>
       <header className="p-2 text-white">
@@ -30,7 +32,9 @@ const Header = (props) => {
 
             <div className="col col-8">
               <div className="row justify-content-end">
-                <HeaderButtons isLoggedIn={isLoggedIn} setLogin={setLogin} />
+                <HeaderButtons isLoggedIn={isLoggedIn}
+                  setLogin={setLogin} />
+
               </div>
             </div>
           </div>

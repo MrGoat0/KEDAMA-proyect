@@ -14,7 +14,8 @@ const Authentication = (props) => {
     <div>
       <body>
         <div className="container-main">
-          <Header isLoggedIn={isLoggedIn} setLogin={setLogin} />
+          <Header isLoggedIn={isLoggedIn}
+            setLogin={setLogin} />
           <div className="proyectTitle d-flex justify-content-center">
             <h1 className="text-Style-Amway">Gestión de productos, ventas y usuarios</h1>
           </div>
