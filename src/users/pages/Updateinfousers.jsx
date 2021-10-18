@@ -29,29 +29,29 @@ const Updateinfousers = () => {
                 <Form.Control type="email" placeholder="Nombre o ID" />
 
               </Form.Group>
-          <div className="space-button">
-              <Link to="/categories/users">
-            <button variant="primary" type="submit" className="float-right" >
-              Listar
-            </button>
-            </Link>
+              <div className="space-button">
+                <Link to="/categories/users">
+                  <button variant="primary" type="submit" className="float-right" >
+                    Listar
+                  </button>
+                </Link>
 
-            <Link to="/categories/users/updateinfousers">
-              <button variant="primary" type="submit" className="float-right" >
-                Actualizar
-              </button>
-            </Link>
-
-
+                <Link to="/categories/users/updateinfousers">
+                  <button variant="primary" type="submit" className="float-right" >
+                    Actualizar
+                  </button>
+                </Link>
 
 
-            <Link to="/categories/users/updaterolusers">
-            <button variant="primary" type="submit" className="float-right" >
-              Cambiar Rol
-            </button>
-            </Link>
 
-            </div>
+
+                <Link to="/categories/users/updaterolusers">
+                  <button variant="primary" type="submit" className="float-right" >
+                    Cambiar Rol
+                  </button>
+                </Link>
+
+              </div>
             </Form>
 
 
@@ -80,21 +80,21 @@ const Updateinfousers = () => {
               </FloatingLabel>
               <FloatingLabel controlId="floatingSelect" label="" >
                 <Form.Select aria-label="Floating label select example" >
-                  <Form.Label>Rol</Form.Label>
+                  Rol
                   <option>Rol</option>
                   <option value="1">Administrador</option>
                   <option value="2">Vendedor</option>
                 </Form.Select>
               </FloatingLabel>
               <div className="for-save">
-              <button type="submit" >
-              Guardar
-            </button>
-            </div>
+                <button type="submit" >
+                  Guardar
+                </button>
+              </div>
             </Form.Group>
-            
+
           </Col>
-          
+
 
 
 

@@ -3,7 +3,7 @@ import api from "../../../api";
 import { useState } from "react"
 
 const RegisterButton = (props) => {
-    const { info, action, missing, setMissing } = props.properties;
+    const { info, action, setMissing } = props.properties;
     const [modalSettings, setModalSettings] = useState({ show: false, type: "" })
     // Setting modal info based on action
     if (modalSettings.type === "register") {
@@ -58,12 +58,13 @@ const RegisterButton = (props) => {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    authorization: "Bearer " + localStorage.getItem('token'),
                 },
                 body: JSON.stringify(
                     {
                         id: info.id + 1,
-                        description: info.description,
+                        description: info.description.trim(),
                         price: parseInt(info.price),
                         state: info.state
                     }
@@ -95,11 +96,12 @@ const RegisterButton = (props) => {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    authorization: "Bearer " + localStorage.getItem('token'),
                 },
                 body: JSON.stringify(
                     {
-                        description: info.description,
+                        description: info.description.trim(),
                         price: parseInt(info.price),
                         state: info.state
                     }
@@ -123,6 +125,7 @@ const RegisterButton = (props) => {
 
     const handleClose = () => {
         setModalSettings({ show: false, type: "" })
+
         if (["update", "register"].includes(modalSettings.type)) { window.location.reload() }
     };
 

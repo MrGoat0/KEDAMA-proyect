@@ -3,7 +3,8 @@ import Header from "../../shared/Authentication/Header";
 import FooterN from "../../shared/Authentication/Footer";
 import "../../styles/AuthenticationStyle/about.css";
 
-const About = () => {
+const About = (props) => {
+  const { isLoggedIn, setLogin } = props;
   return (
     //     <div>
     //         Esta es la de autorizacion
@@ -16,7 +17,8 @@ const About = () => {
     <div>
       <body className="bg-light">
         <div className="container-fluid flex-column p-0 h-100">
-          <Header />
+          <Header isLoggedIn={isLoggedIn}
+            setLogin={setLogin} />
           <div className="proyectTitle d-flex justify-content-center">
             <h1 className="text-center p-3 pt-4 text-dark">SOBRE LOS AUTORES...</h1>
           </div>
@@ -163,7 +165,7 @@ const About = () => {
               </div>
             </div>
             <FooterN />
-          </div> 
+          </div>
         </div>
       </body>
     </div>

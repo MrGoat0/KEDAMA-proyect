@@ -105,8 +105,8 @@ exports.updateProduct = (req, res) => {
 // Delete a user by id
 exports.deleteProduct = async (req, res) => {
   Products.deleteOne({ _id: req.params.id })
-    .then((updateResult) => {
-      res.status(200).json(updateResult);
+    .then((deleteResult) => {
+      res.status(200).json(deleteResult);
     })
     .catch((err) => {
       res.status(404).json({ error: err });

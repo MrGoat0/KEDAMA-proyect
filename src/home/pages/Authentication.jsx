@@ -6,15 +6,16 @@ import '../../styles/AuthenticationStyle/Authentication.css';
 import product from '../../img/products.png';
 import sales from '../../img/sales.png';
 import users from '../../img/users.png';
-const Authentication = () => {
+
+const Authentication = (props) => {
+  const { isLoggedIn, setLogin } = props;
+
   return (
     <div>
-      {/* <head>
-          <title>Sistema de Gestión de Ventas</title>
-        </head> */}
       <body>
         <div className="container-main">
-          <Header />
+          <Header isLoggedIn={isLoggedIn}
+            setLogin={setLogin} />
           <div className="proyectTitle d-flex justify-content-center">
             <h1 className="text-Style-Amway">Gestión de productos, ventas y usuarios</h1>
           </div>

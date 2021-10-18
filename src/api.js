@@ -16,10 +16,8 @@ const api = {
       return callApi("/products/" + id, reqOptions);
     },
 
-    delete(id) {
-      return callApi("/products/" + id, {
-        method: "DELETE",
-      });
+    delete(id, reqOptions) {
+      return callApi("/products/" + id, reqOptions);
     },
 
     info() {
@@ -30,6 +28,14 @@ const api = {
     },
     filter(search) {
       return callApi("/products/filter/" + search);
+    },
+  },
+  users: {
+    getUser(reqOptions) {
+      return callApi("/users/", reqOptions);
+    },
+    validateRole(reqOptions) {
+      return callApi("/users/roles", reqOptions);
     },
   },
 };

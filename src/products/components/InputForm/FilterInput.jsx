@@ -2,7 +2,7 @@ import { Form, Col } from "react-bootstrap"
 import api from "../../../api";
 
 const Filter = (props) => {
-    const { search, setSearch, setRecord, filterState, setFilterState } = props;
+    const { search, setSearch, setRecord, filterState, setFilterState } = props.properties;
 
 
     const saveValue = (event) => {

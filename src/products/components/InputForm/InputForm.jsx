@@ -7,8 +7,7 @@ import RegisterButton from "./RegisterButton.jsx";
 import '../../../styles/inpForm.css';
 
 const ImputForm = (props) => {
-    const { info, setInfo, search, setSearch, setRecord,
-        missing, filterState, setFilterState } = props;
+    const { info, setInfo, missing } = props;
 
     return (
         <Container className="mt-2">
@@ -31,11 +30,7 @@ const ImputForm = (props) => {
             </>
 
             <Row className="d-flex justify-content-between form-input-box mb-5">
-                <Filter search={search}
-                    setSearch={setSearch}
-                    setRecord={setRecord}
-                    filterState={filterState}
-                    setFilterState={setFilterState} />
+                <Filter properties={props} />
             </Row>
 
             <Row className="d-flex justify-content-center form-buttons mb-5">

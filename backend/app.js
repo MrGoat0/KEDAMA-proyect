@@ -7,7 +7,7 @@ const app = express();
 
 // const salesRoutes = require("./routes/sales");
 const productsRoutes = require("./routes/products");
-// const usersRoutes = require("./routes/users");
+const usersRoutes = require("./routes/users");
 
 // middlewares
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +26,6 @@ mongoose.connect(connectionString).then(() => {
 // define api routes
 // app.use("/api/sales", salesRoutes);
 app.use("/api/products", productsRoutes);
-// app.use("/api/users", usersRoutes);
+app.use("/api/users", usersRoutes);
 
 module.exports = app;
