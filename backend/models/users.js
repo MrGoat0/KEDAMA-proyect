@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const users = mongoose.Schema({
-  name: { type: string, required: true },
-  state: { type: string, required: true },
-  rol: { type: string },
+  name: { type: String, required: true },
+  state: { type: String, required: true },
+  rol: { type: String },
 });
 
 module.exports = mongoose.model("users", users);

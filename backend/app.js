@@ -6,7 +6,7 @@ const cors = require("cors");
 const app = express();
 const bodyParser = require("body-parser");
 
-// const salesRoutes = require("./routes/sales");
+const salesRoutes = require("./routes/sales");
 const productsRoutes = require("./routes/products");
 // const usersRoutes = require("./routes/users");
 
@@ -25,7 +25,7 @@ mongoose.connect(connectionString).then(() => {
 });
 
 // define api routes
-// app.use("/api/sales", salesRoutes);
+app.use("/api/sales", salesRoutes);
 app.use("/api/products", productsRoutes);
 // app.use("/api/users", usersRoutes);
 

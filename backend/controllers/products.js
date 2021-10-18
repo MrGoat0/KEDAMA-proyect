@@ -47,7 +47,7 @@ exports.updateProduct = (req, res) => {
     });
 };
 
-// Delete a user by id
+// Delete a product by id
 exports.deleteProduct = async (req, res) => {
   Products.deleteOne({ _id: req.params.id })
     .then((updateResult) => {

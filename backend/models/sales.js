@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const sales = mongoose.Schema({
-  state: { type: string, required: true },
+  state: { type: String, required: false}, //A que se refiere con estado?
   productInfo: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "products",
@@ -9,7 +9,7 @@ const sales = mongoose.Schema({
   },
   quantity: { type: Number, required: true },
   total: { type: Number, required: true },
-  date: { type: Timestamp, required: true },
+  date: { type: String, required: true }, // como hago on este tipo de dato?
   clientName: { type: String, required: true },
   clientId: { type: Number, required: true },
   seller: {
