@@ -6,12 +6,11 @@ import TableRow from "./TableRow";
 // }
 const TableBody = (props) => {
     const {recordsData,type} = props;
-    
     if(typeof recordsData !== "undefined"){
         return(
             <tbody>
                 {recordsData.map((row)=>(
-                    <TableRow row={row} type={type}/>
+                    <TableRow row={row} type={type} />
                 ))}
             {/* {iterateTrough(recordsData)} */}
             </tbody>

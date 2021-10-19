@@ -8,22 +8,24 @@ import VentasNav from "../components/VentasNav"
 import '../../styles/Sales/ventas.css';
 import '../../styles/Sales/ventas.css';
 import Footer from "../../shared/Footer.jsx";
-const Sales = ({products,setSales,users}) => {
+import api from "../../api.js"
+const Sales = ({products,users}) => {
 
-    const [userID,setUserID] = useState("----")
-    const [userName,setUserName] = useState("----")
-    const [product,setProduct] = useState("----")
+    const [recordUser,setrecordUser] = useState("Nombre");
+    const [recordProduct,setrecordProduct] = useState("Producto");
+    const [price,setPrice] = useState("----")
+    const [userName,setUserName] = useState(recordUser)
+    const [product,setProduct] = useState(recordProduct)
     const [mount,setMount] = useState("----")
     const [saleRecorded, setSaleRecorded] = useState({
-        index: products[products.length - 1].index + 1,
-        fecha: "01/01/2021",
-        usuario: userID,
+        date: "01/01/2021",
+        // usuario: userID,
         productos: product,
         precio: "10000",
       });
   
-    const handleChangeUserID = (event) => {
-        setUserID(event.target.value)      
+    const handleChangePrice = (event) => {
+        setPrice(event.target.value)      
     }
     const handleChangeUserName = (event) => {
         setUserName(event.target.value)      
@@ -34,14 +36,30 @@ const Sales = ({products,setSales,users}) => {
     const handleChangeMount = (event) => {
         setMount(event.target.value)
     }
+    const handleRecordUser= (event) =>{
+        setrecordUser(event.target.value)
+        handleChangeUserName(event)
+        // document.getElementById("user-form").placeholder = userName; //Como hago para poner el mismo estilo que el input inicial
+        // document.getElementById("ID-user-form").placeholder= userName;
+      }
+      const handleRecordProduct= (event) =>{
+        setrecordProduct(event.target.value)
+        handleChangeProduct(event)
+        // document.getElementById("product-form").placeholder=product;
+        // document.getElementById("ID-product-form").placeholder=product;
+      }
 
-    const handleChangeAndClick = (event) => {
+    //   getting complete user info
+      const userToAdd = api.users.list()
+      
+    //   console.log(userToAdd)
+    const handleChangeAndClick = (event,userToAdd,productToAdd) => {
+        // api.sales.create(saleRecorded);
         setSaleRecorded({...saleRecorded,[event.target.id]: event.target.value});
-        setSales(...products,saleRecorded); //según entiendo, esty mandandole saleRecorded a newSale, no?
-        setMount("----");       //Por cierto, por que hay un delay al iniciar el envío con submit
-        setProduct("----");
-        setUserID("----");
-        setUserName("----");
+        // setMount("----");       //Por cierto, por que hay un delay al iniciar el envío con submit
+        // setProduct("----");
+        // setPrice("----");
+        // setUserName("----");
         document.getElementById("user-form").value=""; //Como hago para poner el mismo estilo que el input inicial
         document.getElementById("ID-user-form").value="";
         document.getElementById("product-form").value="";
@@ -71,8 +89,12 @@ return(
     </div>
         <div className="container form-container d-flex flex-row px-2 py-4 pb-5 mt-3 mb-4">
         {/* changeUserID={handleChangeUserID} changeProduct={handleChangeProduct} changeMount={handleChangeMount} */}
-            <SalesForm changeUserID={handleChangeUserID} changeUserName={handleChangeUserName} changeProduct={handleChangeProduct} changeMount={handleChangeMount} products={products} setSales={handleChangeAndClick} users={users}/>
-            <SalesBill userID={userID} userName={userName} product={product} mount={mount} />
+            <SalesForm userName={userName} product={product} 
+            changePrice={handleChangePrice} changeUserName={handleChangeUserName} 
+            changeProduct={handleChangeProduct} changeMount={handleChangeMount} 
+            products={products} setSales={handleChangeAndClick} users={users} 
+            handleRecord={[handleRecordUser,handleRecordProduct]}/>
+            <SalesBill price={price} userName={userName} product={product} mount={mount} />
         </div>
     </div>
     <Footer/>

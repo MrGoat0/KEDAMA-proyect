@@ -1,11 +1,11 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import FilterSearch from "../components/filterSearch";
 import Footer from "../../shared/Footer";
 import VentasNav from "../components/VentasNav"
 import SalesTable from "../components/TableWithSales"
 import '../../styles/Sales/listadoVentas.css';
 import Table from 'react-bootstrap/Table'
-
+import api from "../../api.js"
 
 
 function FilteredSearch(date, user, product, sales){
@@ -46,7 +46,22 @@ function FilteredSearch(date, user, product, sales){
     return newSales;
 }
 
-const SalesList = ({sales,setSales}) => {
+const SalesList = () => {
+    const [sales,setSales] = useState([]);
+  
+  const handleSubmitRecords =(newSale)=>{
+    setSales([...sales, newSale]);
+    // console.log(newSale, "newsale")
+  }
+
+  useEffect(()=>{
+    async function fetchData(){
+      const response = await api.sales.list();
+      setSales(response);
+    }
+    fetchData();
+  },[])
+
   const [IDBill,setIDBill] = useState("");
   const [date,setDate] = useState("");
   const [user,setUser] = useState("");
@@ -67,19 +82,7 @@ const SalesList = ({sales,setSales}) => {
     const handleChangeProduct=(event)=>{
         setProduct(event.target.value);
     }
-    // const handleButtons = (type)=>{
-    //     if(type === "showAll"){
-    //         listToShow = ShowAll;
-    //         setShowAll(sales)
-    //         console.log("type All")
-    //     }else if(type === "filterSearch"){
-    //         console.log("type filter")
-    //         setFilter(()=>{
-    //             FilteredSearch (IDBill, date, user, product, sales);
-    //         })
-    //         listToShow = filter;
-    //     }
-    // }
+    
     const handleShowAll=()=>{
         setShowAll(sales);
     }

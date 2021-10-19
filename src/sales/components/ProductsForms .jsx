@@ -1,19 +1,32 @@
 import BDModal from "./BD-modal";
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
+import api from "../../api.js"
 
 
 const ProductForm = (props) =>{
-    const {changeProduct, changeMount, products,setSales} = props;
+    const {changeProduct, changeMount,setSales, handleRecord} = props;
 
     const [show, setShow] = useState(false);
+    const [productst,setProduct] = useState([]);
     // const [pressed,setPress] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const product = "producto";
+
+
+    useEffect(()=>{
+      async function fetchData(){
+        const response = await api.products.list();
+        setProduct(response);
+      }
+      fetchData();
+    },[])
+
+
     return (
         <div>
             <div className="p-2">
-              <h3>Información del producto</h3>
+              <h3>Información del producto y venta</h3>
             </div>
             <div className="d-flex flex-row justify-content-between p-1">
               <div className="d-flex flex-row px-3">
@@ -42,7 +55,8 @@ const ProductForm = (props) =>{
                       show={show}
                       onHide={handleClose}
                       type={product}
-                      products={products}
+                      products={productst}
+                      handleRecord={handleRecord}
                     />
                   </div>
                 </div>

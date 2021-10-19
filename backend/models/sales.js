@@ -9,7 +9,7 @@ const sales = mongoose.Schema({
   },
   quantity: { type: Number, required: true },
   total: { type: Number, required: true },
-  date: { type: String, required: true }, // como hago on este tipo de dato?
+  date: { type: String, required: true },
   clientName: { type: String, required: true },
   clientId: { type: Number, required: true },
   seller: {

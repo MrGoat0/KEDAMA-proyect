@@ -3,7 +3,6 @@ const SalesBill = (props) => {
     const {userID,userName, product,mount} = props;
     const date = new Date().toLocaleDateString(); //Igual sigue con el error de que se actualiza cad vez que se ingresan numeros
     // console.log((userID, product,mount))
-    console.log(product)
     return(
         <div className="form-right-side d-flex flex-column px-4">
         <div className="form-right-side-title d-flex justify-content-center flex-column align-items-center h-25">

@@ -6,7 +6,9 @@ import '../../styles/Sales/ventas.css';
 
 const SalesForm = (props) => {
 
-    const {changeUserID,changeUserName, changeProduct, changeMount, products, setSales,users} = props;
+    const {changePrice,changeUserName, changeProduct, 
+      changeMount, products, setSales,users,
+      handleRecord,userName, product} = props;
 
     return (
       <div className="form-left-side d-flex flex-column p-2 ">
@@ -23,10 +25,10 @@ const SalesForm = (props) => {
         </div>
         <div className="d-flex flex-column h-75">
           <div className=" form-left-side-user d-flex flex-column py-3">
-            <UserForm changeUserID={changeUserID} changeUserName={changeUserName} users={users}/>
+            <UserForm userName={userName} changeUserID={changePrice} changeUserName={changeUserName} users={users} handleRecord={handleRecord[0]}/>
           </div>
           <div className="form-left-side-products d-flex flex-column py-3">
-            <ProductsForm changeProduct={changeProduct} changeMount={changeMount} products={products}/>
+            <ProductsForm product={product} changeProduct={changeProduct} changeMount={changeMount} products={products} handleRecord={handleRecord[1]}/>
           </div>
         </div>
         <div className="d-flex justify-content-center pb-3">

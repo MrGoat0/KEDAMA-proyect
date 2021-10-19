@@ -1,5 +1,4 @@
-import React,{useState} from "react";
-
+// import React,{useState} from "react";
 import Category from "./home/pages/SelectCategory.jsx";
 import Authentication from "./home/pages/Authentication.jsx";
 import About from "./home/pages/About.jsx";
@@ -12,41 +11,41 @@ import NotFound from "./shared/NotFound.jsx";
 import "./styles/index.css";
 import Updateinfousers from "./users/pages/Updateinfousers.jsx";
 import Updaterolusers from "./users/pages/Updaterolusers.jsx";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-const recordsSales = [{
-  index: 1,
-  fecha: "02/01/2021",
-  usuario:"MasterFill",
-  productos: "[producto #]",
-  precio: "10000",
-},{
-  index: 2,
-  fecha: "01/01/2021",
-  usuario:"Vicky",
-  producto: "arepa",
-  precio: "10000",
-},{
-  index: 3,
-  fecha: "02/01/2021",
-  usuario:"Miguel",
-  producto: "huevo",
-  precio: "10000",
-},{
-  index: 4,
-  fecha: "02/01/2021",
-  usuario:"MasterFill",
-  producto: "[producto #]",
-  precio: "10000",
-},{
-  index: 5,
-  fecha: "01/01/2021",
-  usuario:"Lina",
-  producto: "huevo",
-  precio: "10000",
-}]
+// const recordsSales = [{
+//   index: 1,
+//   fecha: "02/01/2021",
+//   usuario:"MasterFill",
+//   productos: "[producto #]",
+//   precio: "10000",
+// },{
+//   index: 2,
+//   fecha: "01/01/2021",
+//   usuario:"Vicky",
+//   producto: "arepa",
+//   precio: "10000",
+// },{
+//   index: 3,
+//   fecha: "02/01/2021",
+//   usuario:"Miguel",
+//   producto: "huevo",
+//   precio: "10000",
+// },{
+//   index: 4,
+//   fecha: "02/01/2021",
+//   usuario:"MasterFill",
+//   producto: "[producto #]",
+//   precio: "10000",
+// },{
+//   index: 5,
+//   fecha: "01/01/2021",
+//   usuario:"Lina",
+//   producto: "huevo",
+//   precio: "10000",
+// }]
 
+// const recordsSales = callApi();
 const recordsUsers = [{
   index: 1,
   usuario:"MasterFill",
@@ -96,12 +95,6 @@ const recordsProducts = [{
 
 function App() {
   
-  const [sales,setSales] = useState(recordsSales);
-  
-  const handleSubmitRecords =(newSale)=>{
-    setSales([...sales, newSale]);
-    // console.log(newSale, "newsale")
-  }
 
 
   return (
@@ -137,10 +130,10 @@ function App() {
           />
 
           <Route exact path="/categories/sales">
-            <RegisterSales products={recordsProducts} setSales={handleSubmitRecords} users={recordsUsers} />
+            <RegisterSales products={recordsProducts} users={recordsUsers} />
           </Route>
           <Route exact path="/categories/register_sales">
-            <SalesList sales={sales} setSales={setSales}/>
+            <SalesList/>
             {/* {console.log(recordsSales)} */}
           </Route>
 

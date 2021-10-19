@@ -4,26 +4,10 @@ import PropTypes from 'prop-types';
 // import React,{useEffect,useState} from 'react';
 // import Table from 'react-bootstrap/Table';
 
-// const TableHeader = (props) => {
-//     const row = props;
-//     return (
-//       <thead>
-//         <tr>
-//         <td></td>
-//       <td>Mark</td>
-//       <td>Otto</td>
-//       <td>@mdo</td>
-//         </tr>
-//       </thead>
-//     )
-
-
 
 const SalesTable = (props) => {
     const {recordsData, type} = props;
-    console.log("aquí")
-    console.log(recordsData,"lista")
-    if(typeof recordsData !== "undefined" && recordsData.length == 2) {
+    if(typeof recordsData !== "undefined" && recordsData.length === 2) {
         console.log("aquí 2")
         if((typeof recordsData[0] === "undefined" && typeof recordsData[1] === "undefined") || (recordsData[0].length === 0 && recordsData[1].length === 0 )){
             return(<TableHeader type={type}/>)
@@ -34,7 +18,7 @@ const SalesTable = (props) => {
                 <div>
                     {/* {document.getElementById("TableArea").innerHTML= ""} */}
                     <TableHeader type={type}/>
-                    <TableBody recordsData={recordsData[0]} type={type}/>  
+                    <TableBody recordsData={recordsData[0]} type={type} />  
                 </div>)
             }else if(typeof recordsData[1] != "undefined" || recordsData[1].length > 0){
                 return(

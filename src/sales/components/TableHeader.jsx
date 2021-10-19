@@ -15,7 +15,9 @@ const TableHeader = ({type})=>{
             <thead>
             <tr>
                 <th width="30%">Id</th>
-                <th width="60%">Usuario</th>
+                <th width="60%">Name</th>
+                <th width="60%">Email</th>
+                <th width="60%">State</th>
                 <th width="10%">Rol</th>
             </tr>
     </thead>

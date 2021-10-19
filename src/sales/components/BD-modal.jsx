@@ -21,11 +21,16 @@ const BDModal = (props) => {
         </Modal.Header>
         <Modal.Body>
           <h5 className="p-3">Seleccione el ususario a facturar</h5>
-          <BDModalSelector type={props.type} products={props.products} users={props.users}/>
+          <BDModalSelector
+            type={props.type}
+            products={props.products}
+            users={props.users}
+            handleRecord={props.handleRecord}
+          />
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={props.onHide}>Close</Button>
-          <Button>Seleccionar</Button>
+          <Button onClick={props.handleRecord,props.onHide}>Seleccionar</Button>
         </Modal.Footer>
       </Modal>
     );
