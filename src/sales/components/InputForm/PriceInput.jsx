@@ -8,7 +8,7 @@ const Price = (props) => {
     }
     return (
         <Col xs="auto">
-            <Form.Control onChange={saveValue} type="number" placeholder="Valor unitario ($COP)" />
+            <Form.Control onChange={saveValue} type="number" placeholder="Valor Total Venta" />
         </Col >
     )
 }

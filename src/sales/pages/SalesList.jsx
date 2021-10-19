@@ -12,7 +12,7 @@ const SalesList = () => {
 
     return (
         <div>
-            <Header />
+            <Header titulo={"Gestión de Ventas" }/>
             <div className="navbar">
                 <SalesNav navSwitch={"Management"} />
             </div>

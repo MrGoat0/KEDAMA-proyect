@@ -8,9 +8,9 @@ const State = (props) => {
     return (
         <Col xs="auto">
             <Form.Select className="form-select-custome" onChange={saveValue}>
-                <option value=""> Estado del producto</option>
-                <option value="Disponible">Disponible</option>
-                <option value="No disponible">No disponible</option>
+                <option value=""> Estado de la venta</option>
+                <option value="Disponible">Pagado</option>
+                <option value="No disponible">No pagado</option>
             </Form.Select>
         </Col>
 

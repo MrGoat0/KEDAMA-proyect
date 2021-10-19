@@ -1,6 +1,6 @@
 import { Form, Col } from "react-bootstrap"
 
-const Product = (props) => {
+const Sales = (props) => {
     const { setDescription } = props;
 
     const saveValue = (event) => {
@@ -9,9 +9,8 @@ const Product = (props) => {
 
     return (
         <Col xs={3}>
-            <Form.Control onChange={saveValue} type="text" placeholder="Sales" />
+            <Form.Control onChange={saveValue} type="text" placeholder="Describir Venta" />
         </Col>
     )
 }
-
 export default Sales;
