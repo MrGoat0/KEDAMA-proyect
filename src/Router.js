@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PrivateRouteRoles from "./shared/PrivateRouteRoles";
 import Category from "./home/pages/SelectCategory.jsx";
 import Authentication from "./home/pages/Authentication.jsx";
 import About from "./home/pages/About.jsx";
@@ -11,12 +12,12 @@ import "./styles/index.css";
 import Updateinfousers from "./users/pages/Updateinfousers.jsx";
 import Updaterolusers from "./users/pages/Updaterolusers.jsx";
 import PrivateRoute from "./shared/PrivateRoute";
-import PrivateRouteRoles from "./shared/PrivateRouteRoles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  const [isLoggedIn, setLogin] = useState(false);
   const [validate, setValidate] = useState(true);
+  const [isLoggedIn, setLogin] = useState(false);
+  const [userRecords, setUserRecords] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -32,58 +33,71 @@ function App() {
       <Router>
         <Switch>
           <PrivateRouteRoles
-            path="/categories/products"
-            validate={validate}
             setValidate={setValidate}
+            validate={validate}
+            path="/categories/products"
+            exact
           >
             <Route exact path="/categories/products" component={Products} />
           </PrivateRouteRoles>
 
           <PrivateRouteRoles
+            validate={validate}
+            setValidate={setValidate}
             path="/categories/users/updateinfousers"
-            validate={validate}
-            setValidate={setValidate}
+            exact
           >
             <Route
               exact
-              path="/categories/users/updateinfousers"
               component={Updateinfousers}
+              path="/categories/users/updateinfousers"
+              userRecords={userRecords}
+              setUserRecords={setUserRecords}
             />
           </PrivateRouteRoles>
 
           <PrivateRouteRoles
-            path="/categories/users/updaterolusers"
             validate={validate}
             setValidate={setValidate}
+            path="/categories/users/updaterolusers"
+            exact
           >
             <Route
               exact
-              path="/categories/users/updaterolusers"
               component={Updaterolusers}
+              path="/categories/users/updaterolusers"
             />
           </PrivateRouteRoles>
 
           <PrivateRouteRoles
-            path="/categories/users"
             validate={validate}
             setValidate={setValidate}
+            path="/categories/users"
+            exact
           >
-            <Route exact path="/categories/users" component={Users} />
+            <Route
+              exact
+              path="/categories/users"
+              component={Users}
+              userRecords={userRecords}
+              setUserRecords={setUserRecords}
+            />
           </PrivateRouteRoles>
 
           <PrivateRoute
-            path="/categories/sales"
             validate={validate}
             setValidate={setValidate}
+            path="/categories/sales"
             exact
           >
             <Route exact path="/categories/sales" component={Sales} />
           </PrivateRoute>
 
           <PrivateRoute
-            path="/categories/register_sales"
             validate={validate}
             setValidate={setValidate}
+            path="/categories/register_sales"
+            exact
           >
             <Route
               exact
@@ -96,6 +110,7 @@ function App() {
             path="/categories"
             validate={validate}
             setValidate={setValidate}
+            exact
           >
             <Route exact path="/categories">
               <Category />
