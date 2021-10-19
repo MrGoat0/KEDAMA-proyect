@@ -9,13 +9,11 @@ import api from "../../api.js"
 
 
 function FilteredSearch(date, user, product, sales){
-    // console.log(date, user, product)
+    
     let newSales = [];
     if(date !== "" && user !== "" && product !== ""){
-        // console.log("entró")
         for(let element = 0; element < sales.length; element++){
             if(date === sales[element].fecha && user === sales[element].usuario && product === sales[element].productos){
-                // console.log("entró 2")
                 newSales.push(sales[element]);
             }
         }        
@@ -25,7 +23,6 @@ function FilteredSearch(date, user, product, sales){
             for(let element = 0; element < sales.length; element++){
                 if(date === sales[element].fecha){
                     newSales.push(sales[element]);
-                    // console.log(sales[element]);
                 }
             }
         }else if(user !== ""){
@@ -42,7 +39,6 @@ function FilteredSearch(date, user, product, sales){
             }
         }
     }
-    // console.log(newSales, "newSales")
     return newSales;
 }
 
@@ -51,7 +47,6 @@ const SalesList = () => {
   
   const handleSubmitRecords =(newSale)=>{
     setSales([...sales, newSale]);
-    // console.log(newSale, "newsale")
   }
 
   useEffect(()=>{
@@ -90,7 +85,6 @@ const SalesList = () => {
         setFilter(FilteredSearch (date, user, product, sales));
     }
 
-    console.log([ShowAll,filter], "todo")
     const type = "salesRecorded";
     
 return(

@@ -1,36 +1,34 @@
 import BDModal from "./BD-modal";
-import React,{useState,useEffect} from 'react';
-import api from "../../api.js"
+import React,{useState} from 'react';
 
 
 const ProductForm = (props) =>{
-    const {changeProduct, changeMount,setSales, handleRecord} = props;
+    const {changeProduct, changeMount, handleRecord, productShow, tableToShow} = props;
 
     const [show, setShow] = useState(false);
-    const [productst,setProduct] = useState([]);
+    // const [productst,setProduct] = useState([]);
     // const [pressed,setPress] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const product = "producto";
 
 
-    useEffect(()=>{
-      async function fetchData(){
-        const response = await api.products.list();
-        setProduct(response);
-      }
-      fetchData();
-    },[])
+    // useEffect(()=>{
+    //   async function fetchData(){
+    //     const response = await api.products.list();
+    //     setProduct(response);
+    //   }
+    //   fetchData();
+    // },[])
 
 
     return (
         <div>
-            <div className="p-2">
+            <div className="p-1">
               <h3>Información del producto y venta</h3>
             </div>
             <div className="d-flex flex-row justify-content-between p-1">
-              <div className="d-flex flex-row px-3">
-                <div className="user-button input-group d-flex flex-column px-2 pt-2 pb-2">
+            <div className="user-button input-group d-flex flex-column px-2 pt-2 pb-2">
                   <span>
                     {" "}
                     <strong>Producto</strong>{" "}
@@ -41,7 +39,7 @@ const ProductForm = (props) =>{
                       type="text"
                       className="form-control"
                       aria-label="Text input with segmented dropdown button"
-                      placeholder="Nombre"
+                      placeholder={productShow}
                       onChange={changeProduct}
                     />
                     <button
@@ -55,29 +53,13 @@ const ProductForm = (props) =>{
                       show={show}
                       onHide={handleClose}
                       type={product}
-                      products={productst}
+                      tableToShow={tableToShow}
                       handleRecord={handleRecord}
                     />
                   </div>
-                </div>
-                <div className="user-button input-group d-flex flex-column  pt-2 pb-2 w-50">
-                  <span>
-                    {" "}
-                    <strong> ID </strong>{" "}
-                  </span>
-                  <div className="d-flex flex-row">
-                    <input
-                      id="ID-product-form"
-                      type="text"
-                      className="form-control"
-                      aria-label="Text input with segmented dropdown button"
-                      placeholder="Identificación"
-                      onChange={setSales}
-                    />
-                  </div>
-                </div>
-                <div className="d-flex flex-column">
-                  <div className="user-button input-group d-flex flex-column px-2 pt-2 pb-2 w-50">
+            </div>
+                <div className="d-flex flex-column px-5">
+                  <div className="user-button input-group d-flex flex-column px-2 pt-2 pb-2">
                     <span>
                       {" "}
                       <strong> Cantidad </strong>{" "}
@@ -94,7 +76,6 @@ const ProductForm = (props) =>{
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
         </div>
     )

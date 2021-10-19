@@ -12,7 +12,7 @@ exports.addSale = (req, res) => {
         productInfo: req.body.productInfo,
         quantity: req.body.quantity,
         total: req.body.total,
-        date: { type: String, required: true }, // como hago on este tipo de dato?
+        date: req.body.date, // como hago on este tipo de dato?
         clientName: req.body.clientName,
         clientId: req.body.clientId,
         seller: req.body.seller,

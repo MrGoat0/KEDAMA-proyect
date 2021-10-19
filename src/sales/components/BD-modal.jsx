@@ -23,8 +23,7 @@ const BDModal = (props) => {
           <h5 className="p-3">Seleccione el ususario a facturar</h5>
           <BDModalSelector
             type={props.type}
-            products={props.products}
-            users={props.users}
+            tableToShow={props.tableToShow}
             handleRecord={props.handleRecord}
           />
         </Modal.Body>

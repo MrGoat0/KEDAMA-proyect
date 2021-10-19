@@ -10,7 +10,7 @@ const TableHeader = ({type})=>{
                 <th width="20%">Cantidad</th>
             </tr>
     </thead>)
-    }else if(type === "usuario"){
+    }else if(type === "usuario" || type === "vendedor"){
         return(
             <thead>
             <tr>

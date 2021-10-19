@@ -130,7 +130,7 @@ function App() {
           />
 
           <Route exact path="/categories/sales">
-            <RegisterSales products={recordsProducts} users={recordsUsers} />
+            <RegisterSales />
           </Route>
           <Route exact path="/categories/register_sales">
             <SalesList/>

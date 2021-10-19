@@ -11,7 +11,7 @@ const sales = mongoose.Schema({
   total: { type: Number, required: true },
   date: { type: String, required: true },
   clientName: { type: String, required: true },
-  clientId: { type: Number, required: true },
+  clientId: { type: mongoose.Schema.Types.ObjectId,ref: "users", required: true },
   seller: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "users",

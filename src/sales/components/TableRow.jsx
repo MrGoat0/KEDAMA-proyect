@@ -4,7 +4,7 @@ const TableRow = (props) => {
 
     //for listing sales in salesList interfaces
     if(type === "salesRecorded"){
-        return(<tr>
+        return(<tr className="h-100">
             <td >{row._id}</td>
             <td>{row.date}</td>
             <td>{row.clientName}</td>
@@ -14,7 +14,7 @@ const TableRow = (props) => {
         </tr>)
     }
     //for modal in registerSales interface
-    if(type === "usuario"){
+    if(type === "usuario" || type=== "vendedor"){
         return(<tr>
             <td>{row._id}</td>
             <td>{row.name}</td>
