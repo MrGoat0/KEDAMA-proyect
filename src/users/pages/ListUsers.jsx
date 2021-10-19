@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Header from "../../shared/Header.jsx";
@@ -9,8 +9,21 @@ import Col from 'react-bootstrap/Col'
 import Footer from "../../shared/Footer.jsx";
 import Table from 'react-bootstrap/Table'
 import { Link } from "react-router-dom";
+import api from "../../api"
 
-const ListUsers = () => {
+const ListUsers = (props) => {
+
+  const { userRecords, setUserRecords } = props;
+
+  useEffect(() => {
+    const fetchGetAll = async () => {
+      const response = await api.users.getAllUsers();
+      setUserRecords(response);
+    };
+    fetchGetAll()
+  }, []);
+
+
   return (
     <div className="container-Category">
 
@@ -25,7 +38,7 @@ const ListUsers = () => {
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Listar información de usuario</Form.Label>
-                <Form.Control type="email" placeholder="Nombre o ID" />
+                <Form.Control type="email" placeholder="Nombre o correo electrónico" />
 
               </Form.Group>
 
@@ -59,24 +72,20 @@ const ListUsers = () => {
             <Table >
               <thead >
                 <tr>
-                  <th>#</th>
-                  <th>ID</th>
-                  <th>Nombre</th>
-                  <th>Fecha Ingreso</th>
-                  <th>Correo</th>
-                  <th>Procedencia</th>
+                  <th>Nombre completo</th>
+                  <th>e-mail</th>
+                  <th>Estado</th>
+                  <th>Rol</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody>{userRecords.map((row) => (
                 <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>001</td>
-                  <td>11/02/2005</td>
-                  <td>mark@gmail.com</td>
-                  <td>buenaventura</td>
+                  <td >{row.name}</td>
+                  <td >{row.email}</td>
+                  <td >{row.state ? "Activo" : "Inactivo"}</td>
+                  <td >{row.role}</td>
                 </tr>
-
+              ))}
               </tbody>
             </Table>
           </Col>

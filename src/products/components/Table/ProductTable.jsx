@@ -1,7 +1,6 @@
 import { Table } from "react-bootstrap";
 import TableHeader from "./TableHeader.jsx";
 import TableBody from "./TableBody.jsx";
-import { useState } from "react"
 
 const ProductTable = (props) => {
     return (

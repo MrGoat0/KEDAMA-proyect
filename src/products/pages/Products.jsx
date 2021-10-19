@@ -13,13 +13,13 @@ import api from "../../api";
 const Products = () => {
 
     // records: list of products, info: current inputs, search: id/description input
-    // action: enables update button
+    // action: enables the updates, missing: defines missing fields at register/update
+    // countRecords: number of documents/records, current page in the pagination
     const [records, setRecord] = useState([]);
     const [info, setInfo] = useState({ id: null, description: "", price: "", state: "" });
     const [missing, setMissing] = useState({ description: false, price: false, state: false });
     const [search, setSearch] = useState("");
     const [action, setAction] = useState(false)
-    const [modalSettings, setModalSettings] = useState({ show: false, type: "" })
     const [countRecords, setCount] = useState()
     const [page, setPage] = useState(1)
     const [filterState, setFilterState] = useState("Filtrar")
@@ -33,7 +33,6 @@ const Products = () => {
             setCount(response.count)
         };
         fetchInfo()
-        console.log(countRecords)
     }, [info]);
 
     // // GET sliced data request
@@ -43,7 +42,6 @@ const Products = () => {
             setRecord(response);
         };
         fetchSlice()
-        console.log(records)
     }, [page]);
 
     // GET (all) request
@@ -70,7 +68,7 @@ const Products = () => {
             <Container fluid="xl">
 
                 <Row className="d-flex justify-content-center just-font">
-                    <Col>
+                    <Col className="sticky">
                         <Row className="d-flex justify-content-center just-font">
                             <InputForm
                                 info={info}
@@ -81,8 +79,6 @@ const Products = () => {
                                 missing={missing}
                                 setMissing={setMissing}
                                 action={action}
-                                modalSettings={modalSettings}
-                                setModalSettings={setModalSettings}
                                 filterState={filterState}
                                 setFilterState={setFilterState} />
                         </Row>
@@ -101,8 +97,7 @@ const Products = () => {
                                 countRecords={countRecords}
                                 page={page}
                                 setPage={setPage}
-                                filterState={filterState}
-                                setFilterState={setFilterState} />
+                                filterState={filterState} />
                         </Row>
                     </Col>
                 </Row>

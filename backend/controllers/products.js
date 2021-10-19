@@ -22,7 +22,7 @@ exports.getProducts = (req, res) => {
       res.status(200).json(productResult);
     })
     .catch((err) => {
-      res.status().json({ error: err });
+      res.status(500).json({ error: err });
     });
 };
 
@@ -36,23 +36,23 @@ exports.infoProducts = (req, res) => {
       });
     })
     .catch((err) => {
-      res.json({ error: err });
+      res.status(500).json({ error: err });
     });
 };
 
 // Get slice of records according to the page
 exports.sliceProducts = (req, res) => {
-  const indicesStartAt = 10000;
-  var startAt = indicesStartAt + 40 * (req.params.page - 1);
+  const showFrom = 40 * (req.params.page - 1);
 
-  Products.find({ id: { $gte: startAt } })
+  Products.find()
+    .skip(showFrom)
     .limit(40)
     .sort({ id: 1 })
     .then((sliceResult) => {
       res.status(200).json(sliceResult);
     })
     .catch((err) => {
-      res.json({ error: err });
+      res.status(500).json({ error: err });
     });
 };
 
@@ -76,6 +76,19 @@ exports.filterProducts = (req, res) => {
     })
     .catch((err) => {
       res.status(404).json("ERROR");
+      console.log({ error: err });
+    });
+};
+
+// get by _id
+// Get all products
+exports.getByMongoId = (req, res) => {
+  Products.find({ _id: req.params.id })
+    .then((searchResult) => {
+      res.status(200).json(searchResult);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err });
     });
 };
 
@@ -93,8 +106,8 @@ exports.updateProduct = (req, res) => {
 // Delete a user by id
 exports.deleteProduct = async (req, res) => {
   Products.deleteOne({ _id: req.params.id })
-    .then((updateResult) => {
-      res.status(200).json(updateResult);
+    .then((deleteResult) => {
+      res.status(200).json(deleteResult);
     })
     .catch((err) => {
       res.status(404).json({ error: err });

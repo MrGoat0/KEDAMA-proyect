@@ -1,10 +1,10 @@
 import { Col, Modal } from "react-bootstrap";
 import api from "../../../api";
+import { useState } from "react"
 
 const RegisterButton = (props) => {
-    const { info, action, modalSettings,
-        setModalSettings, missing, setMissing } = props.properties;
-
+    const { info, action, setMissing } = props.properties;
+    const [modalSettings, setModalSettings] = useState({ show: false, type: "" })
     // Setting modal info based on action
     if (modalSettings.type === "register") {
         var modalHeader = "¡Resgistro exitoso!"
@@ -28,15 +28,19 @@ const RegisterButton = (props) => {
     // Setting red border and modal feedback
     const triggerMissingCells = () => {
         if (info.description !== "") {
-            missing.description = false
-        } else { missing.description = true }
+            var missingDescription = false
+        } else { missingDescription = true }
         if (info.price !== "") {
-            missing.price = false
-        } else { missing.price = true }
+            var missingPrice = false
+        } else { missingPrice = true }
         if (info.state !== "") {
-            missing.state = false
-        } else { missing.state = true }
-        setMissing(missing)
+            var missingState = false
+        } else { missingState = true }
+        setMissing({
+            description: missingDescription,
+            price: missingPrice,
+            state: missingState
+        })
         // Triggering alert modal
         setModalSettings({ show: true, type: "warning" })
     }
@@ -54,12 +58,13 @@ const RegisterButton = (props) => {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    authorization: "Bearer " + localStorage.getItem('token'),
                 },
                 body: JSON.stringify(
                     {
                         id: info.id + 1,
-                        description: info.description,
+                        description: info.description.trim(),
                         price: parseInt(info.price),
                         state: info.state
                     }
@@ -91,11 +96,12 @@ const RegisterButton = (props) => {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    authorization: "Bearer " + localStorage.getItem('token'),
                 },
                 body: JSON.stringify(
                     {
-                        description: info.description,
+                        description: info.description.trim(),
                         price: parseInt(info.price),
                         state: info.state
                     }
@@ -119,8 +125,8 @@ const RegisterButton = (props) => {
 
     const handleClose = () => {
         setModalSettings({ show: false, type: "" })
-        if (["update", "register"].includes(modalSettings.type)) { window.location.reload() }
 
+        if (["update", "register"].includes(modalSettings.type)) { window.location.reload() }
     };
 
     return (
@@ -135,8 +141,7 @@ const RegisterButton = (props) => {
             <button
                 className="btns"
                 type="submit"
-                onClick={registerBtn}
-                variant="primary">Registrar
+                onClick={registerBtn}>Registrar
             </button>
 
             <Modal show={modalSettings.show} onHide={handleClose}>
@@ -145,7 +150,7 @@ const RegisterButton = (props) => {
                 </Modal.Header>
                 <Modal.Body>{modalBody}</Modal.Body>
                 <Modal.Footer>
-                    <button variant="primary" onClick={handleClose}>
+                    <button onClick={handleClose}>
                         Aceptar
                     </button>
                 </Modal.Footer>
