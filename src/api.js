@@ -37,6 +37,15 @@ const api = {
     validateRole(reqOptions) {
       return callApi("/users/roles", reqOptions);
     },
+    getAllUsers() {
+      return callApi("/users/all");
+    },
+    getByEmail(email) {
+      return callApi("/users/search/" + email);
+    },
+    updateUser(reqOptions) {
+      return callApi("/users", reqOptions);
+    },
   },
 };
 

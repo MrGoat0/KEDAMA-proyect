@@ -42,3 +42,36 @@ exports.authRole = (req, res) => {
       res.status(504).json({ error: err });
     });
 };
+
+exports.getAllUsers = (req, res) => {
+  User.find()
+    .then((userResult) => {
+      res.status(200).json(userResult);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err });
+    });
+};
+
+// Update an user by email
+exports.updateUser = (req, res) => {
+  const filterEmail = req.body.email;
+  User.updateOne({ email: filterEmail }, req.body)
+    .then((updateResult) => {
+      res.status(200).json(updateResult);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err });
+    });
+};
+
+// Get an user by email
+exports.getByEmail = (req, res) => {
+  User.findOne({ email: req.params.email })
+    .then((searchResult) => {
+      res.status(200).json(searchResult);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err });
+    });
+};

@@ -22,7 +22,7 @@ exports.getProducts = (req, res) => {
       res.status(200).json(productResult);
     })
     .catch((err) => {
-      res.status().json({ error: err });
+      res.status(500).json({ error: err });
     });
 };
 
@@ -36,23 +36,23 @@ exports.infoProducts = (req, res) => {
       });
     })
     .catch((err) => {
-      res.json({ error: err });
+      res.status(500).json({ error: err });
     });
 };
 
 // Get slice of records according to the page
 exports.sliceProducts = (req, res) => {
-  const indicesStartAt = 10000;
-  var startAt = indicesStartAt + 40 * (req.params.page - 1);
+  const showFrom = 40 * (req.params.page - 1);
 
-  Products.find({ id: { $gte: startAt } })
+  Products.find()
+    .skip(showFrom)
     .limit(40)
     .sort({ id: 1 })
     .then((sliceResult) => {
       res.status(200).json(sliceResult);
     })
     .catch((err) => {
-      res.json({ error: err });
+      res.status(500).json({ error: err });
     });
 };
 
@@ -76,6 +76,7 @@ exports.filterProducts = (req, res) => {
     })
     .catch((err) => {
       res.status(404).json("ERROR");
+      console.log({ error: err });
     });
 };
 
@@ -87,7 +88,7 @@ exports.getByMongoId = (req, res) => {
       res.status(200).json(searchResult);
     })
     .catch((err) => {
-      res.status().json({ error: err });
+      res.status(500).json({ error: err });
     });
 };
 

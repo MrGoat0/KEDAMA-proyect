@@ -3,7 +3,6 @@ import { isExpired, decodeToken } from "react-jwt"
 import React, { useEffect } from "react"
 import api from "../api"
 
-
 const PrivateRouteRoles = ({ validate, setValidate, children, ...rest }) => {
 
     let auth = localStorage.getItem("token")
@@ -11,7 +10,6 @@ const PrivateRouteRoles = ({ validate, setValidate, children, ...rest }) => {
     const isExp = isExpired(auth)
 
     useEffect(() => {
-
         const fetchRole = async () => {
             const response = await api.users.validateRole({
                 method: 'GET',
@@ -22,11 +20,8 @@ const PrivateRouteRoles = ({ validate, setValidate, children, ...rest }) => {
                 },
             })
             setValidate(response.isValidated)
-
         }
-
         fetchRole()
-
     }, [validate, setValidate])
 
     return (
