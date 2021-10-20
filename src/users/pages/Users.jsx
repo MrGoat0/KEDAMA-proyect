@@ -59,7 +59,7 @@ const Users = () => {
 
 
                 <Link to="/categories/users/updaterolusers">
-                  <button type="submit" className="float-right" >
+                  <button disabled type="submit" className="float-right" >
                     Cambiar Rol
                   </button>
                 </Link>

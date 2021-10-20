@@ -86,7 +86,7 @@ const Updateinfousers = (props) => {
 
 
                 <Link to="/categories/users/updaterolusers">
-                  <button variant="primary" type="submit" className="float-right" >
+                  <button disabled variant="primary" type="submit" className="float-right" >
                     Cambiar Rol
                   </button>
                 </Link>

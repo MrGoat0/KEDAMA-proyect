@@ -56,7 +56,7 @@ function App() {
             />
           </PrivateRouteRoles>
 
-          <PrivateRouteRoles
+          {/* <PrivateRouteRoles
             validate={validate}
             setValidate={setValidate}
             path="/categories/users/updaterolusers"
@@ -67,7 +67,7 @@ function App() {
               component={Updaterolusers}
               path="/categories/users/updaterolusers"
             />
-          </PrivateRouteRoles>
+          </PrivateRouteRoles> */}
 
           <PrivateRouteRoles
             validate={validate}
