@@ -57,7 +57,7 @@ const ListUsers = (props) => {
 
 
 
-              <Button variant="primary" type="submit" className="float-right" >
+              <Button disabled variant="primary" type="submit" className="float-right" >
                 Cambiar Rol
               </Button>
 
