@@ -1,11 +1,11 @@
 import React from "react";
 const Error = () => {
-    return(
+    return (
         <div>
-           Page Not found
+            Page Not found
         </div>
-        
-    )    
- }
+
+    )
+}
 
 export default Error

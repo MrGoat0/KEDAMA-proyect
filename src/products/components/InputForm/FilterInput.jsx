@@ -1,19 +1,39 @@
 import { Form, Col } from "react-bootstrap"
+import api from "../../../api";
 
 const Filter = (props) => {
-    const { setSearch } = props;
+    const { search, setSearch, setRecord, filterState, setFilterState } = props.properties;
+
+
     const saveValue = (event) => {
         setSearch(event.target.value)
     }
 
-    return (
+    // GET by id or description
+    const sendSearch = async () => {
 
-        <Col>
-            <Form.Label>Filtrar</Form.Label>
-            <Form.Control id="filter-input"
-                onChange={saveValue} type="text"
+        if (filterState === "Filtrar") {
+            if (search !== "") {
+                const response = await api.products.filter(search);
+                setRecord(response)
+                setFilterState("No filtrar")
+            }
+        } else {
+            setFilterState("Filtrar")
+            window.location.reload()
+        }
+    }
+
+    return (
+        <Col className="d-flex justify-content-between filter-row">
+            <Form.Control className="mr-2" id="filter-input"
+                onChange={saveValue}
+                type="text"
                 placeholder="Por ID o descripción" />
-        </Col >
+            <button className="filterbtn"
+                id="filter-btn"
+                onClick={sendSearch}>{filterState}</button>
+        </Col>
     )
 }
 

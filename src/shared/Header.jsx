@@ -1,7 +1,5 @@
 import React from "react";
-
 import '../styles/shared.css';
-
 
 const Header = (props) => {
   const { headerText } = props;
