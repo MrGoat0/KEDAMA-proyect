@@ -1,4 +1,4 @@
-const callApi = async (url, reqOptions = {}) => {
+
   // if (url === "/products/all") {
   //   var response = await fetch("http://localhost:3001/api" + url);
   // } else {
@@ -25,14 +25,34 @@ const api = {
   },
   sales:{
     list() {
-      return callApi("/sales/app");
+      return callApi("/sales/all");
     },//reqOptions
     create(sale) {
       return callApi("/sales/", {method: "POST", body: JSON.stringify(sale)});//{method: POST, body: JSON.stringify}
+    },
+    list() {
+        return callApi("/sales/all");
+      },
+    //   create(reqOptions) {
+    //     return callApi("/products/", reqOptions);
+    //   },
+    //   update(id, reqOptions) {
+    //     return callApi("/products/" + id, reqOptions);
+    //   },
+  
+    //   delete(id, reqOptions) {
+    //     return callApi("/products/" + id, reqOptions);
+    //   },
+  
+    //   info() {
+    //     return callApi("/products/info");
+    //   },
+    //   slice(page) {
+    //     return callApi("/products/slice/" + page);
+    //   },
+    //   filter(search)
     }
-    // update(id, reqOptions) {
-    //   return callApi("/products/" + id, reqOptions);
-    // },
+
    },
    users:{
     list() {

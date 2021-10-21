@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 
+const uniqueValidator = require("mongoose-unique-validator");
+
 const sales = mongoose.Schema({
-  state: { type: String, required: false}, //A que se refiere con estado?
+  state: { type: String, required: true },
   productInfo: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "products",
@@ -11,7 +13,7 @@ const sales = mongoose.Schema({
   total: { type: Number, required: true },
   date: { type: String, required: true },
   clientName: { type: String, required: true },
-  clientId: { type: mongoose.Schema.Types.ObjectId,ref: "users", required: true },
+  clientId: { type: Number, required: true },
   seller: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "users",
@@ -19,4 +21,6 @@ const sales = mongoose.Schema({
   },
 });
 
+
 module.exports = mongoose.model("sales", sales);
+

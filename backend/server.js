@@ -2,6 +2,8 @@ const http = require("http");
 const app = require("./app");
 
 const normalizePort = (val) => {
+  
+
   // if port 5000 is selected, so port
   var port = parseInt(val, 10);
 
@@ -24,9 +26,12 @@ const port = normalizePort(process.env.PORT || "3001");
 app.set("port", port);
 
 // server creation
+
 const server = http.createServer(app);
 
 // server keep listening
 server.listen(port, () => {
   console.log("Server on port " + app.get("port"));
+
 });
+

@@ -1,127 +1,43 @@
-import React,{useState,useEffect} from "react";
-import FilterSearch from "../components/filterSearch";
-import Footer from "../../shared/Footer";
-import VentasNav from "../components/VentasNav"
-import SalesTable from "../components/TableWithSales"
-import '../../styles/Sales/listadoVentas.css';
-import Table from 'react-bootstrap/Table'
-import api from "../../api.js"
 
-
-function FilteredSearch(date, user, product, sales){
-    
-    let newSales = [];
-    if(date !== "" && user !== "" && product !== ""){
-        for(let element = 0; element < sales.length; element++){
-            if(date === sales[element].fecha && user === sales[element].usuario && product === sales[element].productos){
-                newSales.push(sales[element]);
-            }
-        }        
-    }else{
-        if(date !== ""){
-
-            for(let element = 0; element < sales.length; element++){
-                if(date === sales[element].fecha){
-                    newSales.push(sales[element]);
-                }
-            }
-        }else if(user !== ""){
-            for(let element = 0; element < sales.length; element++){
-                if(user === sales[element].usuario){
-                    newSales.push(sales[element]);
-                }
-            }
-        }else if(product !== ""){
-            for(let element = 0; element < sales.length; element++){
-                if(product === sales[element].productos){
-                    newSales.push(sales[element]);
-                }
-            }
-        }
-    }
-    return newSales;
-}
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import Header from "../../shared/Header.jsx";
+import Footer from "../../shared/Footer.jsx";
+import InputForm from "../components/InputForm/InputForm.jsx";
+import SalesTable from "../components/Table/SalesTable.jsx";
+import SalesNav from "../components/SalesNav.jsx";
+import { useState } from "react";
 
 const SalesList = () => {
-    const [sales,setSales] = useState([]);
-  
-  const handleSubmitRecords =(newSale)=>{
-    setSales([...sales, newSale]);
-  }
+    const [records, setRecord] = useState([]);
 
-  useEffect(()=>{
-    async function fetchData(){
-      const response = await api.sales.list();
-      setSales(response);
-    }
-    fetchData();
-  },[])
+    return (
+        <div>
+            <Header titulo={"Gestión de Ventas" }/>
+            <div className="navbar">
+                <SalesNav navSwitch={"Management"} />
+            </div>
+            <div className="grid-buttons">
+                <Container>
 
-  const [IDBill,setIDBill] = useState("");
-  const [date,setDate] = useState("");
-  const [user,setUser] = useState("");
-  const [product,setProduct] = useState("");
-  const [ShowAll,setShowAll] = useState([]);
-  const [filter,setFilter] = useState([]);
-  
+                    <Row className="d-flex justify-content-center mb-3">
+                        <Col xs={10}>
+                            <InputForm pageSwitch={"Management"}
+                                records={records}
+                                setRecord={setRecord} />
+                        </Col>
+                    </Row>
+                    <Row className="d-flex justify-content-center mb-3">
+                        <Col xs={10}>
+                            <SalesTable records={records} />
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
 
-  const handleChangeIdBill=(event)=>{
-      setIDBill(event.target.value);
-    }
-    const handleChangeDate=(event)=>{
-      setDate(event.target.value);
-    }
-    const handleChangeUser=(event)=>{
-        setUser(event.target.value);
-    }
-    const handleChangeProduct=(event)=>{
-        setProduct(event.target.value);
-    }
-    
-    const handleShowAll=()=>{
-        setShowAll(sales);
-    }
-    const handleFilter=()=>{
-        setFilter(FilteredSearch (date, user, product, sales));
-    }
-
-    const type = "salesRecorded";
-    
-return(
-    <div>
-        <body>
-    <div class="container-fluid p-0 d-flex flex-column h-100">
- 
-
-        <div class="container-fluid p-2 pb-4 d-flex flex-row h-100">
-            <FilterSearch handleChangeIdBill={handleChangeIdBill}
-            handleChangeProduct={handleChangeProduct}
-            handleChangeDate={handleChangeDate}
-            handleChangeUser={handleChangeUser}
-            handleShowAll={handleShowAll}
-            handleFilter={handleFilter}
-            />
-            <div class="tableView-box d-flex flex-column p-4">
-                <div className="d-flex flex-row justify-content-end">
-                <VentasNav VentaSwitch={"Management"} />
-                </div>
-                <div className="tableView d-flex flex-row h-100 p-2 border border">
-                    <div className="TableinTouch d-flex flex-column p-5 border border">
-                      <div id="TableArea">
-                      <Table striped bordered hover>
-                        <SalesTable recordsData={[ShowAll,filter]} type={type} clean={"TableArea"}/>
-                      </Table>
-                      </div>
-                    </div>
-                    <div class="ScrollTable d-flex border border"></div>
-                </div>
-            </div>   
+            <Footer />
         </div>
-    </div>
-</body>
-<Footer></Footer>
-    </div>
-)
+    )
 
 }
 export default SalesList
