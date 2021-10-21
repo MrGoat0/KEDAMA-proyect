@@ -91,8 +91,6 @@ return(
     <div>
         <body>
     <div class="container-fluid p-0 d-flex flex-column h-100">
- 
-
         <div class="container-fluid p-2 pb-4 d-flex flex-row h-100">
             <FilterSearch handleChangeIdBill={handleChangeIdBill}
             handleChangeProduct={handleChangeProduct}
@@ -113,13 +111,14 @@ return(
                       </Table>
                       </div>
                     </div>
-                    <div class="ScrollTable d-flex border border"></div>
-                </div>
-            </div>   
+
+              </div>
+
+            </div>
         </div>
     </div>
-</body>
-<Footer></Footer>
+        </body>
+        <Footer></Footer>
     </div>
 )
 

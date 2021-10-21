@@ -22,6 +22,37 @@ const api = {
     update(id, reqOptions) {
       return callApi("/products/" + id, reqOptions);
     },
+
+    delete(id, reqOptions) {
+      return callApi("/products/" + id, reqOptions);
+    },
+
+    info() {
+      return callApi("/products/info");
+    },
+    slice(page) {
+      return callApi("/products/slice/" + page);
+    },
+    filter(search) {
+      return callApi("/products/filter/" + search);
+    },
+  },
+  users: {
+    getUser(reqOptions) {
+      return callApi("/users/", reqOptions);
+    },
+    validateRole(reqOptions) {
+      return callApi("/users/roles", reqOptions);
+    },
+    getAllUsers() {
+      return callApi("/users/all");
+    },
+    getByEmail(email) {
+      return callApi("/users/search/" + email);
+    },
+    updateUser(reqOptions) {
+      return callApi("/users", reqOptions);
+    },
   },
   sales:{
     list() {

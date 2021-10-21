@@ -1,10 +1,10 @@
-import { Button, Col, Modal } from "react-bootstrap";
+import { Col, Modal } from "react-bootstrap";
 import api from "../../../api";
+import { useState } from "react"
 
 const RegisterButton = (props) => {
-    const { info, missing, setMissing,
-        action, search, modalSettings, setModalSettings } = props;
-
+    const { info, action, setMissing } = props.properties;
+    const [modalSettings, setModalSettings] = useState({ show: false, type: "" })
     // Setting modal info based on action
     if (modalSettings.type === "register") {
         var modalHeader = "¡Resgistro exitoso!"
@@ -14,24 +14,33 @@ const RegisterButton = (props) => {
         modalBody = "Diligencie todos los campos requeridos."
     } else if (modalSettings.type === "update") {
         modalHeader = "¡Actualización exitosa!"
-        modalBody = "Se actualizó correctamente el producto con ID " + search + "."
+        modalBody = "Se actualizó correctamente el producto con ID " +
+            document.getElementById("filter-input").value + "."
     } else if (modalSettings.type === "serverError") {
         modalHeader = "¡Atención!"
         modalBody = "Ya existe un producto con la descripción especificada."
+    } else if (modalSettings.type === "unableUpdate") {
+        modalHeader = "¡Atención!"
+        modalBody = "Para modificar un registro, por favor presione " +
+            "el botón azul de la fila correspondiente al producto que desea actualizar."
     }
 
     // Setting red border and modal feedback
     const triggerMissingCells = () => {
         if (info.description !== "") {
-            missing.description = false
-        } else { missing.description = true }
+            var missingDescription = false
+        } else { missingDescription = true }
         if (info.price !== "") {
-            missing.price = false
-        } else { missing.price = true }
+            var missingPrice = false
+        } else { missingPrice = true }
         if (info.state !== "") {
-            missing.state = false
-        } else { missing.state = true }
-        setMissing(missing)
+            var missingState = false
+        } else { missingState = true }
+        setMissing({
+            description: missingDescription,
+            price: missingPrice,
+            state: missingState
+        })
         // Triggering alert modal
         setModalSettings({ show: true, type: "warning" })
     }
@@ -49,12 +58,13 @@ const RegisterButton = (props) => {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    authorization: "Bearer " + localStorage.getItem('token'),
                 },
                 body: JSON.stringify(
                     {
                         id: info.id + 1,
-                        description: info.description,
+                        description: info.description.trim(),
                         price: parseInt(info.price),
                         state: info.state
                     }
@@ -63,9 +73,9 @@ const RegisterButton = (props) => {
 
             if (response.error) {
                 setModalSettings({ show: true, type: "serverError" })
-            } else {// Triggerring success update modal
+            } else {// Triggerring success register modal
                 info.id = info.id + 1
-                setModalSettings({ show: true, type: "update" })
+                setModalSettings({ show: true, type: "register" })
             }
 
         } else {
@@ -78,16 +88,20 @@ const RegisterButton = (props) => {
         // Looking for missing fields. if true -> update record by id
         if (info.description !== "" && info.price !== "" && info.state !== "") {
 
+            // reset red borders
+            setMissing({ description: false, price: false, state: false })
+
             // PUT request to api
             const response = await api.products.update(info._id, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    authorization: "Bearer " + localStorage.getItem('token'),
                 },
                 body: JSON.stringify(
                     {
-                        description: info.description,
+                        description: info.description.trim(),
                         price: parseInt(info.price),
                         state: info.state
                     }
@@ -100,13 +114,19 @@ const RegisterButton = (props) => {
                 setModalSettings({ show: true, type: "update" })
             }
         } else {
-            triggerMissingCells()
+            if (action) {
+                triggerMissingCells()
+            } else {
+                (setModalSettings({ show: true, type: "unableUpdate" }))
+            }
+
         }
     }
 
     const handleClose = () => {
         setModalSettings({ show: false, type: "" })
-        window.location.reload()
+
+        if (["update", "register"].includes(modalSettings.type)) { window.location.reload() }
     };
 
     return (
@@ -115,16 +135,13 @@ const RegisterButton = (props) => {
             <button
                 className="btns"
                 type="submit"
-                onClick={updateBtn}
-                
-                disabled={action}>Actualizar
+                onClick={updateBtn}>Actualizar
             </button>
 
             <button
                 className="btns"
                 type="submit"
-                onClick={registerBtn}
-                variant="primary">Registrar
+                onClick={registerBtn}>Registrar
             </button>
 
             <Modal show={modalSettings.show} onHide={handleClose}>
@@ -133,7 +150,7 @@ const RegisterButton = (props) => {
                 </Modal.Header>
                 <Modal.Body>{modalBody}</Modal.Body>
                 <Modal.Footer>
-                    <button variant="primary" onClick={handleClose}>
+                    <button onClick={handleClose}>
                         Aceptar
                     </button>
                 </Modal.Footer>
