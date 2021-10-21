@@ -44,16 +44,6 @@ const Products = () => {
         fetchSlice()
     }, [page]);
 
-    // GET (all) request
-    // useEffect(() => {
-    //     const fetchGetAll = async () => {
-    //         const response = await api.products.list();
-    //         const sortedRecords = response.sort((a, b) => a.id - b.id)
-    //         setRecord(sortedRecords);
-    //     };
-    //     fetchGetAll()
-    // }, [info]);
-
     return (
         <div className="container-Category" >
 
