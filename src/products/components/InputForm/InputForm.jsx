@@ -1,50 +1,50 @@
-import { Row } from "react-bootstrap";
-import AutoId from "./AutoId.jsx"
+import { Container, Row } from "react-bootstrap";
+import Filter from "./FilterInput.jsx"
 import Product from "./ProductInput.jsx";
 import Price from "./PriceInput.jsx";
 import State from "./StateInput.jsx";
-import Filter from "./Filter.jsx";
 import RegisterButton from "./RegisterButton.jsx";
-import UpdateButton from "./UpdateButton.jsx";
 import { useState } from "react";
+import '../../../styles/inpForm.css';
 
 const ImputForm = (props) => {
-    const { pageSwitch, records, setRecord, setShow, setAlert, autoId, setId, searchId, setSearchId } = props;
-    const [description, setDescription] = useState("");
-    const [price, setPrice] = useState("");
-    const [state, setState] = useState("");
+    const { info, setInfo, search, setSearch,
+        action, setAction, modalSettings, setModalSettings } = props;
 
+    const [missing, setMissing] = useState({ description: false, price: false, state: false });
 
+    return (
+        <Container className="mt-2">
+            <Row className="d-flex justify-content-center form-input-box mb-3">
+                <Product info={info} setInfo={setInfo} missingInput={missing.description} />
+            </Row>
 
-    if (pageSwitch === "Register") {
-        return (
-            <Row className="d-flex justify-content-center">
-                <AutoId setSearchId={setSearchId} />
-                <Product setDescription={setDescription} />
-                <Price setPrice={setPrice} />
-                <State setState={setState} />
-                {/* <Filter /> */}
-                <RegisterButton records={records}
-                    setRecord={setRecord}
-                    description={description}
-                    price={price}
-                    state={state}
-                    setShow={setShow}
-                    setAlert={setAlert}
-                    autoId={autoId}
-                    setId={setId} />
-            </Row>)
-    } else {
-        return (<Row className="d-flex justify-content-center">
-            <Product />
-            <Price />
-            <State />
-            {/* <Filter /> */}
-            <UpdateButton />
-        </Row>)
-    }
+            <Row className="d-flex justify-content-center form-input-box mb-3">
+                <Price info={info} setInfo={setInfo} missingInput={missing.price} />
+            </Row>
 
+            <Row className="d-flex justify-content-center form-select-custome mb-5">
+                <State info={info} setInfo={setInfo} missingInput={missing.state} />
+            </Row>
 
+            <Row className="d-flex justify-content-center form-input-box mb-5">
+                <Filter setSearch={setSearch} />
+            </Row>
+
+            <Row className="d-flex justify-content-center form-buttons mb-5">
+                <RegisterButton
+                    info={info}
+                    missing={missing}
+                    setMissing={setMissing}
+                    action={action}
+                    setAction={setAction}
+                    search={search}
+                    setSearch={setSearch}
+                    modalSettings={modalSettings}
+                    setModalSettings={setModalSettings} />
+            </Row>
+        </Container>
+    )
 }
 
 export default ImputForm;

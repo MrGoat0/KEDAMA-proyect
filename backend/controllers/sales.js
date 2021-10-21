@@ -111,3 +111,4 @@ exports.getSales = (req, res) => {
 //       res.status (404) .json ({error: err});
 //     });
 // };
+const Sales = require("../models/sales")

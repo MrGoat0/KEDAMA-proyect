@@ -4,10 +4,12 @@ import '../styles/shared.css';
 
 
 const Header = (props) => {
-  const { titulo, } = props
+
+  const { headerText } = props;
   return (
     <div className="header">
-      <h1> {titulo} </h1>
+
+      <h1> {headerText} </h1>
     </div>
   )
 }

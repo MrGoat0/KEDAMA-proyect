@@ -1,19 +1,47 @@
-const TableRow = (props) => {
-    const { row, search } = props;
+import { Button } from "react-bootstrap"
 
-    if (search) {
-        if (search.id === row.id)
-            var color = "#008891"
-    } else {
-        var color = ""
+const TableRow = (props) => {
+    const { row, setSearch, info, setInfo, action, setAction } = props;
+
+    const rowPicked = (event) => {
+        document.getElementById("product-input").value = row.description
+        document.getElementById("price-input").value = row.price
+        document.getElementById("state-input").value = row.state
+
+        setInfo({
+            _id: row._id,
+            id: info.id,
+            description: row.description,
+            price: row.price,
+            state: row.state
+        })
+    }
+
+    const updateActivation = () => {
+        if (action) {
+            setAction(false)
+            document.getElementById("filter-input").value = ""
+            setSearch(row.id.toString())
+        } else {
+            setAction(true)
+            setSearch("")
+        }
     }
 
     return (
-        <tr>
-            <td bgcolor={color}>{row.id}</td>
-            <td bgcolor={color}>{row.description}</td>
-            <td bgcolor={color}>{row.price}</td>
-            <td bgcolor={color}>{row.state}</td>
+        <tr onClick={rowPicked}>
+            <td>{row.id}</td>
+            <td>{row.description}</td>
+            <td>{row.price}</td>
+            <td>{row.state}</td>
+            <td>
+                <div className="d-flex justify-content-center">
+                    <Button className="action-buttons ml-1" variant="outline-danger">✖</Button>
+                    <Button id="updateBtn" className="action-buttons ml-2" onClick={updateActivation}
+                        variant="primary"> 🖊 </Button>
+                </div>
+
+            </td>
         </tr>
     )
 }
