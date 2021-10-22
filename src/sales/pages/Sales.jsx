@@ -36,7 +36,7 @@ const Sales = () => {
       //consuming API
       useEffect(()=>{
         async function fetchData(){
-          const responseUsers = await api.users.list();
+          const responseUsers = await api.users.getAllUsers();
           const responseProduct = await api.products.list();
           const responseSales = await api.sales.list();
           setUsers(responseUsers);

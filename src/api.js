@@ -65,11 +65,6 @@ const api = {
     //   return callApi("/products/" + id, reqOptions);
     // },
    },
-   users:{
-    list() {
-      return callApi("/users/all");
-    }
-   },
 };
 
 export default api;
