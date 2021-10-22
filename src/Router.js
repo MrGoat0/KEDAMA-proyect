@@ -6,6 +6,7 @@ import About from "./home/pages/About.jsx";
 import Category from "./home/pages/SelectCategory.jsx";
 import Users from "./users/pages/Users.jsx";
 import Updateinfousers from "./users/pages/Updateinfousers.jsx";
+import Updaterolusers from "./users/pages/Updaterolusers.jsx";
 import Products from "./products/pages/Products.jsx";
 import Sales from "./sales/pages/Sales.jsx";
 import RegisterSales from "./sales/pages/SalesList.jsx";
@@ -29,14 +30,7 @@ function App() {
 
   useEffect(() => {
     const fetchRole = async () => {
-      const response = await api.users.validateRole({
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      });
+      const response = await api.users.validateRole();
       setValidate(response.isValidated);
     };
     fetchRole();
@@ -65,6 +59,19 @@ function App() {
               exact
               component={Updateinfousers}
               path="/categories/users/updateinfousers"
+            />
+          </PrivateRouteRoles>
+
+          <PrivateRouteRoles
+            validate={validate}
+            setValidate={setValidate}
+            path="/categories/users/updaterolusers"
+            exact
+          >
+            <Route
+              exact
+              component={Updaterolusers}
+              path="/categories/users/updaterolusers"
             />
           </PrivateRouteRoles>
 

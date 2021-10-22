@@ -25,15 +25,17 @@ const TableRow = (props) => {
 
     const daleteActivation = async () => {
         await api.products.delete(row._id.toString(), {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                authorization: "Bearer " + localStorage.getItem('token'),
-            }
+            method: 'DELETE'
         })
         setShowModal(false)
         setRefreshTable(!refreshTable)
+    }
+
+    const picked = () => {
+        document.getElementById("product-input").value = row.description
+        document.getElementById("price-input").value = row.price
+        document.getElementById("state-input").value = row.state
+        document.getElementById("filter-input").value = row.id
     }
 
     const deleteConfirmation = () => {
@@ -46,7 +48,7 @@ const TableRow = (props) => {
 
     return (
         <>
-            <tr id={row.id}>
+            <tr id={row.id} onClick={picked}>
                 <td >{row.id}</td>
                 <td >{row.description}</td>
                 <td >{row.price}</td>

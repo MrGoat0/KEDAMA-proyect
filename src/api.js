@@ -1,4 +1,9 @@
 const callApi = async (url, reqOptions = {}) => {
+  reqOptions.headers = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    authorization: "Bearer " + localStorage.getItem("token"),
+  };
   const response = await fetch("http://localhost:3001/api" + url, reqOptions);
   const data = await response.json();
   return data;
@@ -31,11 +36,11 @@ const api = {
     },
   },
   users: {
-    getUser(reqOptions) {
-      return callApi("/users/", reqOptions);
+    getUser() {
+      return callApi("/users/");
     },
-    validateRole(reqOptions) {
-      return callApi("/users/roles", reqOptions);
+    validateRole() {
+      return callApi("/users/roles");
     },
     getAllUsers() {
       return callApi("/users/all");
@@ -46,6 +51,17 @@ const api = {
     updateUser(reqOptions) {
       return callApi("/users", reqOptions);
     },
+  },
+  sales: {
+    list() {
+      return callApi("/sales/app");
+    }, //reqOptions
+    create(sale) {
+      return callApi("/sales/", { method: "POST", body: JSON.stringify(sale) }); //{method: POST, body: JSON.stringify}
+    },
+    // update(id, reqOptions) {
+    //   return callApi("/products/" + id, reqOptions);
+    // },
   },
 };
 
