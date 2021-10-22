@@ -37,6 +37,9 @@ exports.authRole = (req, res) => {
       } else {
         res.status(200).json({ isValidated: false });
       }
+    })
+    .catch((err) => {
+      res.status(404).json({ error: err });
     });
 };
 
