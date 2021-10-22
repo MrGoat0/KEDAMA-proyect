@@ -20,6 +20,7 @@ exports.getProducts = (req, res) => {
     .sort({ id: 1 })
     .then((productResult) => {
       res.status(200).json(productResult);
+      console.log(productResult);
     })
     .catch((err) => {
       res.status(500).json({ error: err });
