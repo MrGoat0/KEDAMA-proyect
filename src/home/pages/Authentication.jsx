@@ -2,20 +2,19 @@ import { React } from "react";
 import Header from "../../shared/Authentication/Header";
 import FooterN from "../../shared/Authentication/Footer";
 import '../../styles/AuthenticationStyle/Authentication.css';
-// import example from '../../styles/AuthenticationStyle/images/example.jpeg';
 import product from '../../img/products.png';
 import sales from '../../img/sales.png';
 import users from '../../img/users.png';
 
 const Authentication = (props) => {
-  const { isLoggedIn, setLogin } = props;
+  const { isLoggedIn, setLogin, setValidate } = props;
 
   return (
     <div>
       <body>
         <div className="container-main">
           <Header isLoggedIn={isLoggedIn}
-            setLogin={setLogin} />
+            setLogin={setLogin} setValidate={setValidate} />
           <div className="proyectTitle d-flex justify-content-center">
             <h1 className="text-Style-Amway">Gestión de productos, ventas y usuarios</h1>
           </div>

@@ -32,7 +32,7 @@
   display: grid;
   margin-top: 5px;
   height: 80px;
-  width: 180px;
+  width: 190px;
   grid-template-columns: 0.7fr 0.7fr 0.7fr;
 }
 .containerSM .div {
@@ -40,7 +40,7 @@
   align-items: center;
 }
 img {
-  width: 64px;
+  width: 64%;
 }
 .infouser {
   font-family: "Oswald", sans-serif;

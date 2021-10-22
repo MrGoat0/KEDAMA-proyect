@@ -88,7 +88,7 @@ exports.getByMongoId = (req, res) => {
       res.status(200).json(searchResult);
     })
     .catch((err) => {
-      res.status(500).json({ error: err });
+      res.status(404).json({ error: err });
     });
 };
 

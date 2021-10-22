@@ -1,23 +1,22 @@
+import "./styles/index.css";
 import React, { useState, useEffect } from "react";
-import PrivateRouteRoles from "./shared/PrivateRouteRoles";
-import Category from "./home/pages/SelectCategory.jsx";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Authentication from "./home/pages/Authentication.jsx";
 import About from "./home/pages/About.jsx";
+import Category from "./home/pages/SelectCategory.jsx";
+import Users from "./users/pages/Users.jsx";
+import Updateinfousers from "./users/pages/Updateinfousers.jsx";
 import Products from "./products/pages/Products.jsx";
 import Sales from "./sales/pages/Sales.jsx";
 import RegisterSales from "./sales/pages/SalesList.jsx";
-import Users from "./users/pages/Users.jsx";
 import NotFound from "./shared/NotFound.jsx";
-import "./styles/index.css";
-import Updateinfousers from "./users/pages/Updateinfousers.jsx";
-import Updaterolusers from "./users/pages/Updaterolusers.jsx";
 import PrivateRoute from "./shared/PrivateRoute";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import PrivateRouteRoles from "./shared/PrivateRouteRoles";
+import api from "./api";
 
 function App() {
   const [validate, setValidate] = useState(true);
   const [isLoggedIn, setLogin] = useState(false);
-  const [userRecords, setUserRecords] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -27,6 +26,21 @@ function App() {
       setLogin(true);
     }
   }, []);
+
+  useEffect(() => {
+    const fetchRole = async () => {
+      const response = await api.users.validateRole({
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
+      setValidate(response.isValidated);
+    };
+    fetchRole();
+  }, [validate, setValidate]);
 
   return (
     <div className="container2">
@@ -51,23 +65,8 @@ function App() {
               exact
               component={Updateinfousers}
               path="/categories/users/updateinfousers"
-              userRecords={userRecords}
-              setUserRecords={setUserRecords}
             />
           </PrivateRouteRoles>
-
-          {/* <PrivateRouteRoles
-            validate={validate}
-            setValidate={setValidate}
-            path="/categories/users/updaterolusers"
-            exact
-          >
-            <Route
-              exact
-              component={Updaterolusers}
-              path="/categories/users/updaterolusers"
-            />
-          </PrivateRouteRoles> */}
 
           <PrivateRouteRoles
             validate={validate}
@@ -75,13 +74,7 @@ function App() {
             path="/categories/users"
             exact
           >
-            <Route
-              exact
-              path="/categories/users"
-              component={Users}
-              userRecords={userRecords}
-              setUserRecords={setUserRecords}
-            />
+            <Route exact path="/categories/users" component={Users} />
           </PrivateRouteRoles>
 
           <PrivateRoute
@@ -113,16 +106,24 @@ function App() {
             exact
           >
             <Route exact path="/categories">
-              <Category />
+              <Category validate={validate} />
             </Route>
           </PrivateRoute>
 
           <Route exact path="/About">
-            <About isLoggedIn={isLoggedIn} setLogin={setLogin} />
+            <About
+              isLoggedIn={isLoggedIn}
+              setLogin={setLogin}
+              setValidate={setValidate}
+            />
           </Route>
 
           <Route exact path="/">
-            <Authentication isLoggedIn={isLoggedIn} setLogin={setLogin} />
+            <Authentication
+              isLoggedIn={isLoggedIn}
+              setLogin={setLogin}
+              setValidate={setValidate}
+            />
           </Route>
 
           <Route exact path="/" component={Authentication} />
