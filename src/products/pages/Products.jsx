@@ -31,7 +31,7 @@ const Products = () => {
         };
         fetchInfo()
 
-    }, [info, refreshTable, page]);
+    }, [info, refreshTable]);
 
     // // GET sliced data request
     useEffect(() => {

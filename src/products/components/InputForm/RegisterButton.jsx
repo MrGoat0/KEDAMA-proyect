@@ -20,6 +20,9 @@ const RegisterButton = (props) => {
         modalBody = "Se actualizó correctamente el producto con ID " +
             document.getElementById("filter-input").value + "."
 
+    } else if (modalSettings.type === "serverError") {
+        modalHeader = "¡Atención!"
+        modalBody = "Ya existe un producto con la descripción especificada."
     } else if (modalSettings.type === "unableUpdate") {
         modalHeader = "¡No es posible hacer la actualización!"
         modalBody = "Cargue la información con el botón azul de la " +

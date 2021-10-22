@@ -66,7 +66,7 @@ const Users = () => {
                 </tr>
               </thead>
               <tbody>{records.map((row) => (
-                <tr>
+                <tr key={row._id}>
                   <td >{row.name}</td>
                   <td >{row.email}</td>
                   <td >{row.state ? "Activo" : "Inactivo"}</td>
