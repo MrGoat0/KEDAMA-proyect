@@ -19,7 +19,6 @@ const HeaderButtons = (props) => {
                     authorization: "Bearer " + localStorage.getItem('token'),
                 },
             }).then(res => {
-                console.log(typeof res, res)
                 if (res.state) {
                     setLogin(true)
                     setValidate(res.role === 'admin')

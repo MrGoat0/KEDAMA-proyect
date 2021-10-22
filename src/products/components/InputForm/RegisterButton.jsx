@@ -58,11 +58,6 @@ const RegisterButton = (props) => {
             // POST request to api
             await api.products.create({
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    authorization: "Bearer " + localStorage.getItem('token'),
-                },
                 body: JSON.stringify(
                     {
                         id: countRecords.maxId + 1,
@@ -94,11 +89,6 @@ const RegisterButton = (props) => {
             // PUT request to api
             await api.products.update(info._id, {
                 method: 'PUT',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    authorization: "Bearer " + localStorage.getItem('token'),
-                },
                 body: JSON.stringify(
                     {
                         description: info.description.trim(),
@@ -116,11 +106,6 @@ const RegisterButton = (props) => {
             });
 
         } else {
-            // if (action) {
-            //     triggerMissingCells()
-            // } else {
-            //     (setModalSettings({ show: true, type: "unableUpdate" }))
-            // }
             triggerMissingCells()
             setModalSettings({ show: true, type: "unableUpdate" })
 

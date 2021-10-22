@@ -18,8 +18,10 @@ const Users = () => {
   useEffect(() => {
     const fetchGetAll = async () => {
       const response = await api.users.getAllUsers();
+
       setRecords(response);
     };
+    console.log("res:")
     fetchGetAll()
   }, []);
 
