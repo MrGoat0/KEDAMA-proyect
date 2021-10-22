@@ -36,10 +36,6 @@ const Updateinfousers = (props) => {
     await api.users.updateUser(
       {
         method: 'PUT',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
         body: JSON.stringify(info)
       }
     )

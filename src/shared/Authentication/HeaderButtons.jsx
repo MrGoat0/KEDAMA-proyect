@@ -10,27 +10,19 @@ const HeaderButtons = (props) => {
 
     const login = async (response) => {
         localStorage.setItem('token', response.tokenId)
-        await api.users.getUser(
-            {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    authorization: "Bearer " + localStorage.getItem('token'),
-                },
-            }).then(res => {
-                if (res.state) {
-                    setLogin(true)
-                    setValidate(res.role === 'admin')
-                } else {
-                    logout()
-                    setUserInfo({
-                        email: res.email,
-                        state: res.state
-                    })
+        await api.users.getUser().then(res => {
+            if (res.state) {
+                setLogin(true)
+                setValidate(res.role === 'admin')
+            } else {
+                logout()
+                setUserInfo({
+                    email: res.email,
+                    state: res.state
+                })
 
-                }
-            })
+            }
+        })
     }
 
     const logout = () => {

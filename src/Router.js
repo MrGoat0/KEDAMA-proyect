@@ -29,14 +29,7 @@ function App() {
 
   useEffect(() => {
     const fetchRole = async () => {
-      const response = await api.users.validateRole({
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      });
+      const response = await api.users.validateRole();
       setValidate(response.isValidated);
     };
     fetchRole();
