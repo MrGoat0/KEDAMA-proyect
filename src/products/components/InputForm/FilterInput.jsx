@@ -8,8 +8,6 @@ const Filter = (props) => {
 
     const [search, setSearch] = useState("");
 
-
-
     const saveValue = async (event) => {
         setSearch(event.target.value)
     }

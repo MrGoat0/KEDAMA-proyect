@@ -46,7 +46,7 @@ exports.authRole = (req, res) => {
 exports.getAllUsers = (req, res) => {
   User.find()
     .then((userResult) => {
-      res.status(204).json(userResult);
+      res.status(200).json(userResult);
     })
     .catch((err) => {
       res.status(500).json({ error: err });
