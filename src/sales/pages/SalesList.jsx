@@ -50,9 +50,13 @@ const SalesList = () => {
   }
 
   useEffect(()=>{
+    console.log("aquí entra pero no a aasync");
     async function fetchData(){
-      const response = await api.sales.list();
+        console.log("aquí entra");
+      const response = api.sales.list();
       setSales(response);
+      console.log(sales,"sales");
+      console.log(response,"respose");
     }
     fetchData();
   },[])
