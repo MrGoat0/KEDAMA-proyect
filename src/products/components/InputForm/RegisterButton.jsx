@@ -9,7 +9,7 @@ const RegisterButton = (props) => {
     // Setting modal info based on action
     if (modalSettings.type === "register") {
         var modalHeader = "¡Resgistro exitoso!"
-        var modalBody = `Producto creado con el ID ${countRecords.maxId} .`
+        var modalBody = `Producto creado con el ID ${countRecords.maxId}.`
 
     } else if (modalSettings.type === "warning") {
         modalHeader = "¡Atención!"
