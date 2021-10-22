@@ -7,7 +7,7 @@ import '../../styles/AuthenticationStyle/header.css';
 
 
 const Header = (props) => {
-  const { isLoggedIn, setLogin } = props;
+  const { isLoggedIn, setLogin, setValidate } = props;
 
   return (
     <div>
@@ -33,7 +33,7 @@ const Header = (props) => {
             <div className="col col-8">
               <div className="row justify-content-end">
                 <HeaderButtons isLoggedIn={isLoggedIn}
-                  setLogin={setLogin} />
+                  setLogin={setLogin} setValidate={setValidate} />
 
               </div>
             </div>

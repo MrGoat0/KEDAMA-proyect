@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 import Header from "../../shared/Header.jsx";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -24,7 +23,7 @@ const Updaterolusers = () => {
           <Col >
 
             <Form>
-              <Form.Group className="mb-3" className="just-font" controlId="formBasicEmail">
+              <Form.Group className="mb-3 just-font" controlId="formBasicEmail">
                 <Form.Label>Actualizar información de usuario</Form.Label>
                 <Form.Control type="email" placeholder="Nombre o ID" />
 
@@ -59,7 +58,7 @@ const Updaterolusers = () => {
 
           <Col >
 
-            <Form.Group className="mb-3" className="just-font" controlId="formBasicEmail">
+            <Form.Group className="mb-3 just-font" controlId="formBasicEmail">
 
               <Form.Label>Estado</Form.Label>
 

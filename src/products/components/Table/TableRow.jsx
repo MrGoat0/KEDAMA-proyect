@@ -1,13 +1,13 @@
 import { Button, Modal } from "react-bootstrap"
 import api from "../../../api";
 import { useState } from "react"
+
 const TableRow = (props) => {
     const { row, properties } = props;
-    const { info, setInfo, setAction, setMissing } = properties.properties;
+    const { setInfo, setMissing, refreshTable, setRefreshTable } = properties;
     const [showModal, setShowModal] = useState(false)
 
     const updateActivation = () => {
-        setAction(true)
         document.getElementById("product-input").value = row.description
         document.getElementById("price-input").value = row.price
         document.getElementById("state-input").value = row.state
@@ -15,7 +15,7 @@ const TableRow = (props) => {
 
         setInfo({
             _id: row._id,
-            id: info.id,
+            id: row.id,
             description: row.description,
             price: row.price,
             state: row.state
@@ -33,7 +33,7 @@ const TableRow = (props) => {
             }
         })
         setShowModal(false)
-        window.location.reload()
+        setRefreshTable(!refreshTable)
     }
 
     const deleteConfirmation = () => {
@@ -46,7 +46,6 @@ const TableRow = (props) => {
 
     return (
         <>
-
             <tr id={row.id}>
                 <td >{row.id}</td>
                 <td >{row.description}</td>
@@ -82,7 +81,6 @@ const TableRow = (props) => {
                     </button>
                 </Modal.Footer>
             </Modal>
-
         </>
     )
 }
