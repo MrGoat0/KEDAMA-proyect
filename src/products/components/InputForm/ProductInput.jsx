@@ -25,6 +25,7 @@ const Product = (props) => {
                 placeholder="Descripción del producto" />
         </Col>
     )
+    
 }
 
 export default Product;

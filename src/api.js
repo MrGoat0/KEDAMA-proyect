@@ -52,6 +52,17 @@ const api = {
       return callApi("/users", reqOptions);
     },
   },
+  sales: {
+    list() {
+      return callApi("/sales/app");
+    }, //reqOptions
+    create(sale) {
+      return callApi("/sales/", { method: "POST", body: JSON.stringify(sale) }); //{method: POST, body: JSON.stringify}
+    },
+    // update(id, reqOptions) {
+    //   return callApi("/products/" + id, reqOptions);
+    // },
+  },
 };
 
 export default api;

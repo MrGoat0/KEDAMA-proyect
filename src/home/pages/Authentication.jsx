@@ -39,11 +39,8 @@ const Authentication = (props) => {
 
 
           </div>
-
-
-          <FooterN />
-
         </div>
+        <FooterN />
       </body>
     </div>
   );

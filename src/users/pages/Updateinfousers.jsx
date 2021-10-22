@@ -30,7 +30,7 @@ const Updateinfousers = (props) => {
       name: document.getElementById("name-input").value,
       email: document.getElementById("email-input").value,
       state: document.getElementById("state-input").value === "Activo" ? true : false,
-      role: document.getElementById("role-input").value
+      role: document.getElementById("role-input").value === "" ? null : document.getElementById("role-input").value
     }
 
     await api.users.updateUser(
@@ -84,7 +84,7 @@ const Updateinfousers = (props) => {
               <Form.Label className="just-font">Permisos</Form.Label>
               <FloatingLabel label="" >
                 <Form.Select className="mb-3 just-font" id="state-input" aria-label="Floating label select example" >
-                  <option>Estado</option>
+                  <option value={null}>Estado</option>
                   <option value="Activo">Activo</option>
                   <option value="Inactivo">Inactivo</option>
                 </Form.Select>
@@ -92,7 +92,7 @@ const Updateinfousers = (props) => {
               <FloatingLabel controlId="floatingSelect" label="" >
                 <Form.Select id="role-input" aria-label="Floating label select example" >
                   Rol
-                  <option>Rol</option>
+                  <option value="">Rol</option>
                   <option value="admin">Administrador</option>
                   <option value="vendedor">Vendedor</option>
                 </Form.Select>

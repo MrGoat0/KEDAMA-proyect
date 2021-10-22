@@ -6,6 +6,7 @@ import About from "./home/pages/About.jsx";
 import Category from "./home/pages/SelectCategory.jsx";
 import Users from "./users/pages/Users.jsx";
 import Updateinfousers from "./users/pages/Updateinfousers.jsx";
+import Updaterolusers from "./users/pages/Updaterolusers.jsx"
 import Products from "./products/pages/Products.jsx";
 import Sales from "./sales/pages/Sales.jsx";
 import RegisterSales from "./sales/pages/SalesList.jsx";
@@ -13,6 +14,8 @@ import NotFound from "./shared/NotFound.jsx";
 import PrivateRoute from "./shared/PrivateRoute";
 import PrivateRouteRoles from "./shared/PrivateRouteRoles";
 import api from "./api";
+
+
 
 function App() {
   const [validate, setValidate] = useState(true);
@@ -39,12 +42,11 @@ function App() {
     <div className="container2">
       <Router>
         <Switch>
-          <PrivateRouteRoles
-            setValidate={setValidate}
-            validate={validate}
-            path="/categories/products"
-            exact
-          >
+          {/* <Route exact path="/" component={Authentication} />
+          <Route exact path="/About" component={About} />
+          <Route exact path="/categories" component={Category} /> */}
+
+          <PrivateRouteRoles setValidate={setValidate} validate={validate} path="/categories/products" exact>
             <Route exact path="/categories/products" component={Products} />
           </PrivateRouteRoles>
 
@@ -58,6 +60,19 @@ function App() {
               exact
               component={Updateinfousers}
               path="/categories/users/updateinfousers"
+            />
+          </PrivateRouteRoles>
+
+          <PrivateRouteRoles
+            validate={validate}
+            setValidate={setValidate}
+            path="/categories/users/updaterolusers"
+            exact
+          >
+            <Route
+              exact
+              component={Updaterolusers}
+              path="/categories/users/updaterolusers"
             />
           </PrivateRouteRoles>
 
@@ -112,5 +127,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
