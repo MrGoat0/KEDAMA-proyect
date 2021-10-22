@@ -6,7 +6,7 @@ import About from "./home/pages/About.jsx";
 import Category from "./home/pages/SelectCategory.jsx";
 import Users from "./users/pages/Users.jsx";
 import Updateinfousers from "./users/pages/Updateinfousers.jsx";
-import Updaterolusers from "./users/pages/Updaterolusers.jsx"
+import Updaterolusers from "./users/pages/Updaterolusers.jsx";
 import Products from "./products/pages/Products.jsx";
 import Sales from "./sales/pages/Sales.jsx";
 import RegisterSales from "./sales/pages/SalesList.jsx";
@@ -14,8 +14,6 @@ import NotFound from "./shared/NotFound.jsx";
 import PrivateRoute from "./shared/PrivateRoute";
 import PrivateRouteRoles from "./shared/PrivateRouteRoles";
 import api from "./api";
-
-
 
 function App() {
   const [validate, setValidate] = useState(true);
@@ -32,14 +30,7 @@ function App() {
 
   useEffect(() => {
     const fetchRole = async () => {
-      const response = await api.users.validateRole({
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      });
+      const response = await api.users.validateRole();
       setValidate(response.isValidated);
     };
     fetchRole();
@@ -49,11 +40,12 @@ function App() {
     <div className="container2">
       <Router>
         <Switch>
-          {/* <Route exact path="/" component={Authentication} />
-          <Route exact path="/About" component={About} />
-          <Route exact path="/categories" component={Category} /> */}
-
-          <PrivateRouteRoles setValidate={setValidate} validate={validate} path="/categories/products" exact>
+          <PrivateRouteRoles
+            setValidate={setValidate}
+            validate={validate}
+            path="/categories/products"
+            exact
+          >
             <Route exact path="/categories/products" component={Products} />
           </PrivateRouteRoles>
 
@@ -134,6 +126,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;

@@ -36,11 +36,11 @@ const api = {
     },
   },
   users: {
-    getUser(reqOptions) {
-      return callApi("/users/", reqOptions);
+    getUser() {
+      return callApi("/users/");
     },
-    validateRole(reqOptions) {
-      return callApi("/users/roles", reqOptions);
+    validateRole() {
+      return callApi("/users/roles");
     },
     getAllUsers() {
       return callApi("/users/all");
