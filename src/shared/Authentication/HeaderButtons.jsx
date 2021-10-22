@@ -6,7 +6,7 @@ import { isExpired, decodeToken } from "react-jwt"
 
 const HeaderButtons = (props) => {
     const { isLoggedIn, setLogin, setValidate } = props;
-    const [userInfo, setUserInfo] = useState({ state: "temp" })
+    const [userInfo, setUserInfo] = useState({ state: null })
 
     const login = async (response) => {
         localStorage.setItem('token', response.tokenId)
@@ -21,7 +21,7 @@ const HeaderButtons = (props) => {
             }).then(res => {
                 if (res.state) {
                     setLogin(true)
-                    setValidate(res.role)
+                    setValidate(res.role === 'admin')
                 } else {
                     logout()
                     setUserInfo({
@@ -66,7 +66,7 @@ const HeaderButtons = (props) => {
         return (
             <>
                 <span className="d-flex justify-content-between mr-5 just-font">
-                    {userInfo.state ? "" : `${userInfo.email} (inactivo)`}
+                    {userInfo.state === null ? "" : `${userInfo.email} (inactivo)`}
                 </span>
                 <GoogleLogin
                     clientId="758311109371-ard4nkmjub93unf80oe101fp4anqbr8f.apps.googleusercontent.com"
