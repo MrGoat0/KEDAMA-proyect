@@ -22,7 +22,7 @@ const HeaderButtons = (props) => {
                 console.log(typeof res, res)
                 if (res.state !== null) {
                     setLogin(true)
-                    setValidate(res.role)
+                    setValidate(res.role === 'admin')
                 } else {
                     logout()
                     setUserInfo({
@@ -67,7 +67,7 @@ const HeaderButtons = (props) => {
         return (
             <>
                 <span className="d-flex justify-content-between mr-5 just-font">
-                    {userInfo.state ? "" : `${userInfo.email} (inactivo)`}
+                    {userInfo.state === null ? "" : `${userInfo.email} (inactivo)`}
                 </span>
                 <GoogleLogin
                     clientId="758311109371-ard4nkmjub93unf80oe101fp4anqbr8f.apps.googleusercontent.com"
