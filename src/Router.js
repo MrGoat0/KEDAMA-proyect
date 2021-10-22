@@ -92,21 +92,11 @@ function App() {
             <Route exact path="/categories/users" component={Users} />
           </PrivateRouteRoles>
 
-          <PrivateRoute
-            validate={validate}
-            setValidate={setValidate}
-            path="/categories/sales"
-            exact
-          >
+          <PrivateRoute path="/categories/sales" exact>
             <Route exact path="/categories/sales" component={Sales} />
           </PrivateRoute>
 
-          <PrivateRoute
-            validate={validate}
-            setValidate={setValidate}
-            path="/categories/register_sales"
-            exact
-          >
+          <PrivateRoute path="/categories/register_sales" exact>
             <Route
               exact
               path="/categories/register_sales"
@@ -114,12 +104,7 @@ function App() {
             />
           </PrivateRoute>
 
-          <PrivateRoute
-            path="/categories"
-            validate={validate}
-            setValidate={setValidate}
-            exact
-          >
+          <PrivateRoute path="/categories" exact>
             <Route exact path="/categories">
               <Category validate={validate} />
             </Route>

@@ -10,12 +10,12 @@ const Selector = (props) => {
 
       <Header headerText={"Menú"} />
       <div className="grid-buttons">
-        <Link to="/categories/users">
-          <button disabled={!validate} className="each-button">Usuarios</button>
-        </Link>
-
         <Link to="/categories/sales" >
           <button className="each-button">Ventas</button>
+        </Link>
+
+        <Link to="/categories/users">
+          <button disabled={!validate} className="each-button">Usuarios</button>
         </Link>
 
         <Link to="/categories/products" >
