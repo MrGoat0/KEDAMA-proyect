@@ -7,7 +7,7 @@ const TableBody = (props) => {
             {records.map((row) => (
                 <TableRow key={row.id}
                     row={row}
-                    properties={props} />
+                    properties={props.properties} />
             ))}
         </tbody>
     );

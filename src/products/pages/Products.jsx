@@ -13,27 +13,25 @@ import api from "../../api";
 const Products = () => {
 
     // records: list of products, info: current inputs, search: id/description input
-    // action: enables the updates, missing: defines missing fields at register/update
-    // countRecords: number of documents/records, current page in the pagination
+    // missing: defines missing fields at register/update
+    // countRecords: number of documents/records and maxId
     const [records, setRecord] = useState([]);
     const [info, setInfo] = useState({ id: null, description: "", price: "", state: "" });
     const [missing, setMissing] = useState({ description: false, price: false, state: false });
-    const [search, setSearch] = useState("");
-    const [action, setAction] = useState(false)
-    const [countRecords, setCount] = useState()
+    const [countRecords, setCount] = useState({ count: undefined, maxId: undefined })
     const [page, setPage] = useState(1)
     const [filterState, setFilterState] = useState("Filtrar")
-
+    const [refreshTable, setRefreshTable] = useState(false)
 
     // GET info request
     useEffect(() => {
         const fetchInfo = async () => {
             const response = await api.products.info();
-            info.id = response.maxId;
-            setCount(response.count)
+            setCount(response)
         };
         fetchInfo()
-    }, [info]);
+
+    }, [info, refreshTable]);
 
     // // GET sliced data request
     useEffect(() => {
@@ -42,27 +40,18 @@ const Products = () => {
             setRecord(response);
         };
         fetchSlice()
-    }, [page]);
-
-    // GET (all) request
-    // useEffect(() => {
-    //     const fetchGetAll = async () => {
-    //         const response = await api.products.list();
-    //         const sortedRecords = response.sort((a, b) => a.id - b.id)
-    //         setRecord(sortedRecords);
-    //     };
-    //     fetchGetAll()
-    // }, [info]);
+    }, [page, refreshTable]);
 
     return (
         <div className="container-Category" >
 
             <Header headerText={"Gestión de productos"} />
 
-            <div className="simple-text mt-3 mb-3">
+            <div className="d-flex simple-text justify-content-between mt-3 mb-3">
                 <span className="just-font">Registre y gestione los productos diligenciando la descripción,
                     valor unitario y el estado de disponibilidad.
                 </span>
+                {/* <span className="just-font mr-5">Recargar tabla</span> */}
             </div>
 
             <Container fluid="xl">
@@ -74,23 +63,23 @@ const Products = () => {
                                 info={info}
                                 setInfo={setInfo}
                                 setRecord={setRecord}
-                                search={search}
-                                setSearch={setSearch}
                                 missing={missing}
                                 setMissing={setMissing}
-                                action={action}
                                 filterState={filterState}
-                                setFilterState={setFilterState} />
+                                setFilterState={setFilterState}
+                                countRecords={countRecords}
+                                refreshTable={refreshTable}
+                                setRefreshTable={setRefreshTable} />
                         </Row>
                     </Col>
                     <Col xs={8} className="just-font">
                         <Row className="d-flex justify-content-center just-font">
                             <ProductTable
                                 records={records}
-                                info={info}
                                 setInfo={setInfo}
-                                setAction={setAction}
-                                setMissing={setMissing} />
+                                setMissing={setMissing}
+                                refreshTable={refreshTable}
+                                setRefreshTable={setRefreshTable} />
                         </Row>
                         <Row className="d-flex justify-content-between pagination-buttons">
                             <Pagination

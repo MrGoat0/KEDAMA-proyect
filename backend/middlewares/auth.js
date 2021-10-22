@@ -4,6 +4,8 @@ const jwt = require("jsonwebtoken");
 module.exports = (req, res, next) => {
   const token = req.headers.authorization.split(" ")[1];
   const decodedToken = jwt.decode(token);
-  req.userData = { email: decodedToken.email, name: decodedToken.name };
-  next();
+  if (decodedToken) {
+    req.userData = { email: decodedToken.email, name: decodedToken.name };
+    next();
+  }
 };

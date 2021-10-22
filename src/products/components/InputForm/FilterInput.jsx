@@ -1,11 +1,16 @@
 import { Form, Col } from "react-bootstrap"
 import api from "../../../api";
+import { useState } from "react"
 
 const Filter = (props) => {
-    const { search, setSearch, setRecord, filterState, setFilterState } = props.properties;
+    const { setRecord, filterState, setFilterState,
+        refreshTable, setRefreshTable } = props.properties;
+
+    const [search, setSearch] = useState("");
 
 
-    const saveValue = (event) => {
+
+    const saveValue = async (event) => {
         setSearch(event.target.value)
     }
 
@@ -20,7 +25,7 @@ const Filter = (props) => {
             }
         } else {
             setFilterState("Filtrar")
-            window.location.reload()
+            setRefreshTable(!refreshTable)
         }
     }
 

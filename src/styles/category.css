@@ -31,6 +31,7 @@ button {
   /* #DDFFBC; */
 }
 .each-button {
+  width: 120px;
   font-size: 27px;
   padding: 10%;
 }

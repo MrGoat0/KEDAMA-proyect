@@ -16,7 +16,7 @@ exports.authUser = (req, res) => {
           name: req.userData.name,
           email: req.userData.email,
           state: false,
-          role: "",
+          role: null,
         });
         newUser.save().then((user) => {
           res.status(200).json(user);
@@ -34,12 +34,12 @@ exports.authRole = (req, res) => {
     .then((validationRes) => {
       if (validationRes.role === "admin") {
         res.status(200).json({ isValidated: true });
-      } else if (validationRes.role === "vendedor") {
+      } else {
         res.status(200).json({ isValidated: false });
       }
     })
     .catch((err) => {
-      res.status(504).json({ error: err });
+      res.status(404).json({ error: err });
     });
 };
 

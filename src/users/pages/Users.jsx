@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 import Header from "../../shared/Header.jsx";
-import ProductNav from "../../shared/ProductNav.jsx";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -28,11 +26,9 @@ const Users = () => {
   return (
     <div className="container-Category">
 
-      <Header headerText={"Listar usuarios"} />
+      <Header headerText={"Lista de usuarios"} />
 
-      {/* <ProductNav navSwitch={"Register"} page={"users"} /> */}
-
-      <Container >
+      <Container className="mt-4">
         <Row>
           <Col >
 
@@ -54,22 +50,10 @@ const Users = () => {
                     Actualizar
                   </button>
                 </Link>
-
-
-
-
-                <Link to="/categories/users/updaterolusers">
-                  <button type="submit" className="float-right" >
-                    Cambiar Rol
-                  </button>
-                </Link>
               </div>
 
             </Form>
-
-
           </Col>
-
 
           <Col >
             <Table >
@@ -82,7 +66,7 @@ const Users = () => {
                 </tr>
               </thead>
               <tbody>{records.map((row) => (
-                <tr>
+                <tr key={row._id}>
                   <td >{row.name}</td>
                   <td >{row.email}</td>
                   <td >{row.state ? "Activo" : "Inactivo"}</td>

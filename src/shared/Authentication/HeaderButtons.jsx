@@ -2,12 +2,11 @@ import { Link } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import api from "../../api"
 import { useState } from "react"
-import { decodeToken } from "react-jwt"
-
+import { isExpired, decodeToken } from "react-jwt"
 
 const HeaderButtons = (props) => {
-    const { isLoggedIn, setLogin } = props;
-    const [userInfo, setUserInfo] = useState({ state: "temp" });
+    const { isLoggedIn, setLogin, setValidate } = props;
+    const [userInfo, setUserInfo] = useState({ state: null })
 
     const login = async (response) => {
         localStorage.setItem('token', response.tokenId)
@@ -21,26 +20,22 @@ const HeaderButtons = (props) => {
                 },
             }).then(res => {
                 if (res.state) {
-                    setUserInfo({
-                        email: res.email,
-                        state: res.state,
-                        role: res.role
-                    })
                     setLogin(true)
+                    setValidate(res.role === 'admin')
                 } else {
+                    logout()
                     setUserInfo({
                         email: res.email,
-                        state: res.state,
-                        role: res.role
+                        state: res.state
                     })
-                    logout()
+
                 }
             })
     }
 
     const logout = () => {
-        localStorage.removeItem("token");
         setLogin(false)
+        localStorage.removeItem("token");
     };
 
     const loginError = (err) => {
@@ -52,7 +47,7 @@ const HeaderButtons = (props) => {
             <>
 
                 <span className="d-flex justify-content-between mr-5 just-font">
-                    {decodeToken(localStorage.getItem("token")).email}
+                    {!isExpired(localStorage.getItem("token")) ? decodeToken(localStorage.getItem("token")).email : logout()}
                 </span>
 
 
@@ -71,7 +66,7 @@ const HeaderButtons = (props) => {
         return (
             <>
                 <span className="d-flex justify-content-between mr-5 just-font">
-                    {userInfo.state ? "" : `${userInfo.email} (inactivo)`}
+                    {userInfo.state === null ? "" : `${userInfo.email} (inactivo)`}
                 </span>
                 <GoogleLogin
                     clientId="758311109371-ard4nkmjub93unf80oe101fp4anqbr8f.apps.googleusercontent.com"
