@@ -111,7 +111,7 @@ const About = (props) => {
                       width="140"
                       height="140"
                       href={mateo}
-                      clip-path="url(#circleView)"
+                      clipPath="url(#circleView)"
                     />
                   </svg>
                   <h3 className="text-center">Mateo Cardona Rincon</h3>
@@ -121,7 +121,7 @@ const About = (props) => {
               <div className="col-lg-2 mx-auto">
                 <div className="text-center">
                   <svg
-                    class="bd-placeholder-img rounded-circle m-1"
+                    className="bd-placeholder-img rounded-circle m-1"
                     width="140"
                     height="140"
                     xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +136,7 @@ const About = (props) => {
                       140x140
                     </text>
                   </svg>
-                  <h3 class="text-center">Miguel Angel López Fernández</h3>
+                  <h3 className="text-center">Miguel Angel López Fernández</h3>
                   <span>e-mail: miguel.lopez@utp.edu.co</span>
                 </div>
               </div>

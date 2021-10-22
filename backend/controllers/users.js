@@ -39,7 +39,7 @@ exports.authRole = (req, res) => {
       }
     })
     .catch((err) => {
-      res.status(504).json({ error: err });
+      res.status(404).json({ error: err });
     });
 };
 
