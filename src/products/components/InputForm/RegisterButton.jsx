@@ -3,29 +3,30 @@ import api from "../../../api";
 import { useState } from "react"
 
 const RegisterButton = (props) => {
-    const { info, action, setMissing } = props.properties;
+    const { info, setMissing, countRecords, refreshTable, setRefreshTable } = props.properties;
     const [modalSettings, setModalSettings] = useState({ show: false, type: "" })
+
     // Setting modal info based on action
     if (modalSettings.type === "register") {
         var modalHeader = "¡Resgistro exitoso!"
-        var modalBody = "Producto creado con el ID " + info.id + "."
+        var modalBody = `Producto creado con el ID ${countRecords.maxId} .`
+
     } else if (modalSettings.type === "warning") {
         modalHeader = "¡Atención!"
         modalBody = "Diligencie todos los campos requeridos."
+
     } else if (modalSettings.type === "update") {
         modalHeader = "¡Actualización exitosa!"
         modalBody = "Se actualizó correctamente el producto con ID " +
             document.getElementById("filter-input").value + "."
-    } else if (modalSettings.type === "serverError") {
-        modalHeader = "¡Atención!"
-        modalBody = "Ya existe un producto con la descripción especificada."
+
     } else if (modalSettings.type === "unableUpdate") {
-        modalHeader = "¡Atención!"
-        modalBody = "Para modificar un registro, por favor presione " +
-            "el botón azul de la fila correspondiente al producto que desea actualizar."
+        modalHeader = "¡No es posible hacer la actualización!"
+        modalBody = "Cargue la información con el botón azul de la " +
+            "fila correspondiente y no deje campos vacíos. Recuerde: el campo 'Descripción del producto' debe ser único."
     }
 
-    // Setting red border and modal feedback
+    // Setting red border and triggering modal feedback on missing fields
     const triggerMissingCells = () => {
         if (info.description !== "") {
             var missingDescription = false
@@ -41,7 +42,6 @@ const RegisterButton = (props) => {
             price: missingPrice,
             state: missingState
         })
-        // Triggering alert modal
         setModalSettings({ show: true, type: "warning" })
     }
 
@@ -49,12 +49,11 @@ const RegisterButton = (props) => {
     const registerBtn = async (event) => {
         // Looking for missing fields. if true -> save record
         if (info.description !== "" && info.price !== "" && info.state !== "") {
-
             // reset red borders
             setMissing({ description: false, price: false, state: false })
 
             // POST request to api
-            const response = await api.products.create({
+            await api.products.create({
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -63,20 +62,19 @@ const RegisterButton = (props) => {
                 },
                 body: JSON.stringify(
                     {
-                        id: info.id + 1,
+                        id: countRecords.maxId + 1,
                         description: info.description.trim(),
                         price: parseInt(info.price),
                         state: info.state
-                    }
-                )
+                    })
+            }).then(async (res) => {
+                if (res.error) {
+                    setModalSettings({ show: true, type: "serverError" })
+                } else {// Triggerring success register modal
+                    setRefreshTable(!refreshTable)
+                    setModalSettings({ show: true, type: "register" })
+                }
             })
-
-            if (response.error) {
-                setModalSettings({ show: true, type: "serverError" })
-            } else {// Triggerring success register modal
-                info.id = info.id + 1
-                setModalSettings({ show: true, type: "register" })
-            }
 
         } else {
             triggerMissingCells()
@@ -87,12 +85,11 @@ const RegisterButton = (props) => {
     const updateBtn = async () => {
         // Looking for missing fields. if true -> update record by id
         if (info.description !== "" && info.price !== "" && info.state !== "") {
-
             // reset red borders
             setMissing({ description: false, price: false, state: false })
 
             // PUT request to api
-            const response = await api.products.update(info._id, {
+            await api.products.update(info._id, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',
@@ -106,27 +103,29 @@ const RegisterButton = (props) => {
                         state: info.state
                     }
                 )
+            }).then((res) => {
+                if (res.error) {
+                    setModalSettings({ show: true, type: "unableUpdate" })
+                } else {
+                    setRefreshTable(!refreshTable)
+                    setModalSettings({ show: true, type: "update" })
+                }
             });
 
-            if (response.error) {
-                setModalSettings({ show: true, type: "serverError" })
-            } else {// Triggerring success update modal
-                setModalSettings({ show: true, type: "update" })
-            }
         } else {
-            if (action) {
-                triggerMissingCells()
-            } else {
-                (setModalSettings({ show: true, type: "unableUpdate" }))
-            }
+            // if (action) {
+            //     triggerMissingCells()
+            // } else {
+            //     (setModalSettings({ show: true, type: "unableUpdate" }))
+            // }
+            triggerMissingCells()
+            setModalSettings({ show: true, type: "unableUpdate" })
 
         }
     }
 
     const handleClose = () => {
         setModalSettings({ show: false, type: "" })
-
-        if (["update", "register"].includes(modalSettings.type)) { window.location.reload() }
     };
 
     return (

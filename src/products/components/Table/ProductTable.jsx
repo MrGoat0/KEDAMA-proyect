@@ -14,7 +14,6 @@ const ProductTable = (props) => {
                 properties={props}
             />
         </Table>
-
     )
 }
 

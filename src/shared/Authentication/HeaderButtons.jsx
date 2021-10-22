@@ -4,9 +4,8 @@ import api from "../../api"
 import { useState } from "react"
 import { decodeToken } from "react-jwt"
 
-
 const HeaderButtons = (props) => {
-    const { isLoggedIn, setLogin } = props;
+    const { isLoggedIn, setLogin, setValidate } = props;
     const [userInfo, setUserInfo] = useState({ state: "temp" });
 
     const login = async (response) => {
@@ -27,6 +26,7 @@ const HeaderButtons = (props) => {
                         role: res.role
                     })
                     setLogin(true)
+                    setValidate(res.role)
                 } else {
                     setUserInfo({
                         email: res.email,
