@@ -5,7 +5,7 @@ const callApi = async (url, reqOptions = {}) => {
   //   response = await fetch("http://localhost:3001/api" + url, reqOptions);
   // }
   // const data = await response.json();
-  reqOptions.headers = {Accept: "application/json","Content-Type": "application/json",}
+  reqOptions.headers = {Accept: "application/json","Content-Type": "application/json",authorization: "Bearer " + localStorage.getItem('token')}
   const response = await fetch("http://localhost:3001/api" + url, reqOptions);
   const data = await response.json();
   return data;
