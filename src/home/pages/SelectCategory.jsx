@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import '../../styles/category.css';
 import Header from '../../shared/Header.jsx'
