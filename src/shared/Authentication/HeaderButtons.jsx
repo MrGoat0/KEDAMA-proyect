@@ -20,7 +20,7 @@ const HeaderButtons = (props) => {
                 },
             }).then(res => {
                 console.log(typeof res, res)
-                if (res.state !== null) {
+                if (res.state) {
                     setLogin(true)
                     setValidate(res.role === 'admin')
                 } else {

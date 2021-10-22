@@ -3,7 +3,9 @@ const Sales = require("../models/sales")
 // Get all sales
 exports.getSales = (req, res) => {
     Sales.find().populate("productInfo").then((postResults)=>{
-        res.status(200).json(postResults);
+        res.status(200).json(postResults).catch((err) => {
+          res.status(404).json({ error: err });
+        });
     })
 }
 // Create a new sale

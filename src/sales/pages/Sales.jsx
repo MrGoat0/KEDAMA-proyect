@@ -3,7 +3,6 @@ import Header from "../../shared/Header.jsx";
 import SalesForm from "../components/SalesForm";
 import SalesBill from "../components/SalesBill";
 import {useState,useEffect} from 'react';
-// import Footer from "../../shared/Footer";
 import VentasNav from "../components/VentasNav"
 import '../../styles/Sales/ventas.css';
 import '../../styles/Sales/ventas.css';
@@ -43,6 +42,8 @@ const Sales = () => {
           setProducts(responseProduct);
           setSeller(responseUsers);
           setSalesInDb(responseSales);
+          console.log(users,"users");
+          console.log(products,"products");
         }
         fetchData();
       },[])
@@ -179,6 +180,8 @@ const Sales = () => {
     const handleChangeAndClick = (event) => {
       createSale();
       console.log(saleRecorded)
+      console.log(users,"users")
+      console.log(products,"products")
       // eslint-disable-next-line no-restricted-globals
       var mensaje = confirm("Estas seguro de registrar esta información?");
       if((saleRecorded.clientName !== null) && (saleRecorded.productInfo !== null) && (saleRecorded.seller !== null)){
@@ -203,7 +206,6 @@ const Sales = () => {
         
     }
   }
-    
 
 return(
     <div>
