@@ -34,6 +34,7 @@ const Sales = () => {
 
       //consuming API
       useEffect(()=>{
+        console.log("entró")
         async function fetchData(){
           const responseUsers = await api.users.getAllUsers();
           const responseProduct = await api.products.list();
