@@ -47,6 +47,39 @@ const Sales = () => {
         fetchData();
       },[])
       //
+
+      //search en API data
+      // const searchClientAndSeller = (users) =>{
+      //   let userToAddName = null;
+      //   let userToAddID = null;
+      //   let sellerToAdd= null;
+      //   if(users !== null || users.length > 0){
+      //     for(var indexU = 0; indexU < users.length; indexU++){
+      //       if(users[indexU]._id === userName){
+      //         userToAddName = users[indexU].name;
+      //         userToAddID = users[indexU]._id;
+      //       }
+      //       if(users[indexU]._id === sellerName){
+      //         sellerToAdd = users[indexU]._id
+      //       }
+      //     }
+      //   }
+        
+      //   return [userToAddName,userToAddID,sellerToAdd]
+      // }
+
+      // const searchProducts = (products)=>{
+      //   let productToAdd = null;
+      //   if(products !== null || products.length > 0){
+      //     for(var indexP = 0; indexP < products.length; indexP++){
+      //       if(products[indexP].id === parseInt(product)){
+      //         productToAdd = products[indexP]._id;     
+      //       }
+      //     }
+      //   }
+      //   return productToAdd  
+      // }
+      //
       const [saleRecorded, setSaleRecorded] = useState({
         state: state,
             productInfo: null,
@@ -102,6 +135,7 @@ const Sales = () => {
     //
     //   getting complete user info  
       const createSale = () =>{
+
         var userToAddName = null;
         var userToAddID = null;
         var productToAdd = null;
