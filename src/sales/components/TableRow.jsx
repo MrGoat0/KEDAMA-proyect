@@ -1,6 +1,10 @@
 const TableRow = (props) => {
     const {row,type} = props;
 
+    const picked = ()=>{
+        document.getElementById("user-form").value = row.name;
+        document.getElementById("seller-form").value = row.name;
+    }
 
     //for listing sales in salesList interfaces
     if(type === "salesRecorded"){
@@ -15,7 +19,7 @@ const TableRow = (props) => {
     }
     //for modal in registerSales interface
     if(type === "usuario" || type=== "vendedor"){
-        return(<tr>
+        return(<tr onClick = {picked}>
             <td>{row._id}</td>
             <td>{row.name}</td>
             <td>{row.email}</td>

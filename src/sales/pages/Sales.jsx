@@ -141,6 +141,7 @@ const Sales = () => {
         var productToAdd = null;
         var sellerToAdd = null;
         
+
         if(users !== null || users.length > 0){
           for(var indexU = 0; indexU < users.length; indexU++){
             if(users[indexU]._id === userName){
@@ -177,27 +178,28 @@ const Sales = () => {
 
     const handleChangeAndClick = (event) => {
       createSale();
+      console.log(saleRecorded)
       // eslint-disable-next-line no-restricted-globals
       var mensaje = confirm("Estas seguro de registrar esta información?");
       if((saleRecorded.clientName !== null) && (saleRecorded.productInfo !== null) && (saleRecorded.seller !== null)){
-        if(!salesInDb.includes(saleRecorded)) {
-          if(mensaje){
-            alert("¡Gracias por aceptar!");
-            api.sales.create(saleRecorded);
-            // setSaleRecorded({...saleRecorded,[event.target.id]: event.target.value});
-            setMount("#");       //Por cierto, por que hay un delay al iniciar el envío con submit
-            setProduct("Producto");
-            setPrice("$");
-            setUserName("Nombre");
-            setState("ID");
-            setSellerName("Vendedor");
-            document.getElementById("product-mount").value = "";
-            document.getElementById("state-form").value = "";
-          
-          }else{  
-            alert("¡Haz denegado la acción!");
-          }
-          }
+        // if(!salesInDb.includes(saleRecorded)) {
+        //   }
+        if(mensaje){
+          alert("¡Gracias por aceptar!");
+          api.sales.create(saleRecorded);
+          // setSaleRecorded({...saleRecorded,[event.target.id]: event.target.value});
+          setMount("#");       //Por cierto, por que hay un delay al iniciar el envío con submit
+          setProduct("Producto");
+          setPrice("$");
+          setUserName("Nombre");
+          setState("ID");
+          setSellerName("Vendedor");
+          document.getElementById("product-mount").value = "";
+          document.getElementById("state-form").value = "";
+        
+        }else{  
+          alert("¡Haz denegado la acción!");
+        }
         
     }
   }

@@ -6,7 +6,7 @@ import { isExpired, decodeToken } from "react-jwt"
 
 const HeaderButtons = (props) => {
     const { isLoggedIn, setLogin, setValidate } = props;
-    const [userInfo, setUserInfo] = useState({ state: "temp" })
+    const [userInfo, setUserInfo] = useState({ state: null })
 
     const login = async (response) => {
         localStorage.setItem('token', response.tokenId)
@@ -19,7 +19,8 @@ const HeaderButtons = (props) => {
                     authorization: "Bearer " + localStorage.getItem('token'),
                 },
             }).then(res => {
-                if (res.state) {
+                console.log(typeof res, res)
+                if (res.state !== null) {
                     setLogin(true)
                     setValidate(res.role)
                 } else {
