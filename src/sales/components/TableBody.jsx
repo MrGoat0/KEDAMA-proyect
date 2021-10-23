@@ -6,6 +6,7 @@ import TableRow from "./TableRow";
 // }
 const TableBody = (props) => {
     const {recordsData,type} = props;
+    console.log(recordsData, "records")
     if(typeof recordsData !== "undefined"){
         return(
             <tbody>

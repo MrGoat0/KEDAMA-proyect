@@ -6,8 +6,7 @@ exports.getSales = (req, res) => {
     .populate("productInfo")
     .then((postResults) => {
       res.status(200).json(postResults);
-    })
-    .catch((err) => {
+    }).catch((err) => {
       res.status(500).json({ error: err });
     });
 };

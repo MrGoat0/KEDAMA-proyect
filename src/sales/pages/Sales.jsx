@@ -42,8 +42,9 @@ const Sales = () => {
       setProducts(responseProduct);
       setSeller(responseUsers);
       setSalesInDb(responseSales);
-      //   console.log(users, "users");
-      //   console.log(products, "products");
+        console.log(users, "users");
+        console.log(typeof users, "users type");
+        console.log(products, "products");
     }
     fetchData();
   }, [])

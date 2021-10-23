@@ -45,18 +45,14 @@ function FilteredSearch(date, user, product, sales){
 const SalesList = () => {
     const [sales,setSales] = useState([]);
   
-  const handleSubmitRecords =(newSale)=>{
-    setSales([...sales, newSale]);
-  }
+//   const handleSubmitRecords =(newSale)=>{
+//     setSales([...sales, newSale]);
+//   }
 
   useEffect(()=>{
-    console.log("aquí entra pero no a aasync");
     async function fetchData(){
-        console.log("aquí entra");
       const response = api.sales.list();
       setSales(response);
-      console.log(sales,"sales");
-      console.log(response,"respose");
     }
     fetchData();
   },[])
