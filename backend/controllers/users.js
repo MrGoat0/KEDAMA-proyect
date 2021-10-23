@@ -75,3 +75,14 @@ exports.getByEmail = (req, res) => {
       res.status(500).json({ error: err });
     });
 };
+
+// Get an user by mongo id
+exports.getByID = (req, res) => {
+  User.findOne({ _id: req.params.id })
+    .then((searchResult) => {
+      res.status(200).json(searchResult);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err });
+    });
+};
