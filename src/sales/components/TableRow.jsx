@@ -8,6 +8,7 @@ const TableRow = (props) => {
     const [showModal, setShowModal] = useState(false)
     const [productPrice, setProductPrice] = useState()
 
+    // Mapping the sellers name by to their id
     useEffect(() => {
         const fetchUserByID = async () => {
             const response = await api.users.getByID(row.seller)
