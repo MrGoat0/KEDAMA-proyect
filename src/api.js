@@ -51,6 +51,9 @@ const api = {
     updateUser(reqOptions) {
       return callApi("/users", reqOptions);
     },
+    getByID(mongooseID) {
+      return callApi("/users/sellerInfo/" + mongooseID);
+    },
   },
   sales: {
     list() {
@@ -59,9 +62,9 @@ const api = {
     create(sale) {
       return callApi("/sales/", { method: "POST", body: JSON.stringify(sale) }); //{method: POST, body: JSON.stringify}
     },
-    // update(id, reqOptions) {
-    //   return callApi("/products/" + id, reqOptions);
-    // },
+    update(id, reqOptions) {
+      return callApi("/sales/" + id, reqOptions);
+    },
   },
 };
 

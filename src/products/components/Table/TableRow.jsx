@@ -31,13 +31,6 @@ const TableRow = (props) => {
         setRefreshTable(!refreshTable)
     }
 
-    const picked = () => {
-        document.getElementById("product-input").value = row.description
-        document.getElementById("price-input").value = row.price
-        document.getElementById("state-input").value = row.state
-        document.getElementById("filter-input").value = row.id
-    }
-
     const deleteConfirmation = () => {
         setShowModal(true)
     }
@@ -48,7 +41,7 @@ const TableRow = (props) => {
 
     return (
         <>
-            <tr id={row.id} onClick={picked}>
+            <tr id={row.id}>
                 <td >{row.id}</td>
                 <td >{row.description}</td>
                 <td >{row.price}</td>

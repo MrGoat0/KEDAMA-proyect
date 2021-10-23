@@ -9,6 +9,7 @@ router.get("/app", salesController.getSales);
 router.get("/props", salesController.getSalesByProps);
 router.get("/entire/:id", salesController.getSaleIdLazyLoading);
 router.get("/:id", salesController.getSaleId);
+router.put("/:id", salesController.updateSale);
 
 // router.put("/:id", salesController.updateSale);
 // router.delete("/:id", salesController.deleteSale);

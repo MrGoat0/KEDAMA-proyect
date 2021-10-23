@@ -59,7 +59,7 @@ const Users = () => {
 
           <Col >
             <Table >
-              <thead >
+              <thead className="thead-style">
                 <tr>
                   <th>Nombre completo</th>
                   <th>e-mail</th>
