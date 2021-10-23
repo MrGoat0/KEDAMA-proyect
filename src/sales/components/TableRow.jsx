@@ -21,28 +21,23 @@ const TableRow = (props) => {
         setProductPrice(row.total / row.quantity)
     }
 
-    const handleClose = () => {
-        setShowModal(false)
-    }
-
     const updateData = async () => {
         var reqBody = {}
         if (document.getElementById("date-modal-form").value === "") {
             reqBody.date = document.getElementById("date-modal-form").placeholder
-        } else {
-            reqBody.date = document.getElementById("date-modal-form").value
-        }
+        } else { reqBody.date = document.getElementById("date-modal-form").value }
+
         if (document.getElementById("client-modal-form").value === "") {
             reqBody.clientName = document.getElementById("client-modal-form").placeholder
+        } else { reqBody.clientName = document.getElementById("client-modal-form").value }
+
+        if (["", "0"].includes(document.getElementById("quantity-modal-form").value)) {
+            reqBody.quantity = parseInt(document.getElementById("quantity-modal-form").placeholder)
+            reqBody.total = productPrice * reqBody.quantity
         } else {
-            reqBody.clientName = document.getElementById("client-modal-form").value
+            reqBody.quantity = parseInt(document.getElementById("quantity-modal-form").value)
+            reqBody.total = productPrice * reqBody.quantity
         }
-        if (document.getElementById("quantity-modal-form").value === "") {
-            reqBody.quantity = document.getElementById("quantity-modal-form").placeholder
-        } else {
-            reqBody.quantity = document.getElementById("quantity-modal-form").value
-        }
-        reqBody.total = productPrice * reqBody.quantity
 
         await api.sales.update(row._id, {
             method: "PUT",
@@ -50,6 +45,10 @@ const TableRow = (props) => {
         })
         setShowModal(false)
         window.location.reload()
+    }
+
+    const handleClose = () => {
+        setShowModal(false)
     }
 
     const picked = () => {
@@ -71,7 +70,6 @@ const TableRow = (props) => {
                     <td>{row.total}</td>
                     <td >
                         <div className="d-flex justify-content-center">
-
                             <Button id={"updateBtn-" + row._id}
                                 className="action-buttons ml-2"
                                 onClick={updateActivation}
