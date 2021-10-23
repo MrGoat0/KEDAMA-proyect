@@ -22,7 +22,7 @@ exports.addSale = (req, res) => {
     seller: req.body.seller,
   });
   SaleAdd.save().then((createdProduct) => {
-    res.status(201).json("Creado satisfactoriamente");
+    res.status(201).json(createdProduct._id);
   });
 };
 

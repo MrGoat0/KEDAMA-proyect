@@ -13,10 +13,6 @@ const SalesBill = (props) => {
                 <div className="p-1"> <h5 id="date" >Fecha: </h5> </div>
                 <div className="p-1"> {date} </div>
             </div>
-            <div className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
-                <div className="p-1"> <h5>ID-factura: </h5>  </div>
-                <div className="p-1"> ---- </div>
-            </div>
             <div id="ID-usuario" className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
                 <div className="p-1"> <h5>Estado de venta: </h5>  </div>
                 <div className="p-1"> {state} </div>

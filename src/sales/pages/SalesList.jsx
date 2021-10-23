@@ -85,6 +85,7 @@ const SalesList = () => {
         setFilter(FilteredSearch(date, user, product, sales));
     }
 
+
     const type = "salesRecorded";
 
     return (

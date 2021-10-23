@@ -9,7 +9,31 @@ import '../../styles/Sales/ventas.css';
 import Footer from "../../shared/Footer.jsx";
 import api from "../../api.js"
 const Sales = () => {
+  //To get from API 
+  const [users, setUsers] = useState([])
+  const [products, setProducts] = useState([])
+  const [seller, setSeller] = useState([])
+  let salesInDb = null;
 
+  async function fetchData() {
+    const responseUsers = await api.users.getAllUsers();
+    const responseProduct = await api.products.list();
+    setUsers(responseUsers);
+    setProducts(responseProduct);
+    setSeller(responseUsers);    
+  }
+  //consuming API
+  useEffect(() => {
+    fetchData();
+  },[])
+
+  // async function fetchSales(){
+  //   const responseSales = await api.sales.list();
+  //   console.log(responseSales)
+  //   setSalesInDb(responseSales);
+  //   console.log(salesInDb, "sales")
+  // }
+  
 
   //Change in bill with typing in form
   const [sellerName, setSellerName] = useState("Vendedor");
@@ -21,28 +45,7 @@ const Sales = () => {
   const total = parseInt(mount) * parseInt(price);
   const date = new Date().toLocaleDateString();
 
-  //To get from API 
-  const [users, setUsers] = useState([])
-  const [products, setProducts] = useState([])
-  const [seller, setSeller] = useState([])
-  const [salesInDb, setSalesInDb] = useState([])
 
-  //consuming API
-  useEffect(() => {
-    async function fetchData() {
-      const responseUsers = await api.users.getAllUsers();
-      const responseProduct = await api.products.list();
-      const responseSales = await api.sales.list();
-      setUsers(responseUsers);
-      setProducts(responseProduct);
-      setSeller(responseUsers);
-      setSalesInDb(responseSales);
-        console.log(users, "users");
-        console.log(typeof users, "users type");
-        console.log(products, "products");
-    }
-    fetchData();
-  }, [])
 
   const [saleRecorded, setSaleRecorded] = useState({
     state: state,
@@ -70,17 +73,14 @@ const Sales = () => {
     setState(event.target.value)
   }
   const handleChangeUserName = (change) => {
-    console.log(change, "userName")
     setUserName(change)
   }
   const handleChangeProduct = (change) => {
-    console.log(change, "products")
     setProduct(change)
     handleChangePrice(change)
   }
   const handleChangeSellerName = (change) => {
     setSellerName(change);
-    console.log(change, "seller")
   }
   const handleChangeMount = (event) => {
     setMount(event.target.value)
@@ -88,7 +88,6 @@ const Sales = () => {
   //
   //   getting complete user info  
   const createSale = () => {
-
     var userToAddName = null;
     var userToAddID = null;
     var productToAdd = null;
@@ -131,18 +130,12 @@ const Sales = () => {
 
   const handleChangeAndClick = (event) => {
     createSale();
-    console.log(saleRecorded);
-    
+    console.log(saleRecorded)
     // eslint-disable-next-line no-restricted-globals
     var mensaje = confirm("Estas seguro de registrar esta información?");
-    if ((saleRecorded.clientName !== null) && (saleRecorded.productInfo !== null) && (saleRecorded.seller !== null)) {
-      // if(!salesInDb.includes(saleRecorded)) {
-      //   }
+    if ((saleRecorded.clientName !== null) && (saleRecorded.productInfo !== null) && (saleRecorded.seller !== null) &&(saleRecorded.total !== null)) {
       if (mensaje) {
-        // api.sales.create(saleRecorded).then((res) => { console.log(res) }).catch((err) => { console.log(err) })
-        const billId =  api.sales.list();
-        alert("¡Gracias por aceptar!\nEl ID de la factura resgitrada es: "); 
-        // setSaleRecorded({...saleRecorded,[event.target.id]: event.target.value});
+        api.sales.create(saleRecorded).then((res) => {alert("¡Gracias por aceptar!\nEl ID de la factura resgitrada es: "+res); }).catch((err) => { console.log(err) })
         setMount("#");       //Por cierto, por que hay un delay al iniciar el envío con submit
         document.getElementById("user-name").textContent = "Producto"
         setPrice("$");
