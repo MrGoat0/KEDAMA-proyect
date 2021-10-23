@@ -5,17 +5,17 @@ import TableRow from "./TableRow";
 //     }
 // }
 const TableBody = (props) => {
-    const {recordsData,type} = props;
-    if(typeof recordsData !== "undefined"){
-        return(
+    const { recordsData, type } = props;
+    if (typeof recordsData !== "undefined") {
+        return (
             <tbody>
-                {recordsData.map((row)=>(
+                {recordsData.map((row) => (
                     <TableRow row={row} type={type} />
                 ))}
-            {/* {iterateTrough(recordsData)} */}
+                {/* {iterateTrough(recordsData)} */}
             </tbody>
         )
-    }else{ return null}
+    } else { return null }
 }
 
 export default TableBody;
