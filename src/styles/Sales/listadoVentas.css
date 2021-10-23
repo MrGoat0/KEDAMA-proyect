@@ -1,58 +1,71 @@
-html,body{
-    width: 100%;
-    height:100%;
-    padding: 0%;
-    overflow-y: auto;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0%;
+  overflow-y: auto;
 }
 
-header{
-    background-color:#52734D;
-    font-size: 1.3em;
+header {
+  background-color: #52734d;
+  font-size: 1.3em;
 }
 
-.text-start{
-    color:#3b4754;
-    font-size:1.6em;
+.text-start {
+  color: #3b4754;
+  font-size: 1.6em;
 }
 
-.text-below-start{
-    color: #798da3;
-    font-size:1.1em;
+.text-below-start {
+  color: #798da3;
+  font-size: 1.1em;
 }
 
-
-.search-options-box{
-    height: 100%;
-    width: 30%;
-    border-right: 2px solid gray;
+.search-options-box {
+  height: 100%;
+  width: 30%;
+  border-right: 2px solid gray;
 }
 
-.tableView-box{
-    height: 100%;
-    width: 70%;
+.tableView-box {
+  height: 100%;
+  width: 70%;
 }
-.tableView{
-    border-radius:5%;
-}
-
-.TableinTouch{
-    height: 100%;
-    width: 95%;
-    border-radius:5% ;
-    background-color: #eff0f4;
-}
-.ScrollTable{
-    height: 100%;
-    width: 5%;
+.tableView {
+  border-radius: 5%;
 }
 
-.search-options{
-    border-radius:5%;
-    border-color: solid;
-    background-color: #eff0f4;
+.TableinTouch {
+  height: 100%;
+  width: 95%;
+  border-radius: 5%;
+  background-color: #eff0f4;
+}
+.ScrollTable {
+  height: 100%;
+  width: 5%;
 }
 
-footer{
-    background-color:#008891;
-    font-size: 1.3em;
+.search-options {
+  border-radius: 5%;
+  border-color: solid;
+  background-color: #eff0f4;
+}
+
+footer {
+  background-color: #008891;
+  font-size: 1.3em;
+}
+
+.thead-style {
+  background: #52734d;
+  position: sticky;
+  top: -1px;
+}
+
+.sales-list-table {
+  max-width: 100%;
+  max-height: 600px;
+  display: block;
+  overflow-x: auto;
 }

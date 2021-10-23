@@ -106,18 +106,17 @@ exports.getSalesByProps = (req, res) => {
   }
 };
 
-// Update a product by id
-/*
-exports.updateProduct = (req, res) => {
-    Products.updateOne({ _id: req.params.id }, req.body)
-      .then((updateResult) => {
-        res.status(200).json(updateResult);
-      })
-      .catch((err) => {
-        res.status(500).json({ error: err });
-      });
-  };
-  */
+// Update a sale by id
+exports.updateSale = (req, res) => {
+  Sales.updateOne({ _id: req.params.id }, req.body)
+    .then((updateResult) => {
+      res.status(200).json(updateResult);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err });
+    });
+};
+
 /*
   // Delete a product by id
   exports.deleteProduct = async (req, res) => {
