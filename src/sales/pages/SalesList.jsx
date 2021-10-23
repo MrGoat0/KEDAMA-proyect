@@ -106,7 +106,7 @@ const SalesList = () => {
                             <div className="tableView d-flex flex-row h-100 p-2 border border">
                                 <div className="TableinTouch d-flex flex-column p-5 border border">
                                     <div id="TableArea">
-                                        <Table striped bordered hover>
+                                        <Table className="sales-list-table" striped bordered hover>
                                             <SalesTable recordsData={[ShowAll, filter]} type={type} clean={"TableArea"} />
                                         </Table>
                                     </div>

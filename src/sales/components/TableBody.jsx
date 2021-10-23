@@ -10,7 +10,7 @@ const TableBody = (props) => {
         return (
             <tbody>
                 {recordsData.map((row) => (
-                    <TableRow row={row} type={type} />
+                    <TableRow key={row._id} row={row} type={type} />
                 ))}
                 {/* {iterateTrough(recordsData)} */}
             </tbody>

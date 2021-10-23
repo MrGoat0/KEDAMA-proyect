@@ -11,6 +11,7 @@ router.get("/", auth, usersController.authUser);
 router.get("/roles", auth, roleAuth, usersController.authRole);
 router.get("/all", usersController.getAllUsers);
 router.get("/search/:email", usersController.getByEmail);
+router.get("/sellerInfo/:id", usersController.getByID);
 // router.post("/", usersController.createUser);
 // router.get("/:id", usersController.getUserId);
 // router.put("/:id", usersController.updateUser);
