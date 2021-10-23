@@ -2,7 +2,7 @@ import BDModal from "./BD-modal";
 import React,{useState,useEffect} from 'react';
 import api from "../../api.js";
 const UserForm =(props) => {
-    const {changeState,changeUserName,userName,tableToShow,handleRecord} = props;
+    const {changeState,changeUserName,userName,tableToShow} = props;
     // const [users,setUsers] = useState([]);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -44,7 +44,7 @@ const UserForm =(props) => {
               >
                 BD
               </button>
-              <BDModal show={show} onHide={handleClose} type={user} tableToShow={tableToShow} handleRecord={handleRecord}/>
+              <BDModal show={show} onHide={handleClose} type={user} tableToShow={tableToShow} changeUserName={changeUserName}/>
             </div>
           </div>
           <div className="user-button input-group d-flex flex-column px-2 pt-2 pb-2">

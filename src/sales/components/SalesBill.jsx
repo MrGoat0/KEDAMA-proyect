@@ -23,11 +23,11 @@ const SalesBill = (props) => {
             </div>
             <div id="ID-usuario" className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
                 <div className="p-1"> <h5>Nombre: </h5>  </div>
-                <div className="p-1"> {userName} </div>
+                <div className="p-1"> <span id="user-name"></span> </div>
             </div>
             <div id="producto" className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
                 <div className="p-1"> <h5>Producto: </h5> </div>
-                <div className="p-1"> {product} </div>
+                <div className="p-1"> <span id="product-description"></span>  </div>
             </div>
             <div id="cantidad" className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
                 <div className="p-1"> <h5>Cantidad: </h5> </div>
@@ -39,7 +39,7 @@ const SalesBill = (props) => {
             </div>
             <div id="vendedor" className="d-flex flex-row justify-content-between pt-2 pb-2 px-5">
                 <div className="p-1"> <h5>Vendedor: </h5> </div>
-                <div className="p-1"> {sellerName} </div>
+                <div className="p-1"> <span id="seller-name"></span>  </div>
             </div>
             <div className="d-flex flex-row justify-content-end pt-3 px-5">
                 <div className="px-4"> <h4><strong>TOTAL:</strong> </h4></div>

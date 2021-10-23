@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import BDModal from "./BD-modal";
 const SellerForm = (props) =>{
-    const {handleRecord,sellerName, tableToShow,handleChangeSellerName} = props;
+    const {sellerName, tableToShow,handleChangeSellerName} = props;
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -35,7 +35,7 @@ const SellerForm = (props) =>{
                       onHide={handleClose}
                       type={seller}
                       tableToShow={tableToShow}
-                      handleRecord={handleRecord}
+                      handleChangeSellerName={handleChangeSellerName}
                     />
                   </div>
                 </div>

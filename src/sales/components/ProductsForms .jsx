@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 
 
 const ProductForm = (props) =>{
-    const {changeProduct, changeMount, handleRecord, productShow, tableToShow} = props;
+    const {changeProduct, changeMount, productShow, tableToShow} = props;
 
     const [show, setShow] = useState(false);
     // const [productst,setProduct] = useState([]);
@@ -54,7 +54,7 @@ const ProductForm = (props) =>{
                       onHide={handleClose}
                       type={product}
                       tableToShow={tableToShow}
-                      handleRecord={handleRecord}
+                      changeProduct={changeProduct}
                     />
                   </div>
             </div>

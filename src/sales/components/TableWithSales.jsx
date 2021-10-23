@@ -6,8 +6,7 @@ import PropTypes from 'prop-types';
  
  
 const SalesTable = (props) => {
-    const {recordsData, type} = props;
-    console.log(recordsData.PromiseResult, typeof recordsData, "records Data")
+    const {recordsData, type, hooksToChange} = props;
     if(typeof recordsData !== "undefined" && recordsData.length === 2) {
         if((typeof recordsData[0] === "undefined" && typeof recordsData[1] === "undefined") || (recordsData[0].length === 0 && recordsData[1].length === 0 )){
             return(<TableHeader type={type}/>)
@@ -32,11 +31,11 @@ const SalesTable = (props) => {
             }
         }
     }else{
-        console.log(recordsData, "to table")
+        
         return(
             <div>
                 <TableHeader type={type}/>
-                <TableBody recordsData={recordsData} type={type}/>  
+                <TableBody recordsData={recordsData} type={type} hooksToChange={hooksToChange}/>  
             </div>
         )
     }

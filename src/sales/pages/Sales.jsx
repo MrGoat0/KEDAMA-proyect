@@ -10,18 +10,13 @@ import Footer from "../../shared/Footer.jsx";
 import api from "../../api.js"
 const Sales = () => {
 
-  //Why does this two hooks exist, they can be deleted and just use sellerName and product
-  //Dont touch it 'till we know why
-  const [recordUser, setrecordUser] = useState("Nombre");
-  const [recordProduct, setrecordProduct] = useState("Producto");
-  const [recordSeller, setRecordSeller] = useState("Vendedor");
 
   //Change in bill with typing in form
-  const [sellerName, setSellerName] = useState(recordSeller);
+  const [sellerName, setSellerName] = useState("Vendedor");
   const [price, setPrice] = useState("$")
-  const [userName, setUserName] = useState(recordUser)
+  const [userName, setUserName] = useState("Nombre")
   const [state, setState] = useState("NA");
-  const [product, setProduct] = useState(recordProduct)
+  const [product, setProduct] = useState("Producto")
   const [mount, setMount] = useState("#")
   const total = parseInt(mount) * parseInt(price);
   const date = new Date().toLocaleDateString();
@@ -48,40 +43,7 @@ const Sales = () => {
     }
     fetchData();
   }, [])
-  //
 
-  //search en API data
-  // const searchClientAndSeller = (users) =>{
-  //   let userToAddName = null;
-  //   let userToAddID = null;
-  //   let sellerToAdd= null;
-  //   if(users !== null || users.length > 0){
-  //     for(var indexU = 0; indexU < users.length; indexU++){
-  //       if(users[indexU]._id === userName){
-  //         userToAddName = users[indexU].name;
-  //         userToAddID = users[indexU]._id;
-  //       }
-  //       if(users[indexU]._id === sellerName){
-  //         sellerToAdd = users[indexU]._id
-  //       }
-  //     }
-  //   }
-
-  //   return [userToAddName,userToAddID,sellerToAdd]
-  // }
-
-  // const searchProducts = (products)=>{
-  //   let productToAdd = null;
-  //   if(products !== null || products.length > 0){
-  //     for(var indexP = 0; indexP < products.length; indexP++){
-  //       if(products[indexP].id === parseInt(product)){
-  //         productToAdd = products[indexP]._id;     
-  //       }
-  //     }
-  //   }
-  //   return productToAdd  
-  // }
-  //
   const [saleRecorded, setSaleRecorded] = useState({
     state: state,
     productInfo: null,
@@ -95,10 +57,10 @@ const Sales = () => {
 
   //Change info seemed in bill
   const handleChangePrice = (value) => {
-    const product = parseInt(value)
+    const product = value
     if (products !== null || products.length > 0) {
       for (var index = 0; index < products.length; index++) {
-        if (products[index].id === product) {
+        if (products[index]._id === product) {
           setPrice(products[index].price);
         }
       }
@@ -107,32 +69,21 @@ const Sales = () => {
   const handleChangeState = (event) => {
     setState(event.target.value)
   }
-  const handleChangeUserName = (event) => {
-    setUserName(event.target.value)
+  const handleChangeUserName = (change) => {
+    console.log(change, "userName")
+    setUserName(change)
   }
-  const handleChangeProduct = (event) => {
-    setProduct(event.target.value)
-    handleChangePrice(event.target.value)
+  const handleChangeProduct = (change) => {
+    console.log(change, "products")
+    setProduct(change)
+    handleChangePrice(change)
   }
-  const handleChangeSellerName = (event) => {
-    setSellerName(event.target.value);
+  const handleChangeSellerName = (change) => {
+    setSellerName(change);
+    console.log(change, "seller")
   }
   const handleChangeMount = (event) => {
     setMount(event.target.value)
-  }
-  //
-  //keep the value typed in modal 
-  const handleRecordUser = (event) => {
-    setrecordUser(event.target.value)
-    handleChangeUserName(event)
-  }
-  const handleRecordProduct = (event) => {
-    setrecordProduct(event.target.value)
-    handleChangeProduct(event)
-  }
-  const handleRecordSeller = (event) => {
-    setRecordSeller(event.target.value)
-    handleChangeSellerName(event)
   }
   //
   //   getting complete user info  
@@ -158,7 +109,7 @@ const Sales = () => {
 
     if (products !== null || products.length > 0) {
       for (var indexP = 0; indexP < products.length; indexP++) {
-        if (products[indexP].id === parseInt(product)) {
+        if (products[indexP]._id === product) {
           productToAdd = products[indexP]._id;
         }
       }
@@ -180,26 +131,30 @@ const Sales = () => {
 
   const handleChangeAndClick = (event) => {
     createSale();
-    console.log(saleRecorded)
-    console.log(users, "users")
-    console.log(products, "products")
+    console.log(saleRecorded);
+    
     // eslint-disable-next-line no-restricted-globals
     var mensaje = confirm("Estas seguro de registrar esta información?");
     if ((saleRecorded.clientName !== null) && (saleRecorded.productInfo !== null) && (saleRecorded.seller !== null)) {
       // if(!salesInDb.includes(saleRecorded)) {
       //   }
       if (mensaje) {
-        alert("¡Gracias por aceptar!");
-        api.sales.create(saleRecorded).then((res) => { console.log(res) }).catch((err) => { console.log(err) })
+        // api.sales.create(saleRecorded).then((res) => { console.log(res) }).catch((err) => { console.log(err) })
+        const billId =  api.sales.list();
+        alert("¡Gracias por aceptar!\nEl ID de la factura resgitrada es: "); 
         // setSaleRecorded({...saleRecorded,[event.target.id]: event.target.value});
         setMount("#");       //Por cierto, por que hay un delay al iniciar el envío con submit
-        setProduct("Producto");
+        document.getElementById("user-name").textContent = "Producto"
         setPrice("$");
-        setUserName("Nombre");
+        document.getElementById("product-description").textContent = "Producto"
         setState("ID");
-        setSellerName("Vendedor");
+        document.getElementById("seller-name").textContent = "Vendedor"
+
         document.getElementById("product-mount").value = "";
         document.getElementById("state-form").value = "";
+        document.getElementById("user-form").value="Usuario";
+        document.getElementById("seller-form").value="Vendedor";
+        document.getElementById("product-form").value="Producto";
 
       } else {
         alert("¡Haz denegado la acción!");
@@ -230,7 +185,6 @@ const Sales = () => {
               changeState={handleChangeState} changePrice={handleChangePrice} changeUserName={handleChangeUserName}
               changeProduct={handleChangeProduct} changeMount={handleChangeMount} handleChangeSellerName={handleChangeSellerName}
               tableToShow={[users, products, seller]} setSales={handleChangeAndClick}
-              handleRecord={[handleRecordUser, handleRecordProduct, handleRecordSeller]}
             />
             <SalesBill date={date} price={price} state={state} userName={userName} product={product} mount={mount} sellerName={sellerName} total={total} />
           </div>

@@ -24,12 +24,13 @@ const BDModal = (props) => {
           <BDModalSelector
             type={props.type}
             tableToShow={props.tableToShow}
-            handleRecord={props.handleRecord}
+            changeProduct = {props.changeProduct}
+            changeUserName = {props.changeUserName}
+            changeSellerName = {props.handleChangeSellerName}
           />
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={props.onHide}>Close</Button>
-          <Button onClick={props.handleRecord,props.onHide}>Seleccionar</Button>
         </Modal.Footer>
       </Modal>
     );
