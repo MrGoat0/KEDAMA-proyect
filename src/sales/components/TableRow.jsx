@@ -1,6 +1,7 @@
 import api from "../../api"
-import { useState, useEffect } from "react"
-import { Form, Button, Modal, Container, Row, Col } from "react-bootstrap"
+import { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button"
+import UpdateSaleModal from "./UpdateSalesModal.jsx";
 
 const TableRow = (props) => {
     const {row,type, hooksToChange} = props;
@@ -24,13 +25,14 @@ const TableRow = (props) => {
     const [showModal, setShowModal] = useState(false)
     const [productPrice, setProductPrice] = useState()
 
+
     // Mapping the sellers name by to their id
     useEffect(() => {
-        const fetchUserByID = async () => {
-            const response = await api.users.getByID(row.seller)
+        const fetchUserByIDSales = async () => {
+            const response = await api.users.getByID(row.seller);
             setSellerName(response ? response.name : "Desconocido")
         }
-        fetchUserByID()
+        fetchUserByIDSales()
     }, [row.seller])
 
     const updateActivation = () => {
@@ -93,61 +95,9 @@ const TableRow = (props) => {
 
                     {/* <td>{row.editar?}</td> agregar funciones de editar y eliminar*/}
                 </tr>
-
-                <Modal show={showModal} onHide={handleClose}>
-                    <Modal.Header>
-                        <Modal.Title>{"Actualización de venta"}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <h5 className="mb-3">Campos modificables:</h5>
-                        <Container className="mt-2">
-                            <Row className="d-flex justify-content-center form-input-box mb-3">
-                                <Col>
-                                    <Form.Label>
-                                        Fecha de la venta:
-                                    </Form.Label>
-                                    <Form.Control id="date-modal-form"
-                                        type="text"
-                                        placeholder={row.date}
-                                    />
-                                </Col>
-                            </Row>
-
-                            <Row className="d-flex justify-content-center form-input-box mb-3">
-                                <Col>
-                                    <Form.Label>
-                                        Nombre del cliente:
-                                    </Form.Label>
-                                    <Form.Control id="client-modal-form"
-                                        type="text"
-                                        placeholder={row.clientName}
-                                    />
-                                </Col>
-                            </Row>
-
-                            <Row className="d-flex justify-content-center form-select-custome mb-5">
-                                <Col>
-                                    <Form.Label>
-                                        Cantidad:
-                                    </Form.Label>
-                                    <Form.Control id="quantity-modal-form"
-                                        type="text"
-                                        placeholder={row.quantity}
-                                    />
-                                </Col>
-                            </Row>
-                        </Container>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <button onClick={handleClose}>
-                            Cancelar
-                        </button>
-                        <button onClick={updateData}>
-                            Guardar cambios
-                        </button>
-                    </Modal.Footer>
-                </Modal>
+            <UpdateSaleModal show={showModal} onHide={handleClose} row={row} updateData={updateData}/>
             </>)
+        
     }
     //for modal in registerSales interface
     if(type === "usuario"){

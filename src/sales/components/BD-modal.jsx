@@ -16,11 +16,11 @@ const BDModal = (props) => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            <h2>Usuarios registrados</h2>
+            <h2>Registro de información a facturar</h2>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h5 className="p-3">Seleccione el ususario a facturar</h5>
+          <h5 className="p-3">Seleccione la fila para llenar el campo requerido:</h5>
           <BDModalSelector
             type={props.type}
             tableToShow={props.tableToShow}

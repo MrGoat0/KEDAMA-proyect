@@ -65,6 +65,9 @@ const api = {
     update(id, reqOptions) {
       return callApi("/sales/" + id, reqOptions);
     },
+    getByID(id){
+      return callApi("/sales/filterID/"+ id);
+    },
   },
 };
 

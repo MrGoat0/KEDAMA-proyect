@@ -13,7 +13,6 @@ const Sales = () => {
   const [users, setUsers] = useState([])
   const [products, setProducts] = useState([])
   const [seller, setSeller] = useState([])
-  let salesInDb = null;
 
   async function fetchData() {
     const responseUsers = await api.users.getAllUsers();

@@ -6,6 +6,7 @@ import TableRow from "./TableRow";
 // }
 const TableBody = (props) => {
     const { recordsData, type, hooksToChange} = props;
+    
     if (typeof recordsData !== "undefined") {
         return (
             <tbody>

@@ -7,11 +7,12 @@ import PropTypes from 'prop-types';
  
 const SalesTable = (props) => {
     const {recordsData, type, hooksToChange} = props;
+    console.log(recordsData[1], "en table")
     if(typeof recordsData !== "undefined" && recordsData.length === 2) {
-        if((typeof recordsData[0] === "undefined" && typeof recordsData[1] === "undefined") || (recordsData[0].length === 0 && recordsData[1].length === 0 )){
-            return(<TableHeader type={type}/>)
-        }
-        else{
+        // if((typeof recordsData[0] === "undefined" && typeof recordsData[1] === "undefined") || (recordsData[0].length === 0 && recordsData[1].length === 0 )){
+        //     return(<TableHeader type={type}/>)
+        // }
+        // else{
             if(recordsData[0].length !== 0){
                 return(
                 <div>
@@ -29,7 +30,7 @@ const SalesTable = (props) => {
             }else{ 
                 return(<TableHeader type={type}/>)
             }
-        }
+        // }
     }else{
         
         return(

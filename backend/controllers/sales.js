@@ -27,20 +27,8 @@ exports.addSale = (req, res) => {
 };
 
 // Get a Sale by id
-exports.getSaleId = (req, res) => {
-  Sales.findById(req.params.id)
-    .then((getIdResult) => {
-      res.status(200).json(getIdResult);
-    })
-    .catch((err) => {
-      res.status(404).json({ error: err });
-    });
-};
-//get a Sale by Lazy loadings
-
-exports.getSaleIdLazyLoading = (req, res) => {
-  Sales.findById(req.params.id)
-    .populate("productInfo") //falta incorporar la información del seller
+exports.getSaleById = (req, res) => {
+  Sales.findById(req.params.id).populate("productInfo")
     .then((getIdResult) => {
       res.status(200).json(getIdResult);
     })
@@ -52,33 +40,8 @@ exports.getSaleIdLazyLoading = (req, res) => {
 // Get Sales by other props
 exports.getSalesByProps = (req, res) => {
   //meter campo de estado en listado y registro
-  if (
-    req.body.state != null &&
-    req.body.date != null &&
-    req.body.clientName != null &&
-    req.body.productInfo != null
-  ) {
-    Sales.find({
-      state: req.body.state,
-      date: req.body.date,
-      productInfo: req.body.productInfo,
-      clientName: req.body.clientName,
-    })
-      .then((saleFound) => {
-        res.status(200).json(saleFound);
-      })
-      .catch((err) => {
-        res.status(404).json({ error: err });
-      });
-  } else if (req.body.state != null) {
-    Sales.find({ state: req.body.state })
-      .then((saleFound) => {
-        res.status(200).json(saleFound);
-      })
-      .catch((err) => {
-        res.status(404).json({ error: err });
-      });
-  } else if (req.body.date != null) {
+  
+  if (req.body.date !== null) {
     Sales.find({ date: req.body.date })
       .then((saleFound) => {
         res.status(200).json(saleFound);
@@ -86,22 +49,32 @@ exports.getSalesByProps = (req, res) => {
       .catch((err) => {
         res.status(404).json({ error: err });
       });
-  } else if (req.body.clientName != null) {
-    Sales.find({ clientName: req.body.clientName })
-      .then((saleFound) => {
-        res.status(200).json(saleFound);
-      })
-      .catch((err) => {
-        res.status(404).json({ error: err });
-      });
-  } else if (req.body.productInfo != null) {
-    Sales.find({ productInfo: req.body.productInfo })
-      .then((saleFound) => {
-        res.status(200).json(saleFound);
-      })
-      .catch((err) => {
-        res.status(404).json({ error: err });
-      });
+  // } else if (req.body.clientName !== null) {
+  //   Sales.find({ clientName: req.body.clientName })
+  //     .then((saleFound) => {
+  //       res.status(200).json(saleFound);
+  //     })
+  //     .catch((err) => {
+  //       res.status(404).json({ error: err });
+  //     });
+  // } else if (req.body.productInfo !== null) {
+  //   Sales.find({ productInfo: req.body.productInfo })
+  //     .then((saleFound) => {
+  //       res.status(200).json(saleFound);
+  //     })
+  //     .catch((err) => {
+  //       res.status(404).json({ error: err });
+  //     });
+  // } else if(req.body.seller !== null){
+  //   Sales.find({ seller: req.body.seller })
+  //     .then((saleFound) => {
+  //       res.status(200).json(saleFound);
+  //     })
+  //     .catch((err) => {
+  //       res.status(404).json({ error: err });
+  //     });
+  }else{
+    res.status(404).json(undefined);
   }
 };
 
@@ -112,19 +85,8 @@ exports.updateSale = (req, res) => {
       res.status(200).json(updateResult);
     })
     .catch((err) => {
+      console.log("entro a else")
       res.status(500).json({ error: err });
     });
 };
 
-/*
-  // Delete a product by id
-  exports.deleteProduct = async (req, res) => {
-    Products.deleteOne({ _id: req.params.id })
-      .then((updateResult) => {
-        res.status(200).json(updateResult);
-      })
-      .catch((err) => {
-        res.status(404).json({ error: err });
-      });
-  };
-  */

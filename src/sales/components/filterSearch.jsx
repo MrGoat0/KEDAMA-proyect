@@ -4,10 +4,9 @@ const FilterSearch = (props) =>{
     handleChangeProduct,
     handleChangeDate,
     handleChangeUser,
+    handleChangeSeller,
     handleShowAll,
     handleFilter} = props
-
-    const clean = false;
     // const handleClean = ()=>{
 
     // }
@@ -54,13 +53,20 @@ const FilterSearch = (props) =>{
                                 <input type="text" class="form-control" aria-label="Text input" placeholder="Nombre del producto" id="product" onChange={handleChangeProduct}/>
                             </div>
                         </div>
-                        <div class="d-flex flex-row justify-content-center p-3">
-                            <button type="button" class="btn btn-success" onClick={handleFilter}>Mostrar</button>
+                        <div class="d-flex flex-row justify-content-between p-3 pb-2 px-3">
+                            <div class="p-1"> <h5>Vendedor: </h5> </div>
+                            <div class="ps-2">
+                                <input type="text" class="form-control" aria-label="Text input" placeholder="Nombre" id="seller" onChange={handleChangeSeller}/>
+                            </div>
                         </div>
                         <div class="d-flex flex-row justify-content-between p-3 px-5">
+                            <button type="button" class="btn btn-success p-sm-3" onClick={handleFilter}>Mostrar</button>
                             <button type="button" class="btn btn-success" onClick={handleShowAll}>Mostrar todos los <br/> registros</button>
-                            <button type="button" class="btn btn-primary" >Limpiar</button>
                         </div>
+                        {/* <div class="d-flex flex-row justify-content-center p-3 px-5">
+                            <button type="button" class="btn btn-success" onClick={handleShowAll}>Mostrar todos los <br/> registros</button>
+                            {/* <button type="button" class="btn btn-primary" >Limpiar</button> 
+                        </div> */}
 
                     </div>
 
