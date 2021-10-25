@@ -29,8 +29,10 @@ const TableRow = (props) => {
     // Mapping the sellers name by to their id
     useEffect(() => {
         const fetchUserByIDSales = async () => {
+            if(typeof row.seller !== "undefined"){
             const response = await api.users.getByID(row.seller);
             setSellerName(response ? response.name : "Desconocido")
+            }
         }
         fetchUserByIDSales()
     }, [row.seller])
@@ -105,7 +107,7 @@ const TableRow = (props) => {
             <td>{row._id}</td>
             <td>{row.name}</td>
             <td>{row.email}</td>
-            <td>{row.state}</td>
+            {/* <td>{row.state}</td> */}
             <td>{row.role}</td>
         </tr>)
     }else if(type=== "vendedor"){
@@ -113,7 +115,7 @@ const TableRow = (props) => {
             <td>{row._id}</td>
             <td>{row.name}</td>
             <td>{row.email}</td>
-            <td>{row.state}</td>
+            {/* <td>{row.state}</td> */}
             <td>{row.role}</td>
         </tr>)
     }else if(type === "producto"){

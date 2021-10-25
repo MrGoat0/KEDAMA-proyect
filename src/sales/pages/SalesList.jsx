@@ -166,7 +166,7 @@ const SalesList = () => {
                             <div className="d-flex flex-row justify-content-end">
                                 <VentasNav VentaSwitch={"Management"} />
                             </div>
-                            <div className="tableView d-flex flex-row h-100 p-2 border border">
+                            <div className="tableView d-flex flex-row h-100 pb-3">
                                 <div className="TableinTouch d-flex flex-column p-5 border border">
                                     <div id="TableArea">
                                         <Table className="sales-list-table" striped bordered hover>
