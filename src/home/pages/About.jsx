@@ -2,7 +2,12 @@ import { React } from "react";
 import Header from "../../shared/Authentication/Header";
 import FooterN from "../../shared/Authentication/Footer";
 import "../../styles/AuthenticationStyle/about.css";
-import mateo from "../../img/mcr-photo.jpg"
+import Diego from "../../img/dmj-photo.png"
+import Luis from "../../img/labo-photo.png"
+import Laura from "../../img/lcc-photo.png"
+import Mateo from "../../img/mcr-photo.png"
+import Miguel from "../../img/malf-photo.png"
+import Kevin from "../../img/ksb-photo.png"
 
 const About = (props) => {
   const { isLoggedIn, setLogin, setValidate } = props;
@@ -33,21 +38,18 @@ const About = (props) => {
             <div className="up-authors row mt-4 mb-5 w-100 ">
               <div className="col-lg-2 mx-auto">
                 <div className="text-center">
-                  <svg
-                    className="bd-placeholder-img rounded-circle m-1"
-                    width="140"
-                    height="140"
-                    xmlns="http://www.w3.org/2000/svg"
-                    role="img"
-                    aria-label="Placeholder: 140x140"
-                    preserveAspectRatio="xMidYMid slice"
-                    focusable="false"
-                  >
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                    <text x="50%" y="50%" fill="#777" dy=".3em">
-                      140x140
-                    </text>
+                  <svg width="140" height="140">
+                    <defs>
+                      <clipPath id="circleView">
+                        <circle cx="70" cy="70" r="70" fill="#FFFFFF" />
+                      </clipPath>
+                    </defs>
+                    <image
+                      width="140"
+                      height="140"
+                      href={Diego}
+                      clipPath="url(#circleView)"
+                    />
                   </svg>
                   <h3 className="text-center">Diego Marin Jaramillo</h3>
                   <span>e-mail: dimarka14@gmail.com</span>
@@ -55,21 +57,18 @@ const About = (props) => {
               </div>
               <div className="col-lg-2 mx-auto">
                 <div className="text-center">
-                  <svg
-                    className="bd-placeholder-img rounded-circle m-1"
-                    width="140"
-                    height="140"
-                    xmlns="http://www.w3.org/2000/svg"
-                    role="img"
-                    aria-label="Placeholder: 140x140"
-                    preserveAspectRatio="xMidYMid slice"
-                    focusable="false"
-                  >
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                    <text x="50%" y="50%" fill="#777" dy=".3em">
-                      140x140
-                    </text>
+                  <svg width="140" height="140">
+                    <defs>
+                      <clipPath id="circleView">
+                        <circle cx="70" cy="70" r="70" fill="#FFFFFF" />
+                      </clipPath>
+                    </defs>
+                    <image
+                      width="140"
+                      height="140"
+                      href={Luis}
+                      clipPath="url(#circleView)"
+                    />
                   </svg>
                   <h3 className="text-center">Luis Armando Bedoya Osorio</h3>
                   <span>e-mail: bedoyaosoriolabo550@gmail.com</span>
@@ -77,21 +76,18 @@ const About = (props) => {
               </div>
               <div className="col-lg-2 mx-auto">
                 <div className="text-center">
-                  <svg
-                    className="bd-placeholder-img rounded-circle m-1"
-                    width="140"
-                    height="140"
-                    xmlns="http://www.w3.org/2000/svg"
-                    role="img"
-                    aria-label="Placeholder: 140x140"
-                    preserveAspectRatio="xMidYMid slice"
-                    focusable="false"
-                  >
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                    <text x="50%" y="50%" fill="#777" dy=".3em">
-                      140x140
-                    </text>
+                  <svg width="140" height="140">
+                    <defs>
+                      <clipPath id="circleView">
+                        <circle cx="70" cy="70" r="70" fill="#FFFFFF" />
+                      </clipPath>
+                    </defs>
+                    <image
+                      width="140"
+                      height="140"
+                      href={Laura}
+                      clipPath="url(#circleView)"
+                    />
                   </svg>
                   <h3 className="text-center">Laura Cardenas</h3>
                   <span>e-mail: laura.carfolacam@gmail.com</span>
@@ -110,7 +106,7 @@ const About = (props) => {
                     <image
                       width="140"
                       height="140"
-                      href={mateo}
+                      href={Mateo}
                       clipPath="url(#circleView)"
                     />
                   </svg>
@@ -120,21 +116,18 @@ const About = (props) => {
               </div>
               <div className="col-lg-2 mx-auto">
                 <div className="text-center">
-                  <svg
-                    className="bd-placeholder-img rounded-circle m-1"
-                    width="140"
-                    height="140"
-                    xmlns="http://www.w3.org/2000/svg"
-                    role="img"
-                    aria-label="Placeholder: 140x140"
-                    preserveAspectRatio="xMidYMid slice"
-                    focusable="false"
-                  >
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                    <text x="50%" y="50%" fill="#777" dy=".3em">
-                      140x140
-                    </text>
+                  <svg width="140" height="140">
+                    <defs>
+                      <clipPath id="circleView">
+                        <circle cx="70" cy="70" r="70" fill="#FFFFFF" />
+                      </clipPath>
+                    </defs>
+                    <image
+                      width="140"
+                      height="140"
+                      href={Miguel}
+                      clipPath="url(#circleView)"
+                    />
                   </svg>
                   <h3 className="text-center">Miguel Angel López Fernández</h3>
                   <span>e-mail: miguel.lopez@utp.edu.co</span>
@@ -142,20 +135,18 @@ const About = (props) => {
               </div>
               <div className="col-lg-2 mx-auto">
                 <div className="text-center">
-                  <svg
-                    className="bd-placeholder-img rounded-circle m-1"
-                    width="140"
-                    height="140"
-                    xmlns="http://www.w3.org/2000/svg"
-                    role="img"
-                    aria-label="Placeholder: 140x140"
-                    preserveAspectRatio="xMidYMid slice"
-                    focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                    <text x="50%" y="50%" fill="#777" dy=".3em">
-                      140x140
-                    </text>
+                  <svg width="140" height="140">
+                    <defs>
+                      <clipPath id="circleView">
+                        <circle cx="70" cy="70" r="70" fill="#FFFFFF" />
+                      </clipPath>
+                    </defs>
+                    <image
+                      width="140"
+                      height="140"
+                      href={Kevin}
+                      clipPath="url(#circleView)"
+                    />
                   </svg>
                   <h3 className="text-center">Kevin Sebastian Barrera</h3>
                   <span>e-mail: kbarrerac@unal.edu.co</span>
