@@ -4,7 +4,10 @@ const callApi = async (url, reqOptions = {}) => {
     "Content-Type": "application/json",
     authorization: "Bearer " + localStorage.getItem("token"),
   };
-  const response = await fetch("http://localhost:3001/api" + url, reqOptions);
+  const response = await fetch(
+    process.env.REACT_APP_BACKEND_URL + url,
+    reqOptions
+  );
   const data = await response.json();
   return data;
 };
@@ -65,8 +68,8 @@ const api = {
     update(id, reqOptions) {
       return callApi("/sales/" + id, reqOptions);
     },
-    getByID(id){
-      return callApi("/sales/filterID/"+ id);
+    getByID(id) {
+      return callApi("/sales/filterID/" + id);
     },
   },
 };
