@@ -1,0 +1,40 @@
+html,body{
+    height:100%;
+    width: 100%;
+    padding: 0%;
+    overflow-y: auto;
+}
+div{
+    margin:0;
+    padding:0;
+}
+
+.proyectTitle{
+    height:11%;
+    margin-bottom: 1%;
+    font-size: 1.6em;
+    color:#000000;
+}
+
+.proyect-authors{
+    height:60%;
+    /* margin-bottom: 10%; */
+}
+/* .up-authors{
+    margin: 2%;
+}
+.down-authors{
+    margin: 2%;   
+} */
+/* footer{
+    background-color:#31575c;
+    margin-top: 2.2%;
+    font-size: 1em;
+    height:12.9%;
+}
+.logo-image{
+    background: lightgrey; 
+    border-radius: 50%; 
+    height: 40px; 
+    width: 40px;
+} */
