@@ -1,20 +1,40 @@
 import api from "../../api"
-import { useState, useEffect } from "react"
-import { Form, Button, Modal, Container, Row, Col } from "react-bootstrap"
+import { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button"
+import UpdateSaleModal from "./UpdateSalesModal.jsx";
 
 const TableRow = (props) => {
-    const { row, type } = props;
+    const {row,type, hooksToChange} = props;
+
+    const pickedUser = ()=>{
+        document.getElementById("user-form").value = row._id;
+        document.getElementById("user-name").textContent = row.name;
+        hooksToChange(row._id);
+    }
+    const pickedSeller = ()=>{
+        document.getElementById("seller-form").value = row._id;
+        document.getElementById("seller-name").textContent = row.name;
+        hooksToChange(row._id)
+    }
+    const pickedProduct = ()=>{
+        document.getElementById("product-form").value = row._id;
+        document.getElementById("product-description").textContent = row.description;
+        hooksToChange(row._id);
+    }
     const [sellerName, setSellerName] = useState("")
     const [showModal, setShowModal] = useState(false)
     const [productPrice, setProductPrice] = useState()
 
+
     // Mapping the sellers name by to their id
     useEffect(() => {
-        const fetchUserByID = async () => {
-            const response = await api.users.getByID(row.seller)
+        const fetchUserByIDSales = async () => {
+            if(typeof row.seller !== "undefined"){
+            const response = await api.users.getByID(row.seller);
             setSellerName(response ? response.name : "Desconocido")
+            }
         }
-        fetchUserByID()
+        fetchUserByIDSales()
     }, [row.seller])
 
     const updateActivation = () => {
@@ -52,10 +72,6 @@ const TableRow = (props) => {
         setShowModal(false)
     }
 
-    const picked = () => {
-        document.getElementById("user-form").value = row.name;
-        document.getElementById("seller-form").value = row.name;
-    }
 
     //for listing sales in salesList interfaces
     if (type === "salesRecorded") {
@@ -81,74 +97,30 @@ const TableRow = (props) => {
 
                     {/* <td>{row.editar?}</td> agregar funciones de editar y eliminar*/}
                 </tr>
-
-                <Modal show={showModal} onHide={handleClose}>
-                    <Modal.Header>
-                        <Modal.Title>{"Actualización de venta"}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <h5 className="mb-3">Campos modificables:</h5>
-                        <Container className="mt-2">
-                            <Row className="d-flex justify-content-center form-input-box mb-3">
-                                <Col>
-                                    <Form.Label>
-                                        Fecha de la venta:
-                                    </Form.Label>
-                                    <Form.Control id="date-modal-form"
-                                        type="text"
-                                        placeholder={row.date}
-                                    />
-                                </Col>
-                            </Row>
-
-                            <Row className="d-flex justify-content-center form-input-box mb-3">
-                                <Col>
-                                    <Form.Label>
-                                        Nombre del cliente:
-                                    </Form.Label>
-                                    <Form.Control id="client-modal-form"
-                                        type="text"
-                                        placeholder={row.clientName}
-                                    />
-                                </Col>
-                            </Row>
-
-                            <Row className="d-flex justify-content-center form-select-custome mb-5">
-                                <Col>
-                                    <Form.Label>
-                                        Cantidad:
-                                    </Form.Label>
-                                    <Form.Control id="quantity-modal-form"
-                                        type="text"
-                                        placeholder={row.quantity}
-                                    />
-                                </Col>
-                            </Row>
-                        </Container>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <button onClick={handleClose}>
-                            Cancelar
-                        </button>
-                        <button onClick={updateData}>
-                            Guardar cambios
-                        </button>
-                    </Modal.Footer>
-                </Modal>
+            <UpdateSaleModal show={showModal} onHide={handleClose} row={row} updateData={updateData}/>
             </>)
+        
     }
     //for modal in registerSales interface
-    if (type === "usuario" || type === "vendedor") {
-        return (<tr onClick={picked}>
+    if(type === "usuario"){
+        return(<tr onClick = {pickedUser} >
             <td>{row._id}</td>
             <td>{row.name}</td>
             <td>{row.email}</td>
-            <td>{row.state}</td>
+            {/* <td>{row.state}</td> */}
             <td>{row.role}</td>
         </tr>)
-    } else if (type === "producto") {
-        return (
-            <tr>
+    }else if(type=== "vendedor"){
+        return(<tr onClick = {pickedSeller}>
+            <td>{row._id}</td>
+            <td>{row.name}</td>
+            <td>{row.email}</td>
+            {/* <td>{row.state}</td> */}
+            <td>{row.role}</td>
+        </tr>)
+    }else if(type === "producto"){
+        return(
+            <tr onClick = {pickedProduct}>
                 <td>{row.id}</td>
                 <td>{row.description}</td>
                 <td>{row.price}</td>

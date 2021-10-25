@@ -1,21 +1,19 @@
+/* eslint-disable no-sequences */
 import BDModal from "./BD-modal";
-import React,{useState,useEffect} from 'react';
-import api from "../../api.js";
+import React,{useState} from 'react';
 const UserForm =(props) => {
-    const {changeState,changeUserName,userName,tableToShow,handleRecord} = props;
-    // const [users,setUsers] = useState([]);
+    const {changeState,changeUserName,userName,tableToShow,missingCell,state} = props;
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const user = "usuario";
+    const user = "usuario";    
 
-    // useEffect(()=>{
-    //   async function fetchData(){
-    //     const response = await api.users.list();
-    //     setUsers(response);
-    //   }
-    //   fetchData();
-    // },[])
+    var missedCell = "";
+  
+    if(missingCell){
+      console.log('Se cambió la casilla')
+      missedCell = "missing-cell";
+    }
 
     return (
       <div>
@@ -32,7 +30,7 @@ const UserForm =(props) => {
               <input
                 id="user-form"
                 type="text"
-                className="form-control"
+                className={ "form-control", missedCell}
                 aria-label="Text input with segmented dropdown button"
                 placeholder={userName}
                 onChange={changeUserName}
@@ -44,7 +42,7 @@ const UserForm =(props) => {
               >
                 BD
               </button>
-              <BDModal show={show} onHide={handleClose} type={user} tableToShow={tableToShow} handleRecord={handleRecord}/>
+              <BDModal show={show} onHide={handleClose} type={user} tableToShow={tableToShow} changeUserName={changeUserName}/>
             </div>
           </div>
           <div className="user-button input-group d-flex flex-column px-2 pt-2 pb-2">
@@ -56,9 +54,9 @@ const UserForm =(props) => {
               <input
                 id="state-form"
                 type="text"
-                className="form-control"
+                className={"form-control",missedCell}
                 aria-label="Text input with segmented dropdown button"
-                placeholder="Estado"
+                placeholder={state}
                 onChange={changeState}
               />
             </div>

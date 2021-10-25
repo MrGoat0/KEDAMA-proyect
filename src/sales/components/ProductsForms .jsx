@@ -1,26 +1,21 @@
+/* eslint-disable no-sequences */
 import BDModal from "./BD-modal";
 import React,{useState} from 'react';
 
 
 const ProductForm = (props) =>{
-    const {changeProduct, changeMount, handleRecord, productShow, tableToShow} = props;
+    const {changeProduct, changeMount, productShow, tableToShow,missingCell} = props;
 
     const [show, setShow] = useState(false);
-    // const [productst,setProduct] = useState([]);
-    // const [pressed,setPress] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const product = "producto";
 
+    var missedCell = "";
 
-    // useEffect(()=>{
-    //   async function fetchData(){
-    //     const response = await api.products.list();
-    //     setProduct(response);
-    //   }
-    //   fetchData();
-    // },[])
-
+    if(missingCell){
+      missedCell = "missing-cell";
+    }
 
     return (
         <div>
@@ -37,7 +32,7 @@ const ProductForm = (props) =>{
                     <input
                       id="product-form"
                       type="text"
-                      className="form-control"
+                      className={ "form-control", missedCell}
                       aria-label="Text input with segmented dropdown button"
                       placeholder={productShow}
                       onChange={changeProduct}
@@ -54,7 +49,7 @@ const ProductForm = (props) =>{
                       onHide={handleClose}
                       type={product}
                       tableToShow={tableToShow}
-                      handleRecord={handleRecord}
+                      changeProduct={changeProduct}
                     />
                   </div>
             </div>
@@ -66,9 +61,9 @@ const ProductForm = (props) =>{
                     </span>
                     <div className="d-flex flex-row">
                       <input
-                        id = "product-mount"
+                        id = "product-mount-form"
                         type="number"
-                        className="form-control"
+                        className={ "form-control", missedCell}
                         aria-label="Number input with segmented dropdown button"
                         placeholder="#"
                         onChange={changeMount}

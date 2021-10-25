@@ -5,12 +5,13 @@ import TableRow from "./TableRow";
 //     }
 // }
 const TableBody = (props) => {
-    const { recordsData, type } = props;
+    const { recordsData, type, hooksToChange} = props;
+    
     if (typeof recordsData !== "undefined") {
         return (
             <tbody>
                 {recordsData.map((row) => (
-                    <TableRow key={row._id} row={row} type={type} />
+                    <TableRow key={row._id} row={row} type={type} hooksToChange={hooksToChange}/>
                 ))}
                 {/* {iterateTrough(recordsData)} */}
             </tbody>

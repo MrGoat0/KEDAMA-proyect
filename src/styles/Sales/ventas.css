@@ -10,6 +10,9 @@ header{
     font-size: 1.3em;
 }
 
+.missing-cell{
+    border-color: red 1px solid;
+}
 .text-start{
     color:#3b4754;
     font-size:1.6em;
@@ -30,8 +33,6 @@ header{
     height:100%;
     width: 50%; 
     border-right:1px solid gray;
-    /* border-top-left-radius: 1%;
-    border-bottom-left-radius: 1%; */
     background-color: #eff0f4;
 }
 
@@ -44,9 +45,6 @@ header{
     color: #3B4754;
 }
 
-/* .form-left-side-products{
-    border-bottom: 2px solid gray;    
-} */
 .form-left-side-user{
     border-bottom: 2px solid gray;    
 }
@@ -55,8 +53,6 @@ header{
     height:100%;
     width: 50%;
     border-left:1px solid gray;
-    /* border-top-right-radius: 1%;
-    border-bottom-right-radius: 1%; */
     background-color: #eff0f4;
 }
 

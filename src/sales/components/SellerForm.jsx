@@ -1,11 +1,18 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import BDModal from "./BD-modal";
 const SellerForm = (props) =>{
-    const {handleRecord,sellerName, tableToShow,handleChangeSellerName} = props;
+    const {sellerName, tableToShow,handleChangeSellerName,missingCell} = props;
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const seller = "vendedor"
+
+    var missedCell = "";
+
+    if(missingCell){
+      missedCell = "missing-cell";
+    }
+
     return(
         <div className="d-flex flex-row justify-content-center">
         <div className="flex-column px-1">
@@ -18,7 +25,7 @@ const SellerForm = (props) =>{
                     <input
                       id="seller-form"
                       type="text"
-                      className="form-control"
+                      className={"form-control",missedCell}
                       aria-label="Text input with segmented dropdown button"
                       placeholder={sellerName}
                       onChange={handleChangeSellerName}
@@ -35,7 +42,7 @@ const SellerForm = (props) =>{
                       onHide={handleClose}
                       type={seller}
                       tableToShow={tableToShow}
-                      handleRecord={handleRecord}
+                      handleChangeSellerName={handleChangeSellerName}
                     />
                   </div>
                 </div>
