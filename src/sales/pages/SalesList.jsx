@@ -45,9 +45,9 @@ import api from "../../api.js"
 const SalesList = () => {
     const [sales, setSales] = useState([]);
 
-    const handleSubmitRecords = (newSale) => {
-        setSales([...sales, newSale]);
-    }
+    // const handleSubmitRecords = (newSale) => {
+    //     setSales([...sales, newSale]);
+    // }
 
     useEffect(() => {
         async function fetchData() {
@@ -95,32 +95,32 @@ const SalesList = () => {
     //     }
     //     }
     // }
-    const sendFilter = async (filterO) => { 
+    const sendFilter = async (filterO) => {
         let response = [];
-        if(filterO[0]._id !== ""){
+        if (filterO[0]._id !== "") {
             response = [await api.sales.getByID(filterO[0]._id)];
-        }else if (filterO[0].date !== ""){
-            for(let elementD = 0; elementD<sales.length ; elementD++){
-                if(sales[elementD].date === filterO[0].date){
+        } else if (filterO[0].date !== "") {
+            for (let elementD = 0; elementD < sales.length; elementD++) {
+                if (sales[elementD].date === filterO[0].date) {
                     console.log(sales[elementD])
                     response.push(sales[elementD]);
                 }
             }
-        }else if (filterO[0].clientName !== ""){
-            for(let elementC = 0; elementC<sales.length ; elementC++){
-                if(sales[elementC].clientName === filterO[0].clientName){
+        } else if (filterO[0].clientName !== "") {
+            for (let elementC = 0; elementC < sales.length; elementC++) {
+                if (sales[elementC].clientName === filterO[0].clientName) {
                     response.push(sales[elementC]);
                 }
             }
-        }else if(filterO[0].productInfo !== ""){
-            for(let elementP = 0; elementP<sales.length ; elementP++){
-                if(sales[elementP].productInfo._id === filterO[0].productInfo){
+        } else if (filterO[0].productInfo !== "") {
+            for (let elementP = 0; elementP < sales.length; elementP++) {
+                if (sales[elementP].productInfo._id === filterO[0].productInfo) {
                     response.push(sales[elementP]);
                 }
             }
-        }else if(filterO[0].seller !== null){
-            for(let elementS = 0; elementS<sales.length ; elementS++){
-                if(sales[elementS].seller === filterO[0].seller){
+        } else if (filterO[0].seller !== null) {
+            for (let elementS = 0; elementS < sales.length; elementS++) {
+                if (sales[elementS].seller === filterO[0].seller) {
                     response.push(sales[elementS]);
                 }
             }
@@ -131,17 +131,19 @@ const SalesList = () => {
         setShowAll([]);
     }
     const handleFilter = () => {
-    
-        filterO = [{_id : IDBill,
-            state : null,
+
+        filterO = [{
+            _id: IDBill,
+            state: null,
             productInfo: product,
-            quantity : null,
-            total : null,
-            date : date,
-            clientName : user,
-            clientId : null,
-            seller : seller}]
-        console.log(filterO.productInfo,"filter antes de submit")
+            quantity: null,
+            total: null,
+            date: date,
+            clientName: user,
+            clientId: null,
+            seller: seller
+        }]
+        console.log(filterO.productInfo, "filter antes de submit")
         sendFilter(filterO)
     }
 

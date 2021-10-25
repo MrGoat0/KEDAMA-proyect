@@ -5,7 +5,7 @@ const callApi = async (url, reqOptions = {}) => {
     authorization: "Bearer " + localStorage.getItem("token"),
   };
   const response = await fetch(
-    process.env.REACT_APP_BACKEND_URL + url,
+    "https://kedama-project-backend.herokuapp.com/api" + url,
     reqOptions
   );
   const data = await response.json();
