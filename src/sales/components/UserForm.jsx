@@ -7,9 +7,11 @@ const UserForm =(props) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const user = "usuario";    
+
     var missedCell = "";
-  console.log(state,"estado")
+  
     if(missingCell){
+      console.log('Se cambió la casilla')
       missedCell = "missing-cell";
     }
 

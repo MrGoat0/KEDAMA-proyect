@@ -4,15 +4,15 @@ import SalesForm from "../components/SalesForm";
 import SalesBill from "../components/SalesBill";
 import { useState, useEffect } from 'react';
 import VentasNav from "../components/VentasNav"
-import '../../styles/Sales/ventas.css';
-import '../../styles/Sales/ventas.css';
 import Footer from "../../shared/Footer.jsx";
 import api from "../../api.js"
+import '../../styles/Sales/ventas.css';
 const Sales = () => {
   //To get from API 
   const [users, setUsers] = useState([])
   const [products, setProducts] = useState([])
   const [seller, setSeller] = useState([])
+  const [missingCell,setMissingCell] = useState({user:false, state:false, seller: false, product: false, mount: false})
 
   async function fetchData() {
     const responseUsers = await api.users.getAllUsers();
@@ -25,37 +25,19 @@ const Sales = () => {
   useEffect(() => {
     fetchData();
   },[])
-
-  // async function fetchSales(){
-  //   const responseSales = await api.sales.list();
-  //   console.log(responseSales)
-  //   setSalesInDb(responseSales);
-  //   console.log(salesInDb, "sales")
-  // }
   
 
   //Change in bill with typing in form
   const [sellerName, setSellerName] = useState("Vendedor");
   const [price, setPrice] = useState("$")
   const [userName, setUserName] = useState("Nombre")
-  const [state, setState] = useState("NA");
+  const [state, setState] = useState("V/NV");
   const [product, setProduct] = useState("Producto")
   const [mount, setMount] = useState("#")
-  const total = parseInt(mount) * parseInt(price);
-  const date = new Date().toLocaleDateString();
+  let total = parseInt(mount) * parseInt(price);
+  let date = new Date().toLocaleDateString();
+  const [properties,setProperties] = useState({type: "", saleID:""})
 
-
-
-  const [saleRecorded, setSaleRecorded] = useState({
-    state: state,
-    productInfo: null,
-    quantity: mount,
-    total: total,
-    date: date,
-    clientName: null,
-    clientId: userName,
-    seller: null
-  });
 
   //Change info seemed in bill
   const handleChangePrice = (value) => {
@@ -84,7 +66,8 @@ const Sales = () => {
   const handleChangeMount = (event) => {
     setMount(event.target.value)
   }
-  //
+  
+
   //   getting complete user info  
   const createSale = () => {
     var userToAddName = null;
@@ -112,8 +95,7 @@ const Sales = () => {
         }
       }
     }
-
-    setSaleRecorded({
+      let SaleRecorded = {
       state: state,
       productInfo: productToAdd,
       quantity: mount,
@@ -122,39 +104,34 @@ const Sales = () => {
       clientName: userToAddName,
       clientId: userToAddID,
       seller: sellerToAdd
-    })
+    }
+    return SaleRecorded
     // calcular y mostrar el precio en bill, mandar el registro a la 
     //base de datos
   }
 
+  console.log(userName, "username")
+
   const handleChangeAndClick = (event) => {
-    createSale();
-    console.log(saleRecorded)
     // eslint-disable-next-line no-restricted-globals
-    var mensaje = confirm("Estas seguro de registrar esta información?");
-    if ((saleRecorded.clientName !== null) && (saleRecorded.productInfo !== null) && (saleRecorded.seller !== null) &&(saleRecorded.total !== null)) {
-      if (mensaje) {
-        api.sales.create(saleRecorded).then((res) => {alert("¡Gracias por aceptar!\nEl ID de la factura resgitrada es: "+res); }).catch((err) => { console.log(err) })
-        setMount("#");       //Por cierto, por que hay un delay al iniciar el envío con submit
-        document.getElementById("user-name").textContent = "Producto"
-        setPrice("$");
-        document.getElementById("product-description").textContent = "Producto"
-        setState("ID");
-        document.getElementById("seller-name").textContent = "Vendedor"
-
-        document.getElementById("product-mount").value = "";
-        document.getElementById("state-form").value = "";
-        document.getElementById("user-form").value="Usuario";
-        document.getElementById("seller-form").value="Vendedor";
-        document.getElementById("product-form").value="Producto";
-
-      } else {
-        alert("¡Haz denegado la acción!");
-      }
-
+    if (( userName !== "Nombre") && (state !== "V/NV") && (sellerName !== "Vendedor") && (product !== "Producto") && (mount !== "#")) {
+      let SaleRecorded = createSale();
+      // eslint-disable-next-line no-restricted-globals
+      setMissingCell({user:false, state:false, seller: false, product: false, mount: false})
+      setProperties({type:"SaleRecorded",saleID:""})
+        api.sales.create(SaleRecorded).then(
+          (res) => {
+            setProperties({type:"SaleRecorded",saleID:res})}).catch((err) => { console.log(err) })
+    }else{
+      console.log("quí sales")
+      setProperties({
+        type:"warning",
+        saleID:api,
+        }
+        )
+      setMissingCell({user:true, state:true, seller: true, product: true, mount: true})
     }
   }
-    
 
   return (
     <div>
@@ -173,10 +150,10 @@ const Sales = () => {
             <VentasNav VentaSwitch={"Register"} />
           </div>
           <div className="container form-container d-flex flex-row px-2 py-4 pb-5 mt-3 mb-4">
-            <SalesForm userName={userName} product={product} sellerName={sellerName}
-              changeState={handleChangeState} changePrice={handleChangePrice} changeUserName={handleChangeUserName}
-              changeProduct={handleChangeProduct} changeMount={handleChangeMount} handleChangeSellerName={handleChangeSellerName}
-              tableToShow={[users, products, seller]} setSales={handleChangeAndClick}
+            <SalesForm userName={userName} product={product} sellerName={sellerName} state={state} properties={properties}
+              changeState={handleChangeState} setState={setState} setPrice={setPrice} changeUserName={handleChangeUserName} setUserName={setUserName}
+              changeProduct={handleChangeProduct} setProduct= {setProduct} changeMount ={handleChangeMount} setMount={setMount}  handleChangeSellerName={handleChangeSellerName}
+              setSellerName={setSellerName} tableToShow={[users, products, seller]} setSales={handleChangeAndClick} missingCell={missingCell}
             />
             <SalesBill date={date} price={price} state={state} userName={userName} product={product} mount={mount} sellerName={sellerName} total={total} />
           </div>

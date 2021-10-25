@@ -61,7 +61,7 @@ const ProductForm = (props) =>{
                     </span>
                     <div className="d-flex flex-row">
                       <input
-                        id = "product-mount"
+                        id = "product-mount-form"
                         type="number"
                         className={ "form-control", missedCell}
                         aria-label="Number input with segmented dropdown button"

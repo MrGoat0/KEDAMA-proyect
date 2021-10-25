@@ -6,8 +6,7 @@ const salesController = require("../controllers/sales");
 // endpoints
 router.post("/", salesController.addSale);
 router.get("/app", salesController.getSales);
-// router.post("/props", salesController.getSalesByProps);
-// router.get("/filterID/:id", salesController.getSaleById);
+router.get("/filterID/:id", salesController.getSaleById);
 router.put("/:id", salesController.updateSale);
 router.get("/filter/:id", salesController.getSaleById);
 
