@@ -29,7 +29,7 @@ const About = (props) => {
             <h1 className="text-center p-3 pt-4 text-dark">SOBRE LOS AUTORES...</h1>
           </div>
           <div className="text-center px-5">
-            El proyecto de "Titulo del proyecto" hace parte del desarrollo del
+            El proyecto Kedama hace parte del desarrollo del
             curso dictado por el Ministerio de Tecnologías de la Información y
             la Comunicación (MINTIC). Los autores que han desarrolado este
             sistema de gestión de ventas son:
