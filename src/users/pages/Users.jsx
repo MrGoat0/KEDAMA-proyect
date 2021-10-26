@@ -37,7 +37,7 @@ const Users = () => {
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label> <div className="just-font">Listar información de usuario</div> </Form.Label>
-                <Form.Control type="email" placeholder="Nombre o ID" />
+                <Form.Control type="email" placeholder="Correo electrónico" />
 
               </Form.Group>
               <div className="space-button">

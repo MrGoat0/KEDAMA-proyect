@@ -54,7 +54,7 @@ const Updateinfousers = (props) => {
             <Form>
               <Form.Group className="mb-3 just-font">
                 <Form.Label>Actualizar información de usuario</Form.Label>
-                <Form.Control id="search-input" type="email" placeholder="Nombre o correo electrónico" />
+                <Form.Control id="search-input" type="email" placeholder="Correo electrónico" />
 
               </Form.Group>
               <div className="space-button">
