@@ -80,7 +80,7 @@ const Updateinfousers = (props) => {
               <Form.Label>Nombre completo</Form.Label>
               <Form.Control className="mb-3 just-font" id="name-input" type="name" placeholder="Nombre completo" />
               <Form.Label >Correo electrónico</Form.Label>
-              <Form.Control className="mb-3 just-font" id="email-input" type="name" placeholder="correo electrónico" />
+              <Form.Control className="mb-3 just-font" id="email-input" type="name" placeholder="Correo electrónico" />
               <Form.Label className="just-font">Permisos</Form.Label>
               <FloatingLabel label="" >
                 <Form.Select className="mb-3 just-font" id="state-input" aria-label="Floating label select example" >

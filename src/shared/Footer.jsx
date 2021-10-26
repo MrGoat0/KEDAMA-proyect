@@ -14,7 +14,7 @@ const Footer = () => {
         <div><img src={twitter} alt="" /></div></div>
       <div className="tomenu">
         <Link to="/categories" >
-          <Button variant="light" size="sm">Menu Principal</Button>
+          <Button variant="light" size="sm">Menú Principal</Button>
         </Link>
         <Link to="/" >
           <Button variant="light" size="sm">Inicio</Button>

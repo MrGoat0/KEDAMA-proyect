@@ -62,7 +62,7 @@ const Users = () => {
               <thead className="thead-style">
                 <tr>
                   <th>Nombre completo</th>
-                  <th>e-mail</th>
+                  <th>Correo electrónico</th>
                   <th>Estado</th>
                   <th>Rol</th>
                 </tr>

@@ -30,7 +30,7 @@ const About = (props) => {
           </div>
           <div className="text-center px-5">
             El proyecto Kedama hace parte del desarrollo del
-            curso dictado por el Ministerio de Tecnologías de la Información y
+            tercer ciclo del programa MisiónTIC 2021, dictado por el Ministerio de Tecnologías de la Información y
             la Comunicación (MINTIC). Los autores que han desarrolado este
             sistema de gestión de ventas son:
           </div>
@@ -51,7 +51,7 @@ const About = (props) => {
                       clipPath="url(#circleView)"
                     />
                   </svg>
-                  <h3 className="text-center">Diego Marin Jaramillo</h3>
+                  <h3 className="text-center">Diego Marín Jaramillo</h3>
                   <span>e-mail: dimarka14@gmail.com</span>
                 </div>
               </div>
@@ -89,7 +89,7 @@ const About = (props) => {
                       clipPath="url(#circleView)"
                     />
                   </svg>
-                  <h3 className="text-center">Laura Cardenas</h3>
+                  <h3 className="text-center">Laura Cárdenas</h3>
                   <span>e-mail: laura.carfolacam@gmail.com</span>
                 </div>
               </div>
@@ -110,7 +110,7 @@ const About = (props) => {
                       clipPath="url(#circleView)"
                     />
                   </svg>
-                  <h3 className="text-center">Mateo Cardona Rincon</h3>
+                  <h3 className="text-center">Mateo Cardona Rincón</h3>
                   <span>e-mail: mcardonari@unal.edu.co</span>
                 </div>
               </div>
@@ -129,7 +129,7 @@ const About = (props) => {
                       clipPath="url(#circleView)"
                     />
                   </svg>
-                  <h3 className="text-center">Miguel Angel López Fernández</h3>
+                  <h3 className="text-center">Miguel Ángel López Fernández</h3>
                   <span>e-mail: miguel.lopez@utp.edu.co</span>
                 </div>
               </div>
@@ -148,7 +148,7 @@ const About = (props) => {
                       clipPath="url(#circleView)"
                     />
                   </svg>
-                  <h3 className="text-center">Kevin Sebastian Barrera</h3>
+                  <h3 className="text-center">Kevin Sebastián Barrera</h3>
                   <span>e-mail: kbarrerac@unal.edu.co</span>
                 </div>
               </div>
