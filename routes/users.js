@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const cors = require("cors");
 
 const usersController = require("../controllers/users");
 const auth = require("../middlewares/auth");
@@ -7,7 +8,7 @@ const auth = require("../middlewares/auth");
 // endpoints
 router.put("/", usersController.updateUser);
 router.get("/", auth, usersController.authUser);
-router.get("/roles", auth, usersController.authRole);
+router.get("/roles", cors(), auth, usersController.authRole);
 router.get("/all", usersController.getAllUsers);
 router.get("/search/:email", usersController.getByEmail);
 router.get("/sellerInfo/:id", usersController.getByID);
