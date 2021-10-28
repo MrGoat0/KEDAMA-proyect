@@ -5,13 +5,12 @@ const callApi = async (url, reqOptions = {}) => {
     authorization: "Bearer " + localStorage.getItem("token"),
   };
   //http://localhost:3001/api
-  await fetch(process.env.REACT_APP_BACKEND_URL + url, reqOptions)
-    .then((response) => response.json())
-    .catch((err) => {
-      console.log({ error: err });
-    });
-  // const data = await response.json();
-  // return data;
+  const response = await fetch(
+    process.env.REACT_APP_BACKEND_URL + url,
+    reqOptions
+  );
+  const data = await response.json();
+  return data;
 };
 
 const api = {
