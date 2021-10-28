@@ -4,6 +4,7 @@ const callApi = async (url, reqOptions = {}) => {
     "Content-Type": "application/json",
     authorization: "Bearer " + localStorage.getItem("token"),
   };
+  //http://localhost:3001/api
   const response = await fetch(
     process.env.REACT_APP_BACKEND_URL + url,
     reqOptions
@@ -42,7 +43,7 @@ const api = {
     getUser() {
       return callApi("/users/");
     },
-    validateRole() {
+    async validateRole() {
       return callApi("/users/roles");
     },
     getAllUsers() {
