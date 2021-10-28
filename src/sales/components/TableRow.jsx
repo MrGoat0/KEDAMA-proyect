@@ -4,19 +4,19 @@ import Button from "react-bootstrap/Button"
 import UpdateSaleModal from "./UpdateSalesModal.jsx";
 
 const TableRow = (props) => {
-    const {row,type, hooksToChange} = props;
+    const { row, type, hooksToChange } = props;
 
-    const pickedUser = ()=>{
+    const pickedUser = () => {
         document.getElementById("user-form").value = row._id;
         document.getElementById("user-name").textContent = row.name;
         hooksToChange(row._id);
     }
-    const pickedSeller = ()=>{
+    const pickedSeller = () => {
         document.getElementById("seller-form").value = row._id;
         document.getElementById("seller-name").textContent = row.name;
         hooksToChange(row._id)
     }
-    const pickedProduct = ()=>{
+    const pickedProduct = () => {
         document.getElementById("product-form").value = row._id;
         document.getElementById("product-description").textContent = row.description;
         hooksToChange(row._id);
@@ -29,9 +29,9 @@ const TableRow = (props) => {
     // Mapping the sellers name by to their id
     useEffect(() => {
         const fetchUserByIDSales = async () => {
-            if(typeof row.seller !== "undefined"){
-            const response = await api.users.getByID(row.seller);
-            setSellerName(response ? response.name : "Desconocido")
+            if (typeof row.seller !== "undefined") {
+                const response = await api.users.getByID(row.seller);
+                setSellerName(response ? response.name : "Desconocido")
             }
         }
         fetchUserByIDSales()
@@ -72,7 +72,6 @@ const TableRow = (props) => {
         setShowModal(false)
     }
 
-
     //for listing sales in salesList interfaces
     if (type === "salesRecorded") {
         return (
@@ -97,30 +96,30 @@ const TableRow = (props) => {
 
                     {/* <td>{row.editar?}</td> agregar funciones de editar y eliminar*/}
                 </tr>
-            <UpdateSaleModal show={showModal} onHide={handleClose} row={row} updateData={updateData}/>
+                <UpdateSaleModal show={showModal} onHide={handleClose} row={row} updateData={updateData} />
             </>)
-        
+
     }
     //for modal in registerSales interface
-    if(type === "usuario"){
-        return(<tr onClick = {pickedUser} >
+    if (type === "usuario") {
+        return (<tr onClick={pickedUser} >
             <td>{row._id}</td>
             <td>{row.name}</td>
             <td>{row.email}</td>
             {/* <td>{row.state}</td> */}
             <td>{row.role}</td>
         </tr>)
-    }else if(type=== "vendedor"){
-        return(<tr onClick = {pickedSeller}>
+    } else if (type === "vendedor") {
+        return (<tr onClick={pickedSeller}>
             <td>{row._id}</td>
             <td>{row.name}</td>
             <td>{row.email}</td>
             {/* <td>{row.state}</td> */}
             <td>{row.role}</td>
         </tr>)
-    }else if(type === "producto"){
-        return(
-            <tr onClick = {pickedProduct}>
+    } else if (type === "producto") {
+        return (
+            <tr onClick={pickedProduct}>
                 <td>{row.id}</td>
                 <td>{row.description}</td>
                 <td>{row.price}</td>
