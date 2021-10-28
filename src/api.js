@@ -43,7 +43,7 @@ const api = {
     getUser() {
       return callApi("/users/");
     },
-    async validateRole() {
+    validateRole() {
       return callApi("/users/roles");
     },
     getAllUsers() {
