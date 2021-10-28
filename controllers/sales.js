@@ -6,7 +6,8 @@ exports.getSales = (req, res) => {
     .populate("productInfo")
     .then((postResults) => {
       res.status(200).json(postResults);
-    }).catch((err) => {
+    })
+    .catch((err) => {
       res.status(500).json({ error: err });
     });
 };
@@ -28,7 +29,8 @@ exports.addSale = (req, res) => {
 
 // Get a Sale by id
 exports.getSaleById = (req, res) => {
-  Sales.findById(req.params.id).populate("productInfo")
+  Sales.findById(req.params.id)
+    .populate("productInfo")
     .then((getIdResult) => {
       res.status(200).json(getIdResult);
     })
@@ -40,7 +42,7 @@ exports.getSaleById = (req, res) => {
 // Get Sales by other props
 exports.getSalesByProps = (req, res) => {
   //meter campo de estado en listado y registro
-  
+
   if (req.body.date !== null) {
     Sales.find({ date: req.body.date })
       .then((saleFound) => {
@@ -49,31 +51,31 @@ exports.getSalesByProps = (req, res) => {
       .catch((err) => {
         res.status(404).json({ error: err });
       });
-  // } else if (req.body.clientName !== null) {
-  //   Sales.find({ clientName: req.body.clientName })
-  //     .then((saleFound) => {
-  //       res.status(200).json(saleFound);
-  //     })
-  //     .catch((err) => {
-  //       res.status(404).json({ error: err });
-  //     });
-  // } else if (req.body.productInfo !== null) {
-  //   Sales.find({ productInfo: req.body.productInfo })
-  //     .then((saleFound) => {
-  //       res.status(200).json(saleFound);
-  //     })
-  //     .catch((err) => {
-  //       res.status(404).json({ error: err });
-  //     });
-  // } else if(req.body.seller !== null){
-  //   Sales.find({ seller: req.body.seller })
-  //     .then((saleFound) => {
-  //       res.status(200).json(saleFound);
-  //     })
-  //     .catch((err) => {
-  //       res.status(404).json({ error: err });
-  //     });
-  }else{
+    // } else if (req.body.clientName !== null) {
+    //   Sales.find({ clientName: req.body.clientName })
+    //     .then((saleFound) => {
+    //       res.status(200).json(saleFound);
+    //     })
+    //     .catch((err) => {
+    //       res.status(404).json({ error: err });
+    //     });
+    // } else if (req.body.productInfo !== null) {
+    //   Sales.find({ productInfo: req.body.productInfo })
+    //     .then((saleFound) => {
+    //       res.status(200).json(saleFound);
+    //     })
+    //     .catch((err) => {
+    //       res.status(404).json({ error: err });
+    //     });
+    // } else if(req.body.seller !== null){
+    //   Sales.find({ seller: req.body.seller })
+    //     .then((saleFound) => {
+    //       res.status(200).json(saleFound);
+    //     })
+    //     .catch((err) => {
+    //       res.status(404).json({ error: err });
+    //     });
+  } else {
     res.status(404).json(undefined);
   }
 };
@@ -85,8 +87,6 @@ exports.updateSale = (req, res) => {
       res.status(200).json(updateResult);
     })
     .catch((err) => {
-      console.log("entro a else")
       res.status(500).json({ error: err });
     });
 };
-
