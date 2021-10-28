@@ -8,7 +8,7 @@ const roleAuth = require("../middlewares/roleAuth");
 // endpoints
 router.put("/", usersController.updateUser);
 router.get("/", auth, usersController.authUser);
-router.get("/roles", auth, roleAuth, usersController.authRole);
+router.get("/roles", auth, usersController.authRole);
 router.get("/all", usersController.getAllUsers);
 router.get("/search/:email", usersController.getByEmail);
 router.get("/sellerInfo/:id", usersController.getByID);
