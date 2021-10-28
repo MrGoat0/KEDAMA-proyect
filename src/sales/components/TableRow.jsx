@@ -81,7 +81,7 @@ const TableRow = (props) => {
                     <td>{row.date}</td>
                     <td>{sellerName}</td>
                     <td>{row.clientName}</td>
-                    <td>{row.productInfo.description}</td>
+                    <td>{row.productInfo ? row.productInfo.description : "Producto eliminado"}</td>
                     <td>{row.quantity}</td>
                     <td>{row.total}</td>
                     <td >

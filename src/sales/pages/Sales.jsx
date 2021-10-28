@@ -132,33 +132,29 @@ const Sales = () => {
   }
 
   return (
-    <>
-      <body>
-        <div className="container-fluid p-0 flex-column h-100">
-          <Header headerText={"Registro de ventas"} />
-          <div className="d-flex flex-row justify-content-between">
-            <div className="info-text flex-column px-4 py-3">
-              <div className="text-start">
-                <strong>Registro de ventas</strong>
-              </div>
-              <div className="text-below-start">
-                Aquí podrás almacenar cada venta realizada
-              </div>
-            </div>
-            <VentasNav VentaSwitch={"Register"} />
+    <div className="container-main container-fluid p-0 flex-column h-100">
+      <Header headerText={"Registro de ventas"} />
+      <div className="d-flex flex-row justify-content-between">
+        <div className="info-text flex-column px-4 py-3">
+          <div className="text-start">
+            <strong>Registro de ventas</strong>
           </div>
-          <div className="container form-container d-flex flex-row px-2 py-4 pb-5 mt-3 mb-4">
-            <SalesForm userName={userName} product={product} sellerName={sellerName} state={state} properties={properties}
-              changeState={handleChangeState} setState={setState} setPrice={setPrice} changeUserName={handleChangeUserName} setUserName={setUserName}
-              changeProduct={handleChangeProduct} setProduct={setProduct} changeMount={handleChangeMount} setMount={setMount} handleChangeSellerName={handleChangeSellerName}
-              setSellerName={setSellerName} tableToShow={[users, products, seller]} setSales={handleChangeAndClick} missingCell={missingCell}
-            />
-            <SalesBill date={date} price={price} state={state} userName={userName} product={product} mount={mount} sellerName={sellerName} total={total} />
+          <div className="text-below-start">
+            Aquí podrás almacenar cada venta realizada
           </div>
         </div>
-        <Footer />
-      </body>
-    </>
+        <VentasNav VentaSwitch={"Register"} />
+      </div>
+      <div className="container form-container d-flex flex-row px-2 py-4 pb-5 mt-3 mb-4">
+        <SalesForm userName={userName} product={product} sellerName={sellerName} state={state} properties={properties}
+          changeState={handleChangeState} setState={setState} setPrice={setPrice} changeUserName={handleChangeUserName} setUserName={setUserName}
+          changeProduct={handleChangeProduct} setProduct={setProduct} changeMount={handleChangeMount} setMount={setMount} handleChangeSellerName={handleChangeSellerName}
+          setSellerName={setSellerName} tableToShow={[users, products, seller]} setSales={handleChangeAndClick} missingCell={missingCell}
+        />
+        <SalesBill date={date} price={price} state={state} userName={userName} product={product} mount={mount} sellerName={sellerName} total={total} />
+      </div>
+      <Footer />
+    </div>
   )
 
 }

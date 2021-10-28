@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FilterSearch from "../components/filterSearch";
+import Header from "../../shared/Header.jsx";
 import Footer from "../../shared/Footer";
 import SalesTable from "../components/TableWithSales";
 import VentasNav from "../components/VentasNav"
@@ -149,38 +150,36 @@ const SalesList = () => {
     const type = "salesRecorded";
 
     return (
-        <div>
-            <body>
-                <div className="container-fluid p-0 d-flex flex-column h-100">
-                    <div className="container-fluid p-2 pb-4 d-flex flex-row h-100">
-                        <FilterSearch handleChangeIdBill={handleChangeIdBill}
-                            handleChangeProduct={handleChangeProduct}
-                            handleChangeDate={handleChangeDate}
-                            handleChangeUser={handleChangeUser}
-                            handleChangeSeller={handleChangeSeller}
-                            handleShowAll={handleShowAll}
-                            handleFilter={handleFilter}
-                        />
-                        <div className="tableView-box d-flex flex-column p-4">
-                            <div className="d-flex flex-row justify-content-end">
-                                <VentasNav VentaSwitch={"Management"} />
-                            </div>
-                            <div className="tableView d-flex flex-row h-100 pb-3">
-                                <div className="TableinTouch d-flex flex-column p-5 border border">
-                                    <div id="TableArea">
-                                        <Table className="sales-list-table" striped bordered hover>
-                                            <SalesTable recordsData={[ShowAll, filter]} type={type} />
-                                        </Table>
-                                    </div>
-                                </div>
+        <div className="container-main container-fluid p-0 d-flex flex-column h-100">
+            <Header headerText={"Gestión de ventas"} />
+            <div className="d-flex flex-row justify-content-end">
+                <VentasNav VentaSwitch={"Management"} />
+            </div>
+            <div className="container-fluid p-2 pb-4 d-flex flex-row h-100">
+                <FilterSearch handleChangeIdBill={handleChangeIdBill}
+                    handleChangeProduct={handleChangeProduct}
+                    handleChangeDate={handleChangeDate}
+                    handleChangeUser={handleChangeUser}
+                    handleChangeSeller={handleChangeSeller}
+                    handleShowAll={handleShowAll}
+                    handleFilter={handleFilter}
+                />
+                <div className="tableView-box d-flex flex-column p-4">
 
+                    <div className="tableView d-flex flex-row h-100 pb-3">
+                        <div className="TableinTouch d-flex flex-column p-5 border border">
+                            <div id="TableArea">
+                                <Table className="sales-list-table" striped bordered hover>
+                                    <SalesTable recordsData={[ShowAll, filter]} type={type} />
+                                </Table>
                             </div>
-
                         </div>
+
                     </div>
+
                 </div>
-            </body>
-            <Footer></Footer>
+            </div>
+            <Footer />
         </div>
     )
 
