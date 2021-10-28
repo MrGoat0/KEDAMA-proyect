@@ -3,7 +3,6 @@ const router = express.Router();
 
 const usersController = require("../controllers/users");
 const auth = require("../middlewares/auth");
-const roleAuth = require("../middlewares/roleAuth");
 
 // endpoints
 router.put("/", usersController.updateUser);
