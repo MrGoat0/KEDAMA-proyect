@@ -10,7 +10,7 @@ const Authentication = (props) => {
   const { isLoggedIn, setLogin, setValidate } = props;
 
   return (
-    <div>
+    <>
       <body>
         <div className="container-main">
           <Header isLoggedIn={isLoggedIn}
@@ -42,7 +42,7 @@ const Authentication = (props) => {
         </div>
         <FooterN />
       </body>
-    </div>
+    </>
   );
 
 }

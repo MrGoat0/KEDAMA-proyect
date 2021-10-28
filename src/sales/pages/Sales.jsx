@@ -132,7 +132,7 @@ const Sales = () => {
   }
 
   return (
-    <div>
+    <>
       <body>
         <div className="container-fluid p-0 flex-column h-100">
           <Header headerText={"Registro de ventas"} />
@@ -158,7 +158,7 @@ const Sales = () => {
         </div>
         <Footer />
       </body>
-    </div>
+    </>
   )
 
 }

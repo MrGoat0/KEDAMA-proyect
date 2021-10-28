@@ -14,17 +14,17 @@ const SalesTable = (props) => {
         // else{
         if (recordsData[0].length !== 0) {
             return (
-                <>
+                <div>
                     {/* {document.getElementById("TableArea").innerHTML= ""} */}
                     <TableHeader type={type} />
                     <TableBody recordsData={recordsData[0]} type={type} />
-                </>)
+                </div>)
         } else if (typeof recordsData[1] != "undefined" || recordsData[1].length > 0) {
             return (
-                <>
+                <div>
                     <TableHeader type={type} />
                     <TableBody recordsData={recordsData[1]} type={type} />
-                </>
+                </div>
             )
         } else {
             return (<TableHeader type={type} />)
@@ -33,10 +33,10 @@ const SalesTable = (props) => {
     } else {
 
         return (
-            <>
+            <div>
                 <TableHeader type={type} />
                 <TableBody recordsData={recordsData} type={type} hooksToChange={hooksToChange} />
-            </>
+            </div>
         )
     }
 }
