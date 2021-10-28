@@ -134,7 +134,7 @@ const Sales = () => {
   return (
     <div>
       <body>
-        <div class="container-fluid p-0 flex-column h-100">
+        <div className="container-fluid p-0 flex-column h-100">
           <Header headerText={"Registro de ventas"} />
           <div className="d-flex flex-row justify-content-between">
             <div className="info-text flex-column px-4 py-3">

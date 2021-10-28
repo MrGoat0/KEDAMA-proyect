@@ -151,8 +151,8 @@ const SalesList = () => {
     return (
         <div>
             <body>
-                <div class="container-fluid p-0 d-flex flex-column h-100">
-                    <div class="container-fluid p-2 pb-4 d-flex flex-row h-100">
+                <div className="container-fluid p-0 d-flex flex-column h-100">
+                    <div className="container-fluid p-2 pb-4 d-flex flex-row h-100">
                         <FilterSearch handleChangeIdBill={handleChangeIdBill}
                             handleChangeProduct={handleChangeProduct}
                             handleChangeDate={handleChangeDate}
@@ -161,7 +161,7 @@ const SalesList = () => {
                             handleShowAll={handleShowAll}
                             handleFilter={handleFilter}
                         />
-                        <div class="tableView-box d-flex flex-column p-4">
+                        <div className="tableView-box d-flex flex-column p-4">
                             <div className="d-flex flex-row justify-content-end">
                                 <VentasNav VentaSwitch={"Management"} />
                             </div>
