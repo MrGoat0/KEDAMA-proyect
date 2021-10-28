@@ -9,10 +9,7 @@ const callApi = async (url, reqOptions = {}) => {
     process.env.REACT_APP_BACKEND_URL + url,
     reqOptions
   )
-    .then((response) => {
-      const data = await response.json();
-      return data;
-    })
+    .then((response) => response.json())
     .catch((err) => {
       console.log({ error: err });
     });
