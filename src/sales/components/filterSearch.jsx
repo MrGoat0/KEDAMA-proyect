@@ -38,7 +38,6 @@ const FilterSearch = (props) => {
                         <div class="p-1"> <h5>Fecha: </h5> </div>
                         <div class="ps-2">
                             <input type="text" class="form-control" aria-label="Text input" placeholder="Fecha de la venta" id="date" onChange={handleChangeDate} />
-                            {/* {console.log(document.getElementById('date').value)} */}
                         </div>
                     </div>
                     <div class="d-flex flex-row justify-content-between p-3 pb-2 px-3">

@@ -21,7 +21,6 @@ const Users = () => {
 
       setRecords(response);
     };
-    console.log("res:")
     fetchGetAll()
   }, []);
 

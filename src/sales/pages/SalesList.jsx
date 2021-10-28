@@ -102,7 +102,6 @@ const SalesList = () => {
         } else if (filterO[0].date !== "") {
             for (let elementD = 0; elementD < sales.length; elementD++) {
                 if (sales[elementD].date === filterO[0].date) {
-                    console.log(sales[elementD])
                     response.push(sales[elementD]);
                 }
             }
@@ -125,7 +124,6 @@ const SalesList = () => {
                 }
             }
         }
-        console.log(response, "response")
         filterO = response;
         setFilter(filterO)
         setShowAll([]);
@@ -143,7 +141,6 @@ const SalesList = () => {
             clientId: null,
             seller: seller
         }]
-        console.log(filterO.productInfo, "filter antes de submit")
         sendFilter(filterO)
     }
 
