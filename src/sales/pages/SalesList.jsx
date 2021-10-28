@@ -149,7 +149,7 @@ const SalesList = () => {
     const type = "salesRecorded";
 
     return (
-        <div>
+        <>
             <body>
                 <div className="container-fluid p-0 d-flex flex-column h-100">
                     <div className="container-fluid p-2 pb-4 d-flex flex-row h-100">
@@ -180,8 +180,8 @@ const SalesList = () => {
                     </div>
                 </div>
             </body>
-            <Footer></Footer>
-        </div>
+            <Footer />
+        </>
     )
 
 }
